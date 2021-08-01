@@ -1,0 +1,15 @@
+Mô tả thuật toán có cấu trúc điều kiện
+Begin
+	Input Điểm
+	If điểm >= 75
+		Display Loại A
+       Else If 60 <= điểm 
+		Display Loại B
+       Else If 45 <= điểm 
+		Display Loại C
+       Else If 35 <= điểm 
+		Display Loại D
+	Else If điểm <35
+		Display Loại E
+	END If
+END	

@@ -1,0 +1,10 @@
+Mô tả thuật toán tìm ba số lớn nhất
+Begin
+    Input a, b, c
+    max = a
+        IF max < b
+            max = b
+        If max < c
+           max = c
+            display max
+END		
