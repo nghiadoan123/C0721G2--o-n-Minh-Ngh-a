@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tao form don gian</title>
+    <style>
+        h1 {
+         text-align: center;
+        background-color: chocolate;
+        }
+        td {
+            color: red;
+        }
+        body{
+            background-color: cornflowerblue;
+        }
+
+
+    </style>
+</head>
+
+<body >
+<h1 >SỞ THÍCH CỦA BẠN</h1>
+
+<form name = "easy form"; action ="http://google.com"; method="get" >
+    <table cellspacing="20" cellpadding="3" bgcolor="#fff8dc">
+
+        <tr >
+            <td>
+                <label  for="name" style="color: cornflowerblue">Họ Và Tên</label>
+            </td>
+            <td><input type="text" name="name" id ="name"></td>
+
+        </tr>
+        <tr>
+            <td >
+                <label for="email" style="color: cornflowerblue">Email</label>
+
+            </td>
+            <td>
+                <input type="text" name="email" id ="email">
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="4"  >
+                <label style="color: cornflowerblue"  >Sở thích</label>
+            </td>
+            <td>
+                <input type="checkbox" >thể thao &ensp;
+                <input type="checkbox" >Âm nhạc &ensp;
+                <input type="checkbox" >Đọc sách
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <input type="checkbox">Lướt Web
+                <input type="checkbox">Chơi game
+                <input type="checkbox">Điện ảnh
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <input type="checkbox" >Du lịch
+            </td>
+        </tr>
+        <tr>
+            <td >
+                <input type="submit" value="gửi thông tin">
+                <input type="reset" value="Nhập lại">
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
