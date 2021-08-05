@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <label>Calculator</label>
+    <br>
+    <br>
+    <input type="text" name="input_1" id="textOne" size="25">
+    <input type="text" name="input_2" id="textTwo" size="25">
+    <br>
+    <br>
+    <select id="select">
+        <option>Addition(+)</option>
+        <option>Subtraction(-)</option>
+        <option>Multiplication(*)</option>
+        <option>Division(/)</option>
+    </select>
+    <button onclick="convert()">Result</button>
+    <script>
+        function convert() {
+            let inSt1 = document.getElementById("textOne").value;
+            var st1 = parseInt(inSt1);
+            let inSt2 = document.getElementById("textTwo").value;
+            var st2 = parseInt(inSt2);
+            let amount = document.getElementById("select").value;
+            if (amount == "Addition(+)") {
+                let sumSt = st1 + st2;
+                alert(sumSt);
+            } else if (amount == "Subtraction(-)") {
+                let subSt = st1 - st2;
+                alert(subSt);
+            } else if (amount == "Multiplication(*)") {
+                let mulSt = st1 * st2;
+                alert(mulSt);
+            } else {
+                let divSt = st1 / st2;
+                alert(divSt);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
