@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<table>
+    <tr>
+        <th>Amount</th>
+        <th>From currency</th>
+        <th>To currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input type="text" width="200px" id="amount"></td>
+        <td><select style="width: 200px" id="fromCurrency">
+            <option>VND</option>
+            <option>USD</option>
+        </select></td>
+        <td><select style="width: 200px;" id="toCurrency">
+            <option>VND</option>
+            <option>USD</option>
+        </select></td>
+        <td>
+            <button onclick="convert()">Convert</button>
+        </td>
+    </tr>
+</table>
+<script>
+    function convert() {
+        let amount = document.getElementById("amount").value;
+        let fromCurrency = document.getElementById("fromCurrency").value;
+        let toCurrency = document.getElementById("toCurrency").value;
+        if (isNaN(amount) || amount <=0) {
+            alert("Số tiền bạn nhập không phải là số hoặc là số âm")
+        } else {
+            if (fromCurrency == "USD" && toCurrency == "VND") {
+                alert(amount * 23000);
+            } else if (fromCurrency == "VND" && toCurrency == "USD") {
+                alert(amount / 23000)
+            } else {
+                alert("Loại tiền bạn lựa chọn không đúng")
+            }
+        }
+    }
+</script>
+</body>
+
+</html>
