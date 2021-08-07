@@ -13,42 +13,47 @@
 <input type="text" name="input_2" id="textTwo" size="25">
 <br>
 <br>
-<button type="button" onclick="myFunction1()">Addition (+)</button>
-<button type="button" onclick="myFunction2()">Subtraction(-)</button>
-<button type="button" onclick="myFunction3()">Multiplication(*)</button>
-<button type="button" onclick="myFunction4()">Division(/)</button>
+<button type="button" onclick="add()">Addition (+)</button>
+<button type="button" onclick="sub()">Subtraction(-)</button>
+<button type="button" onclick="mul()">Multiplication(*)</button>
+<button type="button" onclick="div()">Division(/)</button>
     <script>
-        function myFunction1() {
+        function add() {
             let inSt1= document.getElementById("textOne").value;
             let st1 = parseInt(inSt1);
             let inSt2= document.getElementById("textTwo").value;
             let st2 = parseInt(inSt2);
-            let Addition = st1 + st2;
-         document.write("Result:"+Addition);
+            let Result = st1 + st2;
+         document.write("Result:"+Result);
      }
-        function myFunction2() {
+        function sub() {
             let inSt1= document.getElementById("textOne").value;
             let st1 = parseInt(inSt1);
             let inSt2= document.getElementById("textTwo").value;
             let st2 = parseInt(inSt2);
-            let Subtraction = st1-st2;
-            document.write("Result:"+Subtraction);
+            let Result = st1-st2;
+            document.write("Result:"+Result);
         }
-        function myFunction3() {
+        function mul() {
             let inSt1= document.getElementById("textOne").value;
             let st1 = parseInt(inSt1);
             let inSt2= document.getElementById("textTwo").value;
             let st2 = parseInt(inSt2);
-            let Multiplication = st1*st2;
-            document.write(" Result:"+Multiplication);
+            let Result = st1*st2;
+            document.write(" Result:"+Result);
         }
-        function myFunction4() {
+        function div() {
             let inSt1= document.getElementById("textOne").value;
             let st1 = parseInt(inSt1);
             let inSt2= document.getElementById("textTwo").value;
             let st2 = parseInt(inSt2);
-            let Division = st1/st2;
-            document.write(" Result:"+Division);
+            let Result = st1/st2;
+            if (st2==0){
+               document.write("can not divive by zero");
+            } else {
+                document.write(" Result:"+Result);
+            }
+
         }
     </script>
     </form>
