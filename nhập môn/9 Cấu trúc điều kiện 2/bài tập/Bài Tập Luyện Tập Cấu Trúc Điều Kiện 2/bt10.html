@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính giá điện</title>
+</head>
+<body>
+<script>
+    let nhapSochuDiendaDung = parseInt(prompt("mời nhập vào số chữ điện đã dùng"+"\n" +"Nếu từ 0-99: lấy số chữ điện nhân cho 5000"+"\n" + "Nếu từ 100-199: lấy số phút nhân cho 10000"+"\n" + "Nếu từ 200 trở lên : lấy số phút nhân cho 15000"));
+    let soTiencuoc = 0;
+    if (nhapSochuDiendaDung<100){
+        soTiencuoc = nhapSochuDiendaDung*5000;
+        alert(soTiencuoc);
+    } else if (nhapSochuDiendaDung<200){
+        soTiencuoc = nhapSochuDiendaDung*10000;
+        alert(soTiencuoc);
+    } else {
+        soTiencuoc = nhapSochuDiendaDung*15000;
+        alert(soTiencuoc);
+    }
+</script>
+
+</body>
+</html>

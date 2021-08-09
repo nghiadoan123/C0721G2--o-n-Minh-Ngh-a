@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>doYouloveMe</title>
+</head>
+<body>
+<h3>Do You Love Me</h3>
+<button type="submit" onclick="sayYes()">Yes</button>
+<button id="noButton" type="submit" onmouseover="sayNo()">No</button>
+<script>
+function sayYes() {
+document.write("<3")
+}
+function sayNo() {
+    buttonPosition=document.getElementById('noButton');
+    buttonPosition.style.left = Math.random() *200 + "px";
+    buttonPosition.style.top = Math.random() *200 + "px";
+}
+window.onload = init;
+let buttonPosition = null;
+function init() {
+    buttonPosition = document.getElementById('noButton');
+    buttonPosition.style.position = 'relative';
+    buttonPosition.style.left = '0px';
+    buttonPosition.style.top = '0px';
+
+}
+</script>
+</body>
+</html>

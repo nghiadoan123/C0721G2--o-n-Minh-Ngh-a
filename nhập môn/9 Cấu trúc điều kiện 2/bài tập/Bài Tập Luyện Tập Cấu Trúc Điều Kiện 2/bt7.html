@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giai phuong trinh bac 2</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("nhập vào cạnh a:"));
+    let b = parseInt(prompt("nhập vào cạnh b:"));
+    let c = parseInt(prompt("nhập vào cạnh c:"));
+    let delta = (b*b)- (4*a*c);
+    if (delta<0){
+        alert("phương trình vô ghiệm");
+    } else if (delta ==0){
+        let nghiemKep = -b/(2*a);
+        alert("phương trình có nghiệm kép"+ nghiemKep);
+    } else {
+        let x1 = -b + (Math.sqrt(delta)/2*a);
+        let x2 = -b - (Math.sqrt(delta)/2*a);
+        alert("phương trình có 2 nghiệm:"+ "\n"+"x1=" +x1+"\n"+ "x2=" + x2 )
+    }
+</script>
+</body>
+</html>

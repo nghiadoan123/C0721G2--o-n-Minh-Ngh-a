@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp hạng học lực của học sinh</title>
+</head>
+<body>
+<script>
+    let nhapDiemkiemTra = parseInt(prompt("mời nhập vào điểm kiểm tra:"));
+    let nhapDiemgiuaKy = parseInt(prompt("mời nhập vào điểm giữ kỳ:"));
+    let nhapDiemcuoiKy = parseInt(prompt("mời nhập vào điểm cuối kỳ:"));
+    if (nhapDiemcuoiKy>9){
+        if (nhapDiemgiuaKy>9 && nhapDiemkiemTra >9){
+            alert("xuất sắc");
+        } else {
+            alert("giỏi");
+        }
+    } else if (nhapDiemcuoiKy>7){
+        if (nhapDiemgiuaKy>7 && nhapDiemkiemTra >7){
+            alert("giỏi");
+        } else {
+            alert("khá");
+        }
+    } else if (nhapDiemcuoiKy>6){
+        if (nhapDiemgiuaKy>6 && nhapDiemkiemTra >6){
+            alert("khá");
+        } else {
+            alert("trung bình");
+        }
+    } else {
+        alert("trung bình");
+    }
+
+</script>
+</body>
+</html>

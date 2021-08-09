@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính thuế thu nhập cá nhân</title>
+</head>
+<body>
+<script>
+    let chonSo = parseInt(prompt("mời nhập vào tiền lương trong một tháng"+"\n" +" chọn 1 (Nếu từ 1-10tr): lấy tiền lương nhân cho 2%"+"\n" + " chọn 2 (Nếu từ 10-30): lấy tiền lương nhân cho 3%"+"\n" + "chọn 3 ( Nếu từ 30tr trở lên) : lấy số tiền lương nhân cho 5%"));
+    let nhapSotienLuong = parseInt(prompt("mời hập vào tiền lương hàng tháng"));
+    let tienThuephaiTra = 0;
+    switch (chonSo) {
+        case 1:
+            if (nhapSotienLuong>0 && nhapSotienLuong <10){
+                tienThuephaiTra = nhapSotienLuong*2/100*1000000;
+                alert(tienThuephaiTra);
+            }
+            break;
+        case 2:
+            if (nhapSotienLuong>10 && nhapSotienLuong <30){
+                tienThuephaiTra = nhapSotienLuong*2/100*1000000;
+                alert(tienThuephaiTra);
+            }
+            break;
+        case 3:
+            if (nhapSotienLuong>30){
+                tienThuephaiTra = nhapSotienLuong*2/100*1000000;
+                alert(tienThuephaiTra);
+            }
+            break;
+    }
+</script>
+</body>
+</html>

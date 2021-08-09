@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tính cước điện thoại cho hộ gia đình</title>
+</head>
+<body>
+<script>
+    let nhapSophutDadung = parseInt(prompt("mời nhập vào số phút đã dùng"+"\n" +"Nếu từ 0-49: lấy số phút nhân cho 2000"+"\n" + "Nếu từ 50-99: lấy số phút nhân cho 3000"+"\n" + "Nếu từ 100 trở lên : lấy số phút nhân cho 4000"));
+    let soTiencuoc = 0;
+    if (nhapSophutDadung<50){
+        soTiencuoc = nhapSophutDadung*2000;
+        alert(soTiencuoc);
+    } else if (nhapSophutDadung<100){
+        soTiencuoc = nhapSophutDadung*3000;
+        alert(soTiencuoc);
+    } else {
+        soTiencuoc = nhapSophutDadung*4000;
+        alert(soTiencuoc);
+    }
+</script>
+</body>
+</html>

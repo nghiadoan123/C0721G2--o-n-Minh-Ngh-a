@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>move nobita</title>
+</head>
+<body>
+<!--mặc định là static: là tĩnh không thể di chuyển được-->
+<img src="Nobita.jpg" id="nobita" style="position: absolute; left: 0; top: 0;height: 100px;width: 100px;">
+<script>
+    window.addEventListener("keydown", moveNobita)
+
+    function moveNobita(event) {
+        //Khai báo 1 biến imgObj trong JS để liên kết với thẻ HTML. nhờ biến này chúng ta có thể
+        // thay đổi style, src, value,...
+        let imgObj = document.getElementById("nobita");
+        // alert(event.keyCode)
+        switch (event.keyCode) {
+            case 37:
+                //Không parseInt -> 0px + 5px = 0px5px
+                // có parseInt -> 0px +5px -> 0 +5px = 5px
+                imgObj.style.left = parseInt(imgObj.style.left) - 5 + "px";
+                break;
+            case 38:
+                imgObj.style.top = parseInt(imgObj.style.top) - 5 + "px";
+                break;
+            case 39:
+                imgObj.style.left = parseInt(imgObj.style.left) + 5 + "px";
+                break
+            case 40:
+                imgObj.style.top = parseInt(imgObj.style.top) + 5 + "px";
+                break
+        }
+    }
+</script>
+</body>
+</html>

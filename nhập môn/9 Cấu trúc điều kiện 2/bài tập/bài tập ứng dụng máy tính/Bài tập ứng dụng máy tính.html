@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>máy tính</title>
+</head>
+<body>
+<form action="http://google.com" name="form_calculator" method="post">
+<label>Calculator</label>
+<br>
+<br>
+<input type="text" name="input_1" id="textOne" size="25">
+<input type="text" name="input_2" id="textTwo" size="25">
+<br>
+<br>
+<button type="button" onclick="add()">Addition (+)</button>
+<button type="button" onclick="sub()">Subtraction(-)</button>
+<button type="button" onclick="mul()">Multiplication(*)</button>
+<button type="button" onclick="div()">Division(/)</button>
+    <script>
+        function add() {
+            let inSt1= document.getElementById("textOne").value;
+            let st1 = parseInt(inSt1);
+            let inSt2= document.getElementById("textTwo").value;
+            let st2 = parseInt(inSt2);
+            let Result = st1 + st2;
+         document.write("Result:"+Result);
+     }
+        function sub() {
+            let inSt1= document.getElementById("textOne").value;
+            let st1 = parseInt(inSt1);
+            let inSt2= document.getElementById("textTwo").value;
+            let st2 = parseInt(inSt2);
+            let Result = st1-st2;
+            document.write("Result:"+Result);
+        }
+        function mul() {
+            let inSt1= document.getElementById("textOne").value;
+            let st1 = parseInt(inSt1);
+            let inSt2= document.getElementById("textTwo").value;
+            let st2 = parseInt(inSt2);
+            let Result = st1*st2;
+            document.write(" Result:"+Result);
+        }
+        function div() {
+            let inSt1= document.getElementById("textOne").value;
+            let st1 = parseInt(inSt1);
+            let inSt2= document.getElementById("textTwo").value;
+            let st2 = parseInt(inSt2);
+            let Result = st1/st2;
+            if (st2==0){
+               document.write("can not divive by zero");
+            } else {
+                document.write(" Result:"+Result);
+            }
+
+        }
+    </script>
+    </form>
+</body>
+</html>

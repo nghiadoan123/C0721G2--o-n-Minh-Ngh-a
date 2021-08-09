@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyen từ m sang feet</title>
+</head>
+<body>
+<script>
+    let inputMeter = prompt("input Meter");
+    let meter = parseInt(inputMeter);
+    if (inputMeter==0 || isNaN(inputMeter)){
+        alert("Input meter value is not zero and not string type input again please")
+    } else {
+        let feet = meter * 3.2808 ;
+        alert("Feet is:"+feet)
+    }
+</script>
+</body>
+</html>
