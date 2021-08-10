@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for loop</title>
+    <style>
+        table{
+            width: 600px;
+            padding: 3px;
+        }
+        td{
+            font-size: 20px;
+            width: 100px;
+            color: darkblue;
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+<script>
+    let sout;
+    sout = "<table border='1'>"
+    for (i = 1; i <= 10; i++) {
+        sout = sout + "<tr>";
+        for (j = 1; j <= 10; j++) {
+            sout = sout + "<td >"+"I x J ="+"\n" + i * j + "</td>";
+        }
+        sout = sout + "</tr>";
+    }
+    sout = sout + "</table>";
+    document.write(sout);
+</script>
+</body>
+</html>
