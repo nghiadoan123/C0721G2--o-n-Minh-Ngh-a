@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bảng cửu chương</title>
+    <style>
+        table {
+            width: 900px;
+            padding: 3px;
+        }
+
+        td {
+            font-size: 20px;
+            width: 100px;
+            color: darkblue;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<script>
+    let result;
+    result = "<table border='1'>"
+    for (i = 1; i <= 9; i++) {
+        result = result + "<tr>";
+        for (j = 2; j <= 9; j++) {
+
+            let mul = [i] *[j];
+            result = result + "<td>" + [j] +"x"+ [i] + "="+ mul  + "</td>";
+        }
+        result = result + "</tr>" ;
+    }
+    result = result + "</table>";
+    document.write(result);
+</script>
+</body>
+</html>
