@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bt6</title>
+</head>
+<body>
+<script>
+    let n = prompt("nhập vào 7")
+    if(n != 7){
+        document.write("mơi nhập lại")
+    }
+    else if (n == 7) {
+        for (var i = 1; i < n; i++) {
+            for (var j = 1; j <= n; j++) {
+                if (!((i == 1 && (j == 1 || j == 4 || j == n))
+                    || (i == 4 && (j == 1 || j == n))
+                    || (i == 5 && (j <= 2 || j >= 6))
+                    || (i == 6 && (j <= 3 || j >= 5)))) {
+                    document.write("*" + " ");
+                } else {
+                    document.write("-" + "   ");
+                }
+
+            }
+            document.write('<br/>');
+        }
+    }
+
+</script>
+</body>
+</html>

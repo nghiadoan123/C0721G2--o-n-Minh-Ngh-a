@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demo bt8</title>
+</head>
+<body>
+<button id="playbtn" onclick="runbtn()">play</button>
+<script>
+    function runbtn() {
+        let count = 1;
+        let a = parseInt(prompt("Nhập số bắt đầu"));
+        let b = parseInt(prompt("Nhập số kết thúc"));
+        //let randomNumber = Math.floor(Math.random()*10 + 1); lệnh math.floor() này lấy sô nguyên ko lấy phần dư
+        // let result = Math.round(Math.random()*5); // 0*5->1*5 => 0 ->5
+        let result = Math.round(Math.random() * (b - a)) + a; //5 ->10 random 0->5 => 0+5 -> 5+5 => 5 ->10
+        //23 ->47 random 0->24 => 0+23 -> 24+23 => 23 ->47
+        console.log(result)
+        do {
+            let num = prompt("Yêu cầu bạn nhập số");
+            if (num == result) {
+                alert("Xin chúc mừng bạn đã trúng giải độc đắc");
+                break;
+            } else if (num > result) {
+                alert("Cần nhập số nhỏ hơn");
+            } else {
+                alert("Cần nhập số lơn hơn.")
+            }
+            count++;
+        } while (count <= 3);
+        if (count == 4) {
+            alert("bạn hết lượt vui lòng mua thêm lượt và bạn không trúng thưởng đợt này")
+        }
+    }
+    // CHo người dùng đoán 3 lần số. nếu số đó mà lớn hơn thì hiển thị là cần nhập số nhỏ hơn.
+    //    Ngược lại nếu nhỏ hơn thì hiển thị cần nhập số lớn hơn. Nếu bằng thì kết thúc vòng lặp.
+</script>
+</body>
+</html>

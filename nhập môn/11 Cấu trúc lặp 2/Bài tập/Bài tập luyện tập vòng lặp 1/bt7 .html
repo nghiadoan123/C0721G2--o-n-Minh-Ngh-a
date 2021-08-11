@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var inputN = parseInt(prompt("nhập vào số N"))
+    for (var i = 1; i <= inputN; i++) {
+        if (i % 3 == 0 && i % 5 == 0) {
+            document.writeln("fizzbuzz");
+        } else if (i % 5 == 0) {
+            document.write("buzz");
+        } else if (i % 3 == 0 ) {
+            document.writeln("fizz");
+        } else {
+            document.writeln(i);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number1 = 1;
+    let number2 = 1;
+    document.writeln(number1);
+    document.writeln(number2);
+    let count = 2;
+    while(count<20) {// hiển thị 20 số. Vậy thì điều kiện sao ko phải là count <=20 mà là count <20
+        let number3 = number1+number2;
+        count++;
+        document.writeln(number3);
+        number1 =number2;
+        number2 =number3;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>game đoán số</title>
+</head>
+<body>
+<button id="playbtn" onclick="runbtn()">play</button>
+<script>
+    function runbtn() {
+        let randomNumber = Math.floor(Math.random()*10 + 1);
+        do{
+            var inputNumber = parseInt(prompt("nhập vào N"));
+        } while (inputNumber != randomNumber );
+        var outputNumber = inputNumber;
+        document.write("Chúc mừng giá trị của số bạn nhập là:"+" " + outputNumber +" " +"trùng với giá trị của số random");
+    }
+</script>
+
+</body>
+</html>

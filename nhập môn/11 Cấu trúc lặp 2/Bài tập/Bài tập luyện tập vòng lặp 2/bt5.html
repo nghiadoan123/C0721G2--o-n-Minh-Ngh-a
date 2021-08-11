@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chương trình lãi ngân hàng</title>
+</head>
+<body>
+<script>
+let tienBandau = parseInt(prompt("nhập số tiền ban đầu:"));
+let laiXuat = parseInt(prompt("nhập lãi suất:"));
+let soThang = parseInt(prompt("nhập vào số tháng"));
+let tienThuduoc = 0;
+for (var i =1; i<= soThang; i++){
+    tienThuduoc += tienBandau+(tienBandau*laiXuat)/100;
+}
+document.write("tiền thu được là:"+ tienThuduoc);
+</script>
+</body>
+</html>

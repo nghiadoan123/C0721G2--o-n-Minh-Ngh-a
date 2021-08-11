@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var n = parseInt(prompt('Nhập vào n:'));
+    var row = 0;
+    var col = n;
+    for (var i=1; i<=n; i++){
+        for (var j=1; j<=row ; j++){
+            document.write("&nbsp"+" ");
+        }
+        row = row +1;
+        for (var k=1; k<=col ; k++){
+            document.write("*");
+        }
+        col = col -1;
+        document.write('<br/>');
+
+    }
+</script>
+</body>
+</html>

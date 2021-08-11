@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bt3-3</title>
+</head>
+<body>
+<script>
+    var n = parseInt(prompt('Nhập vào n:'));
+    var row = n-n+1;
+    var col = n-1;
+    for (var i=1; i<=n; i++){
+        for (var j=1; j<=col ; j++){
+            document.write("&nbsp"+ " ");
+        }
+        col = col -1;
+        for (var k=1; k<=row; k++){
+            document.write("*");
+        }
+        row = row +1;
+        document.write('<br/>');
+
+    }
+</script>
+</body>
+</html>

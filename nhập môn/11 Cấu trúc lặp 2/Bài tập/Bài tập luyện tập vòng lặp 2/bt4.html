@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bt4</title>
+</head>
+<body>
+<script>
+    var n = parseInt(prompt('Nhập số n:'));
+    for (var i = 1; i <= n ; i++){
+        for (var j = 1; j<= n ; j++){
+            if (j==1 || j== n  || i ==1 || i ==n){
+                document.write("*");
+            } else {
+                document.write("&nbsp"+" ")
+            }
+        }
+        document.write('<br/>');
+    }
+</script>
+</body>
+</html>

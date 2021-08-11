@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>in day fibonacy</title>
+</head>
+<body>
+<script>
+    var count = 10;
+    var num1 = 0;
+    var num2 = 1;
+    for (var i = 1; i <= count; ++i)
+    {
+        document.write(num1+" ");
+        var temp = num1 + num2;
+        num1 = num2;
+        num2 = temp;
+        console.log(num1);
+        console.log(num2);
+        console.log(temp);
+
+    }
+
+</script>
+
+</body>
+</html>
