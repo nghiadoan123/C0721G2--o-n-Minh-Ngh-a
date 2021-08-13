@@ -6,8 +6,8 @@
 </head>
 <body>
 <script>
-    let weight = parseInt(prompt("your_Weight:"));
-    let height = parseInt(prompt("your_Height:"));
+    let weight = parseFloat(prompt("your_Weight:"));
+    let height = parseFloat(prompt("your_Height:"));
     let bmi = weight / (height ^ 2);
     if (bmi < 18.5)
         document.write("Underweight");
@@ -16,7 +16,7 @@
     else if (bmi < 30.0)
         document.write("Overweight");
     else
-        document.write("Obese")
+        document.write("Obese");
 </script>
 </body>
 </html>
