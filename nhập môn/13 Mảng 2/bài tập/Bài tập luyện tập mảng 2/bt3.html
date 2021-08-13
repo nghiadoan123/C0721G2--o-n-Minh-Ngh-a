@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let  nhapSophanTu = parseInt(prompt("nhập số phần tử"));
+    let array = new Array(nhapSophanTu);
+    for (let i =0; i<array.length;i++){
+        let value = prompt("nhâp vào mảng");
+        array[i] = value;
+    }
+    for (let i =0; i<array.length;i++){
+        if (!isNaN(array[i])){
+           document.writeln(array[i]);
+        }
+    }
+</script>
+</body>
+</html>

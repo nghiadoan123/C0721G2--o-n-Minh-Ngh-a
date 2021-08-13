@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>in ki tu dao nguoc</title>
+</head>
+<body>
+<script>
+     let  mang  = [ 'c', 's', 'c', '2', '6', '1' ];
+    // var b = mang.reverse();
+    // var c = b.join(" ");
+    // document.write(c);
+
+    //cách 2
+    let first = 0;
+    let last = mang.length - 1;
+    while (first < last) {
+        let d = mang[first];
+        mang[first] = mang[last];
+        mang[last] = d;
+        first++;
+        last--;
+    }
+    document.write(mang.join(" "));
+
+
+</script>
+</body>
+</html>

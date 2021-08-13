@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr1 = new Array(10);
+    let arr2 = new Array(10);
+    for (let i =0; i<10;i++){
+        let value1 = prompt("nhap vào mảng số nguyên a");
+        arr1[i] = value1;
+    }
+    for (let j =0; j<10;j++){
+        let value2 = prompt("nhap vào mảng số nguyên b");
+        arr2[j] = value2;
+    }
+    let c = [];
+    c = c.concat(arr1,arr2);
+    document.write(c);
+</script>
+</body>
+</html>

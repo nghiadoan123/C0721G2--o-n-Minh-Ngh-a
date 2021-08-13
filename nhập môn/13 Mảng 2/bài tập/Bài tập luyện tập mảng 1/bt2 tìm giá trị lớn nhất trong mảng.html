@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let  nhapSophanTu = parseInt(prompt("nhập số phần tử"));
+    let array = new Array(nhapSophanTu);
+    for (let i =0; i<array.length;i++){
+        let value = prompt("nhap vào dãy số nguyên");
+        array[i] = value;
+    }
+    let max = array[0];
+    let count = 0
+    for (let i=1; i<array.length;i++){
+        if (max<array[i]){
+            max = array[i];
+            count =i;
+        }
+    }
+    document.write("max: " + max + " at position " + count);
+
+</script>
+</body>
+</html>

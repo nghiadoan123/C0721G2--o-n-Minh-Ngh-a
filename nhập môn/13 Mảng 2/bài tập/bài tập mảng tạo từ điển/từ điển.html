@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Nhập vào từ tiếng anh</p>
+<input type="text" id="inputword" >
+<button onclick="displayword()">result</button>
+<script>
+    function displayword() {
+        let mang1 = ['learn','do','eat','drink'];
+        let mang2 = ['học','làm','ăn','uống']
+     let display = document.getElementById("inputword").value;
+        for (let i=0; i<mang1.length;i++){
+            if (display===mang1[i]){
+                document.write(mang2[i]);
+            } else {
+                flag = false;
+            }
+        }
+    }
+</script>
+</body>
+</html>

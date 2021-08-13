@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let  nhapSophanTu = parseInt(prompt("nhập số phần tử"));
+    let array = [];
+    let count = 0;
+    do {
+        value = parseInt(prompt("nhâp vào phần tử số nguyên" + count));
+        if (!isNaN(value)) {
+           array.push(value);
+           count++
+        }
+    }while (count<nhapSophanTu);
+    // for (let i =0; i<array.length;i++){
+    //     let value = prompt("nhap vào dãy số nguyên");
+    //     array[i] = value;
+    // }
+    // C2 dùng vòng lặp for
+    console.log(array);
+    var temp ;
+    for (let j = 0 ;j< array.length-1;j++ ) {
+        for (let i = 0; i < array.length-j-1; i++) {
+            if (array[i] < array[i + 1]) {
+                temp = array [i];
+                array[i] = array [i + 1];
+                array[i + 1] = temp;
+            }
+        }
+    }
+    for (let j= 0 ; j< array.length;j++){
+        document.writeln(array[j]);
+    }
+
+</script>
+</body>
+</html>

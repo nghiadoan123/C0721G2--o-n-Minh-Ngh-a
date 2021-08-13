@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let  nhapSophanTu = parseInt(prompt("nhập số phần tử"));
+    let array = new Array(nhapSophanTu);
+    for (let i =0; i<array.length;i++){
+        let value = prompt("nhap vào dãy số nguyên");
+        array[i] = value;
+    }
+    let  result = [array[0]];
+    for (let i = 1 ; i< array.length;i++){
+        result.push( array[i]);
+    }
+    let resultafter =  result.reverse();
+       document.write(resultafter.join(" "));
+
+</script>
+</body>
+</html>

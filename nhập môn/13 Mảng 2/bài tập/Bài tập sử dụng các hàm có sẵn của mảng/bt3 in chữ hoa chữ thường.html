@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // var str = 'c';
+    // const UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    // const LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    // const result = [];
+    //
+    // for(let x=0; x<str.length; x++)
+    // {
+    //     if(UPPER.includes(str[x])) // hàm includes kiểm tra chuỗi con dc người dùng cung cấp có nằm trong chuỗi hay không
+                                      // Cú pháp: string.includes(searchvalue, start)
+                                      // searchvalue là chuỗi con cần kiểm tra trong chuỗi string.
+                                      // start là vị trí bắt đầu kiểm tra ở chuỗi string, mặc định mang giá trị 0
+                                      // tức là phương thức sẽ kiểm tra từ đầu chuỗi.
+    //     {
+    //         result.push(str[x].toLowerCase());
+    //     }
+    //     else if(LOWER.includes(str[x]))
+    //     {
+    //         result.push(str[x].toUpperCase());
+    //     }
+    //     else
+    //     {
+    //         result.push(str[x]);
+    //     }
+    // }
+    // document.write(result.join(' '));
+    // console.log(result.join(''));
+    // cách 1
+
+
+    var str = 'c';
+    var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    var result = [];
+
+    for(var x=0; x<str.length; x++)
+    {
+
+        // var l = UPPER.indexOf(str[x]);
+        // console.log(l); biến l sẽ có giá trị = -1 vì ko tìm thấy chữa hoa
+        if(UPPER.indexOf(str[x]) !== -1) // hàm index of sẽ trả về giá trị -1 nếu không tìm thây
+                                         // như hàm trên tìm chữ hoa trong chuỗi str
+        {
+            result.push(str[x].toLowerCase());
+        }
+        else if(LOWER.indexOf(str[x]) !== -1)
+        {
+            result.push(str[x].toUpperCase());
+        }
+        else
+        {
+            result.push(str[x]);
+        }
+        console.log(typeof (UPPER.indexOf(str[x])))  ;
+    }
+
+    document.write(result.join(' '));
+    console.log(result.join(''));
+    // cách 2
+</script>
+</body>
+</html>

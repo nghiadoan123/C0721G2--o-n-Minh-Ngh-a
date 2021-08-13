@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+ let str1 = prompt("nhập vào chuỗi A:");
+ let stringstr1 = str1.toString();
+ let substring1 = stringstr1.split("");
+ let str2 = prompt("nhập vào chuỗi B ");
+ let stringstr2 = str2.toString();
+ let substring2 = stringstr2.split("");
+ if (substring1.length != substring2.length){
+     document.write("hai mảng không  giống nhau mời nhập lại");
+ }
+ else if(substring1.length = substring2.length) {
+     var flag = true;
+     for (let i =0; i<substring1.length;i++){
+         if (substring1[i] !== substring2[i]){
+            flag = false;
+         }
+     }
+     if (flag){
+         document.write("hai mang bang nhau")
+     } else{
+         document.write("hai mang khong giống nhau")
+     }
+ }
+
+
+
+</script>
+</body>
+</html>
