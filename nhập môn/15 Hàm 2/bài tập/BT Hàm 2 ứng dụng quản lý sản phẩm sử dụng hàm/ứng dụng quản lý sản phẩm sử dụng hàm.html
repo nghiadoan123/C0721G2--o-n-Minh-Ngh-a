@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ứng dụng quản lý sản phẩm</title>
+</head>
+<body>
+<style>
+    button{
+        width: 60px;
+        height: 20px;
+    }
+</style>
+<p id="result"></p>
+<p id="result1"></p>
+<script>
+    let arrProduct = ["SonyXperia", "SamSung Galaxy", "Nokia 6"];
+    //let arrProduct1 = [];
+    displayProduct();
+    displayAddproduct();
+    function displayProduct() {
+        let data = "<table border='1' style='width: 260px; height: 20px; text-align: left'>"
+        for (let i = 0; i < arrProduct.length; i++) {
+            data = data + "<tr>"
+            data += "<td>"
+            data += "<span >"
+            data += arrProduct[i];
+            data += "</span>"
+            data += "</td>"
+
+
+            data += "<td>"
+            data += "<button  onclick='editValue("+i+")'>"
+            data += "Edit";
+            data += "</button>"
+            data += "</td>"
+
+
+            data += "<td>"
+            data += "<button onclick='deleteValue("+i+")' >"
+            data += "Delete";
+            data += "</button>"
+            data += "</td>"
+            data = data + "</tr>"
+        }
+        data = data + "</table>"
+        document.getElementById("result").innerHTML = data;
+    }
+    function displayAddproduct() {
+        let data1 = "<table>"
+        data1 += "<tr>"
+        data1 += "<td>"
+        data1 += "<input  type='text' style='width: 200px;height: 20px; ' placeholder='Add new product' id='add'>"
+        data1 += "</input>"
+        data1 += "</td>"
+        data1 += "<td>"
+        data1 += "<button onclick='addProduct()'>"
+        data1 += "Add";
+        data1 += "</button>"
+        data1 += "</td>"
+        data1 += "</tr>"
+
+        data1 = data1 + "</table>"
+        document.getElementById("result1").innerHTML = data1;
+    }
+    //console.log(editValue());
+    function addProduct() {
+        arrProduct.push(document.getElementById("add").value);
+        displayProduct();
+        document.getElementById("add").value = "";
+    }
+    function editValue(index) {
+        for (let j=0; j<arrProduct.length;j++){
+            if (index ==j){
+              arrProduct[index] = prompt("nhập vào tên sp:");
+            }
+        }
+       //document.write(arrProduct);
+        displayProduct();
+    }
+
+    function deleteValue(index) {
+        for (let j=0; j<arrProduct.length;j++){
+            if (index ==j){
+                arrProduct.splice(index,1);
+            }
+        }
+        //document.write(arrProduct);
+        displayProduct();
+    }
+</script>
+</body>
+</html>

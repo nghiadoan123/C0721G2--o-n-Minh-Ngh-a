@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkMinnumber(a,b,c) {
+        let min = a;
+        if (min>b){
+            min = b;
+            console.log(min)
+        }
+        if (min>c){
+            min = c;
+            console.log(min)
+        }
+        document.write("Min value is:" +min);
+    }
+    let result = checkMinnumber(parseInt(prompt("input A")),parseInt(prompt("input B")),parseInt(prompt("input C")));
+
+</script>
+</body>
+</html>

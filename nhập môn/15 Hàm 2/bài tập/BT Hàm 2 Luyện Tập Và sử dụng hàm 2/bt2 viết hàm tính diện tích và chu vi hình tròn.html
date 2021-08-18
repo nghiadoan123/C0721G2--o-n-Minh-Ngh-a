@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function area(a) {
+        const PI = 3.14;
+        let area = PI*a*a;
+        document.write("area is:" + area);
+
+    }
+    function perimeter(a) {
+        const PI = 3.14;
+        let perimeter = 2*PI*a;
+        document.write("perimeter is:" + perimeter);
+    }
+    let resultArea = area(parseInt(prompt("input Radius of area")));
+    document.write("<br>");
+    let resultPerimeter = perimeter(parseInt(prompt("input Radius of perimeter")));
+</script>
+</body>
+</html>

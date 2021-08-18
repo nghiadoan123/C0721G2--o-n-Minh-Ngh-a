@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function findString(str) {
+        let count = 0;
+        let arr1 = ["Polaris", " Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let arr2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+        for (let i = 0; i < arr1.length; i++) {
+            if (str == arr1[i]) {
+                document.write("value of array A:" + "  " + arr1[i] + "<br>" + "value of array B:" + " " + arr2[i]);
+                count++;
+            }
+        }
+        if (count == 0) {
+            document.write("value is not found");
+        }
+    }
+
+    let input = findString((prompt("nhập vào chuỗi:")));
+</script>
+</body>
+</html>

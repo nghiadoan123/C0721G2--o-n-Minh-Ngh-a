@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkIsnumber(input) {
+       if (isNaN(input)){
+           alert("bạn đã nhập vào chuỗi ko phải số");
+           return false;
+
+       } else {
+           alert("bạn đã nhập vào số"+" " +input);
+           return  true;
+       }
+    }
+    let result = checkIsnumber(prompt("nhập vào chuỗi hoặc số"))
+    console.log(result);
+    console.log(typeof (result));
+</script>
+</body>
+</html>

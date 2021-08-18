@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function reverseArray(s) {
+        console.log(typeof (s));
+        let arr = [];
+        for (let i=0; i<s.length;i++){
+            arr.push(s[i]);
+        }
+        console.log(arr);
+       let arr2 = arr.reverse();
+       let arr3 = arr2.join("&nbsp")
+        document.write(arr3);
+        console.log(arr3);
+    }
+    let inputString = reverseArray(prompt("nhập vào dãy số nguyên:"));
+</script>
+</body>
+</html>

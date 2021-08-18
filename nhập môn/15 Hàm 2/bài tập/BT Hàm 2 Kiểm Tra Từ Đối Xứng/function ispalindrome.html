@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPalindrome(s) {
+        let sTostring = s.toString();
+        let sLength = sTostring.length;
+        for (let i =0; i<sLength/2;i++){
+            if (sTostring[i] !== sTostring[sLength-i-1]){
+                return false;
+            }
+        }
+        return true;
+    }
+    let inputString = isPalindrome(prompt("nhập vào chuỗi:"));
+    if (inputString){
+        document.write("chuỗi nhập vào dối xứng")
+    } else {
+        document.write("chuỗi nhập vào không đối xứng")
+    }
+</script>
+</body>
+</html>

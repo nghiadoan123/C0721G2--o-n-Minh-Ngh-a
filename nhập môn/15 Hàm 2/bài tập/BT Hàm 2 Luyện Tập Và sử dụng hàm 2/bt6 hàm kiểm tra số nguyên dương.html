@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function kiemTrasoNguyenDuong(n) {
+
+        if (isNaN(n)){
+            alert("bạn đã nhập vào chuỗi ko phải số");
+        }
+        else if (n>=0){
+            alert("bạn đã nhập vào số nguyên dương là:" + n);
+            return true;
+        } else {
+            alert("bạn đã nhập vào số nguyên âm");
+            return false;
+        }
+    }
+    let result = kiemTrasoNguyenDuong(prompt("nhập vào một số"))
+    console.log(result);
+    console.log(typeof (result));
+
+</script>
+</body>
+</html>
