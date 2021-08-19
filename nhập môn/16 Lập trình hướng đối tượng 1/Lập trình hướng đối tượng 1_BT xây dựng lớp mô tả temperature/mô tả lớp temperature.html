@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Temperature(inputCTemp) {
+        let count =0;
+        do {
+            inputCTemp = parseInt(prompt("input C temp:"));
+            if (inputCTemp>-273){
+                this.Temp = inputCTemp;
+                count++;
+            } else {
+                alert("mời nhập lại số >= -273");
+            }
+        }while (count<1);
+
+        this.getTemp = function () {
+            return inputCTemp;
+        }
+        this.convertTofTemp = function () {
+            return 9*inputCTemp/5+32;
+        }
+        this.convertTokevinTemp = function () {
+            return inputCTemp + 273.15;
+        }
+    }
+    let temp1 = new Temperature();
+   // console.log(typeof (temp1)); object
+    document.write("giá trị của độ C nhập vào :"+ temp1.getTemp() + "<br>");
+    document.write("chuyển từ độ C:"+ temp1.getTemp()+" "+ "sang độ F:" +  temp1.convertTofTemp()
+                      + ", " + "sang độ K:" +  temp1.convertTokevinTemp());
+
+
+
+</script>
+</body>
+</html>

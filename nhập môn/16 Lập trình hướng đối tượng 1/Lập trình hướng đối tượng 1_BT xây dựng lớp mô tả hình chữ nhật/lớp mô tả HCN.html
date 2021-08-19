@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="200" height="100" >
+</canvas>
+<script>
+    function Rectangle (height,weight) {
+        this.height = height;
+        this.weight = weight;
+        this.setheight = function(setheight){
+            this.height = setheight;
+        }
+        this.setweight= function(setweight){
+            this.weight = setweight;
+        }
+        this.getHeight = function () {
+            return height;
+        }
+        this.getWeight = function () {
+            return weight;
+        }
+        this.chuVi = function () {
+            return (this.height + this.weight)*2;
+        }
+        this.dienTich = function () {
+            return (this.height*this.weight);
+        }
+        this.createHcn = function () {
+            let c = document.getElementById("myCanvas");
+            let ctx = c.getContext("2d");
+            let grd = ctx.createLinearGradient(0,0,200,0);
+            grd.addColorStop(0,"blue");
+            grd.addColorStop(1,"white");
+            ctx.fillStyle = grd;
+            ctx.fillRect(20,20,this.height,this.weight);
+        }
+    }
+    let Rectangle1 = new Rectangle(parseInt(prompt("nhập vào height")),parseInt(prompt("nhập vào weight")));
+    Rectangle1.createHcn();
+    document.write("<br>");
+    document.write("diện tích hình chữ nhât:"+Rectangle1.dienTich()+ "<br>");
+    document.write("chu vi hình chữ nhât:"+Rectangle1.chuVi() + "<br>");
+
+
+    // let Rectangle2 = new Rectangle(10,20);
+    // document.write("diện tích hình chữ nhât:"+Rectangle2.dienTich()+ "<br>");
+    // document.write("chu vi hình chữ nhât:"+Rectangle2.chuVi() + "<br>");
+    // //document.write("<br>");
+    // //document.write(hcn.getHeight());
+    // //document.write(hcn.getWeight());
+    // Rectangle2.createHcn();
+    // document.write("<br>");
+    // Rectangle2.setheight(50);
+    // console.log(height);
+    // Rectangle2.setweight(30);
+    // console.log(weight);
+    // Rectangle2.createHcn();
+
+</script>
+</body>
+</html>

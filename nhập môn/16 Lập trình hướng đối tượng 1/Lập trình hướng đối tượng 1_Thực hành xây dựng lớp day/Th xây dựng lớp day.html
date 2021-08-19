@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let MyDate = function(day, month, year) {
+
+        this.day = day;
+
+        this.month = month;
+
+        this.year = year;
+        this.getDay = function() {
+            return this.day;
+        }
+        this.getMonth = function() {
+            return this.month;
+        }
+        this.getYear = function() {
+            return this.year;
+        }
+        this.setDay = function(day) {
+            this.day  = day.toString();
+        }
+        this.setMonth = function(month) {
+            this.month  = month.toString();
+        }
+        this.setYear = function(year) {
+            this.year  = year.toString();
+        }
+        this.setDate = function (day,month,year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+        this.toString = function () {
+            return this.day.toString() + "/" + this.month.toString() + "/" + this.year.toString();
+        }
+
+    }
+    let date = new MyDate(2, 2, 2007);
+    let day = date.getDay(); // 2
+    console.log(typeof (day));
+    let month = date.getMonth(); // 2
+    console.log(typeof (month));
+    let year = date.getYear(); // 2007
+    console.log(typeof (year));
+    alert(day + "/" + month + "/" + year);
+    date.setDay(10);
+    date.setMonth(10);
+    date.setYear(2019);
+    alert(date.getDay() + "/" + date.getMonth() + "/" + date.getYear());
+
+
+    let date1 = new MyDate(25,5,2006);
+    console.log(typeof (date1))
+    alert(date1.toString());
+    date1.setDate(12,12,2022);
+    alert(date1.toString());
+</script>
+</body>
+</html>
