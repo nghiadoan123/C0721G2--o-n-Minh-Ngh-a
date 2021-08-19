@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    class MobilePhone {
+        constructor(id, name) {
+            this.id = id;
+            this.name = name;
+            this.message = "";
+            this.draft = [];
+            this.inbox = [];
+            this.outbox = [];
+            this.battery = 100;
+            this.onOff = true;
+        }
+        checkBattery() {
+            if (this.battery < 0 && this.onOff == true) {
+                this.turnOff();
+                return this.battery = 0;
+            } else if (this.battery > 100 && this.onOff == true) {
+
+                return this.battery = 100;
+            } else if (this.battery > 0 && this.onOff == false ){
+                alert("you can not use it because phone is shutdown")
+            }
+        }
+        turnOn() {
+            this.onOff = true;
+        }
+        turnOff() {
+            this.onOff = false;
+        }
+        charge(n) {
+            this.battery += n;
+            this.checkBattery()
+        }
+        setBattery(n) {
+            this.battery = n;
+            this.checkBattery();
+        }
+        setMessenge(message) {
+            if (this.onOff) {
+                this.message = message;
+                this.draft = message;
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+        getMessenge() {
+            if (this.onOff) {
+                this.battery--;
+                this.inbox.push(this.message);
+                this.draft=[];
+                return this.message;
+
+            }
+            this.checkBattery()
+        }
+        sendMessenge(message,mobilePhone) {
+            if (this.onOff) {
+                mobilePhone.setMessenge(message);
+                this.outbox += message;
+                this.draft = [];
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+        readInbox() {
+            if (this.onOff) {
+                return this.inbox;
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+
+        readOutbox() {
+            if (this.onOff) {
+                return this.outbox;
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+
+        readDraft() {
+            if (this.onOff) {
+                return this.draft;
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+
+    }
+
+    let mobile1 = new MobilePhone(1, "Ip");
+    let mobile2 = new MobilePhone(2, "Android");
+    mobile1.turnOn();
+    mobile2.turnOn();
+
+    mobile1.sendMessenge("gui tn den mobile2 lần 1",mobile2);
+    mobile2.getMessenge();
+    console.log(mobile1.readOutbox());
+    console.log(mobile2.readInbox());
+
+
+    mobile1.sendMessenge("gui tn den mobile2 lần 2",mobile2);
+    mobile2.getMessenge();
+
+
+    mobile2.sendMessenge("gui tn den mobile1 lần 1",mobile1);
+    mobile1.getMessenge();
+
+    mobile2.setMessenge("gủi tn đến mobile 1 ")
+
+    console.log(mobile1)
+    console.log(mobile2);
+
+    // mobile1.turnOff();
+    // mobile2.turnOn();
+    //
+    // mobile1.sendMessenge("gui tn den mobile2 lần 3",mobile2);
+    // mobile2.getMessenge();
+    //
+    // mobile1.turnOn();
+    // mobile2.turnOff();
+    //
+    // mobile2.sendMessenge("gui tn den mobile2 lần 3",mobile2);
+    // mobile1.getMessenge();
+    //
+    //
+    // mobile1.turnOn();
+    // mobile2.turnOn();
+    // mobile1.setBattery(-2);
+    // mobile2.setBattery(-2);
+    // mobile1.sendMessenge("gui tn den mobile2 lần 4",mobile2);
+    // mobile2.getMessenge();
+
+
+
+
+
+    //
+    // mobile1.setBattery(-17);
+    // console.log(mobile1.checkBattery());
+    // console.log(mobile1)
+    // console.log(mobile2);
+
+</script>
+</body>
+</html>
