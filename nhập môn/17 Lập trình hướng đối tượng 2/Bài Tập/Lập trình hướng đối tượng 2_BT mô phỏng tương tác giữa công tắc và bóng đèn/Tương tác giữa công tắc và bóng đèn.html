@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Onoff {
+        constructor() {
+            this.lampOnoff = false;
+            this.switchOnoff = false;
+        }
+        lampOn(){
+            this.lampOnoff = true;
+        }
+        lampOff(){
+            this.lampOnoff = false;
+        }
+        switchOn(){
+            this.switchOnoff = true;
+            this.lampOn();
+        }
+        switchOff(){
+            this.switchOnoff = false;
+            this.lampOff();
+        }
+    }
+    let myOnoff = new Onoff();
+    myOnoff.switchOn();
+    myOnoff.switchOff();
+
+    myOnoff.switchOn();
+    myOnoff.switchOff();
+
+    myOnoff.switchOn();
+    myOnoff.switchOff();
+
+    myOnoff.switchOn();
+    myOnoff.switchOff();
+
+    myOnoff.switchOn();
+    myOnoff.switchOff();
+
+    console.log(myOnoff);
+
+</script>
+</body>
+</html>

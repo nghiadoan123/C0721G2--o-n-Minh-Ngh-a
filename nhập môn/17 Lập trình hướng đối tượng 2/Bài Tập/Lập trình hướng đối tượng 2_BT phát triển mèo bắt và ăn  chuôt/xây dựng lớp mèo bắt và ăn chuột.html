@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Rat {
+        constructor(name,weight,speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.mousespeak = "chit,chit";
+            this.status = false;
+        }
+        setName(Name){
+          this.name = Name;
+        }
+        getName(){
+            return this.name;
+        }
+        setWeight(Weight){
+            this.weight = Weight;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        setSpeed(Speed){
+            this.speed = Speed;
+        }
+        getSpeed(){
+            return this.speed;
+        }
+        mouseSpeak(){
+            return this.mousespeak;
+        }
+        isAlive(){
+            this.status = true;
+        }
+        isDied(){
+            this.status = false;
+        }
+    }
+    class Cat {
+        constructor(name,weight,speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.catspeak = "meo,meo";
+        }
+        setName(Name){
+            this.name = Name;
+        }
+        getName(){
+            return this.name;
+        }
+        setWeight(Weight){
+
+        }
+        setSpeed(Speed){
+            this.speed = Speed;
+        }
+        getSpeed(){
+            return this.speed;
+        }
+        eatMouse(cat,rat){
+            if (cat.speed > rat.speed){
+                if (rat.status == true){
+                    cat.weight ++;
+                }
+            } else {
+                alert("can not eat rat cause speed is to slow");
+            }
+        }
+    }
+
+    let cat = new Cat("cat1",50,50);
+    let rat = new Rat("rat1", 10,20);
+    rat.isAlive();
+    cat.eatMouse(cat,rat);
+    cat.eatMouse(cat,rat);
+    cat.eatMouse(cat,rat);
+    cat.eatMouse(cat,rat);
+
+    cat.setSpeed(20);
+    rat.setSpeed(60);
+    cat.eatMouse(cat,rat);
+
+    console.log(cat);
+    console.log(rat);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="result"></p>
+<script>
+    let board = [];
+    let isPlay = true;
+    for (let i = 0; i < 20; i++) {
+        board[i] = [".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "."]
+    }
+    displayCaro();
+
+    function displayCaro() {
+        let data = "<table border='1' style='width: 500px; height: 500px; text-align: center'>"
+        for (let i = 0; i < 20; i++) {
+            data = data + "<tr>"
+            for (let j = 0; j < 20; j++) {
+                data += "<td onclick='changeValue(" + i + "," + j + ")'>";
+                data += board[i][j];
+                data += "</td>"
+            }
+            data = data + "</tr>"
+        }
+        data = data + "</table>"
+        document.getElementById("result").innerHTML = data;
+    }
+
+    function changeValue(x, y) {
+        if (board[x][y] == "X" || board[x][y] == "O" ) {
+            alert("Ô này đã được chơi. yêu cầu nhập lại ô khác")
+        } else {
+            if (isPlay) {
+                board[x][y] = "X";
+                isPlay = false
+            } else {
+                board[x][y] = "O";
+                isPlay = true;
+            }
+            displayCaro();
+            for (let i = 0; i < 20; i++) {
+                for (let j = 0; j < 20; j++) {
+                    if (board[i][j] == "X") {
+                        if ((board[i][j + 1] == "X" && board[i][j + 2] == "X" && board[i][j + 3] == "X" && board[i][j + 4] == "X")
+                            || ((board[i + 1][j] == "X" && board[i + 2][j] == "X" && board[i + 3][j] == "X" && board[i + 4][j] == "X")
+                                || (board[i + 1][j + 1] == "X" && board[i + 2][j + 2] == "X" && board[i + 3][j + 3] == "X" && board[i + 4][j + 4] == "X")
+                                || (board[i + 1][j - 1] == "X" && board[i + 2][j - 2] == "X" && board[i + 3][j - 3] == "X" && board[i + 4][j - 4] == "X"))) {
+                            alert("X thắng")
+                        }
+                    } else if (board[i][j] == "O") {
+                        if ((board[i][j + 1] == "O" && board[i][j + 2] == "O" && board[i][j + 3] == "O" && board[i][j + 4] == "O")
+                            || ((board[i + 1][j] == "O" && board[i + 2][j] == "O" && board[i + 3][j] == "O" && board[i + 4][j] == "O")
+                                || (board[i + 1][j + 1] == "O" && board[i + 2][j + 2] == "O" && board[i + 3][j + 3] == "O" && board[i + 4][j + 4] == "O")
+                                || (board[i + 1][j - 1] == "O" && board[i + 2][j - 2] == "O" && board[i + 3][j - 3] == "O" && board[i + 4][j - 4] == "O"))) {
+                            alert("O thắng")
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
