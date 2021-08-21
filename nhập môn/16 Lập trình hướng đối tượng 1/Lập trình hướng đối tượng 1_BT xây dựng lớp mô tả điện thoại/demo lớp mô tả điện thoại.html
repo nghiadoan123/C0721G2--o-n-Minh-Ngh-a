@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    class MobilePhone {
+        constructor(id, name) {
+            this.id = id;
+            this.name = name;
+            this.message = "";
+            this.draft = [];
+            this.inbox = [];
+            this.outbox = [];
+            this.battery = 100;
+            this.onOff = true;
+        }
+        checkBattery() {
+            if (this.battery < 0 && this.onOff == true) {
+                this.turnOff();
+                return this.battery = 0;
+            } else if (this.battery > 100 && this.onOff == true) {
+
+                return this.battery = 100;
+            } else if (this.battery > 0 && this.onOff == false ){
+                alert("you can not use it because phone is shutdown")
+            }
+        }
+        turnOn() {
+            this.onOff = true;
+        }
+        turnOff() {
+            this.onOff = false;
+        }
+        charge(n) {
+            this.battery += n;
+            this.checkBattery()
+        }
+        setBattery(n) {
+            this.battery = n;
+            this.checkBattery();
+        }
+        writeMessenge() {
+            if (this.onOff) {
+                let text = prompt("nhập tin nhắn");
+                let saveConfirm = confirm("bạn có muốn lưu tin nhắn");
+                if (saveConfirm) {
+                    this.draft.push(text);
+                    let sendConfirm = confirm("bạn có muốn gởi tin nhắn này?");
+                    if (sendConfirm) {
+                        this.setMessenge(text);
+                    }
+                }
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+        setMessenge(message) {
+            if (this.onOff) {
+                this.message = message;
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+        getMessenge(mobiphone) {
+            if (this.onOff) {
+                this.battery--;
+                this.outbox.push("nhận tin nhắn "+ " " + mobiphone.message + "từ:"+ " " + mobiphone.name)
+
+            }
+            this.checkBattery()
+        }
+        sendMessenge(mobilePhone) {
+            if (this.onOff) {
+                this.inbox.push("gui tin nhắn đến"+ " "+ mobilePhone.name+ " " + "với nội dung " + this.message)
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+        readInbox() {
+            if (this.onOff) {
+                let data = "";
+               for (let i =0; i< this.inbox.length;i++){
+                   data += [i] + ":" + this.inbox;
+               }
+               return data;
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+
+        readOutbox() {
+            if (this.onOff) {
+                let data = "";
+                for (let i =0; i<this.outbox.length;i++){
+                    data += [i] + ":" + this.outbox;
+                }
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+
+        readDraft() {
+            if (this.onOff) {
+                return this.draft;
+                this.battery--;
+            }
+            this.checkBattery()
+        }
+
+    }
+
+    let mobile1 = new MobilePhone(1, "Ip");
+    let mobile2 = new MobilePhone(2, "Android");
+    mobile1.turnOn();
+    mobile2.turnOn();
+
+
+
+    mobile1.writeMessenge();
+    mobile1.sendMessenge(mobile2);
+    mobile2.getMessenge(mobile1);
+
+
+    mobile2.writeMessenge();
+    mobile2.sendMessenge(mobile1);
+    mobile1.getMessenge(mobile2);
+
+    mobile2.writeMessenge();
+    mobile2.sendMessenge(mobile1);
+    mobile1.getMessenge(mobile2);
+
+
+    console.log(mobile1.readOutbox());
+
+    console.log(mobile2.readInbox());
+
+    console.log(mobile1)
+    console.log(mobile2);
+
+
+</script>
+</body>
+</html>
