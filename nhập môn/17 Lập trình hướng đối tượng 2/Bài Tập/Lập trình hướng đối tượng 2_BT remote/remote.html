@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Remote {
+        constructor() {
+        }
+        setCode(n){
+            this.code = n;
+        }
+        getCode(){
+            return this.code;
+        }
+        volumeAdd(tivi){
+            tivi.volume ++
+        }
+        volumeSub(tivi){
+            tivi.volume--
+        }
+        chooseChanel(tivi,n){
+           tivi.setChoosechanel(n);
+        }
+        turnoffTivi(tivi){
+            tivi.tiviOff();
+        }
+        turnonTivi(tivi){
+            tivi.tiviOn();
+        }
+    }
+    class Tivi {
+        constructor(volume,chooseChanel) {
+            this.volume = volume;
+            this.status = false;
+            this.chooseChanel = chooseChanel;
+            this.channel = ["VTV1","VTV2","VTV3","VTV4","VTV5","VTV6","VTV7","VTV8","VTV9","VTV10"];
+            this.display = [];
+        }
+        setChoosechanel(chanel){
+            this.chooseChanel = chanel;
+        }
+        getChoosechanel(){
+            return this.chooseChanel;
+        }
+        tiviOn(){
+            this.status = true;
+        }
+        tiviOff(){
+            this.status = false;
+        }
+        volumeAdd(){
+            if (this.status == true){
+                this.volume++;
+            } else {
+                alert("tunr on your tivi first")
+            }
+
+        }
+        volumeSub(){
+            if (this.status == true){
+                this.volume--;
+            } else {
+                alert("turn on your tivi  first")
+            }
+
+        }
+        currentChanel(){
+            if (this.status == true){
+                let data = "";
+                this.display.pop();
+                for (let i =0; i<this.channel.length;i++){
+                    if (this.chooseChanel == i){
+                        data += this.channel[i];
+                        this.display.push(data);
+                    }
+                }
+            } else {
+                alert("turn on your tivi first")
+            }
+
+        }
+    }
+    let myTivi = new Tivi(20,6);
+    let myRemote = new Remote(5);
+
+    myTivi.tiviOn();
+    myTivi.currentChanel();
+    myTivi.setChoosechanel(3);
+    myTivi.currentChanel();
+    myTivi.setChoosechanel(4);
+    myTivi.currentChanel();
+   // myRemote.volumeAdd(myTivi);
+
+
+
+    myRemote.volumeSub(myTivi);
+    myTivi.volumeSub();
+    //myRemote.chooseChanel(myTivi,5);
+   // myTivi.currentChanel();
+
+
+    //myRemote.turnoffTivi(myTivi);
+    //myTivi.currentChanel();
+
+
+
+
+    console.log(myTivi);
+    console.log(myRemote);
+</script>
+</body>
+</html>
