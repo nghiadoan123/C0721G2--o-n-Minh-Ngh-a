@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let count = 0;
+    let taxMoney =0;
+    let afterTax = 0;
+    let salary1;
+    let chooseNUmber = parseInt(prompt("Choose number"+"\n" +" choose 1 ( 1-7 milion)" + "\n" +" choose 2 (7-15 milion)" + "\n" +" choose 3 (15 milion up)"));
+    do {
+      let salary =  parseInt(prompt("input your salary"));
+        if (isNaN(salary)){
+            alert("mời nhập vào số");
+        }  else {
+            count ++
+            salary1 = salary;
+        }
+    } while (count<1);
+    switch (chooseNUmber) {
+        case 1:
+            if (salary1>0 && salary1<7){
+                taxMoney = salary1 * 5/100;
+                afterTax = salary1-taxMoney;
+                alert("your taxmoney is:"+" "+ taxMoney +"\n" +"your after taxmoney is:"+ " " + afterTax);
+            } else  if (salary1<0 || salary1>=7){
+               alert("please in put from 1-7 milion")
+            }
+            break;
+        case 2:
+            if (salary1>7 && salary1<=15){
+                taxMoney = salary1 * 10/100;
+                afterTax = salary1-taxMoney;
+                alert("your taxmoney is:"+" "+ taxMoney +"\n" +"your after taxmoney is:"+ " " + afterTax);
+            } else  if (salary1<7 || salary1>15){
+                alert("please in put from 7-15 milion")
+            }
+            break;
+        case 3:
+            if (salary1>15){
+                taxMoney = salary1 * 20/100;
+                afterTax = salary1-taxMoney;
+                alert("your taxmoney is:"+" "+ taxMoney +"\n" +"your after taxmoney is:"+ " " + afterTax);
+            } else  if (salary1<15){
+                alert("please in put from 15 milion or higher")
+            }
+            break;
+    }
+</script>
+</body>
+</html>

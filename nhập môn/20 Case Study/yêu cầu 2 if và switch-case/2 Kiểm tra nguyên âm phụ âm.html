@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let isVowel = false;
+    let inputNumber = prompt("mời nhập vào một ký tự:");
+    let str = inputNumber.toString();
+    let str1;
+    for (let i=0; i<str.length;i++){
+        str1 = str[0];
+    }
+    if (isNaN(str1[0]) !=true){
+        document.write("Mời nhập vào chuỗi")
+    }
+    switch (str1) {
+        case 'a' :
+        case 'e' :
+        case 'i' :
+        case 'o' :
+        case 'u' :
+        case 'A' :
+        case 'E' :
+        case 'I' :
+        case 'O' :
+        case 'U' : isVowel = true;
+    }
+    if(isVowel == true) {
+        document.writeln(str1+ " " +" Là nguyên âm");
+    }
+    else {
+        if((str1>='a'&&str1<='z')||(str1>='A'&&str1<='Z'))
+            document.writeln(str1+ " "+" Là phụ âm");
+        else
+            document.writeln(" "+str1+" " + "Không nằmtrong bảng chữ cái!");
+    }
+</script>
+</body>
+</html>

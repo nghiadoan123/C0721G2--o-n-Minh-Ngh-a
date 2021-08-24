@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inputArrlengthA = parseInt(prompt("mời nhập vào độ dài mảng A"));
+    let arrA = [];
+    for (let i = 0; i < inputArrlengthA; i++) {
+        let inputNumber = parseInt(prompt("input number:"));
+        if (isNaN(inputNumber) != true) {
+            arrA.push(inputNumber);
+        } else {
+            alert("mời nhập vào số");
+        }
+    }
+    let arrB = [];
+    let sum = 0;
+    console.log(arrA);
+    for (let i = 0; i < arrA.length; i++) {
+        sum += arrA[i];
+        arrB.push(sum);
+    }
+    document.write("Array A is:" + " " + arrA + "<br>" + "Array B is:" + " " + arrB);
+    console.log(arrB);
+</script>
+</body>
+</html>

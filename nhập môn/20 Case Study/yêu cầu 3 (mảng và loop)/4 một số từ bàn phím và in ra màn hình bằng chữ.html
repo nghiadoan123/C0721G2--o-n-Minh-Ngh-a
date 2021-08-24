@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("nhập vào số n"));
+    let str = "";
+    let arr = [];
+    while (n != 0){
+        switch (n%10) {
+            case 0:
+               arr.unshift("không");
+                break;
+            case 1:
+                arr.unshift("một");
+                break;
+            case 2:
+                arr.unshift("hai");
+                break;
+            case 3:
+                arr.unshift("ba");
+                break;
+            case 4:
+                arr.unshift("bốn");
+                break;
+            case 5:
+                arr.unshift("năm");
+                break;
+            case 6:
+                arr.unshift("sáu");
+                break;
+            case 7:
+                arr.unshift("bảy");
+                break;
+            case 8:
+                arr.unshift("tám");
+                break;
+            case 9:
+                arr.unshift("chín");
+                break;
+        }
+       n = Math.floor(n/10) ;
+    }
+
+    console.log(arr);
+    document.write(arr);
+</script>
+</body>
+</html>

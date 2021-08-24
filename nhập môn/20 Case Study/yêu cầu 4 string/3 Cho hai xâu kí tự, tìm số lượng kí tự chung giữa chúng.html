@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = "aabcc";
+    let str1 = "aacac";
+    let arr = str.split("");
+    let arr1 = str1.split("");
+    let count =0;
+    for (let i=0;i<arr.length;i++){
+        for (let j=0;j<arr1.length;j++){
+            if (arr[i] == arr1[j]){
+                arr1.splice(arr1[j],1);
+                count++;
+                break;
+            }
+        }
+    }
+    alert("có"+ count+"ký tự trùng nhau");
+</script>
+</body>
+</html>

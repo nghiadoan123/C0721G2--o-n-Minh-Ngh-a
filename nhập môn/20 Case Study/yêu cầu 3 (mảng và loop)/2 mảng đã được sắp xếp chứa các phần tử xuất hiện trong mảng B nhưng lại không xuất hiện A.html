@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let A = [7,2,5,3,5,3];
+    let B = [8,2,5,4,6,3,5,3];
+    let c = [];
+    let flag;
+    if (B.length>A.length){
+        for (let i=0;i<B.length;i++){
+            flag = false;
+            for (let j =0;j<=A.length;j++){
+                if (B[i] == A[j]){
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag){
+                c.push(B[i])
+            }
+        }
+        console.log(B);
+        console.log(A);
+        console.log(c);
+        document.write(c);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = "cabca";
+    let arr = str.split("");// cắt chuỗi khi không có khoảng trắng
+    arr.sort();
+    let arr1 = [];
+    let arr2 = arr[0];
+    console.log(arr1);
+    for (let i=1;i<arr.length-1;i++){
+        if (arr[i] !==arr[i+1]){
+            arr1.push(arr[i+1])
+        }
+    }
+    arr1.unshift(arr2[0]);
+    console.log(arr1)
+    document.write("có"+" "+ arr1.length+" "+ "ký tự khác nhau trong mảng:"+"\n" + arr1);
+</script>
+</body>
+</html>

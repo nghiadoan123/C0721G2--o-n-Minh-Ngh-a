@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let menu = ["(1.cà phê)","(2.cam vắt)","(3.Nước ép cà rốt)","(4.Nước ép cà chua)","(5.Nước lọc)",'(6.Nước dừa)'];
+    let price = [10,20,30,40,50,60];
+    alert("mời chọn món:"+"\n" + menu);
+    let choose;
+    let number;
+    let result=0;
+    do {
+        choose = parseInt(prompt("mời chọn món"))
+        if (choose<7){
+            alert("chọn món:" + menu[choose] + "giá:" + price[choose]);
+            number = parseInt(prompt("mời chọn số lượng"))
+            alert("số lượng:" +number);
+            result += price[choose]*number;
+            alert("bạn chọn" +number+menu[choose]+"\n"+"số tiền bạn phải trả"+result);
+        } else {
+            alert("thoát")
+        }
+
+
+        // if (choose>7){
+        //     alert("thoát");
+        // }
+    } while (choose<7)
+</script>
+</body>
+</html>

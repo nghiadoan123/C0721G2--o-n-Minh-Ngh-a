@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let num = [12,2,5];
+    let deno = [6,3,4];
+    let arr2 = [];
+    for (let i =0; i<num.length;i++){
+       let result= num[i]/deno[i];
+        arr2.push(result);
+    }
+    let max = arr2[0];
+    let index =0;
+    for (let i =1;i<arr2.length;i++){
+        if (max<arr2[i]){
+            max = arr2[i];
+        }
+    }
+    for (let j=0;j<arr2.length;j++){
+        if (max==arr2[j]){
+            index=j;
+        }
+    }
+    console.log(arr2);
+    console.log(index);
+    document.write("max is:" + max+" "+"add index:"+index);
+</script>
+</body>
+</html>

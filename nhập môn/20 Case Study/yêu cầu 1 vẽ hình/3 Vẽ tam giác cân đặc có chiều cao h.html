@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let h = parseInt(prompt("nhập vào h:"));
+    let n = h-1;
+    let m =1;
+    for (let i=1;i<=h;i++){
+        for (let j=1;j<=n;j++){
+            document.write("&nbsp"+" ")
+        }
+        n--;
+        for (let k=1;k<=m;k++){
+            document.write("*");
+        }
+        m+=2;
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>
