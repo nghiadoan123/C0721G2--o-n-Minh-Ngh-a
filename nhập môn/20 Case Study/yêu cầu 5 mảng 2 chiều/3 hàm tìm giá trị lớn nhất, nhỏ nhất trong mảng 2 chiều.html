@@ -6,20 +6,25 @@
 </head>
 <body>
 <script>
+
+    function maxMatrix(matrix){
+        let max = matrix[0][0];
+        for (let i=0;i<matrix.length;i++) {
+            for (let j=0;j<matrix[i].length;j++){
+                if (max<matrix[i][j]){
+                    max = matrix[i][j]
+                }
+            }
+        }
+        alert("max is:" + max)
+    }
     let matrix = [
         [1,2,3,3,5],
         [2,4,5,7,5],
         [13,5,6,11,7]
     ];
-    let max = matrix[0][0];
-    for (let i=0;i<matrix.length;i++) {
-        for (let j=0;j<matrix[i].length;j++){
-              if (max<matrix[i][j]){
-                  max = matrix[i][j]
-              }
-          }
-    }
-    alert("max is:" + max)
+    let a = maxMatrix(matrix);
+
 </script>
 </body>
 </html>

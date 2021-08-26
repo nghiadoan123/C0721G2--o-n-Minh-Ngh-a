@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input {
+            width: 60px;
+            height: 15px;
+        }
+    </style>
+</head>
+<body>
+<h1>Xổ Số Code Gym</h1>
+<input id="1" min="0" max="99">
+<input id="2" min="0" max="99">
+<input id="3" min="0" max="99">
+<input id="4" min="0" max="99">
+<input id="5" min="0" max="99">
+<input id="6" min="0" max="99">
+<br>
+<br>
+<button onclick="buy()">Mua vé</button>
+<button onclick="random()">Random</button>
+<button onclick="checkResult()">Xem Kết Quả</button>
+
+<script>
+    let systemResult = new Array(6);
+    let number1 = Math.floor(Math.random() * 100)
+    let number2 = Math.floor(Math.random() * 100)
+    let number3 = Math.floor(Math.random() * 100)
+    let number4 = Math.floor(Math.random() * 100)
+    let number5 = Math.floor(Math.random() * 100)
+    let number6 = Math.floor(Math.random() * 100)
+    systemResult = [number1, number2, number3, number4, number5, number6];
+    console.log(systemResult);
+
+    class Ticket {
+        constructor(arr) {
+            this.n1 = arr[0];
+            this.n2 = arr[1];
+            this.n3 = arr[2];
+            this.n4 = arr[3];
+            this.n5 = arr[4];
+            this.n6 = arr[5];
+        }
+
+        getTicket() {
+            return [this.n1, this.n2, this.n3, this.n4, this.n5, this.n6];
+        }
+    }
+
+    class Loto {
+        constructor() {
+            this.arr = new Array();
+        }
+
+        setloto(ticket) {
+            this.arr.push(ticket);
+        }
+
+        getLoto() {
+            return this.arr;
+        }
+
+        checkResult() {
+            var count;
+            for (let i = 0; i < this.arr.length; i++) {
+                console.log(this.arr[i].n1);
+                if (this.arr[i].n1 == systemResult[0] && this.arr[i].n2 == systemResult[1] && this.arr[i].n3 == systemResult[2] && this.arr[i].n4 == systemResult[3] && this.arr[i].n5 == systemResult[4] && this.arr[i].n6 == systemResult[5]) {
+                    count = 3;
+                    break;
+                } else if (this.arr[i].n1 == systemResult[0] && this.arr[i].n2 == systemResult[1] && this.arr[i].n3 == systemResult[2] && this.arr[i].n4 == systemResult[3] && this.arr[i].n5 == systemResult[4]) {
+                    count = 2;
+                    break;
+                } else if (this.arr[i].n4 == systemResult[3] && this.arr[i].n5 == systemResult[4] && this.arr[i].n6 == systemResult[5]) {
+                    count = 1;
+                    break;
+                }
+            }
+            return count;
+            console.log(count);
+        }
+    }
+
+    let loto = new Loto();
+    console.log(loto.getLoto());
+    let cou = 0;
+
+    function buy() {
+        if (confirm("bạn có muốn mua vé này không?")) {
+            if (cou < 5) {
+                let n1 = parseInt(document.getElementById("1").value);
+                let n2 = parseInt(document.getElementById("2").value);
+                let n3 = parseInt(document.getElementById("3").value);
+                let n4 = parseInt(document.getElementById("4").value);
+                let n5 = parseInt(document.getElementById("5").value);
+                let n6 = parseInt(document.getElementById("6").value);
+                let arr = [n1, n2, n3, n4, n5, n6];
+                let ticket = new Ticket(arr);
+                loto.setloto(ticket);
+                console.log(ticket);
+                console.log(loto);
+                cou++;
+            } else {
+                alert("bạn đã mua quá 4 lần")
+            }
+        }
+    }
+
+    function random() {
+        if (cou < 5) {
+            let number1 = Math.floor(Math.random() * 100);
+            let number2 = Math.floor(Math.random() * 100);
+            let number3 = Math.floor(Math.random() * 100);
+            let number4 = Math.floor(Math.random() * 100);
+            let number5 = Math.floor(Math.random() * 100);
+            let number6 = Math.floor(Math.random() * 100);
+            let n1 = (document.getElementById("1").value) = number1;
+            let n2 = (document.getElementById("2").value) = number2;
+            let n3 = (document.getElementById("3").value) = number3;
+            let n4 = (document.getElementById("4").value) = number4;
+            let n5 = (document.getElementById("5").value) = number5;
+            let n6 = (document.getElementById("6").value) = number6;
+            let arr = [n1, n2, n3, n4, n5, n6];
+            let ticket = new Ticket(arr);
+            loto.setloto(ticket);
+            if (confirm("bạn có chắc muốn mua vé?")) {
+                cou++
+            }
+
+            //  loto.checkResult(ticket);
+            console.log(ticket);
+            console.log(loto);
+        } else {
+            alert("bạn đã mua qua 4 lần");
+        }
+
+    }
+
+    function checkResult() {
+        loto.checkResult();
+        // console.log(loto.checkResult());
+        if (cou < 5) {
+            if (loto.checkResult() == 1) {
+                alert("bạn trúng giải 3")
+            } else if (loto.checkResult() == 2) {
+                alert("bạn trúng giải 2")
+            } else if (loto.checkResult() == 3) {
+                alert("bạn trúng giải 1")
+            } else {
+                alert("không trúng")
+            }
+        } else {
+            alert("bạn đã mua quá 4 lần");
+        }
+
+    }
+
+    // let myloto = new loto();
+    // let ticket1 = new Ticket()
+</script>
+</body>
+</html>

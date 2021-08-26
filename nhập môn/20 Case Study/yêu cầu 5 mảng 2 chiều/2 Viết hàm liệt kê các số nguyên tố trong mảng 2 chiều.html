@@ -6,36 +6,39 @@
 </head>
 <body>
 <script>
+
+    function songuyento(matrix){
+        let arr = [];
+        for (let i=0;i<matrix.length;i++){
+            for (let j=0;j<matrix[i].length;j++){
+                let flag = true;
+                if (matrix[i][j]<2){
+                    arr.push(matrix[i][j])
+                }else if (matrix[i][j] ==2){
+                    arr.push(matrix[i][j])
+                } else if (matrix[i][j] >2){
+                    for (let k = 2; k < matrix[i][j]; k++)
+                    {
+                        if (matrix[i][j] % k == 0){
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if (flag){
+                        arr.push(matrix[i][j]);
+                    }
+                }
+            }
+        }
+        document.write("có" + arr.length+"số nguyên tố trong mảng"+"\n"+ arr);
+    }
     let matrix = [
         [1,2,3,3,5],
         [2,4,5,7,5],
         [11,5,6,11,7]
     ];
-    console.log(matrix.length);
-    let arr = [];
+    let a = songuyento(matrix);
 
-    for (let i=0;i<matrix.length;i++){
-        for (let j=0;j<matrix[i].length;j++){
-            let flag = true;
-            if (matrix[i][j]<2){
-                arr.push(matrix[i][j])
-            }else if (matrix[i][j] ==2){
-                arr.push(matrix[i][j])
-            } else if (matrix[i][j] >2){
-                for (let k = 2; k < matrix[i][j]; k++)
-                {
-                    if (matrix[i][j] % k == 0){
-                        flag = false;
-                        break;
-                    }
-                }
-                if (flag){
-                    arr.push(matrix[i][j]);
-                }
-            }
-        }
-    }
-    document.write("có" + arr.length+"số nguyên tố trong mảng"+"\n"+ arr);
 </script>
 </body>
 </html>

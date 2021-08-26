@@ -77,10 +77,10 @@
             for (let i = 0; i < this.height; i++) {
                 //This.width -2 để khi j+2 thì sẽ triệt tiêu và không bị lỗi underfine ở 2 vòng lặp 2 cuối cùng của j
                 for (let j = 0; j < this.width-2; j++) {
-                    if ((this.arrayCell[i][j].value === temp && this.arrayCell[i][j + 1].value === temp && this.arrayCell[i][j + 2].value === temp)
-                        ||(this.arrayCell[i][j].value === temp && this.arrayCell[i+1][j].value === temp && this.arrayCell[i+2][j].value === temp)
-                        ||(this.arrayCell[i][j].value === temp && this.arrayCell[i+1][j+1].value === temp && this.arrayCell[i+2][j+2].value === temp)
-                        ||(this.arrayCell[i][j].value === temp && this.arrayCell[i+1][j-1].value === temp && this.arrayCell[i+2][j-2].value === temp)) {
+                    if ((this.arrayCell[i][j].value === temp && this.arrayCell[i][j + 1].value === temp && this.arrayCell[i][j + 2].value === temp && this.arrayCell[i][j + 3].value === temp&& this.arrayCell[i][j + 4].value === temp)
+                        ||(this.arrayCell[i][j].value === temp && this.arrayCell[i+1][j].value === temp && this.arrayCell[i+2][j].value === temp && this.arrayCell[i+3][j].value === temp && this.arrayCell[i+4][j].value === temp)
+                        ||(this.arrayCell[i][j].value === temp && this.arrayCell[i+1][j+1].value === temp && this.arrayCell[i+2][j+2].value === temp && this.arrayCell[i+3][j+3].value === temp && this.arrayCell[i+4][j+4].value === temp)
+                        ||(this.arrayCell[i][j].value === temp && this.arrayCell[i+1][j-1].value === temp && this.arrayCell[i+2][j-2].value === temp && this.arrayCell[i+3][j-3].value === temp && this.arrayCell[i+4][j-4].value === temp)) {
                         alert(temp + " thang");
                         this.init();
                         this.displayCaro();
