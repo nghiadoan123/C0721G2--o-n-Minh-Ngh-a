@@ -1,0 +1,51 @@
+1	JAVA là gì?
+2	JDK, JRE, JVM
+3	Thông dịch, biên dịch khác nhau như thế nào ?
+4	JAVA là ngôn ngữ thông dịch hay biên dịch ?
+5	Các kiểu dữ liệu trong java, và giá trị mặc định khi khai báo.
+6	Có bao nhiêu loại mệnh đề if
+7	So sánh if và switch-case
+8	Khi nào dùng for, while, do-while?
+9	Phân biệt for-i và for-each
+10	Khác nhau giữa while, do-while. Cho ví dụ khi nào dùng ?
+11	Break, Continue có tác dụng gì trong mệnh đề lặp ?
+12	Trình bày các cách khởi tạo một mảng trong JAVA ?
+13	Phần tử của mảng có thể dùng kiểu dữ liệu nào, và có giá trị mặc định là gì ?
+14	OOP là gì?
+15	Phân biệt class và object
+16	Constructor là gì
+17	Cách khai báo constructor và đặc điểm constructor trong JAVA
+18	Phân biệt constructor và method
+19	Tính bao đóng là gì ?
+Làm sao để thực hiện được tính bao đóng trong java ?
+20	Tham trị, tham chiếu
+21	Từ khóa static dùng để làm gì ?
+22	Ràng buộc khi sử dụng static
+23	Các loại biến trong JAVA
+24	Trình bày các loại access modifier, và phạm vi truy cập.
+25	Kế thừa trong JAVA là gì ?
+26	Lớp con kế thừa được những tài sản nào(thuộc tính, phương thức) của lớp cha ?
+27	Lớp Object là gì
+28	Khái niệm đa hình
+29	Phân biệt Overloading  và Overriding 
+30	ép kiểu là gì ? các loại ép kiểu
+31	Tính trừu tượng là gì ?
+32	Phân biệt abstract class và interface
+33	So sánh Array và ArrayList
+34	So sánh ArrayList và LinkedList
+35	Set là gì, các lớp triển khai của Set
+36	Generic là gì
+37	Ưu điểm và hạn chế khi dùng generic ?
+38	Stack là gì, các phương thức của stack ?
+39	Queue là gì, các class triển khai của queue ?
+40	Phương thức cơ bản của queue ?
+41	So sánh Comparable và Comparator, khi nào dùng cái nào?
+42	Map là gì, các class triển khai
+43	Cây nhị phân là gì
+44	Trình bày các cách duyệt cây nhị phân.
+45	Ngoại lệ (Exception là gì) ?
+46	Phân loại Exception
+47	Phân biệt Error và Exception
+48	Có bao nhiêu cách để xử lý ngoại lệ (handle)
+49	Một số lưu ý khi dùng try-catch
+50 	SOLID

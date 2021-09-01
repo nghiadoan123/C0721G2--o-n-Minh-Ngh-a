@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5c1f8bb6-eae5-470f-bec8-a628578153e0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../module 1/.idea/nhập môn.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../module 1/13 Mảng 2/bài tập/.idea/bài tập.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/module_2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bt_1_introduction_to_java_hien_thi_loi_chao/bt_1_introduction_to_java_hien_thi_loi_chao.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/giai_phuong_trinh_bac_nhat_linear_equation_resolver/giai_phuong_trinh_bac_nhat_linear_equation_resolver.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hien_thi_so_ngay_trong_thang_day_of_month/hien_thi_so_ngay_trong_thang_day_of_month.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kiem_tra_nam_nhuan_leaf_year_calculator/kiem_tra_nam_nhuan_leaf_year_calculator.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/operator_expression_su_dung_toan_tu/operator_expression_su_dung_toan_tu.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/system-time/src/SystemTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/system-time/system-time.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tinh_ci_so_can_nang_co_the_ibm_calculator/tinh_chi_so_can_nang_co_the_bmi_calculator.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tinh_ci_so_can_nang_co_the_ibm_calculator/tinh_ci_so_can_nang_co_the_ibm_calculator.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/variable_dataType/src/dataType_example.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/variable_dataType/variable_dataType.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_2.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/module_2/bt_1/hello.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/bt_1/hello.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/.idea/nhập môn.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/1.hoc ve kanban/bài tập/bang_cornell_notes.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/1.hoc ve kanban/bài tập/bang_kan_ban_viet_tay.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/1.hoc ve kanban/bài tập/dung_trello_tao_bang_kanban.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/1.hoc ve kanban/bài tập/lap_bang_kanban_viet_tay.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/10 Cấu trúc lặp 1/thực hành/Thực Hành sử dụng vòng lặp for/bài 1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/10 Cấu trúc lặp 1/thực hành/Thực Hành sử dụng vòng lặp for/bài 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/10 Cấu trúc lặp 1/thực hành/Thực Hành sử dụng vòng lặp lồng nhau/use for loop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/10 Cấu trúc lặp 1/thực hành/Thực Hành sử dụng vòng lặp lồng nhau/use while loop.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/10 Cấu trúc lặp 1/thực hành/Thực Hành sử dụng vòng lặp while/bt1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/10 Cấu trúc lặp 1/thực hành/Thực Hành sử dụng vòng lặp while/bt2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/10 Cấu trúc lặp 1/thực hành/Thực hành sử dụng vòng lặp do_while/do_while_sample.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập Hiển thị các số nguyên tố đầu tiên/Hiển thị số nguyên tố.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 1/bt1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 1/bt2..html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 1/bt3 demo fibo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 1/bt3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 1/bt4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 1/bt5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 1/bt6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 1/bt7 .html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 1/bt8 demo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 1/bt8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 2/bt1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 2/bt2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 2/bt3-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 2/bt3-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 2/bt3-3 .html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 2/bt3-4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 2/bt4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 2/bt5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập luyện tập vòng lặp 2/bt6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/11 Cấu trúc lặp 2/Bài tập/Bài tập sinh bảng cửu chương/bảng cửu chương.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/12 Mảng 1/Thực hành/Thực Hành tìm giá trị lớn nhất trong mảng/tìm giá trị lớn nhất.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/12 Mảng 1/Thực hành/Thực hành tạo và thao tác với mảng/TH Thao tác với bảng.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/12 Mảng 1/Thực hành/Thực hành đảo ngược các phần tử trong mảng/đảo ngược các phần tử trong mảng.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/12 Mảng 1/Thực hành/thực hành tìm giá trị trong mảng/tìm giá trị trong mảng.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/12 Mảng 1/Thực hành/thực hành tạo bàn ca ro đơn giản/tạo bàn ca ro.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/.idea/bài tập.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 1/bt1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 1/bt2 tìm giá trị lớn nhất trong mảng.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 1/bt3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 1/bt4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 1/bt5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 1/bt6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 1/bt7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 1/bt8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 1/bt9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 2/bt1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 2/bt2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 2/bt3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 2/bt4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 2/bt5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập luyện tập mảng 2/bt6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập sử dụng các hàm có sẵn của mảng/bt1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập sử dụng các hàm có sẵn của mảng/bt2_thêm dấu - vào giữa 2 số chẵn liên tiếp.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/Bài tập sử dụng các hàm có sẵn của mảng/bt3 in chữ hoa chữ thường.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/bài tập mảng tictactoe/bt tictactoe.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/bài tập mảng tictactoe/tictactoe nang cao.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/13 Mảng 2/bài tập/bài tập mảng tạo từ điển/từ điển.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/14 Hàm 1/TH Hàm 1 Chuyển Đổi Nhiệt Độ/chuyển đổi nhiệt độ.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/14 Hàm 1/TH Hàm 1 Tạo Và Gọi Hàm/tạo và gọi hàm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/14 Hàm 1/TH Hàm 1 tìm giá trị nhỏ nhất của mảng/tìm giá trị nhỏ nhất.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 Kiểm Tra Số Nguyên Tố/bth kiem tra so nguyen to.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 Kiểm Tra Từ Đối Xứng/demo kt từ đối xứng.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 Kiểm Tra Từ Đối Xứng/function ispalindrome.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 Luyện Tập Và sử dụng hàm 2/bt 4 Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 Luyện Tập Và sử dụng hàm 2/bt 5 kiểm tra giá trị nhỏ nhất trong 3 số nguyên.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 Luyện Tập Và sử dụng hàm 2/bt1 Hàm tính bình phương  1 số bất kỳ.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 Luyện Tập Và sử dụng hàm 2/bt2 viết hàm tính diện tích và chu vi hình tròn.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 Luyện Tập Và sử dụng hàm 2/bt3 tính giai thừa của một số nguyên bất kỳ.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 Luyện Tập Và sử dụng hàm 2/bt6 hàm kiểm tra số nguyên dương.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 Luyện Tập Và sử dụng hàm 2/bt7 Hàm đổi chỗ 2 số nguyên.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 Luyện Tập Và sử dụng hàm 2/bt8 hàm đảo ngược mảng số nguyên.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 Luyện Tập Và sử dụng hàm 2/bt9 kiểm tra ký tự nằm trong mảng.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 ứng dụng quản lý sản phẩm sử dụng hàm/DeMo ứng dụng quản lý sản phẩm sử dụng hàm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/BT Hàm 2 ứng dụng quản lý sản phẩm sử dụng hàm/ứng dụng quản lý sản phẩm sử dụng hàm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/Bt Hàm 2 chuyển dổi giữa feet và metter/chuyển đổi feet và meter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/Bt hàm 2 luyện tập và sử dụng hàm 1/bt1Tạo hàm alertMessage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/Bt hàm 2 luyện tập và sử dụng hàm 1/bt2 tạo hàm nâng giá trị đối số lên 1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/Bt hàm 2 luyện tập và sử dụng hàm 1/bt3 tạo hàm 2 tham số.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/Bt hàm 2 luyện tập và sử dụng hàm 1/bt4 thêm vị trí hàm alert đê h thị k quả result.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/15 Hàm 2/bài tập/Bt hàm 2 luyện tập và sử dụng hàm 1/bt5 hàm tìm dữ liệu tương ứng của mảng b từ mảng a.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/16 Lập trình hướng đối tượng 1/Lập trình hướng đối tượng 1_BT xây dựng lớp mô tả hình chữ nhật/lớp mô tả HCN.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/16 Lập trình hướng đối tượng 1/Lập trình hướng đối tượng 1_BT xây dựng lớp mô tả temperature/mô tả lớp temperature.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/16 Lập trình hướng đối tượng 1/Lập trình hướng đối tượng 1_BT xây dựng lớp mô tả điện thoại/demo lớp mô tả điện thoại.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/16 Lập trình hướng đối tượng 1/Lập trình hướng đối tượng 1_BT xây dựng lớp mô tả điện thoại/lớp mô tả điện thoại.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/16 Lập trình hướng đối tượng 1/Lập trình hướng đối tượng 1_Thực hành funnycircle/th funny circle.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/16 Lập trình hướng đối tượng 1/Lập trình hướng đối tượng 1_Thực hành xây dựng lớp day/Th xây dựng lớp day.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/16 Lập trình hướng đối tượng 1/Lập trình hướng đối tượng 1_Thực hành xây dựng lớp hình tròn/lớp hình tròn.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/17 Lập trình hướng đối tượng 2/Bài Tập/Lập trình hướng đối tượng 2_BT mô phỏng câu chuyện Adam Và Eva/mô phỏng adam và eva.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/17 Lập trình hướng đối tượng 2/Bài Tập/Lập trình hướng đối tượng 2_BT mô phỏng tương tác giữa công tắc và bóng đèn/[Bài tập] công tắc và bóng đèn.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/17 Lập trình hướng đối tượng 2/Bài Tập/Lập trình hướng đối tượng 2_BT mô phỏng tương tác giữa công tắc và bóng đèn/demo bóng đèn và công tắc.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/17 Lập trình hướng đối tượng 2/Bài Tập/Lập trình hướng đối tượng 2_BT phát triển mèo bắt và ăn  chuôt/xây dựng lớp mèo bắt và ăn chuột.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/17 Lập trình hướng đối tượng 2/Bài Tập/Lập trình hướng đối tượng 2_BT phát triển trò chơi cờ ca ro/de mo ca ro bang hương đói tượng.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/17 Lập trình hướng đối tượng 2/Bài Tập/Lập trình hướng đối tượng 2_BT remote/remote.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/17 Lập trình hướng đối tượng 2/Thực hành/Lập trình hướng đối tượng 2_TH Xây dựng lớp mô phỏng sự hoạt động của đèn pin/xây dựng lớp mô phỏng hoạt động của đèn pin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/18 Bài tập Bob/bai_tap_bob.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/19 Bt hackerrank/BT1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/19 Bt hackerrank/BT10.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/19 Bt hackerrank/BT2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/19 Bt hackerrank/BT3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/19 Bt hackerrank/BT4.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/19 Bt hackerrank/BT5.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/19 Bt hackerrank/BT6.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/19 Bt hackerrank/BT7.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/19 Bt hackerrank/BT8.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/19 Bt hackerrank/BT9.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/2.hoc tren trang Code org/bài tập/khoa_hoc_code_tren_trang_codeorrg.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 1 vẽ hình/1 Vẽ hình chữ nhật rỗng chiều dài n và chiều rộng m.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 1 vẽ hình/2 Vẽ tam giác vuông cân rỗng có chiều cao h.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 1 vẽ hình/3 Vẽ tam giác cân đặc có chiều cao h.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 1 vẽ hình/4 Vẽ tam giác cân rỗng có chiều cao h.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 2 if và switch-case/1 Viết một chương trình tính thuế thu nhập và lương thực nhận.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 2 if và switch-case/2 Kiểm tra nguyên âm phụ âm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 3 (mảng và loop)/1 tính prefix num của mảng B từ mảng A.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 3 (mảng và loop)/2 mảng đã được sắp xếp chứa các phần tử xuất hiện trong mảng B nhưng lại không xuất hiện A.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 3 (mảng và loop)/3 tìm chỉ số của phân số lớn nhất.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 3 (mảng và loop)/4 một số từ bàn phím và in ra màn hình bằng chữ.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 3 (mảng và loop)/5 menu các loại thức uống.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 4 string/1 Viết một hàm chuẩn hóa xâu ký tự.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 4 string/2 Hãy đếm số lượng kí tự khác nhau trong xâu.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 4 string/3 Cho hai xâu kí tự, tìm số lượng kí tự chung giữa chúng.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 5 mảng 2 chiều/1 hàm tính tổng các số chẵn trong ma trận có kích thước mXn.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 5 mảng 2 chiều/2 Viết hàm liệt kê các số nguyên tố trong mảng 2 chiều.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 5 mảng 2 chiều/3 hàm tìm giá trị lớn nhất, nhỏ nhất trong mảng 2 chiều.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/20 Case Study/yêu cầu 6 OOp/xo_so_vietlot.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/bài tập/BAI_TAP_MO_TA_THUAT_TOAN_CHUYEN_DOI_TIEN_TE/LUU_DO_BAI_TAP_MO_TA_THUAT_TOAN_CHUYEN_DOI_TIEN_TE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/bài tập/BAI_TAP_MO_TA_THUAT_TOAN_CHUYEN_DOI_TIEN_TE/MA_GIA_BAI_TAP_MO_TA_THUAT_TOAN_CHUYEN_DOI_TIEN_TE.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/bài tập/BAI_TAP_MO_TA_THUAT_TOAN_TINH_DIEM_TRUNG_BINH/LUU_DO_BAI_TAP_MO_TA_THUAT_TOAN_TINH_DIEM_TRUNG_BINH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/bài tập/BAI_TAP_MO_TA_THUAT_TOAN_TINH_DIEM_TRUNG_BINH/MA_GIA_BAI_TAP_MO_TA_THUAT_TOAN_TINH_DIEM_TRUNG_BINH.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/bài tập/BAI_TAP_MO_TA_THUAT_TOAN_TINH_DIEM_TRUNG_BINH/MA_GIA_BAI_TAP_MO_TA_THUAT_TOAN_TINH_DIEM_TRUNG_BINH.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/thực hành/THUC_HANH_CAU_TRUC_DIEU_KIEN/LUU_DO_THUC_HANH_CAU_TRUC_DIEU_KIEN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/thực hành/THUC_HANH_CAU_TRUC_DIEU_KIEN/MA_GIA_THUC_HANH_CAU_TRUC_DIEU_KIEN.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/thực hành/THUC_HANH_SO_LON_NHAT_TRONG_BA_SO/LUU_DO_THUC_HANH_SO_LON_NHAT_TRONG_BA_SO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/thực hành/THUC_HANH_SO_LON_NHAT_TRONG_BA_SO/MA_GIA_THUC_HANH_SO_LON_NHAT_TRONG_BA_SO.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/thực hành/THUC_HANH_SO_LON_NHAT_TRONG_DAY_SO/MA_GIA_THUC_HANH_SO_LON_NHAT_TRONG_DAY_SO.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/thực hành/THUC_HANH_SO_LON_NHAT_TRONG_DAY_SO_NANG_CAO/LUU_DO_.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/thực hành/THUC_HANH_SO_LON_NHAT_TRONG_DAY_SO_NANG_CAO/MA_GIA_THUC_HANH_SO_LON_NHAT_TRONG_DAY_SO_NANG_CAO.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/thực hành/THUC_HANH_THUAT_TOAN_CHUYEN_DOI_NHIET_DO/LUU_DO_THUC_HANH_THUAT_TOAN_CHUYEN_DOI_NHIET_DO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/thực hành/THUC_HANH_THUAT_TOAN_CHUYEN_DOI_NHIET_DO/MA_GIA_THUC_HANH_THUAT_TOAN_CHUYEN_DOI_NHIET_DO.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/thực hành/THUC_HANH_THUAT_TOAN_GAME_DOAN_SO/LUU_DO_THUC_HANH_THUAT_TOAN_GAME_DOAN_SO.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/3.Pseudocode_FolowChart/thực hành/THUC_HANH_THUAT_TOAN_GAME_DOAN_SO/MA_GIA_THUC_HANH_THUAT_TOAN_GAME_DOAN_SO.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/4.GIT&amp;HTML/GIT/thực hành/CLONE_DU_AN_TU_GIT/CLONE_DU_AN_TU_GIT.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/4.GIT&amp;HTML/GIT/thực hành/TAO_DU_AN_MOI_TREN_GITHUB/TAO_DU_AN_MOI_TREN_GITHUB.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/4.GIT&amp;HTML/HTML/bài tập/bai tap su dung git.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/4.GIT&amp;HTML/HTML/bài tập/bai_tap_tao_danh_sach.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/4.GIT&amp;HTML/HTML/thực hành/thuc hanh su dung the html co ban.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bai tap su dung the html co ban.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bai tap tao form don gian.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bai tap tao trang Cv ca nhan.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bai_tap_tao_danh_sach.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bt form dang ky hoc vien.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bt tao bang nang cao ban co vua cach 1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bt tao bang nang cao lich thang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bt tao bang thoi khoa bieu p1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bt tao bang thoi khoa bieu p2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bt tao giao dien form dang ky nguoi dung.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bt tạo bang nang cao ban co vua cach 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bt tạo form lay survey khach hang/568205.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Bai Tap/bt tạo form lay survey khach hang/tạo form lay survey khach hang.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Thuc Hanh/Thuc Hanh tao form co ban.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Thuc Hanh/Thuc hanh tao forrm tim kiem google.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Thuc Hanh/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Thuc Hanh/tablesimple.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/5.HTML Form and Table/Thuc Hanh/thuc hanh tao bang nang cao.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/6. Tổng quan JavaScript/Thực Hanh/thuc hanh hien thi dau ra BT1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/6. Tổng quan JavaScript/Thực Hanh/thuc hanh hien thi dau ra BT2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/6. Tổng quan JavaScript/Thực Hanh/thuc hanh hien thi dau ra BT3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/6. Tổng quan JavaScript/Thực Hanh/thuc hanh hien thi dau ra BT4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/6. Tổng quan JavaScript/Thực Hanh/thực hành 1 nhúng file jvs vào html Viết mã Javascript ngay trong thẻ các thẻ html.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/6. Tổng quan JavaScript/Thực Hanh/thực hành 2 nhúng file jvs vào html Sử dụng thẻ script bên trong mã HTML.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Bài Tập/Bài tập biển kiểu dữ liệu và toán tử/BAi 1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Bài Tập/Bài tập biển kiểu dữ liệu và toán tử/Bai 1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Bài Tập/Bài tập biển kiểu dữ liệu và toán tử/Bai 2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Bài Tập/Bài tập biển kiểu dữ liệu và toán tử/Bai 2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Bài Tập/Bài tập biển kiểu dữ liệu và toán tử/bai 3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Bài Tập/Bài tập biển kiểu dữ liệu và toán tử/bai 3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Bài Tập/Bài tập biển kiểu dữ liệu và toán tử/bai 4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Bài Tập/Bài tập biển kiểu dữ liệu và toán tử/bai 4.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Bài Tập/Bài tập ứng dụng chuyển đổi tiền tệ/Bài tập ứng dụng chuyển đổi tiền tệ.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Bài Tập/bài tập ứng dụng máy tính/Bài tập ứng dụng máy tính Nâng cao.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Bài Tập/bài tập ứng dụng máy tính/Bài tập ứng dụng máy tính.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Thực Hành/Thực Hành Sử Dụng Toán Tử/Thực Hành Sử Dụng Toán Tử.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Thực Hành/Thực Hành Sử Dụng Toán Tử/Thực Hành Sử Dụng Toán Tử.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Thực Hành/Thực Hành khai báo và sử dụng biến/Thực hành Khai Báo và Sử Dụng Biến Bài 1/Thực Hành khai báo và sử dụng biển B1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Thực Hành/Thực Hành khai báo và sử dụng biến/Thực hành Khai Báo và Sử Dụng Biến Bài 2/Thực Hành khai báo và sử dụng biển B2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/7 Biến kiểu dữ liệu và toán tử/Thực Hành/Thực Hành khai báo và sử dụng biến/Thực hành Khai Báo và Sử Dụng Biến Bài 3/Thực Hành khai báo và sử dụng biển B3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/8 Cấu trúc điều kiện 1/Thực Hành Kiểm Tra Năm Nhuận/check leaf year.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/8 Cấu trúc điều kiện 1/Thực Hành Luyện Tập Với Cấu Trúc Switch-Case/Ex1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/8 Cấu trúc điều kiện 1/Thực Hành Luyện Tập Với Cấu Trúc Switch-Case/Ex2 .html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/8 Cấu trúc điều kiện 1/Thực Hành Luyện Tập Với Cấu Trúc Switch-Case/Ex3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/8 Cấu trúc điều kiện 1/Thực Hành Luyện Tập Với Cấu Trúc Switch-Case/Ex3_Cach_2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/8 Cấu trúc điều kiện 1/Thực Hành Luyện Tập Với Cấu trúc IF-ELSE-IF/log in.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/8 Cấu trúc điều kiện 1/Thực Hành Luyện Tập Với Cấu trúc IF-ELSE/Ex01.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/8 Cấu trúc điều kiện 1/Thực Hành Luyện Tập Với Toán Tử Ba Ngôi/Ex1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/8 Cấu trúc điều kiện 1/Thực Hành Luyện Tập Với Toán Tử Ba Ngôi/Ex2 False.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/Thực Hành/Thực Hành Sự Kiện Bàn Phím/Nobita.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/Thực Hành/Thực Hành Sự Kiện Bàn Phím/keyboard action.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/Thực Hành/Thực Hành Sự Kiện Bàn Phím/move nobita.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/Thực Hành/Thực Hành Sự Kiện Chuột/Mouse action.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/Thực Hành/Thực Hành Sự Kiện Chuột/ball.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/BT Tính Chỉ Số Cân Nặng Cơ Thể/bmi_Calculator.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 1/BT!.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 1/BT2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 1/BT3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 1/BT4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 1/Bt6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 1/bt5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 1/bt7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 2/Bt1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 2/bt 11.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 2/bt10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 2/bt12.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 2/bt2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 2/bt3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 2/bt4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 2/bt5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 2/bt6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 2/bt7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 2/bt8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Luyện Tập Cấu Trúc Điều Kiện 2/bt9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài Tập Ứng Dụng Vui Do you love me/do_you_love_me.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/Bài tập câu lệnh Switch-Case/find_how_many_day_in_month.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/bài tập ứng dụng máy tính/Bài tập ứng dụng máy tính Nâng cao.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nhập môn/9 Cấu trúc điều kiện 2/bài tập/bài tập ứng dụng máy tính/Bài tập ứng dụng máy tính.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1xU4CIER0xotvbJLJQpAjsMEQ0Y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bt_hien_thi_loi_chao.Main" />
+      <module name="bt_1_introduction_to_java_hien_thi_loi_chao" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bt_hien_thi_loi_chao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5c1f8bb6-eae5-470f-bec8-a628578153e0" name="Default Changelist" comment="" />
+      <created>1630396203978</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1630396203978</updated>
+      <workItem from="1630396205227" duration="1023000" />
+      <workItem from="1630397253961" duration="303000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="463" y="118" key="FileChooserDialogImpl" timestamp="1630396438107">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="118" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1630396438107" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1630396546463">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1630396546463" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1630396546463">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1630396546463" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1630396546462">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1630396546462" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1630396546463">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1630396546463" />
+    <state x="65" y="0" key="new project wizard" timestamp="1630397225869">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1630397225869" />
+  </component>
+</project>

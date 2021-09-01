@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bt_1_introduction_to_java_hien_thi_loi_chao/bt_1_introduction_to_java_hien_thi_loi_chao.iml" filepath="$PROJECT_DIR$/bt_1_introduction_to_java_hien_thi_loi_chao/bt_1_introduction_to_java_hien_thi_loi_chao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/giai_phuong_trinh_bac_nhat_linear_equation_resolver/giai_phuong_trinh_bac_nhat_linear_equation_resolver.iml" filepath="$PROJECT_DIR$/giai_phuong_trinh_bac_nhat_linear_equation_resolver/giai_phuong_trinh_bac_nhat_linear_equation_resolver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hien_thi_so_ngay_trong_thang_day_of_month/hien_thi_so_ngay_trong_thang_day_of_month.iml" filepath="$PROJECT_DIR$/hien_thi_so_ngay_trong_thang_day_of_month/hien_thi_so_ngay_trong_thang_day_of_month.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kiem_tra_nam_nhuan_leaf_year_calculator/kiem_tra_nam_nhuan_leaf_year_calculator.iml" filepath="$PROJECT_DIR$/kiem_tra_nam_nhuan_leaf_year_calculator/kiem_tra_nam_nhuan_leaf_year_calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/module_2.iml" filepath="$PROJECT_DIR$/.idea/module_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/operator_expression_su_dung_toan_tu/operator_expression_su_dung_toan_tu.iml" filepath="$PROJECT_DIR$/operator_expression_su_dung_toan_tu/operator_expression_su_dung_toan_tu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/system-time/system-time.iml" filepath="$PROJECT_DIR$/system-time/system-time.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tinh_ci_so_can_nang_co_the_ibm_calculator/tinh_ci_so_can_nang_co_the_ibm_calculator.iml" filepath="$PROJECT_DIR$/tinh_ci_so_can_nang_co_the_ibm_calculator/tinh_ci_so_can_nang_co_the_ibm_calculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/variable_dataType/variable_dataType.iml" filepath="$PROJECT_DIR$/variable_dataType/variable_dataType.iml" />
+    </modules>
+  </component>
+</project>
