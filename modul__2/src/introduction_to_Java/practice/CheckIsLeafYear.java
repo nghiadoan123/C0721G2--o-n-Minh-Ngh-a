@@ -2,7 +2,7 @@ package introduction_to_Java.practice;
 
 import java.util.Scanner;
 
-public class KiemTraNamNhuan {
+public class CheckIsLeafYear {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int year;

@@ -3,10 +3,10 @@ package introduction_to_Java.exercise;
 import java.util.Scanner;
 
 public class ConvertNumberToLetter {
-//   String str;
+    //   String str;
 //   DocSoThanhChu dstc = new DocSoThanhChu();
-   //nếu khai báo biens str là kiểu instance thì có thể ko cần gán giá trị
-   // lúc này cần new 1 đối tượng mới và gọi tới thuộc tính str
+    //nếu khai báo biens str là kiểu instance thì có thể ko cần gán giá trị
+    // lúc này cần new 1 đối tượng mới và gọi tới thuộc tính str
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("input your number:");
@@ -14,10 +14,10 @@ public class ConvertNumberToLetter {
         String dataUnit = "";
         String dataDozens = "";
         String datahundres = "";
-        if (input>=0){
-            if (input<10){
-                int unit = input%10;
-                switch (unit){
+        if (input >= 0) {
+            if (input < 10) {
+                int unit = input % 10;
+                switch (unit) {
                     case 0:
                         dataUnit = "zero";
                         break;
@@ -49,12 +49,12 @@ public class ConvertNumberToLetter {
                         dataUnit = "nine";
                         break;
                 }
-            } else if (input<100){
-                int unit = input%10;
-                int dozens = input/10;
-                switch (dozens){
+            } else if (input < 100) {
+                int unit = input % 10;
+                int dozens = input / 10;
+                switch (dozens) {
                     case 1:
-                        switch (unit){
+                        switch (unit) {
                             case 0:
                                 dataUnit = "ten";
                                 break;
@@ -113,7 +113,7 @@ public class ConvertNumberToLetter {
                         break;
 
                 }
-                switch (unit){
+                switch (unit) {
                     case 0:
                         dataUnit = "";
                         break;
@@ -146,12 +146,12 @@ public class ConvertNumberToLetter {
                         break;
                 }
 
-            }else if (input<1000){
-                int unit = input%10;
-                input = input/10;
-                int dozens = input %10;
-                input = input/10;
-                switch (input){
+            } else if (input < 1000) {
+                int unit = input % 10;
+                input = input / 10;
+                int dozens = input % 10;
+                input = input / 10;
+                switch (input) {
                     case 1:
                         datahundres = "one ";
                         break;
@@ -181,9 +181,9 @@ public class ConvertNumberToLetter {
                         break;
 
                 }
-                switch (dozens){
+                switch (dozens) {
                     case 1:
-                        switch (unit){
+                        switch (unit) {
                             case 0:
                                 dataUnit = "ten";
                                 break;
@@ -242,7 +242,7 @@ public class ConvertNumberToLetter {
                         break;
 
                 }
-                switch (unit){
+                switch (unit) {
                     case 0:
                         dataUnit = "";
                         break;
@@ -276,8 +276,7 @@ public class ConvertNumberToLetter {
                 }
             }
         }
-        System.out.printf("%shundred and %s %s",datahundres,dataDozens,dataUnit);
-
-        }
+        System.out.printf("%shundred and %s %s", datahundres, dataDozens, dataUnit);
+    }
 }
 

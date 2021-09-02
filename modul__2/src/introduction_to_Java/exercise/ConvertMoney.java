@@ -9,7 +9,7 @@ public class ConvertMoney {
         Scanner sc = new Scanner(System.in);
         System.out.println("mời nhập vào số tiền USD");
         usd = sc.nextDouble();
-        double qui_doi = usd*rate;
-        System.out.println("giá trị vnd là:" + qui_doi);
+        double quiDoi = usd*rate;
+        System.out.println("giá trị vnd là:" + quiDoi);
     }
 }
