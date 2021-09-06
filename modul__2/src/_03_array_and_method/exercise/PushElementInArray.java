@@ -35,13 +35,13 @@ public class PushElementInArray {
                 if (index == i) {
                     newArr[i] = X;
                 } else if (i < index) {
-                newArr[i] = arr[i];
-            } else {
-                newArr[i] = arr[i - 1]; // i>index
+                    newArr[i] = arr[i];
+                } else {
+                    newArr[i] = arr[i - 1]; // i>index
+                }
             }
+            System.out.println("New array : ");
+            System.out.println(Arrays.toString(newArr));
         }
-        System.out.println("New array : ");
-        System.out.println(Arrays.toString(newArr));
     }
-}
 }

@@ -43,6 +43,7 @@ public class DeleteElementInArray {
         for (int i = 0; i < arr.length; i++) {
             if (X != arr[i]) {
                 for (int j = 0; j < newarr.length; j++) {
+                    // kiểm tra đã có gí trị của mảng mới chưa nếu chưa thì thêm vào
                     if (newarr[j] == 0) {
                         newarr[j] = arr[i];
                         break;
