@@ -21,10 +21,10 @@ public class PushElementInArray {
             arr[i] = scanner.nextInt();
         }
         System.out.println("Display array:" + Arrays.toString(arr));
-        int X;
+        int x;
         int index;
         System.out.println("input X value:");
-        X = scanner.nextInt();
+        x = scanner.nextInt();
         System.out.println("input index need to push:");
         index = scanner.nextInt();
         int[] newArr = new int[arr.length + 1];
@@ -33,7 +33,7 @@ public class PushElementInArray {
         } else {
             for (int i = 0; i < newArr.length; i++) {
                 if (index == i) {
-                    newArr[i] = X;
+                    newArr[i] = x;
                 } else if (i < index) {
                     newArr[i] = arr[i];
                 } else {

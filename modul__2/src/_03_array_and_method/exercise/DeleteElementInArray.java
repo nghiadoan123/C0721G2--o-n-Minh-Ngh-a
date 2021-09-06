@@ -22,11 +22,11 @@ public class DeleteElementInArray {
         }
         int index = 1;
         System.out.println("Nhập số nguyên k cần xóa: ");
-        int X = scanner.nextInt();
+        int x = scanner.nextInt();
         boolean flag = false;
         int count = 0;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == X) {
+            if (arr[i] == x) {
                 index += i;
                 count++;
                 flag = true;
@@ -36,12 +36,12 @@ public class DeleteElementInArray {
         if (flag) {
             System.out.println("vị trí xuất hiện của X :" + index);
         } else {
-            System.out.printf("không có %d trong mảng", X);
+            System.out.printf("không có %d trong mảng", x);
         }
         // c1
         int[] newarr = new int[arr.length - count];
         for (int i = 0; i < arr.length; i++) {
-            if (X != arr[i]) {
+            if (x != arr[i]) {
                 for (int j = 0; j < newarr.length; j++) {
                     // kiểm tra đã có gí trị của mảng mới chưa nếu chưa thì thêm vào
                     if (newarr[j] == 0) {
@@ -53,7 +53,7 @@ public class DeleteElementInArray {
         }
         // c2 duyet song song mang
 //        for (int i = 0, j = 0 ; i < arr.length || j < newarr.length   ;i++){
-//            if (X != arr[i]){
+//            if (x != arr[i]){
 //                newarr[j] = arr[i];
 //                j++;
 //            }
