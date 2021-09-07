@@ -20,14 +20,15 @@ public class MainStopWatch {
             arr[i] = arr[i] + sum;
         }
         StopWatch stopWatch = new StopWatch();
+        SortArray sortArray = new SortArray();
         stopWatch.start();
         System.out.println("time of watch is running");
         // vì phương thức selectionsort là kiểu static nên gọi ko cần thông qua đối tượng mới
         // mà gọi trực tiếp từ lớp
-        StopWatch.selectionSort(arr, n);
+        sortArray.selectionSort(arr, n);
         stopWatch.stop();
         // hàm printArray ko thuộc kiểu static nên phải gọi thông qua đối tượng stopWatch
-        stopWatch.printArray(arr, n);
+        sortArray.printArray(arr, n);
         double elapsedTime = stopWatch.getElapsedtime();
         System.out.println();
         System.out.println("Elapsed time is: " + elapsedTime + " milisecond");
