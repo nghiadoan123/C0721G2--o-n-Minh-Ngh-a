@@ -8,12 +8,21 @@ public class Circle {
 
     }
     Circle(double radius){
-        this.radius = radius +5;
+        this.radius = radius;
     }
     public double getRadius(){
         return radius;
     }
     public double getArea(){
         return 2*(Math.PI)*radius;
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                " area= " + getArea() +
+                ", color='" + color + '\'' +
+                '}';
     }
 }

@@ -1,16 +1,15 @@
-package _06_ke_thua.exercise.class_point_2d_and_point_3d;
+package _06_ke_thua.exercise.class_point_and_moveable_point;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
-public class Point2D {
-    float x = 0.0f;
-    float y = 0.0f;
+public class Point {
+    private float x = 0.0f;
+    private float y = 0.0f;
 
-    public Point2D() {
+    public Point() {
     }
 
-    public Point2D(float x, float y) {
+    public Point(float x, float y) {
         this.x = x;
         this.y = y;
     }
@@ -32,8 +31,8 @@ public class Point2D {
     }
 
     public void setXY(float x,float y){
-         this.x = x;
-         this.y = y;
+        this.x = x;
+        this.y = y;
     }
 
     public String getXY(){
@@ -45,7 +44,7 @@ public class Point2D {
 
     @Override
     public String toString() {
-        return "Point2D{" +
+        return "Point{" +
                 "x=" + x +
                 ", y=" + y +
                 ", get x,y position = " + getXY() +

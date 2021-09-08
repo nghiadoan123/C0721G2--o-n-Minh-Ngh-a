@@ -14,4 +14,12 @@ public class Student {
     public void setClasses(String classes){
         this._class = classes;
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", class='" + _class + '\'' +
+                '}';
+    }
 }
