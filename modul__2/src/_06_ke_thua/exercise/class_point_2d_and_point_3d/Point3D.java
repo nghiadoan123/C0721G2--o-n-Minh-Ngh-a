@@ -25,12 +25,12 @@ public class Point3D extends Point2D {
         this.y = y;
         this.z = z;
     }
-    public String getXYZ(){
+    public float[] getXYZ(){
         float [] arr = new float[3];
         arr[0] = this.x;
         arr[1] = this.y;
         arr[2] = this.z;
-        return Arrays.toString(arr);
+        return arr;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class Point3D extends Point2D {
                 ", x=" + x +
                 ", y=" + y +
                 "z=" + z +
-                ", get x,y,z position = " + getXYZ() +
+                ", get x,y,z position = " + Arrays.toString(getXYZ()) +
                 "with Point 2D"+super.toString()+
                 '}';
     }

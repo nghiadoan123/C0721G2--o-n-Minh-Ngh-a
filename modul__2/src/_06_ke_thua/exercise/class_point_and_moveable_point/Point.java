@@ -3,8 +3,8 @@ package _06_ke_thua.exercise.class_point_and_moveable_point;
 import java.util.Arrays;
 
 public class Point {
-    private float x = 0.0f;
-    private float y = 0.0f;
+    protected float x = 0.0f;
+    protected float y = 0.0f;
 
     public Point() {
     }
@@ -35,11 +35,11 @@ public class Point {
         this.y = y;
     }
 
-    public String getXY(){
+    public float[] getXY(){
         float [] arr = new float[2];
         arr[0] = this.x;
         arr[1] = this.y;
-        return Arrays.toString(arr);
+        return arr;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Point {
         return "Point{" +
                 "x=" + x +
                 ", y=" + y +
-                ", get x,y position = " + getXY() +
+                ", get x,y position = " + Arrays.toString(getXY()) +
                 '}';
     }
 }

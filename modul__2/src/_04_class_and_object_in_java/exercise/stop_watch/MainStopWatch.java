@@ -14,10 +14,8 @@ public class MainStopWatch {
 //        } while (n != 100000);
         int n = 100000;
         int[] arr = new int[n];
-        int sum = 0;
         for (int i = 0; i < arr.length; i++) {
-            sum += 1;
-            arr[i] = arr[i] + sum;
+            arr[i] =(int) (Math.random()*1000);
         }
         StopWatch stopWatch = new StopWatch();
         SortArray sortArray = new SortArray();
@@ -29,7 +27,7 @@ public class MainStopWatch {
         stopWatch.stop();
         // hàm printArray ko thuộc kiểu static nên phải gọi thông qua đối tượng stopWatch
         sortArray.printArray(arr, n);
-        double elapsedTime = stopWatch.getElapsedtime();
+        long elapsedTime = stopWatch.getElapsedtime();
         System.out.println();
         System.out.println("Elapsed time is: " + elapsedTime + " milisecond");
     }

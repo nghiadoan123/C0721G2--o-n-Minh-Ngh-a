@@ -36,11 +36,11 @@ public class Point2D {
          this.y = y;
     }
 
-    public String getXY(){
+    public float[] getXY(){
         float [] arr = new float[2];
         arr[0] = this.x;
         arr[1] = this.y;
-        return Arrays.toString(arr);
+        return arr;
     }
 
     @Override
@@ -48,7 +48,7 @@ public class Point2D {
         return "Point2D{" +
                 "x=" + x +
                 ", y=" + y +
-                ", get x,y position = " + getXY() +
+                ", get x,y position = " + Arrays.toString(getXY()) +
                 '}';
     }
 }

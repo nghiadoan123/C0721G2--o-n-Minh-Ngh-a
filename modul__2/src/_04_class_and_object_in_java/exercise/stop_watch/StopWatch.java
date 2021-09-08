@@ -1,14 +1,14 @@
 package _04_class_and_object_in_java.exercise.stop_watch;
 
 public class StopWatch {
-    private double startTime;
-    private double endTime;
+    private long startTime;
+    private long endTime;
 
     public double getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(double startTime) {
+    public void setStartTime(long startTime) {
         this.startTime = startTime;
     }
 
@@ -16,8 +16,12 @@ public class StopWatch {
         return endTime;
     }
 
-    public void setEndTime(double endTime) {
+    public void setEndTime(long endTime) {
         this.endTime = endTime;
+    }
+
+    public StopWatch() {
+        this.startTime = System.currentTimeMillis();
     }
 
     public void start() {
@@ -28,8 +32,8 @@ public class StopWatch {
         this.endTime = System.currentTimeMillis();
     }
 
-    public double getElapsedtime() {
-        double elapsedTime;
+    public long getElapsedtime() {
+        long elapsedTime;
         elapsedTime = this.endTime - this.startTime;
         return elapsedTime;
     }
