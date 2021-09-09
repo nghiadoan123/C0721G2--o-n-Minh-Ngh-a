@@ -1,11 +1,7 @@
-package _06_ke_thua.practice.he_cac_doi_tuong_hinh_hoc;
+package _07_abstract_class_and_interface.exercise.interface_colorable;
 
-public class Square extends Rectangle {
+public class Square extends Rectangle implements InterfaceColorable {
     public Square() {
-    }
-
-    public Square(double side) {
-        super(side, side);
     }
 
     public Square(double side, String color, boolean filled) {
@@ -19,6 +15,10 @@ public class Square extends Rectangle {
     public void setSide(double side) {
         setWidth(side);
         setLength(side);
+    }
+
+    public double getArea() {
+        return super.length*super.width;
     }
 
     @Override
@@ -35,7 +35,13 @@ public class Square extends Rectangle {
     public String toString() {
         return "A Square with side="
                 + getSide()
-                + ", which is a subclass of "
-                + super.toString();
+                + " Area="
+                + getArea();
+
+    }
+
+    @Override
+    public void howTocolor() {
+        System.out.println(" Color all four sides");
     }
 }

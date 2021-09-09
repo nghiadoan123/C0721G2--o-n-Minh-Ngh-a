@@ -1,11 +1,7 @@
-package _06_ke_thua.practice.he_cac_doi_tuong_hinh_hoc;
+package _07_abstract_class_and_interface.exercise.interface_resizeable;
 
-public class Square extends Rectangle {
+public class Square extends Rectangle implements InterfaceResizeable{
     public Square() {
-    }
-
-    public Square(double side) {
-        super(side, side);
     }
 
     public Square(double side, String color, boolean filled) {
@@ -37,5 +33,11 @@ public class Square extends Rectangle {
                 + getSide()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public void resize(double percent) {
+        super.length += percent/100;
+        super.width += percent/100;
     }
 }
