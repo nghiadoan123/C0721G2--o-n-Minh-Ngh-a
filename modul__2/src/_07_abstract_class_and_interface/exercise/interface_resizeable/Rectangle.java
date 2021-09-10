@@ -1,8 +1,8 @@
 package _07_abstract_class_and_interface.exercise.interface_resizeable;
 
 public class Rectangle extends Shape implements InterfaceResizeable {
-    protected double width = 1.0;
-    protected double length = 1.0;
+    private double width = 1.0;
+    private double length = 1.0;
 
     public Rectangle() {
     }
@@ -45,9 +45,9 @@ public class Rectangle extends Shape implements InterfaceResizeable {
     @Override
     public String toString() {
         return "A Rectangle with width="
-                + getWidth()
+                + this.getWidth()
                 + " and length="
-                + getLength()
+                + this.getLength()
                 + ", which is a subclass of "
                 + super.toString();
     }

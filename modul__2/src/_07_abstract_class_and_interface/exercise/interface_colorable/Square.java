@@ -34,9 +34,9 @@ public class Square extends Rectangle implements InterfaceColorable {
     @Override
     public String toString() {
         return "A Square with side="
-                + getSide()
+                + this.getSide()
                 + " Area="
-                + getArea();
+                + this.getArea();
 
     }
 

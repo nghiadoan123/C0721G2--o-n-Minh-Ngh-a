@@ -9,9 +9,9 @@ public class CircleComparator implements Comparator<Circle> {
     public int compare(Circle o1, Circle o2) {
         if (o1.getRadius() > o2.getRadius()) {
             return 1;
-        } else if (o2.getRadius() < o2.getRadius()) {
+        } else if (o1.getRadius() < o2.getRadius()) {
             return -1;
         }
-        return -1;
+        return 0;
     }
 }

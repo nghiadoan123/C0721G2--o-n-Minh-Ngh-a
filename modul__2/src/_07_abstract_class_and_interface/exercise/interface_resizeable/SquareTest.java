@@ -6,7 +6,7 @@ public class SquareTest {
         System.out.println(square);
 
         Square square1 = new Square(3,"blue",false);
-        System.out.println(square);
+        System.out.println(square1);
 
     }
 }

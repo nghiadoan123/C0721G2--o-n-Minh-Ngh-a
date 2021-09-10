@@ -45,10 +45,10 @@ public class Rectangle extends Shape {
     @Override
     public String toString() {
         return "A Rectangle with width="
-                + getWidth()
+                + this.getWidth()
                 + " and length="
-                + getLength()
+                + this.getLength()
                 + " area="
-                + getArea();
+                + this.getArea();
     }
 }

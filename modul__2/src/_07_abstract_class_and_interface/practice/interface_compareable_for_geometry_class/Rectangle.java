@@ -1,6 +1,6 @@
 package _07_abstract_class_and_interface.practice.interface_compareable_for_geometry_class;
 
-public class Rectangle extends Shape {
+public class Rectangle extends Shape implements Comparable<Rectangle> {
     private double width = 1.0;
     private double length = 1.0;
 
@@ -50,5 +50,16 @@ public class Rectangle extends Shape {
                 + getLength()
                 + ", which is a subclass of "
                 + super.toString();
+    }
+
+    @Override
+    public int compareTo(Rectangle o) {
+        if (this.getArea() > o.getArea()) {
+            return 1;
+        } else if (this.getArea() < o.getArea()) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 }

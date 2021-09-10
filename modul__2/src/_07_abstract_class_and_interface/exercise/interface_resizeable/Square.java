@@ -30,14 +30,14 @@ public class Square extends Rectangle implements InterfaceResizeable{
     @Override
     public String toString() {
         return "A Square with side="
-                + getSide()
+                + this.getSide()
                 + ", which is a subclass of "
                 + super.toString();
     }
 
     @Override
     public void resize(double percent) {
-        super.length += percent/100;
-        super.width += percent/100;
+        this.setLength(this.getLength()+ percent/100) ;
+        this.setWidth(this.getWidth()+ percent/100) ;
     }
 }
