@@ -4,8 +4,8 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class Point2D {
-    float x = 0.0f;
-    float y = 0.0f;
+    private float x = 0.0f;
+    private float y = 0.0f;
 
     public Point2D() {
     }
@@ -31,13 +31,13 @@ public class Point2D {
         this.y = y;
     }
 
-    public void setXY(float x,float y){
-         this.x = x;
-         this.y = y;
+    public void setXY(float x, float y) {
+        this.x = x;
+        this.y = y;
     }
 
-    public float[] getXY(){
-        float [] arr = new float[2];
+    public float[] getXY() {
+        float[] arr = new float[2];
         arr[0] = this.x;
         arr[1] = this.y;
         return arr;

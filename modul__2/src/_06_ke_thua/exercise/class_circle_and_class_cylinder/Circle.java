@@ -3,6 +3,7 @@ package _06_ke_thua.exercise.class_circle_and_class_cylinder;
 public class Circle {
     private double radius =0;
     private String color = "white";
+    private double area;
 
     public Circle() {
     }
@@ -14,6 +15,7 @@ public class Circle {
     public Circle(double radius, String color) {
         this.radius = radius;
         this.color = color;
+        this.area = this.radius*Math.PI;
     }
 
     public double getRadius() {
@@ -22,6 +24,7 @@ public class Circle {
 
     public void setRadius(double radius) {
         this.radius = radius;
+        this.area = this.radius*Math.PI;
     }
 
     public String getColor() {
@@ -32,8 +35,6 @@ public class Circle {
         this.color = color;
     }
     public double area (){
-        double area;
-        area = Math.PI*this.radius;
         return area;
     }
 

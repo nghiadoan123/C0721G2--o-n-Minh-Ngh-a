@@ -42,6 +42,6 @@ public class Square extends Rectangle implements InterfaceColorable {
 
     @Override
     public void howTocolor() {
-        System.out.println(" Color all four sides");
+        System.out.print(" Color all four sides ");
     }
 }

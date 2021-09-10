@@ -3,7 +3,7 @@ package _06_ke_thua.exercise.class_point_2d_and_point_3d;
 import java.util.Arrays;
 
 public class Point3D extends Point2D {
-    float z = 0.0f;
+    private float z = 0.0f;
 
     public Point3D() {
     }
@@ -21,23 +21,22 @@ public class Point3D extends Point2D {
         this.z = z;
     }
     public void setXYZ(float x,float y,float z){
-        this.x = x;
-        this.y = y;
+        super.setXY(x,y);
         this.z = z;
     }
     public float[] getXYZ(){
         float [] arr = new float[3];
-        arr[0] = this.x;
-        arr[1] = this.y;
-        arr[2] = this.z;
+        arr[0] = getX();
+        arr[1] = getY();
+        arr[2] = getZ();
         return arr;
     }
 
     @Override
     public String toString() {
         return "Point3D{" +
-                ", x=" + x +
-                ", y=" + y +
+                ", x=" + getX() +
+                ", y=" + getY() +
                 "z=" + z +
                 ", get x,y,z position = " + Arrays.toString(getXYZ()) +
                 "with Point 2D"+super.toString()+

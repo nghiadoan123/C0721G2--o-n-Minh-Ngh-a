@@ -3,8 +3,8 @@ package _06_ke_thua.exercise.class_point_and_moveable_point;
 import java.util.Arrays;
 
 public class Point {
-    protected float x = 0.0f;
-    protected float y = 0.0f;
+    private float x = 0.0f;
+    private float y = 0.0f;
 
     public Point() {
     }

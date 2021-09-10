@@ -15,7 +15,7 @@ public class TestInterfaceSquare {
             } else if (shapeList[i] instanceof Rectangle && shapeList[i] instanceof Square) {
                 ((Square) shapeList[i]).howTocolor();
                 System.out.println(((Square) shapeList[i]).toString());
-            } else {
+            } else if (shapeList[i] instanceof Rectangle){
                 System.out.println(((Rectangle) shapeList[i]).toString());
             }
         }
