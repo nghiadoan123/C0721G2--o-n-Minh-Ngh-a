@@ -8,15 +8,22 @@ public class TestInterfaceSquare {
         shapeList[2] = new Rectangle();
         shapeList[3] = new Square(4, "white", true);
         shapeList[4] = new Square();
-
-        for (int i = 0; i < shapeList.length; i++) {
-            if (shapeList[i] instanceof Circle) {
-                System.out.println(((Circle) shapeList[i]).toString());
-            } else if (shapeList[i] instanceof Rectangle && shapeList[i] instanceof Square) {
-                ((Square) shapeList[i]).howTocolor();
-                System.out.println(((Square) shapeList[i]).toString());
-            } else if (shapeList[i] instanceof Rectangle){
-                System.out.println(((Rectangle) shapeList[i]).toString());
+        // ep kiểu c1
+//        for (int i = 0; i < shapeList.length; i++) {
+//            if (shapeList[i] instanceof Circle) {
+//                System.out.println(((Circle) shapeList[i]).toString());
+//            } else if (shapeList[i] instanceof Rectangle && shapeList[i] instanceof Square) {
+//                ((Square) shapeList[i]).howTocolor();
+//                System.out.println(((Square) shapeList[i]).toString());
+//            } else if (shapeList[i] instanceof Rectangle){
+//                System.out.println(((Rectangle) shapeList[i]).toString());
+//            }
+//        }
+        // ép kiểu c2
+        for (int i = 0; i <shapeList.length ; i++) {
+            System.out.println(shapeList[i].toString());
+            if (shapeList[i] instanceof InterfaceColorable){
+                ((InterfaceColorable)shapeList[i]).howTocolor();
             }
         }
     }

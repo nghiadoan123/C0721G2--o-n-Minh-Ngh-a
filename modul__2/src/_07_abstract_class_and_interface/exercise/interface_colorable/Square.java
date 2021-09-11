@@ -18,7 +18,7 @@ public class Square extends Rectangle implements InterfaceColorable {
     }
 
     public double getArea() {
-        return super.length*super.width;
+        return super.length * super.width;
     }
 
     @Override
@@ -42,6 +42,6 @@ public class Square extends Rectangle implements InterfaceColorable {
 
     @Override
     public void howTocolor() {
-        System.out.print(" Color all four sides ");
+        System.out.print(" Color all four sides \n");
     }
 }

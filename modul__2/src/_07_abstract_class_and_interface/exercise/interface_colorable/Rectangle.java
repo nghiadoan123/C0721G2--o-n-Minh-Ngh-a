@@ -1,6 +1,8 @@
 package _07_abstract_class_and_interface.exercise.interface_colorable;
 
-public class Rectangle extends Shape {
+import _07_abstract_class_and_interface.exercise.interface_resizeable.InterfaceResizeable;
+
+public class Rectangle extends Shape implements InterfaceResizeable {
     protected double width = 1.0;
     protected double length = 1.0;
 
@@ -50,5 +52,11 @@ public class Rectangle extends Shape {
                 + this.getLength()
                 + " area="
                 + this.getArea();
+    }
+
+    @Override
+    public void resize(double percent) {
+        this.length += percent/100;
+        this.width += percent/100;
     }
 }
