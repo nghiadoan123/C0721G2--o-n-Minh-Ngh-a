@@ -2,7 +2,7 @@ package _07_abstract_class_and_interface.exercise.interface_colorable;
 
 import _07_abstract_class_and_interface.exercise.interface_resizeable.InterfaceResizeable;
 
-public class Circle extends Shape implements InterfaceResizeable {
+public class Circle extends Shape  {
     private double radius = 1.0;
 
     public Circle() {
@@ -42,6 +42,7 @@ public class Circle extends Shape implements InterfaceResizeable {
                 + ", which is a subclass of "
                 + super.toString();
     }
+
 
     @Override
     public void resize(double percent) {

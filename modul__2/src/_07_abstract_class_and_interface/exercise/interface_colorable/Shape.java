@@ -1,6 +1,8 @@
 package _07_abstract_class_and_interface.exercise.interface_colorable;
 
-public class Shape {
+import _07_abstract_class_and_interface.exercise.interface_resizeable.InterfaceResizeable;
+
+public class Shape implements InterfaceColorable, InterfaceResizeable {
     private String color = "green";
     private boolean filled = true;
 
@@ -34,5 +36,15 @@ public class Shape {
                 + this.getColor()
                 + " and "
                 + (isFilled() ? "filled" : "not filled");
+    }
+
+    @Override
+    public void howTocolor() {
+
+    }
+
+    @Override
+    public void resize(double percent) {
+
     }
 }

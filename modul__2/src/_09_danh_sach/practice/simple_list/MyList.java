@@ -1,4 +1,4 @@
-package _09_danh_sach.simple_list;
+package _09_danh_sach.practice.simple_list;
 
 import java.util.Arrays;
 
@@ -7,7 +7,8 @@ public class MyList<E> {
     private static final int DEFAULT_CAPACITY = 10;
     private Object elements[];
 
-    public MyList() {
+
+        public MyList() {
         elements = new Object[DEFAULT_CAPACITY];
     }
 
@@ -29,7 +30,4 @@ public class MyList<E> {
         }
         return (E) elements[i];
     }
-
-
-
 }

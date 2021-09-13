@@ -1,6 +1,6 @@
 package _07_abstract_class_and_interface.exercise.interface_colorable;
 
-public class Square extends Rectangle implements InterfaceColorable {
+public class Square extends Rectangle  {
     public Square() {
     }
 
@@ -21,15 +21,15 @@ public class Square extends Rectangle implements InterfaceColorable {
         return super.length * super.width;
     }
 
-    @Override
-    public void setWidth(double width) {
-        super.setWidth(width);
-    }
-
-    @Override
-    public void setLength(double length) {
-        super.setLength(length);
-    }
+//    @Override
+//    public void setWidth(double width) {
+//        super.setWidth(width);
+//    }
+//
+//    @Override
+//    public void setLength(double length) {
+//        super.setLength(length);
+//    }
 
     @Override
     public String toString() {
@@ -39,6 +39,12 @@ public class Square extends Rectangle implements InterfaceColorable {
                 + this.getArea();
 
     }
+    // ko cần override vì lớp cha đã override rồi nên khi dùng sẽ dùng của lớp cha
+//    @Override
+//    public void resize(double percent) {
+//        this.width = percent/100;
+//        this.length = percent/100;
+//    }
 
     @Override
     public void howTocolor() {

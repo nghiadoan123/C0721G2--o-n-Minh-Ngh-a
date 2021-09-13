@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class DemoDeleteElementInArray {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int[] a = {5, 4, 9, 8, 12, 8};
+        int[] a = {5, 8, 9, 8, 12, 8};
         System.out.println("Input value: ");
         int value = scanner.nextInt();
         int count = 0;

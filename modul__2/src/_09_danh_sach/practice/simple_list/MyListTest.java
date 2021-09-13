@@ -1,4 +1,4 @@
-package _09_danh_sach.simple_list;
+package _09_danh_sach.practice.simple_list;
 
 public class MyListTest {
     public static void main(String[] args) {

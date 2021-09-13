@@ -1,5 +1,7 @@
 package _07_abstract_class_and_interface.exercise.interface_colorable;
 
+import _07_abstract_class_and_interface.exercise.interface_resizeable.InterfaceResizeable;
+
 public class TestInterfaceSquare {
     public static void main(String[] args) {
         Shape[] shapeList = new Shape[5];
@@ -21,10 +23,13 @@ public class TestInterfaceSquare {
 //        }
         // ép kiểu c2
         for (int i = 0; i <shapeList.length ; i++) {
-            System.out.println(shapeList[i].toString());
-            if (shapeList[i] instanceof InterfaceColorable){
+            if (shapeList[i] instanceof InterfaceResizeable){
+                ((InterfaceResizeable) shapeList[i]).resize(Math.random() * 10);
+            }
+            if (shapeList[i] instanceof InterfaceColorable ){
                 ((InterfaceColorable)shapeList[i]).howTocolor();
             }
+            System.out.println(shapeList[i]);
         }
     }
 }

@@ -2,7 +2,7 @@ package _07_abstract_class_and_interface.exercise.interface_colorable;
 
 import _07_abstract_class_and_interface.exercise.interface_resizeable.InterfaceResizeable;
 
-public class Rectangle extends Shape implements InterfaceResizeable {
+public class Rectangle extends Shape  {
     protected double width = 1.0;
     protected double length = 1.0;
 
