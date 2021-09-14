@@ -1,4 +1,4 @@
-package _09_danh_sach.exercise.trien_khai_phuong_thuc_arraylist_theo_thu_vien_java;
+package _09_danh_sach.exercise.list;
 
 import java.util.Arrays;
 
