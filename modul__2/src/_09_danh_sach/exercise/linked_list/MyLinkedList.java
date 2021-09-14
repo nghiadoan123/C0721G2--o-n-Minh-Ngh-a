@@ -1,7 +1,4 @@
-package _09_danh_sach.exercise.Linked_list;
-
-import java.util.Arrays;
-import java.util.LinkedList;
+package _09_danh_sach.exercise.linked_list;
 
 public class MyLinkedList<E> {
     Node head;

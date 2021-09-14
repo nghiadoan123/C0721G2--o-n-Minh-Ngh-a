@@ -1,8 +1,6 @@
 package _11_stack_queue.exercise;
 
-import java.util.Iterator;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
 public class UseMapCountElement {
     public static void main(String[] args) {
@@ -24,10 +22,11 @@ public class UseMapCountElement {
         }
 
         Set set = map.keySet();
-        Iterator i = set.iterator();
+        Iterator iterator = set.iterator();
 
-        while (i.hasNext()) {
-            key = (String) i.next();
+        while (iterator.hasNext()) {
+            key = (String) iterator.next();
+           // key = ((String) iterator.next()).toUpperCase();
             System.out.println("Từ '" + key + "' xuất hiện " + map.get(key) + " lần");
         }
     }

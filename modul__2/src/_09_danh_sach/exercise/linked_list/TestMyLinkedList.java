@@ -1,4 +1,4 @@
-package _09_danh_sach.exercise.Linked_list;
+package _09_danh_sach.exercise.linked_list;
 
 
 
