@@ -14,20 +14,22 @@ public class UseMapCountElement {
             key = arr[i];
             if (map.containsKey(key)) {
                 value = map.get(key);
-                map.remove(key);
                 map.put(key, value + 1);
             } else {
                 map.put(key, 1);
             }
         }
-
-        Set set = map.keySet();
-        Iterator iterator = set.iterator();
-
-        while (iterator.hasNext()) {
-            key = (String) iterator.next();
-           // key = ((String) iterator.next()).toUpperCase();
-            System.out.println("Từ '" + key + "' xuất hiện " + map.get(key) + " lần");
+        Set<String> set = map.keySet();
+        //Iterator iterator = set.iterator();
+        // c1
+        for (String sets : set) {
+            System.out.println("Key: " + sets + "xuất hiện: " + map.get(key) + "lần");
         }
+        // c2
+//        while (iterator.hasNext()) {
+//            key = (String) iterator.next();
+//           // key = ((String) iterator.next()).toUpperCase();
+//            System.out.println("Từ '" + key + "' xuất hiện " + map.get(key) + " lần");
+//        }
     }
 }

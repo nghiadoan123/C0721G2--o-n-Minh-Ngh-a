@@ -54,9 +54,9 @@ public class Rectangle extends Shape  {
                 + this.getArea();
     }
 
-    @Override
-    public void resize(double percent) {
-        this.length += percent/100;
-        this.width += percent/100;
-    }
+//    @Override
+//    public void resize(double percent) {
+//        this.length += percent/100;
+//        this.width += percent/100;
+//    }
 }
