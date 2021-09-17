@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class PracticeUseHashMapLinkedHashMapTreeMap {
+public class PracticeUseMap {
     public static void main(String[] args) {
         // hashMap không theo thứ tự khi in ra
         Map<String, Integer> hashMap = new HashMap<>();

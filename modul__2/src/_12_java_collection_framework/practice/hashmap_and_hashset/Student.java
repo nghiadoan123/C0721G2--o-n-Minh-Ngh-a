@@ -1,5 +1,7 @@
 package _12_java_collection_framework.practice.hashmap_and_hashset;
 
+import java.util.Objects;
+
 public class Student {
     private String name;
     private int age;
@@ -42,5 +44,10 @@ public class Student {
     @Override
     public String toString() {
         return "Student@name=" + name + ",age=" + age + ",address=" + address;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age, address);
     }
 }

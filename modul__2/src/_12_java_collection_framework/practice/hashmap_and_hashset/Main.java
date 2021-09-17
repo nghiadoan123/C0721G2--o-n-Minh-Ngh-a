@@ -17,6 +17,7 @@ public class Main {
         studentMap.put(3, student3);
         studentMap.put(4, student1);
 
+        //dùng Map.Entry interface để truy cập các phần tử của map
         for (Map.Entry<Integer, Student> student : studentMap.entrySet()) {
             System.out.println(student.toString());
         }

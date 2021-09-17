@@ -14,7 +14,7 @@ public class AbstractAndInterfaceTests {
 //        System.out.println(edible1.howToeat());
         for (Animal animal : animals) {
             System.out.println(animal.makeSound());
-            if (animal instanceof Chicken) {
+            if (animal instanceof Edible) {
                 Edible edible = (Chicken) animal;
                 System.out.println(edible.howToeat());
             }

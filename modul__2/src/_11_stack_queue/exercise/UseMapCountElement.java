@@ -4,12 +4,12 @@ import java.util.*;
 
 public class UseMapCountElement {
     public static void main(String[] args) {
-        String str = "hello words hello words";
+        String str = "hello words words";
         str = str.replaceAll(",", "");
         String[] arr = str.split(" ");
         String key = "";
         Integer value;
-        TreeMap<String, Integer> map = new TreeMap<String, Integer>();
+        Map<String, Integer> map = new TreeMap<String, Integer>();
         for (int i = 0; i < arr.length; i++) {
             key = arr[i];
             if (map.containsKey(key)) {
@@ -19,17 +19,29 @@ public class UseMapCountElement {
                 map.put(key, 1);
             }
         }
+        // c3 dùng entry đê truy cập các phần tử của map
+//        for (Map.Entry<String,Integer> entry: map.entrySet()) {
+//            System.out.println(entry.getKey()+ " xuất hiện: "  + entry.getValue()+ "lần" );
+//        }
+        // c1 dùng generic <>
+        //Set<String> set = map.keySet();
+        //        for (String sets : set) {
+//            System.out.println("Key: " + sets + "xuất hiện: " + map.get(key) + "lần");
+//        }
+        // c2 dùng interator
         Set<String> set = map.keySet();
-        //Iterator iterator = set.iterator();
-        // c1
-        for (String sets : set) {
-            System.out.println("Key: " + sets + "xuất hiện: " + map.get(key) + "lần");
+        Iterator iterator = set.iterator();
+
+        for (int i = 0; iterator.hasNext() ; i++) {
+            key = (String) iterator.next();
+            System.out.println("'"+key + "' xuất hiện "+ map.get(key) +" lần");
         }
-        // c2
+//
 //        while (iterator.hasNext()) {
 //            key = (String) iterator.next();
 //           // key = ((String) iterator.next()).toUpperCase();
 //            System.out.println("Từ '" + key + "' xuất hiện " + map.get(key) + " lần");
+//
 //        }
     }
 }
