@@ -99,11 +99,16 @@ public class ManagerProduct {
 
     public void searchProduct() {
         showProduct();
-        System.out.println("nhập vào id của sản phẩm cần tìm");
+        System.out.println("nhập vào tên của sản phẩm cần tìm");
         Scanner sc = new Scanner(System.in);
-        int chooseId = sc.nextInt();
-        System.out.println("thông tin sản phẩm cần tìm");
-        System.out.println(productLists.get(chooseId - 1));
+        String name = sc.nextLine();
+        for (Product product:productLists) {
+            if (product.getProductName().contains(name)){
+                System.out.println(product);
+            }else {
+                System.out.println("không có tên sản phẩm trong danh sách");
+            }
+        }
     }
 
     public void showProduct() {
