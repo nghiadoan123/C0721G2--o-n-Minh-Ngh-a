@@ -1,33 +1,35 @@
 package _14_thuat_toan_sap_xep.exercise;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class InsertionSortByStep {
     public void insertionSort(int arr[]) {
-        int valueToInsert;
-        int holePosition;
+        int x;
+        int pos;
 
         // lap qua tat ca cac so
         for (int i = 1; i < arr.length; i++) {
 
             // chon mot gia tri de chen
-            valueToInsert = arr[i];
+            x = arr[i];
 
             // lua chon vi tri de chen
-            holePosition = i;
+            pos = i;
 
             // kiem tra xem so lien truoc co lon hon gia tri duoc chen khong
-            while (holePosition > 0 && arr[holePosition - 1] > valueToInsert) {
-                arr[holePosition] = arr[holePosition - 1];
-                holePosition--;
-                System.out.println("Di chuyen phan tu: " + arr[holePosition]);
+            while (pos > 0 && arr[pos - 1] > x) {
+                arr[pos] = arr[pos - 1];
+                pos--;
+                System.out.println("inner" + Arrays.toString(arr));
             }
 
-            if (holePosition != i) {
-                System.out.println(" Chen phan tu: " + valueToInsert
-                        + ", tai vi tri: " + holePosition);
+            if (pos != i) {
+                System.out.println(" Chen phan tu: " + x
+                        + ", tai vi tri: " + pos);
                 // chen phan tu tai vi tri chen
-                arr[holePosition] = valueToInsert;
+                arr[pos] = x;
+                System.out.println("sau khi chèn" + Arrays.toString(arr));
             }
 
             System.out.println("Vong lap thu " + i);

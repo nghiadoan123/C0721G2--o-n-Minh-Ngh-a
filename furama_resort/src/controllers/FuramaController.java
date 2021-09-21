@@ -109,6 +109,7 @@ public class FuramaController {
                                 break;
                             case 4:
                                 //	Return main menu
+                                flagFacility = true;
                                 break;
                         }
                     }while (!flagFacility);
@@ -132,17 +133,17 @@ public class FuramaController {
                                 bookingService.showBookingList();
                                 break;
                             case 3:
-                                System.out.println("3.Create new constracts");
-
+                                bookingService.createContract();
                                 break;
                             case 4:
-                                System.out.println("4.Display list contracts");
+                                bookingService.displayListContract();
                                 break;
                             case 5:
-                                System.out.println("5.Edit contracts");
+                                bookingService.editContract();
                                 break;
                             case 6:
                                 //	Return main menu
+                                flagBooking = true;
                                 break;
                         }
                     }while (!flagBooking);
@@ -164,6 +165,7 @@ public class FuramaController {
                                 break;
                             case 3:
                                 //	Return main menu
+                                flagService = true;
                                 break;
                         }
                     }while (!flagService);

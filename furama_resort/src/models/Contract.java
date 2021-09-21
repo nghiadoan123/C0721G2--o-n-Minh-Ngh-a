@@ -1,16 +1,16 @@
 package models;
 
-public class Contract {
-    private double contractNumber;
-    private double bookingNumber;
+public class Contract implements Comparable<Contract> {
+    private int contractNumber;
+    private int bookingNumber;
     private double deposit;
     private double totalPayment;
-    private double customerId;
+    private int customerId;
 
     public Contract() {
     }
 
-    public Contract(double contractNumber, double bookingNumber, double deposit, double totalPayment, double customerId) {
+    public Contract(int contractNumber, int bookingNumber, double deposit, double totalPayment, int customerId) {
         this.contractNumber = contractNumber;
         this.bookingNumber = bookingNumber;
         this.deposit = deposit;
@@ -18,20 +18,28 @@ public class Contract {
         this.customerId = customerId;
     }
 
-    public double getContractNumber() {
+    public int getContractNumber() {
         return contractNumber;
     }
 
-    public void setContractNumber(double contractNumber) {
+    public void setContractNumber(int contractNumber) {
         this.contractNumber = contractNumber;
     }
 
-    public double getBookingNumber() {
+    public int getBookingNumber() {
         return bookingNumber;
     }
 
-    public void setBookingNumber(double bookingNumber) {
+    public void setBookingNumber(int bookingNumber) {
         this.bookingNumber = bookingNumber;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
     }
 
     public double getDeposit() {
@@ -50,13 +58,7 @@ public class Contract {
         this.totalPayment = totalPayment;
     }
 
-    public double getCustomerId() {
-        return customerId;
-    }
 
-    public void setCustomerId(double customerId) {
-        this.customerId = customerId;
-    }
 
     @Override
     public String toString() {
@@ -65,5 +67,10 @@ public class Contract {
                 ", deposit=" + deposit +
                 ", totalPayment=" + totalPayment +
                 ", customerId=" + customerId ;
+    }
+
+    @Override
+    public int compareTo(Contract o) {
+        return (int) (this.bookingNumber-o.bookingNumber);
     }
 }

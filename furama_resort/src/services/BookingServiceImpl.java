@@ -1,16 +1,15 @@
 package services;
 
 import models.Booking;
+import models.Contract;
 
-import java.util.Queue;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class BookingServiceImpl {
     private static Set<Booking> bookingList = new TreeSet<>();
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
+    ContactServiceImpl contactService = new ContactServiceImpl();
 
     static {
         bookingList.add(new Booking(1, 25, 28, 1, "villa1", "normal"));
@@ -44,7 +43,24 @@ public class BookingServiceImpl {
     }
 
     public void createContract(){
+        Scanner sc = new Scanner(System.in);
+        Queue<Booking> queue = new LinkedList<Booking>();
+        for (Booking booking : bookingList) {
+            queue.offer(booking);
+        }
 
+        for (Booking booking: bookingList) {
+            System.out.println(queue.poll());
+            contactService.createContract();
+        }
+    }
+
+    public void displayListContract(){
+        contactService.displayContractList();
+    }
+
+    public  void editContract(){
+        contactService.editContract();
     }
 
 

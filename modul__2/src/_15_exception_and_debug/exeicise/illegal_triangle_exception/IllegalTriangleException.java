@@ -1,11 +1,23 @@
 package _15_exception_and_debug.exeicise.illegal_triangle_exception;
 
 public class IllegalTriangleException extends Exception {
-    public void negativeException(){
-        System.out.println("sô nhập vào là số âm");
+    private String err;
+
+    public IllegalTriangleException() {
     }
 
-    public void checkSumException(){
-        System.out.println("3 canh nhập vào không hợp lệ");
+    public IllegalTriangleException(String err) {
+        this.err = err;
     }
+
+    public String getErr() {
+        return err;
+    }
+
+    public void setErr(String err) {
+        this.err = err;
+    }
+
+
 }
+

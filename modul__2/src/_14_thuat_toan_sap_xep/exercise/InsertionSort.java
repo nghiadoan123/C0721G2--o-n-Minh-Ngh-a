@@ -1,5 +1,7 @@
 package _14_thuat_toan_sap_xep.exercise;
 
+import java.util.Arrays;
+
 public class InsertionSort {
     static int[] list = {2, 3, 2, 5, 6, 1, -2, 3, 14, 12};
     public static void insertionSort(int[] array){
@@ -11,6 +13,7 @@ public class InsertionSort {
                 array[pos] = array[pos-1];
                 pos--;
             }
+            System.out.println("inner" + Arrays.toString(array));
             array[pos] = x;
         }
     }
