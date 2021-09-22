@@ -13,7 +13,7 @@ public class Main {
         BufferedReader br = null;
         try {
             String line;
-            br = new BufferedReader(new FileReader(new File("D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\modul__2\\countries.cvs")));
+            br = new BufferedReader(new FileReader("D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\modul__2\\countries.csv"));
 
             while ((line = br.readLine()) != null) {
                 printCountry(parseCsvLine(line));
