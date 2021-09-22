@@ -1,29 +1,19 @@
-package _01_introduction_to_Java.exercise;
 
-import java.io.CharArrayReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Scanner;
 
 public class demo {
-    public static void main(String[] args)
-    {
-        String obj  = "abcdef";
-        int length = obj.length();
-        char c[] = new char[length];
-        obj.getChars(0, length, c, 0);
-        CharArrayReader input1 = new CharArrayReader(c);
-        CharArrayReader input2 = new CharArrayReader(c, 0, 3);
-        int i;
-        try
-        {
-            while((i = input2.read()) != -1)
-            {
-                System.out.print((char)i);
+    public static void main(String[] args) throws IOException {
+        InputStream is = System.in;
+        while (true) {
+            System.out.print("Nhập 1 ký tự: ");
+            int ch = is.read();
+            if (ch == 'q') {
+                System.out.println("Finished!");
+                break;
             }
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
+            is.skip(2); // Loại bỏ 2 ký tự \r và \n
+            System.out.println("Ký tự nhận được: " + (char) ch);
         }
     }
 }
