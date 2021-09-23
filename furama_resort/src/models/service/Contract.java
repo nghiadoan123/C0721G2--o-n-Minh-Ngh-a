@@ -1,4 +1,4 @@
-package models;
+package models.service;
 
 public class Contract implements Comparable<Contract> {
     private int contractNumber;

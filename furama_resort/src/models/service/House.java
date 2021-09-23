@@ -1,22 +1,20 @@
-package models;
+package models.service;
 
 import java.util.Objects;
 
-public class Villa extends Facility {
+public class House extends Facility {
 
     private int rentHours;
     private String roomStander;
-    private Double poolArea;
     private int numberFloor;
 
-    public Villa() {
+    public House() {
     }
 
-    public Villa(String serviceName, Double useArea, Double rentCost, int maxPeople, int rentYear, int rentMonth, int rentDay, int rentHours, String roomStander, Double poolArea, int numberFloor) {
+    public House(String serviceName, Double useArea, Double rentCost, int maxPeople, int rentYear, int rentMonth, int rentDay, int rentHours, String roomStander, int numberFloor) {
         super(serviceName, useArea, rentCost, maxPeople, rentYear, rentMonth, rentDay);
         this.rentHours = rentHours;
         this.roomStander = roomStander;
-        this.poolArea = poolArea;
         this.numberFloor = numberFloor;
     }
 
@@ -36,14 +34,6 @@ public class Villa extends Facility {
         this.roomStander = roomStander;
     }
 
-    public Double getPoolArea() {
-        return poolArea;
-    }
-
-    public void setPoolArea(Double poolArea) {
-        this.poolArea = poolArea;
-    }
-
     public int getNumberFloor() {
         return numberFloor;
     }
@@ -57,16 +47,15 @@ public class Villa extends Facility {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
-        Villa villa = (Villa) o;
-        return rentHours == villa.rentHours &&
-                numberFloor == villa.numberFloor &&
-                Objects.equals(roomStander, villa.roomStander) &&
-                Objects.equals(poolArea, villa.poolArea);
+        House house = (House) o;
+        return rentHours == house.rentHours &&
+                numberFloor == house.numberFloor &&
+                Objects.equals(roomStander, house.roomStander);
     }
 
     @Override
     public int hashCode() {
-        return 1;
+        return Objects.hash(super.hashCode(), rentHours, roomStander, numberFloor);
     }
 
     @Override
@@ -74,7 +63,6 @@ public class Villa extends Facility {
         return  super.toString()+
                 ", rentHours=" + rentHours +
                 ", roomStander='" + roomStander + '\'' +
-                ", poolArea=" + poolArea +
-                ", numberFloor=" + numberFloor;
+                ", numberFloor=" + numberFloor ;
     }
 }

@@ -1,4 +1,4 @@
-package models;
+package models.person;
 
 public abstract class Person {
     private int id;

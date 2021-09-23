@@ -1,4 +1,4 @@
-package models;
+package models.service;
 
 public class Booking implements Comparable<Booking> {
     private int bookingId;

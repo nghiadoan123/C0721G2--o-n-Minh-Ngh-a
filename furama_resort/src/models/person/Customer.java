@@ -1,4 +1,6 @@
-package models;
+package models.person;
+
+import models.service.Facility;
 
 public class Customer extends Person {
     private Facility facility;

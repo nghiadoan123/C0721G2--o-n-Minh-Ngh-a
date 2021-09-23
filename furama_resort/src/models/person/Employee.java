@@ -1,4 +1,6 @@
-package models;
+package models.person;
+
+import models.person.Person;
 
 public class Employee extends Person {
     private String position;
