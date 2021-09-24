@@ -8,8 +8,18 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
+    //EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
     public static List<Customer> customerList = new LinkedList<>();
     Scanner sc = new Scanner(System.in);
+
+    static {
+        Customer customer1 = new Customer("1", "Steven", "19/2/1298", "man", 906959, "Steven@gmail.com", "C101", "Member", "Newyork");
+        Customer customer2 = new Customer("2", "job", "20/02/2002", "woman", 906979, "Jonh@gmail.com", "C102", "Silver", "Canada");
+        Customer customer3 = new Customer("3", "angela", "12/02/2014", "man", 906958, "Anna@gmail.com", "C103", "Member", "US");
+        customerList.add(customer1);
+        customerList.add(customer2);
+        customerList.add(customer3);
+    }
 
     public final static String DIAMOND = "Diamond";
     public final static String PLATINUM = "Platinum";
@@ -17,27 +27,26 @@ public class CustomerServiceImpl implements CustomerService {
     public final static String SILVER = "Silver";
     public final static String MEMBER = "Member";
 
-
     @Override
     public void add() {
         System.out.println("input customer id:");
-        String id = sc.next();
+        String id = sc.nextLine();
         System.out.println("input customer name:");
-        String name = sc.next();
+        String name = sc.nextLine();
         System.out.println("input customer day of birth:");
-        String dayOfBirth = sc.next();
+        String dayOfBirth = sc.nextLine();
         System.out.println("input customer gender:");
-        String gender = sc.next();
+        String gender = sc.nextLine();
         System.out.println("input customer identyty number:");
-        int identityNumber = sc.nextInt();
+        int identityNumber = Integer.parseInt(sc.nextLine());
         System.out.println("input customer phone number:");
-        String phoneNumber = sc.next();
+        String phoneNumber = sc.nextLine();
         System.out.println("input customer email:");
-        String email = sc.next();
+        String email = sc.nextLine();
         System.out.println("input type of customer :");
         String typeOfCustomer = selectTypeOfCustomer();
         System.out.println("input customer address:");
-        String address = sc.next();
+        String address = sc.nextLine();
         Customer customer = new Customer(id, name, dayOfBirth, gender, identityNumber, phoneNumber, email, typeOfCustomer, address);
         customerList.add(customer);
         System.out.println("after add new employee");
@@ -89,28 +98,28 @@ public class CustomerServiceImpl implements CustomerService {
                             break;
                         case 3:
                             System.out.println("Enter new birthday");
-                            String birthday = sc.nextLine();
-                            customer.setName(birthday);
+                            String birthday = Input.inputBirthday();
+                            customer.setDayOfBirth(birthday);
                             break;
                         case 4:
                             System.out.println("Enter new gender");
                             String gender = sc.nextLine();
-                            customer.setName(gender);
+                            customer.setGender(gender);
                             break;
                         case 5:
                             System.out.println("Enter new identity number");
-                            String identity = sc.nextLine();
-                            customer.setName(identity);
+                            int identity = Integer.parseInt(sc.nextLine());
+                            customer.setIdentityNumber(identity);
                             break;
                         case 6:
                             System.out.println("Enter new phoneNumber");
                             String phoneNumber = sc.nextLine();
-                            customer.setName(phoneNumber);
+                            customer.setPhoneNumber(phoneNumber);
                             break;
                         case 7:
                             System.out.println("Enter new email");
                             String email = sc.nextLine();
-                            customer.setName(email);
+                            customer.setEmail(email);
                             break;
                         case 8:
                             boolean flagType = true;
@@ -146,13 +155,25 @@ public class CustomerServiceImpl implements CustomerService {
                         case 9:
                             System.out.println("Enter new address");
                             String address = sc.nextLine();
-                            customer.setName(address);
+                            customer.setAddress(address);
                             break;
                         case 10:
                             flag = false;
                     }
                 }
             }
+        }
+    }
+
+    public static Customer setCustomer(String id) {
+        while (true){
+            for (Customer customer: customerList) {
+                if (customer.getId().equals(id)){
+                    return customer;
+                }
+            }
+            System.out.println("not found");
+            return null;
         }
     }
 

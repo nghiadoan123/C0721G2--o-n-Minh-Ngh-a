@@ -2,13 +2,18 @@ package services;
 
 import models.person.Employee;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
-    Scanner scanner = new Scanner(System.in);
+
+    public static Scanner scanner = new Scanner(System.in);
     public static List<Employee> employeeServices = new ArrayList<Employee>();
+
 
 
     static {
@@ -18,28 +23,29 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
 
+
     @Override
     public void add() {
         System.out.println("input employee name:");
-        String name = scanner.next();
+        String name = scanner.nextLine();
         System.out.println("input employee day of birth:");
-        String dayOfBirth = scanner.next();
+        String dayOfBirth = Input.inputBirthday();
         System.out.println("input employee gender:");
-        String gender = scanner.next();
+        String gender = scanner.nextLine();
         System.out.println("input employee identyty number:");
-        int identityNumber = scanner.nextInt();
+        int identityNumber = Integer.parseInt( scanner.nextLine());
         System.out.println("input employee phone number:");
-        String phoneNumber = scanner.next();
+        String phoneNumber = scanner.nextLine();
         System.out.println("input employee email:");
-        String email = scanner.next();
+        String email = scanner.nextLine();
         System.out.println("input employee id:");
-        String id = scanner.next();
+        String id = scanner.nextLine();
         System.out.println("input employee degree:");
         String degree = chooseLevel();
         System.out.println("input employee position:");
         String position = choosePosition();
         System.out.println("input employee salary:");
-        double salary = scanner.nextDouble();
+        double salary =Double.parseDouble(scanner.nextLine());
         Employee employee = new Employee(id, name, dayOfBirth, gender, identityNumber, phoneNumber, email, degree, position, salary);
         employeeServices.add(employee);
         System.out.println("after add new employee");
@@ -110,7 +116,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
                         case 3:
                             System.out.println("Enter new bithday");
-                            String birth = scanner.next();
+                            String birth = Input.inputBirthday();
                             e.setDayOfBirth(birth);
                             break;
 
@@ -122,13 +128,13 @@ public class EmployeeServiceImpl implements EmployeeService {
 
                         case 5:
                             System.out.println("Enter new identityNumber");
-                            int identityNumber = scanner.nextInt();
+                            int identityNumber = Integer.parseInt(scanner.nextLine());
                             e.setIdentityNumber(identityNumber);
                             break;
 
                         case 6:
                             System.out.println("Enter new phone");
-                            String phone = scanner.next();
+                            String phone = scanner.nextLine();
                             e.setPhoneNumber(phone);
                             break;
                         case 7:
@@ -140,7 +146,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                             boolean flag = true;
                             while (flag) {
                                 System.out.println("Enter new level" + "\n" + "1.INTERMEDIATE" + "\n" + "2.COLLEGE" + "\n" + "3.UNIVERSITY" + "\n" + "4.AFFTERUNIVERSITY");
-                                String choice1 = scanner.next();
+                                String choice1 = scanner.nextLine();
                                 switch (choice1) {
                                     case "1":
                                         e.setLevel(Employee.INTERMEDIATE);
@@ -203,7 +209,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                             break;
                         case 10:
                             System.out.println("Enter new Salary");
-                            double salary = scanner.nextDouble();
+                            double salary = Double.parseDouble(scanner.nextLine());
                             e.setSalary(salary);
                             break;
                         case 11:

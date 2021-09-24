@@ -15,11 +15,12 @@ public class FacilityServiceImpl implements FacilityService {
     public static Map<Facility, Integer> facilityList = new LinkedHashMap<>();
     Scanner scanner = new Scanner(System.in);
 
-//    static {
-//        facilityList.put(new Villa("villa1", 20.0, 500.0, 15, 0, 6, 0, 0, "normal", 60.0, 2),++ valueOfVilla);
-//        facilityList.put(new Room("room1", 20.0, 500.0, 15, 0, 6, 0, "normal"), ++valueOfRoom);
-//        facilityList.put(new House("house1", 20.0, 500.0, 15, 0, 6, 0, 0, "normal", 2), ++valueOfHouse);
-//    }
+    static {
+        facilityList.put(new Villa("Villa1", 50, 100000, 4, Villa.HOURS, Villa.DELUXE, 50, 4), 0);
+        facilityList.put(new Villa("Villa2", 50, 120000, 4, Villa.MONTH, Villa.DELUXE, 50, 5), 0);
+        facilityList.put(new Villa("Villa3", 50, 150000, 4, Villa.YEAR, Villa.DELUXE, 50, 6), 0);
+
+    }
 
     public final static String HOURS = "hours";
     public final static String DAY = "day";
@@ -44,7 +45,23 @@ public class FacilityServiceImpl implements FacilityService {
             }
     }
 
-    public static Facility getFacilityTime(String facilityName) {
+    public String chooseRoomStandard() {
+        System.out.println("Enter room standard:" + "\n" + "1.STANDARD" + "\n" + "2.DELUXE" + "\n" + "3.FAMILY" + "\n");
+        String choice = scanner.nextLine();
+        while (true)
+            switch (choice) {
+                case "1":
+                    return Villa.STANDARD;
+                case "2":
+                    return Villa.DELUXE;
+                case "3":
+                    return Villa.FAMILY;
+                default:
+                    System.out.println("in put again");
+            }
+    }
+
+    public static Facility setFacilityTime(String facilityName) {
         for (Map.Entry<Facility, Integer> e : facilityList.entrySet()) {
             if (e.getKey().getServiceName().equals(facilityName)) {
                 e.setValue(e.getValue() + 1);
@@ -75,7 +92,7 @@ public class FacilityServiceImpl implements FacilityService {
                     String typeOfRent = chooseTypeOfRent();
 
                     System.out.println("Enter roomStandard");
-                    String roomStandard = scanner.nextLine();
+                    String roomStandard = chooseRoomStandard();
                     System.out.println("Enter poolArea");
                     int poolArea = scanner.nextInt();
                     System.out.println("Enter numOfFloor");

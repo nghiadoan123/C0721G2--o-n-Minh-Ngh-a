@@ -12,15 +12,15 @@ public class ContractServiceImpl implements ContractService {
     public void createContract(){
         Scanner sc = new Scanner(System.in);
         System.out.println("input contract number:");
-        int contractNumber = sc.nextInt();
+        int contractNumber =Integer.parseInt( sc.nextLine());
         System.out.println("input booking number:");
-        int bookingNumber = sc.nextInt();
+        int bookingNumber = Integer.parseInt(sc.nextLine());
         System.out.println("input deposit:");
-        double deposit = sc.nextDouble();
+        double deposit = Double.parseDouble(sc.nextLine());
         System.out.println("input totalPayment:");
-        double totalPayment = sc.nextDouble();
+        double totalPayment = Double.parseDouble(sc.nextLine());
         System.out.println("input customerId :");
-        int customerId = sc.nextInt();
+        int customerId = Integer.parseInt(sc.nextLine());
         Contract contract = new Contract(contractNumber,bookingNumber,deposit,totalPayment,customerId);
         contractList.add(contract);
     }
@@ -45,8 +45,6 @@ public class ContractServiceImpl implements ContractService {
                 double totalPaymentNew = sc.nextDouble();
                 contract.setTotalPayment(totalPaymentNew);
                 contract.setCustomerId(idCustomer);
-                //Contract contractNew = new Contract(contractNumberNew,bookingNumberNew,depositNew,totalPaymentNew,contract.getCustomerId());
-               // contractList.add(contractNew);
                 System.out.println("after edit information");
                 displayContractList();
             }else {
