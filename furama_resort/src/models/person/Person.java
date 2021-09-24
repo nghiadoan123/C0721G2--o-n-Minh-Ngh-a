@@ -1,7 +1,7 @@
 package models.person;
 
 public abstract class Person {
-    private int id;
+    private String id;
     private String name;
     private String dayOfBirth;
     private String gender;
@@ -12,7 +12,7 @@ public abstract class Person {
     public Person() {
     }
 
-    public Person(int id, String name, String dayOfBirth, String gender, int identityNumber, String phoneNumber, String email) {
+    public Person(String id, String name, String dayOfBirth, String gender, int identityNumber, String phoneNumber, String email) {
         this.id = id;
         this.name = name;
         this.dayOfBirth = dayOfBirth;
@@ -22,11 +22,11 @@ public abstract class Person {
         this.email = email;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -80,12 +80,12 @@ public abstract class Person {
 
     @Override
     public String toString() {
-        return "id=" + id +
+        return "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", dayOfBirth='" + dayOfBirth + '\'' +
                 ", gender='" + gender + '\'' +
                 ", identityNumber=" + identityNumber +
                 ", phoneNumber='" + phoneNumber + '\'' +
-                ", email='" + email + '\'' ;
+                ", email='" + email ;
     }
 }

@@ -3,41 +3,29 @@ package models.service;
 import java.util.Objects;
 
 public class Room extends Facility {
-    private String freeService;
+    private String promotionService;
 
     public Room() {
     }
 
-    public Room(String serviceName, Double useArea, Double rentCost, int maxPeople, int rentYear, int rentMonth, int rentDay, String freeService) {
-        super(serviceName, useArea, rentCost, maxPeople, rentYear, rentMonth, rentDay);
-        this.freeService = freeService;
+    public Room(String serviceName, int usableArea, int rentalCost, int maxNumberOfTenants, String typeOfRent, String promotionService) {
+        super(serviceName, usableArea, rentalCost, maxNumberOfTenants, typeOfRent);
+        this.promotionService = promotionService;
     }
 
-    public String getFreeService() {
-        return freeService;
+    public String getPromotionService() {
+        return promotionService;
     }
 
-    public void setFreeService(String freeService) {
-        this.freeService = freeService;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Room room = (Room) o;
-        return Objects.equals(freeService, room.freeService);
-    }
-
-    @Override
-    public int hashCode() {
-        return 1;
+    public void setPromotionService(String promotionService) {
+        this.promotionService = promotionService;
     }
 
     @Override
     public String toString() {
-        return  super.toString()+
-                ", freeService='" + freeService + '\'' ;
+        return "Room{" +
+                super.toString() +
+                "promotionService='" + promotionService + '\'' +
+                '}';
     }
 }

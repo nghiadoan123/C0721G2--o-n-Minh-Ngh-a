@@ -4,24 +4,25 @@ import java.util.Objects;
 
 public abstract class Facility {
     private String serviceName;
-    private Double useArea;
-    private Double rentCost;
-    private int maxPeople;
-    private int rentYear;
-    private int rentMonth;
-    private int rentDay;
+    private int usableArea;
+    private int rentalCost;
+    private int maxNumberOfTenants ;
+    private  String typeOfRent;
+
+    public final static String HOURS = "hours";
+    public final static String DAY = "day";
+    public final static String MONTH = "month";
+    public final static String YEAR = "year";
 
     public Facility() {
     }
 
-    public Facility(String serviceName, Double useArea, Double rentCost, int maxPeople, int rentYear, int rentMonth, int rentDay) {
+    public Facility(String serviceName, int usableArea, int rentalCost, int maxNumberOfTenants, String typeOfRent) {
         this.serviceName = serviceName;
-        this.useArea = useArea;
-        this.rentCost = rentCost;
-        this.maxPeople = maxPeople;
-        this.rentYear = rentYear;
-        this.rentMonth = rentMonth;
-        this.rentDay = rentDay;
+        this.usableArea = usableArea;
+        this.rentalCost = rentalCost;
+        this.maxNumberOfTenants = maxNumberOfTenants;
+        this.typeOfRent = typeOfRent;
     }
 
     public String getServiceName() {
@@ -32,81 +33,59 @@ public abstract class Facility {
         this.serviceName = serviceName;
     }
 
-    public Double getUseArea() {
-        return useArea;
+    public int getUsableArea() {
+        return usableArea;
     }
 
-    public void setUseArea(Double useArea) {
-        this.useArea = useArea;
+    public void setUsableArea(int usableArea) {
+        this.usableArea = usableArea;
     }
 
-    public Double getRentCost() {
-        return rentCost;
+    public int getRentalCost() {
+        return rentalCost;
     }
 
-    public void setRentCost(Double rentCost) {
-        this.rentCost = rentCost;
+    public void setRentalCost(int rentalCost) {
+        this.rentalCost = rentalCost;
     }
 
-    public int getMaxPeople() {
-        return maxPeople;
+    public int getMaxNumberOfTenants() {
+        return maxNumberOfTenants;
     }
 
-    public void setMaxPeople(int maxPeople) {
-        this.maxPeople = maxPeople;
+    public void setMaxNumberOfTenants(int maxNumberOfTenants) {
+        this.maxNumberOfTenants = maxNumberOfTenants;
     }
 
-    public int getRentYear() {
-        return rentYear;
+    public String getTypeOfRent() {
+        return typeOfRent;
     }
 
-    public void setRentYear(int rentYear) {
-        this.rentYear = rentYear;
+    public void setTypeOfRent(String typeOfRent) {
+        this.typeOfRent = typeOfRent;
     }
 
-    public int getRentMonth() {
-        return rentMonth;
-    }
-
-    public void setRentMonth(int rentMonth) {
-        this.rentMonth = rentMonth;
-    }
-
-    public int getRentDay() {
-        return rentDay;
-    }
-
-    public void setRentDay(int rentDay) {
-        this.rentDay = rentDay;
+    @Override
+    public String toString() {
+        return  "serviceName='" + serviceName + '\'' +
+                ", usableArea=" + usableArea +
+                ", rentalCost=" + rentalCost +
+                ", maxNumberOfTenants=" + maxNumberOfTenants +
+                ", typeOfRent='" + typeOfRent ;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
         Facility facility = (Facility) o;
-        return maxPeople == facility.maxPeople &&
-                rentYear == facility.rentYear &&
-                rentMonth == facility.rentMonth &&
-                rentDay == facility.rentDay &&
+        return usableArea == facility.usableArea &&
+                rentalCost == facility.rentalCost &&
+                maxNumberOfTenants == facility.maxNumberOfTenants &&
                 Objects.equals(serviceName, facility.serviceName) &&
-                Objects.equals(useArea, facility.useArea) &&
-                Objects.equals(rentCost, facility.rentCost);
+                Objects.equals(typeOfRent, facility.typeOfRent);
     }
 
     @Override
     public int hashCode() {
         return 1;
-    }
-
-    @Override
-    public String toString() {
-        return "serviceName='" + serviceName + '\'' +
-                ", useArea=" + useArea +
-                ", rentCost=" + rentCost +
-                ", maxPeople=" + maxPeople +
-                ", rentYear=" + rentYear +
-                ", rentMonth=" + rentMonth +
-                ", rentDay=" + rentDay ;
     }
 }

@@ -1,18 +1,40 @@
 package models.person;
 
-import models.person.Person;
+import java.util.Scanner;
 
 public class Employee extends Person {
+    private String level;
     private String position;
     private Double salary;
+
+    public final static String INTERMEDIATE = "intermediate";
+    public final static String COLLEGE = "college";
+    public final static String UNIVERSITY = "university";
+    public final static String AFFTERUNIVERSITY = "afferuniversity";
+
+    public final static String RECEPTION = "reception";
+    public final static String WAITERS = "waiters";
+    public final static String EXPERT = "expert";
+    public final static String SUPERVIOR = "supervisor";
+    public final static String MANAGER = "manager";
+    public final static String GENERAL = "General Manager";
 
     public Employee() {
     }
 
-    public Employee(int id, String name, String dayOfBirth, String gender, int identityNumber, String phoneNumber, String email, String position, Double salary) {
+    public Employee(String id, String name, String dayOfBirth, String gender, int identityNumber, String phoneNumber, String email, String level, String position, Double salary) {
         super(id, name, dayOfBirth, gender, identityNumber, phoneNumber, email);
+        this.level = level;
         this.position = position;
         this.salary = salary;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public String getPosition() {
@@ -33,8 +55,10 @@ public class Employee extends Person {
 
     @Override
     public String toString() {
-        return  super.toString() +
-                "position='" + position + '\'' +
+        return "Employee{" +
+                super.toString() +
+                ", level='" + level + '\'' +
+                ", position='" + position + '\'' +
                 ", salary=" + salary +
                 '}';
     }

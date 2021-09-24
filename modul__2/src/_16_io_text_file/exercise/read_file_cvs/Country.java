@@ -5,7 +5,7 @@ public class Country {
     private String code;
     private String name;
 
-    public Country() {
+    public Country(String string, String s) {
     }
 
     public Country(int id, String code, String name) {

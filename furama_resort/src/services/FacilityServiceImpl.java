@@ -1,151 +1,161 @@
 package services;
 
-import models.House;
-import models.Room;
-import models.Villa;
+import models.person.Employee;
+import models.service.Facility;
+import models.service.House;
+import models.service.Room;
+import models.service.Villa;
 
 import java.util.*;
 
-public class FacilityServiceImpl {
+public class FacilityServiceImpl implements FacilityService {
     static int valueOfVilla;
     static int valueOfHouse;
     static int valueOfRoom;
-    private static Map<Object, Integer> facilityList = new LinkedHashMap<>();
+    public static Map<Facility, Integer> facilityList = new LinkedHashMap<>();
+    Scanner scanner = new Scanner(System.in);
 
-    static {
-        facilityList.put(new Villa("villa1", 20.0, 500.0, 15, 0, 6, 0, 0, "normal", 60.0, 2),++ valueOfVilla);
-        facilityList.put(new Room("room1", 20.0, 500.0, 15, 0, 6, 0, "normal"), ++valueOfRoom);
-        facilityList.put(new House("house1", 20.0, 500.0, 15, 0, 6, 0, 0, "normal", 2), ++valueOfHouse);
+//    static {
+//        facilityList.put(new Villa("villa1", 20.0, 500.0, 15, 0, 6, 0, 0, "normal", 60.0, 2),++ valueOfVilla);
+//        facilityList.put(new Room("room1", 20.0, 500.0, 15, 0, 6, 0, "normal"), ++valueOfRoom);
+//        facilityList.put(new House("house1", 20.0, 500.0, 15, 0, 6, 0, 0, "normal", 2), ++valueOfHouse);
+//    }
+
+    public final static String HOURS = "hours";
+    public final static String DAY = "day";
+    public final static String MONTH = "month";
+    public final static String YEAR = "year";
+
+    public String chooseTypeOfRent() {
+        System.out.println("Enter type of rent:" + "\n" + "1.HOURS" + "\n" + "2.DAY" + "\n" + "3.MONTH" + "\n" + "4.YEAR" + "\n" + "5.MANAGER" + "\n" + "6.GENERAL");
+        String choice = scanner.nextLine();
+        while (true)
+            switch (choice) {
+                case "1":
+                    return Facility.HOURS;
+                case "2":
+                    return Facility.DAY;
+                case "3":
+                    return Facility.MONTH;
+                case "4":
+                    return Facility.YEAR;
+                default:
+                    System.out.println("in put again");
+            }
     }
 
-    public void addFacility(){
-        Scanner scanner = new Scanner(System.in);
-        final int ADD_NEW_VILLA = 1;
-        final int ADD_NEW_HOUSE = 2;
-        final int ADD_NEW_ROOM = 3;
-        final int BACK_TO_MENU = 4;
+    public static Facility getFacilityTime(String facilityName) {
+        for (Map.Entry<Facility, Integer> e : facilityList.entrySet()) {
+            if (e.getKey().getServiceName().equals(facilityName)) {
+                e.setValue(e.getValue() + 1);
+                return e.getKey();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public void add() {
         boolean flag = true;
-        do {
-            System.out.println("Chọn chức năng\n" +
-                    "1.Add New Villa\n" +
-                    "2.Add New House\n" +
-                    "3.Add New Room \n" +
-                    "4.Back to menu \n" );
-            int chooseCase = scanner.nextInt();
-            switch (chooseCase){
-                case ADD_NEW_VILLA:
-                    System.out.println("input villa service name:");
-                    String serviceName = scanner.next();
-                    System.out.println("input villa use area:");
-                    double useArea = scanner.nextDouble();
-                    System.out.println("input villa rent cost:");
-                    double rentCost = scanner.nextDouble();
-                    System.out.println("input villa max people:");
-                    int maxPeople = scanner.nextInt();
-                    System.out.println("input villa rent year:");
-                    int rentYear = scanner.nextInt();
-                    System.out.println("input villa rent month:");
-                    int rentMonth = scanner.nextInt();
-                    System.out.println("input villa rent day:");
-                    int rentDay = scanner.nextInt();
-                    System.out.println("input villa rent hour:");
-                    int rentHour = scanner.nextInt();
-                    System.out.println("input villa room stander:");
-                    String roomStander = scanner.next();
-                    System.out.println("input villa pool area:");
-                    double poolArea = scanner.nextDouble();
-                    System.out.println("input villa number floor:");
-                    int numberFloor = scanner.nextInt();
-                    Villa villa = new Villa(serviceName,useArea,rentCost,maxPeople,rentYear,rentMonth,rentDay,rentHour,roomStander,poolArea,numberFloor);
-                    facilityList.put(villa,++valueOfVilla);
-                    System.out.println("after add new villa service:");
-                    displayFacility();
-                    System.out.println();
-                    facilityMaintenance();
-                    break;
-                case ADD_NEW_HOUSE:
-                    System.out.println("input house service name:");
-                    String serviceHouseName = scanner.next();
-                    System.out.println("input house use area:");
-                    double useHouseArea = scanner.nextDouble();
-                    System.out.println("input house rent cost:");
-                    double rentHouseCost = scanner.nextDouble();
-                    System.out.println("input house max people:");
-                    int maxHousePeople = scanner.nextInt();
-                    System.out.println("input house rent year:");
-                    int rentHouseYear = scanner.nextInt();
-                    System.out.println("input house rent month:");
-                    int rentHouseMonth = scanner.nextInt();
-                    System.out.println("input house rent day:");
-                    int rentHouseDay = scanner.nextInt();
-                    System.out.println("input house rent hour:");
-                    int rentHouseHour = scanner.nextInt();
-                    System.out.println("input house room stander:");
-                    String roomHouseStander = scanner.next();
-                    System.out.println("input house number floor:");
-                    int numberHouseFloor = scanner.nextInt();
-                    House house = new House(serviceHouseName,useHouseArea,rentHouseCost,maxHousePeople,rentHouseYear,rentHouseMonth,rentHouseDay,rentHouseHour,roomHouseStander,numberHouseFloor);
-                    facilityList.put(house,++valueOfHouse);
-                    System.out.println("after add new house service:");
-                    displayFacility();
-                    System.out.println();
-                    facilityMaintenance();
-                    break;
-                case ADD_NEW_ROOM:
-                    System.out.println("input room service name:");
-                    String serviceRoomName = scanner.next();
-                    System.out.println("input room use area:");
-                    double useRoomArea = scanner.nextDouble();
-                    System.out.println("input room rent cost:");
-                    double rentRoomCost = scanner.nextDouble();
-                    System.out.println("input room max people:");
-                    int maxRoomPeople = scanner.nextInt();
-                    System.out.println("input room rent year:");
-                    int rentRoomYear = scanner.nextInt();
-                    System.out.println("input room rent month:");
-                    int rentRoomMonth = scanner.nextInt();
-                    System.out.println("input room rent day:");
-                    int rentRoomDay = scanner.nextInt();
-                    System.out.println("input room free service:");
-                    String freeRoomService = scanner.next();
-                    Room room = new Room(serviceRoomName,useRoomArea,rentRoomCost,maxRoomPeople,rentRoomYear,rentRoomMonth,rentRoomDay,freeRoomService);
-                    facilityList.put(room,++valueOfRoom);
-                    System.out.println("after add new room service:");
-                    displayFacility();
-                    System.out.println();
-                    facilityMaintenance();
-                    break;
-                case BACK_TO_MENU:
-                    // exit menu
+        while (flag) {
+            String choose = scanner.next();
+            System.out.println("Enter your choice" + "\n" + "1.Add New Villa" + "\n" + "2.Add New House" + "\n" + "3.Add New Room" + "\n" + "4.Back to Menu");
+            switch (choose) {
+                case "1":
+                    System.out.println("Enter serviceName");
+                    String name = scanner.nextLine();
+                    System.out.println("Enter usableArea");
+                    int Area = scanner.nextInt();
+                    System.out.println("Enter rentalCost");
+                    int rentalCost = scanner.nextInt();
+                    System.out.println("Enter maxNumberOfTenants");
+                    int maxNumberOfTenants = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Enter typeOfRent");
+                    String typeOfRent = chooseTypeOfRent();
+
+                    System.out.println("Enter roomStandard");
+                    String roomStandard = scanner.nextLine();
+                    System.out.println("Enter poolArea");
+                    int poolArea = scanner.nextInt();
+                    System.out.println("Enter numOfFloor");
+                    int numOfFloor = scanner.nextInt();
+                    Villa villa = new Villa(name, Area, rentalCost, maxNumberOfTenants, typeOfRent, roomStandard, poolArea, numOfFloor);
+                    facilityList.put(villa, 1);
                     flag = false;
                     break;
+                case "2":
+                    System.out.println("Enter serviceName");
+                    String serviceNameHouse = scanner.nextLine();
+                    System.out.println("Enter usableArea");
+                    int areaHouse = scanner.nextInt();
+                    System.out.println("Enter rentalCost");
+                    int rentalCostHouse = scanner.nextInt();
+                    System.out.println("Enter maxNumberOfTenants");
+                    int maxNumberOfTenantsHouse = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Enter typeOfRent");
+                    String typeOfRentHouse = chooseTypeOfRent();
+
+                    System.out.println("Enter roomStandard");
+                    String roomStandardHouse = scanner.nextLine();
+                    System.out.println("Enter numOfFloor");
+                    int numOfFloorHouse = scanner.nextInt();
+                    House house = new House(serviceNameHouse, areaHouse, rentalCostHouse, maxNumberOfTenantsHouse, typeOfRentHouse, roomStandardHouse, numOfFloorHouse);
+                    facilityList.put(house, 1);
+                    flag = false;
+                    break;
+                case "3":
+                    System.out.println("Enter serviceName");
+                    String serviceNameRoom = scanner.nextLine();
+                    System.out.println("Enter usableArea");
+                    int areaRoom = scanner.nextInt();
+                    System.out.println("Enter rentalCost");
+                    int rentalCostRoom = scanner.nextInt();
+                    System.out.println("Enter maxNumberOfTenants");
+                    int maxNumberOfTenantsRoom = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Enter typeOfRent");
+                    String typeOfRentRoom = chooseTypeOfRent();
+
+                    System.out.println("Enter promotionService");
+                    String promotionService = scanner.nextLine();
+                    Room room = new Room(serviceNameRoom, areaRoom, rentalCostRoom, maxNumberOfTenantsRoom, typeOfRentRoom, promotionService);
+                    facilityList.put(room, 1);
+                    flag = false;
+                    break;
+                default:
+                    System.out.println("enter again:");
             }
-        }while (flag);
 
-    }
-
-    public void facilityMaintenance(){
-        Set<Object> set = facilityList.keySet();
-        boolean flag = false;
-        for (Object object : set) {
-           if (facilityList.get(object) >5){
-               flag = true;
-               System.out.println(object);
-           }
-        }
-        if (flag){
-            System.out.println("need maintenance");
-        }else {
-            System.out.println("well");
-            displayFacility();
         }
     }
 
-    public void displayFacility() {
-        Set<Object> set = facilityList.keySet();
-        for (Object object : set) {
-            System.out.println(object.toString() + " use times are: " + facilityList.get(object));
+    @Override
+    public void maintenanceList() {
+        for (Map.Entry<Facility, Integer> e : facilityList.entrySet()) {
+            if (e.getValue() >= 5) {
+                System.out.println("Need to maintenance " + e.getKey() + " exceed " + e.getValue() + "times");
+            }
         }
     }
+
+    @Override
+    public void showList() {
+        for (Map.Entry<Facility, Integer> entry : facilityList.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue() + "times");
+        }
+    }
+
+    @Override
+    public void search() {
+
+    }
+
+    @Override
+    public void delete() {
+
+    }
+
 
 }

@@ -1,6 +1,5 @@
 package controllers;
 
-import models.Customer;
 import services.BookingServiceImpl;
 import services.CustomerServiceImpl;
 import services.EmployeeServiceImpl;
@@ -14,13 +13,13 @@ public class FuramaController {
         CustomerServiceImpl  customerService = new CustomerServiceImpl();
         FacilityServiceImpl facilityService = new FacilityServiceImpl();
         BookingServiceImpl bookingService = new BookingServiceImpl();
+        Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         boolean flagEmployee = false;
         boolean flagCustomer = false;
         boolean flagFacility = false;
         boolean flagBooking = false;
         boolean flagService = false;
-
 
         while (flag) {
             System.out.println("Chọn chức năng\n" +
@@ -31,7 +30,6 @@ public class FuramaController {
                     "5.Promotion Management\n" +
                     "6.Exit");
             System.out.println("Chọn");
-            Scanner scanner = new Scanner(System.in);
             int choose = Integer.parseInt(scanner.nextLine());
             switch (choose) {
                 case 1:
@@ -45,11 +43,11 @@ public class FuramaController {
                         switch (chooseCase1){
                             case 1:
                                 //Display list employees
-                                employeeService.displayEmployeeManagement();
+                                employeeService.showList();
                                 break;
                             case 2:
                                 //	Add new employee
-                                employeeService.addNewEmployeeManagement();
+                                employeeService.add();
                                 break;
                             case 3:
                                 //	Edit employee
@@ -73,10 +71,10 @@ public class FuramaController {
                         int chooseCase2 = Integer.parseInt(scanner.nextLine());
                         switch (chooseCase2){
                             case 1:
-                                customerService.displayCustomer();
+                                customerService.showList();
                                 break;
                             case 2:
-                                customerService.addNewCustomer();
+                                customerService.add();
                                 break;
                             case 3:
                                 customerService.editCustomer();
@@ -99,13 +97,13 @@ public class FuramaController {
                         int chooseCase3 = Integer.parseInt(scanner.nextLine());
                         switch (chooseCase3){
                             case 1:
-                                facilityService.displayFacility();
+                                facilityService.showList();
                                 break;
                             case 2:
-                                facilityService.addFacility();
+                                facilityService.add();
                                 break;
                             case 3:
-                                facilityService.facilityMaintenance();
+                               facilityService.maintenanceList();
                                 break;
                             case 4:
                                 //	Return main menu
@@ -127,7 +125,7 @@ public class FuramaController {
                         int chooseCase4 = Integer.parseInt(scanner.nextLine());
                         switch (chooseCase4){
                             case 1:
-                                bookingService.addNewBooking();
+                                bookingService.add();
                                 break;
                             case 2:
                                 bookingService.showBookingList();
@@ -136,7 +134,7 @@ public class FuramaController {
                                 bookingService.createContract();
                                 break;
                             case 4:
-                                bookingService.displayListContract();
+                                bookingService.showContractList();
                                 break;
                             case 5:
                                 bookingService.editContract();
