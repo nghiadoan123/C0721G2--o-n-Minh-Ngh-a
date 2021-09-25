@@ -1,7 +1,7 @@
 package services;
 
 import models.person.Customer;
-import models.person.Employee;
+import services.input.InputDayForm;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -34,7 +34,7 @@ public class CustomerServiceImpl implements CustomerService {
         System.out.println("input customer name:");
         String name = sc.nextLine();
         System.out.println("input customer day of birth:");
-        String dayOfBirth = sc.nextLine();
+        String dayOfBirth = InputDayForm.inputBirthday();
         System.out.println("input customer gender:");
         String gender = sc.nextLine();
         System.out.println("input customer identyty number:");
@@ -98,7 +98,7 @@ public class CustomerServiceImpl implements CustomerService {
                             break;
                         case 3:
                             System.out.println("Enter new birthday");
-                            String birthday = Input.inputBirthday();
+                            String birthday = InputDayForm.inputBirthday();
                             customer.setDayOfBirth(birthday);
                             break;
                         case 4:

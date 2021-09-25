@@ -1,11 +1,9 @@
 package services;
 
 import models.person.Employee;
+import services.input.InputDayForm;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,7 +27,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         System.out.println("input employee name:");
         String name = scanner.nextLine();
         System.out.println("input employee day of birth:");
-        String dayOfBirth = Input.inputBirthday();
+        String dayOfBirth = InputDayForm.inputBirthday();
         System.out.println("input employee gender:");
         String gender = scanner.nextLine();
         System.out.println("input employee identyty number:");
@@ -116,7 +114,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
                         case 3:
                             System.out.println("Enter new bithday");
-                            String birth = Input.inputBirthday();
+                            String birth = InputDayForm.inputBirthday();
                             e.setDayOfBirth(birth);
                             break;
 

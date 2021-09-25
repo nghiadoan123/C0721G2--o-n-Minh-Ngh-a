@@ -1,21 +1,23 @@
-package models.service;
+package models.service.contract;
+
+import models.person.Customer;
 
 public class Contract implements Comparable<Contract> {
     private int contractNumber;
     private int bookingNumber;
     private double deposit;
     private double totalPayment;
-    private int customerId;
+    private Customer customer;
 
     public Contract() {
     }
 
-    public Contract(int contractNumber, int bookingNumber, double deposit, double totalPayment, int customerId) {
+    public Contract(int contractNumber, int bookingNumber, double deposit, double totalPayment, Customer customer) {
         this.contractNumber = contractNumber;
         this.bookingNumber = bookingNumber;
         this.deposit = deposit;
         this.totalPayment = totalPayment;
-        this.customerId = customerId;
+        this.customer = customer;
     }
 
     public int getContractNumber() {
@@ -34,14 +36,6 @@ public class Contract implements Comparable<Contract> {
         this.bookingNumber = bookingNumber;
     }
 
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
-    }
-
     public double getDeposit() {
         return deposit;
     }
@@ -58,15 +52,23 @@ public class Contract implements Comparable<Contract> {
         this.totalPayment = totalPayment;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
 
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     @Override
     public String toString() {
-        return "contractNumber=" + contractNumber +
+        return "Contract{" +
+                "contractNumber=" + contractNumber +
                 ", bookingNumber=" + bookingNumber +
                 ", deposit=" + deposit +
                 ", totalPayment=" + totalPayment +
-                ", customerId=" + customerId ;
+                ", customer=" + customer +
+                '}';
     }
 
     @Override

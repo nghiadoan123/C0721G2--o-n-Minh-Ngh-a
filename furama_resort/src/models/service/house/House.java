@@ -1,6 +1,6 @@
-package models.service;
+package models.service.house;
 
-import java.util.Objects;
+import models.service.facility.Facility;
 
 public class House extends Facility {
 

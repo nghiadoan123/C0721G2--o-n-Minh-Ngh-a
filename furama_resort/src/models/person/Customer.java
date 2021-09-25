@@ -1,8 +1,6 @@
 package models.person;
 
-import models.service.Facility;
-
-public class Customer extends Person {
+public class Customer<getId> extends Person {
     private String typeOfCustomer;
     private String address;
 

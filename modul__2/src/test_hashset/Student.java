@@ -42,7 +42,7 @@ public class Student  {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "dd.Student{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 ", address='" + address + '\'' +
@@ -66,7 +66,7 @@ public class Student  {
 //    }
 
 //    @Override
-//    public int compareTo(Student o) {
+//    public int compareTo(dd.Student o) {
 //        if (this.getName()==o.name){
 //            if (this.getAge()-o.age==0){
 //                return this.getAddress().compareTo(o.address);

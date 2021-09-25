@@ -1,11 +1,11 @@
-package services;
+package services.input;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Input {
+public class InputDayForm {
     public static Scanner scanner = new Scanner(System.in);
 
     public static String inputBirthday() {

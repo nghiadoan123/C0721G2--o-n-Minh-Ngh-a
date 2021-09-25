@@ -1,4 +1,4 @@
-package models.service;
+package models.service.facility;
 
 import java.util.Objects;
 

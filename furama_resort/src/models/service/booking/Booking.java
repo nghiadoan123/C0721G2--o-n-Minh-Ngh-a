@@ -1,7 +1,7 @@
 package models.service.booking;
 
 import models.person.Customer;
-import models.service.Facility;
+import models.service.facility.Facility;
 
 public class Booking implements Comparable<Booking> {
     private String bookingId;
@@ -65,24 +65,38 @@ public class Booking implements Comparable<Booking> {
 
     @Override
     public int compareTo(Booking o) {
-        if (this.bookingId == o.bookingId){
-            if (this.checkIn.compareTo(o.checkIn)==0){
-                if (this.checkOut.compareTo(o.checkOut)==0){
-                    if (this.getCustomer().getId()==o.getCustomer().getId()){
-                        return this.getFacility().getServiceName().compareTo(o.getFacility().getServiceName());
-                    }else{
-                        return this.getCustomer().getId().compareTo(o.getCustomer().getId());
+        try {
+            if (this.bookingId.compareTo(o.bookingId) == 0) {
+                if (this.checkIn.compareTo(o.checkIn) == 0) {
+                    if (this.checkOut.compareTo(o.checkOut) == 0) {
+                        if (this.getCustomer().getId() == o.getCustomer().getId()) {
+                            return this.getFacility().getServiceName().compareTo(o.getFacility().getServiceName());
+                        } else {
+                            return this.getCustomer().getId().compareTo(o.getCustomer().getId());
+                        }
+                    } else {
+                        return this.checkOut.compareTo(o.checkOut);
                     }
-                }else {
-                    return this.checkOut.compareTo(o.checkOut);
+                } else {
+                    return this.checkIn.compareTo(o.checkIn);
                 }
             } else {
-                return this.checkIn.compareTo(o.checkIn);
+                return this.bookingId.compareTo(o.bookingId);
             }
-
-        }else {
-            return this.bookingId.compareTo(o.bookingId);
+        } catch (NullPointerException e) {
+            return 0;
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "bookingId='" + bookingId + '\'' +
+                ", checkIn='" + checkIn + '\'' +
+                ", checkOut='" + checkOut + '\'' +
+                ", customer=" + customer +
+                ", facility=" + facility +
+                '}';
     }
 }

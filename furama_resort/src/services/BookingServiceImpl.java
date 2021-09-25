@@ -1,8 +1,9 @@
 package services;
 
 import models.person.Customer;
-import models.service.Facility;
+import models.service.facility.Facility;
 import models.service.booking.Booking;
+import services.input.InputDayForm;
 
 import java.util.*;
 
@@ -27,13 +28,16 @@ public class BookingServiceImpl implements BookingService {
         System.out.println("Enter service name");
         String serviceName = scanner.nextLine();
         Facility facility = FacilityServiceImpl.setFacilityTime(serviceName);
-
+        if (facility == null){
+            System.out.println("please register facility first");
+            return;
+        }
         System.out.println("Enter bookingID");
         String bookingID = scanner.nextLine();
-        System.out.println("emter checkin day");
-        String checkinDay = Input.inputCheckInOut();
-        System.out.println("emter checkout day");
-        String checkoutDay = Input.inputCheckInOut();
+        System.out.println("enter checkin day");
+        String checkinDay = InputDayForm.inputCheckInOut();
+        System.out.println("enter checkout day");
+        String checkoutDay = InputDayForm.inputCheckInOut();
         Booking booking = new Booking(bookingID,checkinDay,checkoutDay,customer,facility);
         bookingList.add(booking);
         showBookingList();

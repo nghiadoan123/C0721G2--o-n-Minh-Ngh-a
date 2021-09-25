@@ -1,14 +1,12 @@
 package _17_binary_file_and_serialization.exercise.read_product_file;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class ProductManager {
     static final String FILE_PATH = "src\\_17_binary_file_and_serialization\\exercise\\read_product_file\\product.txt";
 
-    public static List<Product> productList = ReadAndWriteToCVS.readDataFromFile(FILE_PATH);
+    public static List<Product> productList = ReadAndWriteToCSV.readDataFromFile(FILE_PATH);
 
     public static Scanner scanner = new Scanner(System.in);
 
@@ -29,7 +27,7 @@ public class ProductManager {
         double price = scanner.nextDouble();
         Product product = new Product(id, productName, manufacture, price);
         productList.add(product);
-        ReadAndWriteToCVS.writeToFile("src\\_17_binary_file_and_serialization\\exercise\\read_product_file\\product.txt", productList);
+        ReadAndWriteToCSV.writeToFile("src\\_17_binary_file_and_serialization\\exercise\\read_product_file\\product.txt", productList);
     }
 
     public void search() {

@@ -1,10 +1,9 @@
 package services;
 
-import models.person.Employee;
-import models.service.Facility;
-import models.service.House;
-import models.service.Room;
-import models.service.Villa;
+import models.service.facility.Facility;
+import models.service.house.House;
+import models.service.room.Room;
+import models.service.villa.Villa;
 
 import java.util.*;
 
@@ -62,11 +61,15 @@ public class FacilityServiceImpl implements FacilityService {
     }
 
     public static Facility setFacilityTime(String facilityName) {
-        for (Map.Entry<Facility, Integer> e : facilityList.entrySet()) {
-            if (e.getKey().getServiceName().equals(facilityName)) {
-                e.setValue(e.getValue() + 1);
-                return e.getKey();
+        try {
+            for (Map.Entry<Facility, Integer> e : facilityList.entrySet()) {
+                if (e.getKey().getServiceName().equals(facilityName)) {
+                    e.setValue(e.getValue() + 1);
+                    return e.getKey();
+                }
             }
+        }catch (Exception e){
+
         }
         return null;
     }

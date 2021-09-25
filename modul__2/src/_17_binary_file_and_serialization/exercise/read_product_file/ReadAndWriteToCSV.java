@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReadAndWriteToCVS {
+public class ReadAndWriteToCSV {
     public static void writeToFile(String path, List<Product> products) {
         try {
             FileOutputStream fos = new FileOutputStream(path);
@@ -17,17 +17,17 @@ public class ReadAndWriteToCVS {
         }
     }
 
-    public static List<Product> readDataFromFile(String path){
+    public static List<Product> readDataFromFile(String path) {
         List<Product> products = new ArrayList<>();
-        try{
+        try {
             FileInputStream fis = new FileInputStream(path);
             ObjectInputStream ois = new ObjectInputStream(fis);
             products = (List<Product>) ois.readObject();
             fis.close();
             ois.close();
-        }catch (EOFException e){
-        }
-        catch(Exception ex){
+        } catch (EOFException e) {
+
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         return products;

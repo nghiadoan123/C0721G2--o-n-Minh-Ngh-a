@@ -1,6 +1,6 @@
-package models.service;
+package models.service.room;
 
-import java.util.Objects;
+import models.service.facility.Facility;
 
 public class Room extends Facility {
     private String promotionService;

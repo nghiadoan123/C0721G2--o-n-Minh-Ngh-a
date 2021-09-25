@@ -1,6 +1,7 @@
 package services;
 
-import models.service.Contract;
+import models.person.Customer;
+import models.service.contract.Contract;
 
 import java.util.Scanner;
 import java.util.Set;
@@ -20,8 +21,9 @@ public class ContractServiceImpl implements ContractService {
         System.out.println("input totalPayment:");
         double totalPayment = Double.parseDouble(sc.nextLine());
         System.out.println("input customerId :");
-        int customerId = Integer.parseInt(sc.nextLine());
-        Contract contract = new Contract(contractNumber,bookingNumber,deposit,totalPayment,customerId);
+        String customerId = sc.nextLine();
+        Customer customer = CustomerServiceImpl.setCustomer(customerId);
+        Contract contract = new Contract(contractNumber,bookingNumber,deposit,totalPayment,customer);
         contractList.add(contract);
     }
 
@@ -29,22 +31,23 @@ public class ContractServiceImpl implements ContractService {
     public void editContract(){
         Scanner sc = new Scanner(System.in);
         System.out.println("input your id customer need to edit:");
-        int idCustomer = sc.nextInt();
+        String idCustomer = sc.nextLine();
         for (Contract contract: contractList) {
-            if (contract.getCustomerId() == idCustomer){
+            System.out.println(contract.getCustomer().getId());
+            if (contract.getCustomer().getId().compareTo(idCustomer) ==0){
                 System.out.println("input new contract number:");
-                int contractNumberNew = sc.nextInt();
+                int contractNumberNew = Integer.parseInt(sc.nextLine());
                 contract.setContractNumber(contractNumberNew);
                 System.out.println("input new booking number:");
-                int bookingNumberNew = sc.nextInt();
+                int bookingNumberNew =  Integer.parseInt(sc.nextLine());
                 contract.setBookingNumber(bookingNumberNew);
                 System.out.println("input new deposit:");
-                double depositNew = sc.nextDouble();
+                double depositNew = Double.parseDouble(sc.nextLine());
                 contract.setDeposit(depositNew);
                 System.out.println("input new totalPayment:");
-                double totalPaymentNew = sc.nextDouble();
+                double totalPaymentNew = Double.parseDouble(sc.nextLine());
                 contract.setTotalPayment(totalPaymentNew);
-                contract.setCustomerId(idCustomer);
+                contract.getCustomer().setId(idCustomer);
                 System.out.println("after edit information");
                 displayContractList();
             }else {

@@ -26,7 +26,7 @@ public class Main {
                     productManager.search();
                     break;
                 case 4:
-                    System.out.println("aa");
+                    System.out.println("exit");
                     flag = false;
                     break;
             }
