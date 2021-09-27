@@ -2,24 +2,25 @@ package services;
 
 import models.person.Customer;
 import services.input.InputDayForm;
+import utils.CustomerReadAndWriteFileToCSV;
 
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
     //EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
-    public static List<Customer> customerList = new LinkedList<>();
+    public static final String FILE_PATH = "/Users/nguyenmaithi/Documents/NGHĨA/C0721G2--o-n-Minh-Ngh-a/furama_resort/src/data/customerdata.csv";
+    public static LinkedList<Customer> customerList = CustomerReadAndWriteFileToCSV.getListCustomerFromCSV(FILE_PATH);
     Scanner sc = new Scanner(System.in);
 
-    static {
-        Customer customer1 = new Customer("1", "Steven", "19/2/1298", "man", 906959, "Steven@gmail.com", "C101", "Member", "Newyork");
-        Customer customer2 = new Customer("2", "job", "20/02/2002", "woman", 906979, "Jonh@gmail.com", "C102", "Silver", "Canada");
-        Customer customer3 = new Customer("3", "angela", "12/02/2014", "man", 906958, "Anna@gmail.com", "C103", "Member", "US");
-        customerList.add(customer1);
-        customerList.add(customer2);
-        customerList.add(customer3);
-    }
+//    static {
+//        Customer customer1 = new Customer("1", "Steven", "19/2/1298", "man", 906959, "Steven@gmail.com", "C101", "Member", "Newyork");
+//        Customer customer2 = new Customer("2", "job", "20/02/2002", "woman", 906979, "Jonh@gmail.com", "C102", "Silver", "Canada");
+//        Customer customer3 = new Customer("3", "angela", "12/02/2014", "man", 906958, "Anna@gmail.com", "C103", "Member", "US");
+//        customerList.add(customer1);
+//        customerList.add(customer2);
+//        customerList.add(customer3);
+//    }
 
     public final static String DIAMOND = "Diamond";
     public final static String PLATINUM = "Platinum";
@@ -43,20 +44,22 @@ public class CustomerServiceImpl implements CustomerService {
         String phoneNumber = sc.nextLine();
         System.out.println("input customer email:");
         String email = sc.nextLine();
-        System.out.println("input type of customer :");
+        System.out.print("input customer type:");
         String typeOfCustomer = selectTypeOfCustomer();
         System.out.println("input customer address:");
         String address = sc.nextLine();
         Customer customer = new Customer(id, name, dayOfBirth, gender, identityNumber, phoneNumber, email, typeOfCustomer, address);
         customerList.add(customer);
+        CustomerReadAndWriteFileToCSV.writeListCustomerToCSV(customerList,FILE_PATH,false);
         System.out.println("after add new employee");
         showList();
     }
 
     public String selectTypeOfCustomer() {
-        String choose = sc.next();
+        System.out.println("Enter type of customer" + "\n" + "1.DIAMOND" + "\n" + "2.PLATINUM" + "\n" + "3.GOLD" + "\n" + "4.SILVER" + "\n" + "4.MEMBER");
+        Scanner scanner = new Scanner(System.in);
+        String choose = scanner.nextLine();
         while (true) {
-            System.out.println("Enter type of customer" + "\n" + "1.DIAMOND" + "\n" + "2.PLATINUM" + "\n" + "3.GOLD" + "\n" + "4.SILVER" + "\n" + "4.MEMBER");
             switch (choose) {
                 case "1":
                     return Customer.DIAMOND;
@@ -163,6 +166,7 @@ public class CustomerServiceImpl implements CustomerService {
                 }
             }
         }
+        CustomerReadAndWriteFileToCSV.writeListCustomerToCSV(customerList,FILE_PATH,false);
     }
 
     public static Customer setCustomer(String id) {

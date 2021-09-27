@@ -2,23 +2,24 @@ package services;
 
 import models.person.Employee;
 import services.input.InputDayForm;
+import utils.EmployeeReadAndWriteFileToCSV;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
 
+    public static final String FILE_PATH = "/Users/nguyenmaithi/Documents/NGHĨA/C0721G2--o-n-Minh-Ngh-a/furama_resort/src/data/employeedata.csv";
     public static Scanner scanner = new Scanner(System.in);
-    public static List<Employee> employeeServices = new ArrayList<Employee>();
+    public static ArrayList<Employee> employeeServices = EmployeeReadAndWriteFileToCSV.readListStudentFromCSV(FILE_PATH);
 
 
-
-    static {
-        employeeServices.add(new Employee("AA116","Nam", "1990", "Male", 204331, "1990", "nam@gmail.com",  Employee.INTERMEDIATE, Employee.RECEPTION, 12000.0));
-        employeeServices.add(new Employee("AA110","Long", "1990", "Male", 204332, "1991", "Long@gmail.com",  Employee.AFFTERUNIVERSITY, Employee.SUPERVIOR, 10000.0));
-        employeeServices.add(new Employee("AA112","Lam", "1990", "Male", 204333, "06089542", "lam@gmail.com",  Employee.COLLEGE, Employee.WAITERS, 6000.0));
-    }
+//
+//    static {
+//        employeeServices.add(new Employee("AA116","Nam", "1990", "Male", 204331, "1990", "nam@gmail.com",  Employee.INTERMEDIATE, Employee.RECEPTION, 12000.0));
+//        employeeServices.add(new Employee("AA110","Long", "1990", "Male", 204332, "1991", "Long@gmail.com",  Employee.AFFTERUNIVERSITY, Employee.SUPERVIOR, 10000.0));
+//        employeeServices.add(new Employee("AA112","Lam", "1990", "Male", 204333, "06089542", "lam@gmail.com",  Employee.COLLEGE, Employee.WAITERS, 6000.0));
+//    }
 
 
 
@@ -46,6 +47,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         double salary =Double.parseDouble(scanner.nextLine());
         Employee employee = new Employee(id, name, dayOfBirth, gender, identityNumber, phoneNumber, email, degree, position, salary);
         employeeServices.add(employee);
+        EmployeeReadAndWriteFileToCSV.writeListStudentToCSV(employeeServices,FILE_PATH,false);
         System.out.println("after add new employee");
         showList();
     }
@@ -216,8 +218,9 @@ public class EmployeeServiceImpl implements EmployeeService {
                 }
             }
         }
-        System.out.println("after edit list:");
-        showList();
+        EmployeeReadAndWriteFileToCSV.writeListStudentToCSV(employeeServices,FILE_PATH,false);
+//        System.out.println("after edit list:");
+//        showList();
     }
 
     @Override

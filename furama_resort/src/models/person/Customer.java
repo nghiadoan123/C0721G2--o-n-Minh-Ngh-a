@@ -44,4 +44,7 @@ public class Customer<getId> extends Person {
                 ", address='" + address + '\'' +
                 '}';
     }
+    public String getInfoCustomerToCSV(){
+        return super.getId()+","+super.getName()+","+super.getDayOfBirth()+","+super.getGender()+","+super.getIdentityNumber()+","+super.getPhoneNumber()+","+super.getEmail()+","+typeOfCustomer+","+address;
+    }
 }

@@ -1,7 +1,5 @@
 package models.person;
 
-import java.util.Scanner;
-
 public class Employee extends Person {
     private String level;
     private String position;
@@ -62,4 +60,9 @@ public class Employee extends Person {
                 ", salary=" + salary +
                 '}';
     }
+
+    public String getInfoEmployeeToCSV(){
+        return super.getId()+","+super.getName()+","+super.getDayOfBirth()+","+super.getGender()+","+super.getIdentityNumber()+","+super.getPhoneNumber()+","+super.getEmail()+","+level+","+position+","+salary;
+    }
+
 }
