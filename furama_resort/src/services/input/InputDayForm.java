@@ -2,6 +2,8 @@ package services.input;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -15,6 +17,13 @@ public class InputDayForm {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             try {
                 Date birth = simpleDateFormat.parse(birthday);
+                int yearOld = LocalDate.now().getYear()-birth.getYear();
+                if (yearOld>17&&yearOld<100&&yearOld<0) {
+                    System.out.println(birthday + " is valid date");
+                } else {
+                    System.out.println("Age must be between 18 and 100");
+                }
+
                 return simpleDateFormat.format(birth);
             } catch (ParseException e) {
                 System.out.println("Please enter birthday again");

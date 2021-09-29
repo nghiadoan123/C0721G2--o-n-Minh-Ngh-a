@@ -88,4 +88,8 @@ public abstract class Facility {
     public int hashCode() {
         return 1;
     }
+
+    public String getInfoToCSV() {
+        return "";
+    }
 }

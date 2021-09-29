@@ -1,8 +1,8 @@
 package _08_clean_code_and_refactoring.practice.refactoring_rename_variable_and_separate_constant;
 
+import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 public class CalculatorTest {
     @Test

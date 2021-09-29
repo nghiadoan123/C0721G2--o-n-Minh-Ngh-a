@@ -75,4 +75,8 @@ public class Contract implements Comparable<Contract> {
     public int compareTo(Contract o) {
         return (int) (this.bookingNumber-o.bookingNumber);
     }
+
+    public String getInfoContractToCSV(){
+        return contractNumber+","+bookingNumber+","+deposit+","+totalPayment+","+customer.getIdentityNumber();
+    }
 }

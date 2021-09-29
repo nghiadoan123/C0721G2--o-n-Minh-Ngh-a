@@ -2,13 +2,15 @@ package services;
 
 import models.person.Customer;
 import models.service.contract.Contract;
+import utils.ContractReadAndWriteFileToCSV;
 
 import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
 public class ContractServiceImpl implements ContractService {
-    private static Set<Contract> contractList = new TreeSet<>();
+    public static final String FILE_PATH = "/Users/nguyenmaithi/Documents/NGHĨA/C0721G2--o-n-Minh-Ngh-a/furama_resort/src/data/contract.csv";
+    private static TreeSet<Contract> contractList = ContractReadAndWriteFileToCSV.readListBookingFromCSV(FILE_PATH);
     @Override
     public void createContract(){
         Scanner sc = new Scanner(System.in);
@@ -25,6 +27,7 @@ public class ContractServiceImpl implements ContractService {
         Customer customer = CustomerServiceImpl.setCustomer(customerId);
         Contract contract = new Contract(contractNumber,bookingNumber,deposit,totalPayment,customer);
         contractList.add(contract);
+        ContractReadAndWriteFileToCSV.writeListBookingToCSV(contractList,FILE_PATH,false);
     }
 
     @Override
@@ -54,6 +57,7 @@ public class ContractServiceImpl implements ContractService {
                 System.out.println("you input id customer not found ");
             }
         }
+        ContractReadAndWriteFileToCSV.writeListBookingToCSV(contractList,FILE_PATH,false);
     }
 
     @Override

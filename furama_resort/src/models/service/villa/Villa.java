@@ -55,4 +55,9 @@ public class Villa extends Facility {
                 ", numOfFloor=" + numOfFloor +
                 '}';
     }
+
+    @Override
+    public String getInfoToCSV() {
+        return super.getServiceName()+","+super.getUsableArea()+","+super.getRentalCost()+","+super.getMaxNumberOfTenants()+","+super.getTypeOfRent()+","+roomStandard+","+poolArea+","+numOfFloor;
+    }
 }

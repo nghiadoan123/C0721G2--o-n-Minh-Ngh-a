@@ -40,4 +40,9 @@ public class House extends Facility {
                 ", numberFloor=" + numberFloor +
                 '}';
     }
+
+    @Override
+    public String getInfoToCSV() {
+        return super.getServiceName()+","+super.getUsableArea()+","+super.getRentalCost()+","+super.getMaxNumberOfTenants()+","+super.getTypeOfRent()+","+roomStander+","+numberFloor;
+    }
 }

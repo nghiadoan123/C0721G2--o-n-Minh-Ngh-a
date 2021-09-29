@@ -1,7 +1,9 @@
 package services;
 
 import models.person.Customer;
+import services.input.CustomerInput;
 import services.input.InputDayForm;
+import services.input.PersonInput;
 import utils.CustomerReadAndWriteFileToCSV;
 
 import java.util.LinkedList;
@@ -30,29 +32,21 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void add() {
-        System.out.println("input customer id:");
-        String id = sc.nextLine();
-        System.out.println("input customer name:");
-        String name = sc.nextLine();
-        System.out.println("input customer day of birth:");
-        String dayOfBirth = InputDayForm.inputBirthday();
-        System.out.println("input customer gender:");
-        String gender = sc.nextLine();
-        System.out.println("input customer identyty number:");
-        int identityNumber = Integer.parseInt(sc.nextLine());
-        System.out.println("input customer phone number:");
-        String phoneNumber = sc.nextLine();
-        System.out.println("input customer email:");
-        String email = sc.nextLine();
+        String id = PersonInput.inputId();
+        String name = PersonInput.inputName();
+        String dayOfBirth = PersonInput.inputBirthday();
+        String gender = PersonInput.inputGender();
+        int identityNumber = PersonInput.identityNumber();
+        String phoneNumber = PersonInput.phoneNumber();
+        String email = PersonInput.email();
         System.out.print("input customer type:");
         String typeOfCustomer = selectTypeOfCustomer();
-        System.out.println("input customer address:");
-        String address = sc.nextLine();
+        String address = CustomerInput.address();
         Customer customer = new Customer(id, name, dayOfBirth, gender, identityNumber, phoneNumber, email, typeOfCustomer, address);
         customerList.add(customer);
         CustomerReadAndWriteFileToCSV.writeListCustomerToCSV(customerList,FILE_PATH,false);
-        System.out.println("after add new employee");
-        showList();
+//        System.out.println("after add new employee");
+//        showList();
     }
 
     public String selectTypeOfCustomer() {

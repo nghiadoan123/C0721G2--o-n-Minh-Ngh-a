@@ -1,6 +1,6 @@
 package models.person;
 
-public class Customer<getId> extends Person {
+public class Customer extends Person {
     private String typeOfCustomer;
     private String address;
 
@@ -45,6 +45,6 @@ public class Customer<getId> extends Person {
                 '}';
     }
     public String getInfoCustomerToCSV(){
-        return super.getId()+","+super.getName()+","+super.getDayOfBirth()+","+super.getGender()+","+super.getIdentityNumber()+","+super.getPhoneNumber()+","+super.getEmail()+","+typeOfCustomer+","+address;
+        return super.getId()+","+super.getName()+","+super.getDayOfBirth()+","+super.getGender()+","+super.getIdentityNumber()+","+super.getPhoneNumber()+","+super.getEmail()+","+typeOfCustomer+","+address+",";
     }
 }

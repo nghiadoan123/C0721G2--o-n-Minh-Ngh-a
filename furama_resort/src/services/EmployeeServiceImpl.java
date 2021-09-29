@@ -1,7 +1,9 @@
 package services;
 
 import models.person.Employee;
+import services.input.EmployeeInput;
 import services.input.InputDayForm;
+import services.input.PersonInput;
 import utils.EmployeeReadAndWriteFileToCSV;
 
 import java.util.ArrayList;
@@ -25,26 +27,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void add() {
-        System.out.println("input employee name:");
-        String name = scanner.nextLine();
-        System.out.println("input employee day of birth:");
-        String dayOfBirth = InputDayForm.inputBirthday();
-        System.out.println("input employee gender:");
-        String gender = scanner.nextLine();
-        System.out.println("input employee identyty number:");
-        int identityNumber = Integer.parseInt( scanner.nextLine());
-        System.out.println("input employee phone number:");
-        String phoneNumber = scanner.nextLine();
-        System.out.println("input employee email:");
-        String email = scanner.nextLine();
-        System.out.println("input employee id:");
-        String id = scanner.nextLine();
+        String name = PersonInput.inputName();
+        String dayOfBirth = PersonInput.inputBirthday();
+        String gender = PersonInput.inputGender();
+        int identityNumber = PersonInput.identityNumber();
+        String phoneNumber = PersonInput.phoneNumber();
+        String email = PersonInput.email();
+        String id = PersonInput.inputId();
         System.out.println("input employee degree:");
         String degree = chooseLevel();
         System.out.println("input employee position:");
         String position = choosePosition();
-        System.out.println("input employee salary:");
-        double salary =Double.parseDouble(scanner.nextLine());
+        double salary = EmployeeInput.salary();
         Employee employee = new Employee(id, name, dayOfBirth, gender, identityNumber, phoneNumber, email, degree, position, salary);
         employeeServices.add(employee);
         EmployeeReadAndWriteFileToCSV.writeListStudentToCSV(employeeServices,FILE_PATH,false);
@@ -53,9 +47,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     public String choosePosition() {
-        System.out.println("Enter level" + "\n" + "1.INTERMEDIATE" + "\n" + "2.COLLEGE" + "\n" + "3.UNIVERSITY" + "\n" + "4.AFFTERUNIVERSITY");
-        String choice = scanner.nextLine();
-        while (true)
+
+        while (true) {
+            System.out.println("Enter level" + "\n" + "1.INTERMEDIATE" + "\n" + "2.COLLEGE" + "\n" + "3.UNIVERSITY" + "\n" + "4.AFFTERUNIVERSITY");
+            String choice = scanner.nextLine();
             switch (choice) {
                 case "1":
                     return Employee.INTERMEDIATE;
@@ -68,12 +63,13 @@ public class EmployeeServiceImpl implements EmployeeService {
                 default:
                     System.out.println("in put again");
             }
+        }
     }
 
     public String chooseLevel() {
-        System.out.println("Enter level" + "\n" + "1.RECEPTION" + "\n" + "2.WAITERS" + "\n" + "3.EXPERT" + "\n" + "4.SUPERVIOR" + "\n" + "5.MANAGER" + "\n" + "6.GENERAL");
-        String choice = scanner.nextLine();
-        while (true)
+        while (true) {
+            System.out.println("Enter level" + "\n" + "1.RECEPTION" + "\n" + "2.WAITERS" + "\n" + "3.EXPERT" + "\n" + "4.SUPERVIOR" + "\n" + "5.MANAGER" + "\n" + "6.GENERAL");
+            String choice = scanner.nextLine();
             switch (choice) {
                 case "1":
                     return Employee.RECEPTION;
@@ -89,7 +85,9 @@ public class EmployeeServiceImpl implements EmployeeService {
                     return Employee.GENERAL;
                 default:
                     System.out.println("in put again");
+                    break;
             }
+        }
     }
 
     public void editEmployee() {

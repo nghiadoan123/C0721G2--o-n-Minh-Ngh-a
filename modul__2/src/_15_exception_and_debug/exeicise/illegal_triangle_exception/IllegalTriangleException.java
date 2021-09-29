@@ -4,22 +4,25 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class IllegalTriangleException extends Exception {
-    private String error;
+    //private String error;
 
     public IllegalTriangleException() {
     }
 
-    public IllegalTriangleException(String error) {
-        this.error = error;
+    public IllegalTriangleException(String message) {
+        super(message);
     }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
+    //    public IllegalTriangleException(String error) {
+//        this.error = error;
+//    }
+//
+//    public String getError() {
+//        return error;
+//    }
+//
+//    public void setError(String error) {
+//        this.error = error;
+//    }
 
 }
 

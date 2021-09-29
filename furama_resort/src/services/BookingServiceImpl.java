@@ -4,12 +4,15 @@ import models.person.Customer;
 import models.service.facility.Facility;
 import models.service.booking.Booking;
 import services.input.InputDayForm;
+import services.input.PersonInput;
+import utils.BookingReadAndWriteFileToCSV;
 
 import java.util.*;
 
 public class BookingServiceImpl implements BookingService {
     Scanner scanner = new Scanner(System.in);
-    public static Set<Booking> bookingList = new TreeSet<>();
+    public static final String FILE_PATH = "/Users/nguyenmaithi/Documents/NGHĨA/C0721G2--o-n-Minh-Ngh-a/furama_resort/src/data/booking.csv";
+    public static TreeSet<Booking> bookingList = BookingReadAndWriteFileToCSV.readListBookingFromCSV(FILE_PATH);
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
     ContractServiceImpl contactService = new ContractServiceImpl();
@@ -35,11 +38,12 @@ public class BookingServiceImpl implements BookingService {
         System.out.println("Enter bookingID");
         String bookingID = scanner.nextLine();
         System.out.println("enter checkin day");
-        String checkinDay = InputDayForm.inputCheckInOut();
+        String checkinDay = PersonInput.inputCheckInOut();
         System.out.println("enter checkout day");
-        String checkoutDay = InputDayForm.inputCheckInOut();
+        String checkoutDay = PersonInput.inputCheckInOut();
         Booking booking = new Booking(bookingID,checkinDay,checkoutDay,customer,facility);
         bookingList.add(booking);
+        BookingReadAndWriteFileToCSV.writeListBookingToCSV(bookingList,FILE_PATH,false);
         showBookingList();
     }
 

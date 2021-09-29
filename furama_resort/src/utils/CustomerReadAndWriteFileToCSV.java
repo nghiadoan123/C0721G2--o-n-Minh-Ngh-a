@@ -24,7 +24,6 @@ public class CustomerReadAndWriteFileToCSV {
     public static LinkedList<Customer> getListCustomerFromCSV(String pathFile) {
         LinkedList<Customer> customerList = new LinkedList<>();
         File file = new File(pathFile);
-        System.out.println(file.length());
         if (file.length() > 0) {
             try {
                 FileReader fileReader = new FileReader(file);

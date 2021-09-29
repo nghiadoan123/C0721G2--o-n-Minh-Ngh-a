@@ -6,7 +6,7 @@ public class TestTriangleException {
         try {
             triangleEdge.triangleEdge();
         } catch (IllegalTriangleException e) {
-            System.err.println(e.getError());
+            System.err.println(e.getMessage());
         }
     }
 }
