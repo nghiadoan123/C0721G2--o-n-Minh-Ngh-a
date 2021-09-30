@@ -38,7 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
         String gender = PersonInput.inputGender();
         int identityNumber = PersonInput.identityNumber();
         String phoneNumber = PersonInput.phoneNumber();
-        String email = PersonInput.email();
+        String email = PersonInput.emailInput();
         System.out.print("input customer type:");
         String typeOfCustomer = selectTypeOfCustomer();
         String address = CustomerInput.address();
@@ -85,17 +85,17 @@ public class CustomerServiceImpl implements CustomerService {
                     switch (choice) {
                         case 1:
                             System.out.println("Enter new ID");
-                            String ID = sc.nextLine();
+                            String ID = PersonInput.inputId();
                             customer.setId(ID);
                             break;
                         case 2:
                             System.out.println("Enter new name");
-                            String name1 = sc.nextLine();
+                            String name1 = PersonInput.inputName();
                             customer.setName(name1);
                             break;
                         case 3:
                             System.out.println("Enter new birthday");
-                            String birthday = InputDayForm.inputBirthday();
+                            String birthday = PersonInput.inputBirthday();
                             customer.setDayOfBirth(birthday);
                             break;
                         case 4:
@@ -105,17 +105,17 @@ public class CustomerServiceImpl implements CustomerService {
                             break;
                         case 5:
                             System.out.println("Enter new identity number");
-                            int identity = Integer.parseInt(sc.nextLine());
+                            int identity = PersonInput.identityNumber();
                             customer.setIdentityNumber(identity);
                             break;
                         case 6:
                             System.out.println("Enter new phoneNumber");
-                            String phoneNumber = sc.nextLine();
+                            String phoneNumber = PersonInput.phoneNumber();
                             customer.setPhoneNumber(phoneNumber);
                             break;
                         case 7:
                             System.out.println("Enter new email");
-                            String email = sc.nextLine();
+                            String email = PersonInput.emailInput();
                             customer.setEmail(email);
                             break;
                         case 8:
@@ -151,7 +151,7 @@ public class CustomerServiceImpl implements CustomerService {
                             break;
                         case 9:
                             System.out.println("Enter new address");
-                            String address = sc.nextLine();
+                            String address =CustomerInput.address();
                             customer.setAddress(address);
                             break;
                         case 10:

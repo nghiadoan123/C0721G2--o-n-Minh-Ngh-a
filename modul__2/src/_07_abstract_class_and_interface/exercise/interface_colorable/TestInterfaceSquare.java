@@ -23,6 +23,7 @@ public class TestInterfaceSquare {
 //        }
         // ép kiểu c2
         for (int i = 0; i <shapeList.length ; i++) {
+
             if (shapeList[i] instanceof InterfaceResizeable){
                 ((InterfaceResizeable) shapeList[i]).resize(Math.random() * 10);
             }

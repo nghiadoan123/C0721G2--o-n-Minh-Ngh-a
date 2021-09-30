@@ -11,7 +11,7 @@ import java.util.*;
 
 public class BookingServiceImpl implements BookingService {
     Scanner scanner = new Scanner(System.in);
-    public static final String FILE_PATH = "/Users/nguyenmaithi/Documents/NGHĨA/C0721G2--o-n-Minh-Ngh-a/furama_resort/src/data/booking.csv";
+    public static final String FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\booking.csv";
     public static TreeSet<Booking> bookingList = BookingReadAndWriteFileToCSV.readListBookingFromCSV(FILE_PATH);
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     FacilityServiceImpl facilityService = new FacilityServiceImpl();

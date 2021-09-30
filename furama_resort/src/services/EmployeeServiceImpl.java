@@ -32,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         String gender = PersonInput.inputGender();
         int identityNumber = PersonInput.identityNumber();
         String phoneNumber = PersonInput.phoneNumber();
-        String email = PersonInput.email();
+        String email = PersonInput.emailInput();
         String id = PersonInput.inputId();
         System.out.println("input employee degree:");
         String degree = chooseLevel();
@@ -103,41 +103,41 @@ public class EmployeeServiceImpl implements EmployeeService {
                     switch (choice) {
                         case 1:
                             System.out.println("Enter new ID");
-                            String ID = scanner.nextLine();
+                            String ID = PersonInput.inputId();
                             e.setId(ID);
                             break;
                         case 2:
                             System.out.println("Enter new name");
-                            String nameNew = scanner.nextLine();
+                            String nameNew = PersonInput.inputName();
                             e.setName(nameNew);
                             break;
 
                         case 3:
                             System.out.println("Enter new bithday");
-                            String birth = InputDayForm.inputBirthday();
+                            String birth = PersonInput.inputBirthday();
                             e.setDayOfBirth(birth);
                             break;
 
                         case 4:
                             System.out.println("Enter new gender");
-                            String gender = scanner.nextLine();
+                            String gender = PersonInput.inputGender();
                             e.setGender(gender);
                             break;
 
                         case 5:
                             System.out.println("Enter new identityNumber");
-                            int identityNumber = Integer.parseInt(scanner.nextLine());
+                            int identityNumber = PersonInput.identityNumber();
                             e.setIdentityNumber(identityNumber);
                             break;
 
                         case 6:
                             System.out.println("Enter new phone");
-                            String phone = scanner.nextLine();
+                            String phone = PersonInput.phoneNumber();
                             e.setPhoneNumber(phone);
                             break;
                         case 7:
                             System.out.println("Enter new email");
-                            String email = scanner.nextLine();
+                            String email = PersonInput.emailInput();
                             e.setEmail(email);
                             break;
                         case 8:
@@ -207,7 +207,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                             break;
                         case 10:
                             System.out.println("Enter new Salary");
-                            double salary = Double.parseDouble(scanner.nextLine());
+                            double salary = EmployeeInput.salary();
                             e.setSalary(salary);
                             break;
                         case 11:

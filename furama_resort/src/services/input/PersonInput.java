@@ -100,15 +100,19 @@ public class PersonInput {
         return phoneNumeber;
     }
 
-    public static String email() {
-        String email ="";
-        try {
+    public static String emailInput() {
+        String emailInput = "";
+        do {
             System.out.println("input email:");
-            email = scanner.nextLine();
-        } catch (Exception e) {
+            emailInput = scanner.nextLine();
+        } while (!validateEmail(emailInput));
 
-        }
-        return email;
+        return emailInput;
+    }
+
+    public static boolean validateEmail(String name) {
+        String regexEmail = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
+        return name.matches(regexEmail);
     }
 
 }

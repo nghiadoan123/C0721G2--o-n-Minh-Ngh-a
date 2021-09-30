@@ -12,15 +12,11 @@ import utils.FacilityVillaReadAndWriteFileToCSV;
 import java.util.*;
 
 public class FacilityServiceImpl implements FacilityService {
-    static int valueOfVilla;
-    static int valueOfHouse;
-    static int valueOfRoom;
-    public static final String FILE_PATH_FACILITY = "//Users/nguyenmaithi/Documents/NGHĨA/C0721G2--o-n-Minh-Ngh-a/furama_resort/src/data/facility.csv";
+    public static final String FILE_PATH_FACILITY = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\facility.csv";
     public static Map<Facility, Integer> facilityList = FacilityVillaReadAndWriteFileToCSV.readListFacilityVillaToCSV(FILE_PATH_FACILITY);
-    ;
-    public static final String FILE_PATH_ROOM = "/Users/nguyenmaithi/Documents/NGHĨA/C0721G2--o-n-Minh-Ngh-a/furama_resort/src/data/facilityroomdata.csv";
-    public static final String FILE_PATH_HOUSE = "/Users/nguyenmaithi/Documents/NGHĨA/C0721G2--o-n-Minh-Ngh-a/furama_resort/src/data/facilityhousedata.csv";
-    public static final String FILE_PATH_VILLA = "/Users/nguyenmaithi/Documents/NGHĨA/C0721G2--o-n-Minh-Ngh-a/furama_resort/src/data/facilityvilladata.csv";
+    public static final String FILE_PATH_ROOM = "src\\data\\facilityroomdata.csv";
+    public static final String FILE_PATH_HOUSE = "src\\data\\facilityhousedata.csv";
+    public static final String FILE_PATH_VILLA = "src\\data\\facilityvilladata.csv";
 
 
     Scanner scanner = new Scanner(System.in);
@@ -32,10 +28,10 @@ public class FacilityServiceImpl implements FacilityService {
 //
 //    }
 
-    public final static String HOURS = "hours";
-    public final static String DAY = "day";
-    public final static String MONTH = "month";
-    public final static String YEAR = "year";
+    public final static String HOURS = "Hours";
+    public final static String DAY = "Day";
+    public final static String MONTH = "Month";
+    public final static String YEAR = "Year";
 
     public String chooseTypeOfRent() {
 
@@ -128,8 +124,7 @@ public class FacilityServiceImpl implements FacilityService {
                     facilityListVilla.put(villa, 1);
                     facilityList.put(villa, 1);
                     FacilityVillaReadAndWriteFileToCSV.writeListFacilityVillaToCSV(facilityListVilla, FILE_PATH_VILLA, true);
-                    FacilityHouseReadAndWriteFileToCSV.writeListFacilityHouseToCSV(facilityList, FILE_PATH_FACILITY, false);
-
+                    FacilityVillaReadAndWriteFileToCSV.writeListFacilityVillaToCSV(facilityList, FILE_PATH_FACILITY, false);
                     flag = false;
                     break;
                 case "2":
@@ -167,6 +162,7 @@ public class FacilityServiceImpl implements FacilityService {
                     facilityListRoom.put(room, 1);
                     FacilityRoomReadAndWriteFileToCSV.writeListFacilityRoomToCSV(facilityListRoom, FILE_PATH_ROOM, true);
                     FacilityRoomReadAndWriteFileToCSV.writeListFacilityRoomToCSV(facilityList, FILE_PATH_FACILITY, false);
+
                     flag = false;
                     break;
                 default:
