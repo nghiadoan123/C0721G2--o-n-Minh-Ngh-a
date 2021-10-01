@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class ContractServiceImpl implements ContractService {
-    public static final String FILE_PATH = "/Users/nguyenmaithi/Documents/NGHĨA/C0721G2--o-n-Minh-Ngh-a/furama_resort/src/data/contract.csv";
+    public static final String FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\contract.csv";
     private static TreeSet<Contract> contractList = ContractReadAndWriteFileToCSV.readListBookingFromCSV(FILE_PATH);
     @Override
     public void createContract(){

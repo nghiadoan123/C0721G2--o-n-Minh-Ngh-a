@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
     //EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
-    public static final String FILE_PATH = "/Users/nguyenmaithi/Documents/NGHĨA/C0721G2--o-n-Minh-Ngh-a/furama_resort/src/data/customerdata.csv";
+    public static final String FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\customerdata.csv";
     public static LinkedList<Customer> customerList = CustomerReadAndWriteFileToCSV.getListCustomerFromCSV(FILE_PATH);
     Scanner sc = new Scanner(System.in);
 

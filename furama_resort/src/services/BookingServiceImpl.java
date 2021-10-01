@@ -28,6 +28,12 @@ public class BookingServiceImpl implements BookingService {
             System.out.println("please register customer first");
             return;
         }
+        for (Booking booking: bookingList) {
+           if (booking.getCustomer().getId().contains(customerId)){
+               System.out.println("being booking");
+               return;
+           }
+        }
         System.out.println("Enter service name");
         String serviceName = scanner.nextLine();
         Facility facility = FacilityServiceImpl.setFacilityTime(serviceName);

@@ -1,9 +1,6 @@
 package controllers;
 
-import services.BookingServiceImpl;
-import services.CustomerServiceImpl;
-import services.EmployeeServiceImpl;
-import services.FacilityServiceImpl;
+import services.*;
 
 import java.util.Scanner;
 
@@ -13,6 +10,7 @@ public class FuramaController {
         CustomerServiceImpl  customerService = new CustomerServiceImpl();
         FacilityServiceImpl facilityService = new FacilityServiceImpl();
         BookingServiceImpl bookingService = new BookingServiceImpl();
+        PromotionServiceImpl promotionService = new PromotionServiceImpl();
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
         boolean flagEmployee = false;
@@ -157,6 +155,7 @@ public class FuramaController {
                         switch (chooseCase5){
                             case 1:
                                 System.out.println("1.Display list customers use service");
+                                promotionService.displayCustomerUseService();
                                 break;
                             case 2:
                                 System.out.println("2.Display list customers get voucher");

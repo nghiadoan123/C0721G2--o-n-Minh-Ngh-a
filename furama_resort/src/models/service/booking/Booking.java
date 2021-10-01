@@ -95,12 +95,12 @@ public class Booking implements Comparable<Booking> {
                 "bookingId='" + bookingId + '\'' +
                 ", checkIn='" + checkIn + '\'' +
                 ", checkOut='" + checkOut + '\'' +
-                ", customer=" + customer +
-                ", facility=" + facility +
+                ", customer=" + customer.getId() +
+                ", facility=" + facility.getServiceName() +
                 '}';
     }
 
     public String getInfoBookingToCSV(){
-        return bookingId+","+checkIn+","+checkOut+","+customer.getIdentityNumber()+","+facility.getServiceName();
+        return bookingId+","+checkIn+","+checkOut+","+customer.getId()+","+facility.getServiceName();
     }
 }

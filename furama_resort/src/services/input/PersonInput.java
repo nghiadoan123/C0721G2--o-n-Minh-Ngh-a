@@ -40,7 +40,7 @@ public class PersonInput {
                 Date birth = simpleDateFormat.parse(birthday);
                 int yearOld = LocalDate.now().getYear()-birth.getYear()-1900;
                 System.out.println(yearOld);
-                if (yearOld>17&&yearOld<100&&yearOld<0) {
+                if (yearOld>17&&yearOld<100) {
                     System.out.println(birthday + " is valid date");
                 } else {
                     System.out.println("Age must be between 18 and 100");

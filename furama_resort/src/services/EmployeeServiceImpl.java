@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class EmployeeServiceImpl implements EmployeeService {
 
-    public static final String FILE_PATH = "/Users/nguyenmaithi/Documents/NGHĨA/C0721G2--o-n-Minh-Ngh-a/furama_resort/src/data/employeedata.csv";
+    public static final String FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\employeedata.csv";
     public static Scanner scanner = new Scanner(System.in);
     public static ArrayList<Employee> employeeServices = EmployeeReadAndWriteFileToCSV.readListStudentFromCSV(FILE_PATH);
 
