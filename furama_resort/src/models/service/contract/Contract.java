@@ -2,6 +2,8 @@ package models.service.contract;
 
 import models.person.Customer;
 
+import java.io.Serializable;
+
 public class Contract implements Comparable<Contract> {
     private int contractNumber;
     private int bookingNumber;

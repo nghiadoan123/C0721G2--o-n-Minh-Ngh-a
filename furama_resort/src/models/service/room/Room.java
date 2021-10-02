@@ -2,7 +2,9 @@ package models.service.room;
 
 import models.service.facility.Facility;
 
-public class Room extends Facility {
+import java.io.Serializable;
+
+public class Room extends Facility implements Serializable {
     private String promotionService;
 
     public Room() {

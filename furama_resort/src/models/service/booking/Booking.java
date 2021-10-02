@@ -3,10 +3,13 @@ package models.service.booking;
 import models.person.Customer;
 import models.service.facility.Facility;
 
-public class Booking implements Comparable<Booking> {
+import java.io.Serializable;
+import java.util.Date;
+
+public class Booking implements Comparable<Booking>,Serializable {
     private String bookingId;
-    private String checkIn;
-    private String checkOut;
+    private Date checkIn;
+    private Date checkOut;
     private Customer customer;
     private Facility facility;
 
@@ -14,7 +17,7 @@ public class Booking implements Comparable<Booking> {
     public Booking() {
     }
 
-    public Booking(String bookingId, String checkIn, String checkOut, Customer customer, Facility facility) {
+    public Booking(String bookingId, Date checkIn, Date checkOut, Customer customer, Facility facility) {
         this.bookingId = bookingId;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
@@ -30,19 +33,19 @@ public class Booking implements Comparable<Booking> {
         this.bookingId = bookingId;
     }
 
-    public String getCheckIn() {
+    public Date getCheckIn() {
         return checkIn;
     }
 
-    public void setCheckIn(String checkIn) {
+    public void setCheckIn(Date checkIn) {
         this.checkIn = checkIn;
     }
 
-    public String getCheckOut() {
+    public Date getCheckOut() {
         return checkOut;
     }
 
-    public void setCheckOut(String checkOut) {
+    public void setCheckOut(Date checkOut) {
         this.checkOut = checkOut;
     }
 
@@ -93,10 +96,10 @@ public class Booking implements Comparable<Booking> {
     public String toString() {
         return "Booking{" +
                 "bookingId='" + bookingId + '\'' +
-                ", checkIn='" + checkIn + '\'' +
-                ", checkOut='" + checkOut + '\'' +
-                ", customer=" + customer.getId() +
-                ", facility=" + facility.getServiceName() +
+                ", checkIn=" + checkIn +
+                ", checkOut=" + checkOut +
+                ", customer=" + customer +
+                ", facility=" + facility +
                 '}';
     }
 

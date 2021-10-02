@@ -5,11 +5,12 @@ import services.*;
 import java.util.Scanner;
 
 public class FuramaController {
-    public static void displayMainMenu(){
+    public static void displayMainMenu() throws Exception {
         EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
         CustomerServiceImpl  customerService = new CustomerServiceImpl();
         FacilityServiceImpl facilityService = new FacilityServiceImpl();
         BookingServiceImpl bookingService = new BookingServiceImpl();
+        ContractServiceImpl contractService = new ContractServiceImpl();
         PromotionServiceImpl promotionService = new PromotionServiceImpl();
         Scanner scanner = new Scanner(System.in);
         boolean flag = true;
@@ -129,13 +130,13 @@ public class FuramaController {
                                 bookingService.showBookingList();
                                 break;
                             case 3:
-                                bookingService.createContract();
+                                contractService.createContract();
                                 break;
                             case 4:
-                                bookingService.showContractList();
+                                contractService.displayContractList();
                                 break;
                             case 5:
-                                bookingService.editContract();
+                                contractService.editContract();
                                 break;
                             case 6:
                                 //	Return main menu
@@ -159,6 +160,7 @@ public class FuramaController {
                                 break;
                             case 2:
                                 System.out.println("2.Display list customers get voucher");
+                                promotionService.displayCustomerGetVoucher();
                                 break;
                             case 3:
                                 //	Return main menu
@@ -174,7 +176,7 @@ public class FuramaController {
         }
 
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         displayMainMenu();
     }
 

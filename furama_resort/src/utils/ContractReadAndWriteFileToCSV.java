@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.TreeSet;
 
 public class ContractReadAndWriteFileToCSV {
-    public static void writeListBookingToCSV(TreeSet<Contract> contractList, String pathFile, boolean append) {
+    public static void writeListContractToCSV(TreeSet<Contract> contractList, String pathFile, boolean append) {
         File file = new File(pathFile);
         try {
             FileWriter fileWriter = new FileWriter(file, append);// append: true // cho phép ghi tiếp/ false nghi đề
@@ -27,7 +27,7 @@ public class ContractReadAndWriteFileToCSV {
         }
     }
 
-    public static TreeSet<Contract> readListBookingFromCSV(String pathFile) {
+    public static TreeSet<Contract> readListContractFromCSV(String pathFile) {
         TreeSet<Contract> contractList = new TreeSet<>();
         File file = new File(pathFile);
         if (file.length() > 0) {

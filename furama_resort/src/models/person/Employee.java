@@ -1,6 +1,8 @@
 package models.person;
 
-public class Employee extends Person {
+import java.io.Serializable;
+
+public class Employee extends Person implements Serializable {
     private String level;
     private String position;
     private Double salary;
@@ -61,7 +63,8 @@ public class Employee extends Person {
                 '}';
     }
 
-    public String getInfoEmployeeToCSV(){
+    @Override
+    public String getInfoToCSV(){
         return super.getId()+","+super.getName()+","+super.getDayOfBirth()+","+super.getGender()+","+super.getIdentityNumber()+","+super.getPhoneNumber()+","+super.getEmail()+","+level+","+position+","+salary;
     }
 

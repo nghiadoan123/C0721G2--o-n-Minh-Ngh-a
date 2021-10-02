@@ -2,7 +2,9 @@ package models.service.house;
 
 import models.service.facility.Facility;
 
-public class House extends Facility {
+import java.io.Serializable;
+
+public class House extends Facility implements Serializable {
 
     private String roomStander;
     private int numberFloor;

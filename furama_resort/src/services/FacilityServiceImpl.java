@@ -11,7 +11,7 @@ import java.util.*;
 
 public class FacilityServiceImpl implements FacilityService {
     public static final String FILE_PATH_FACILITY = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\facility.csv";
-    public static Map<Facility, Integer> facilityList = FacilityReadAndWriteFileToCSV.readListFacilityToCSV(FILE_PATH_FACILITY);
+    public static Map<Facility, Integer> facilityList = FacilityReadAndWriteFileToCSV.readDataFromFile(FILE_PATH_FACILITY);
     public static final String FILE_PATH_ROOM = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\facilityroomdata.csv";
     public static final String FILE_PATH_HOUSE = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\facilityhousedata.csv";
     public static final String FILE_PATH_VILLA = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\facilityvilladata.csv";
@@ -69,32 +69,14 @@ public class FacilityServiceImpl implements FacilityService {
         }
     }
 
-    public static Facility setFacilityTime(String facilityName) {
-        try {
+    public static void facilityTime(String facilityName) {
             for (Map.Entry<Facility, Integer> e : facilityList.entrySet()) {
                 if (e.getKey().getServiceName().equals(facilityName)) {
                     e.setValue(e.getValue() + 1);
-                    return e.getKey();
                 }
             }
-        } catch (Exception e) {
-
         }
-        return null;
-    }
 
-    public static int setFacilityUseTime(String facilityName) {
-        try {
-            for (Map.Entry<Facility, Integer> e : facilityList.entrySet()) {
-                if (e.getKey().getServiceName().equals(facilityName)) {
-                    return e.setValue(e.getValue() + 1);
-                }
-            }
-        } catch (Exception e) {
-
-        }
-        return 0;
-    }
 
     @Override
     public void add() {
@@ -121,8 +103,8 @@ public class FacilityServiceImpl implements FacilityService {
                     Map<Facility, Integer> facilityListVilla = new LinkedHashMap<>();
                     facilityListVilla.put(villa, 1);
                     facilityList.put(villa, 1);
-                    FacilityReadAndWriteFileToCSV.writeListFacilityToCSV(facilityListVilla, FILE_PATH_VILLA, true);
-                    FacilityReadAndWriteFileToCSV.writeListFacilityToCSV(facilityList, FILE_PATH_FACILITY, false);
+                    FacilityReadAndWriteFileToCSV.writeToFile(facilityListVilla, FILE_PATH_VILLA);
+                    FacilityReadAndWriteFileToCSV.writeToFile(facilityList, FILE_PATH_FACILITY);
                     flag = false;
                     break;
                 case "2":
@@ -140,8 +122,8 @@ public class FacilityServiceImpl implements FacilityService {
                     Map<Facility, Integer> facilityListHouse = new LinkedHashMap<>();
                     facilityList.put(house, 1);
                     facilityListHouse.put(house, 1);
-                    FacilityReadAndWriteFileToCSV.writeListFacilityToCSV(facilityListHouse, FILE_PATH_HOUSE, true);
-                    FacilityReadAndWriteFileToCSV.writeListFacilityToCSV(facilityList, FILE_PATH_FACILITY, false);
+                    FacilityReadAndWriteFileToCSV.writeToFile(facilityListHouse, FILE_PATH_HOUSE);
+                    FacilityReadAndWriteFileToCSV.writeToFile(facilityList, FILE_PATH_FACILITY);
                     flag = false;
                     break;
                 case "3":
@@ -158,8 +140,8 @@ public class FacilityServiceImpl implements FacilityService {
                     facilityList.put(room, 1);
                     Map<Facility, Integer> facilityListRoom = new LinkedHashMap<>();
                     facilityListRoom.put(room, 1);
-                    FacilityReadAndWriteFileToCSV.writeListFacilityToCSV(facilityListRoom, FILE_PATH_ROOM, true);
-                    FacilityReadAndWriteFileToCSV.writeListFacilityToCSV(facilityList, FILE_PATH_FACILITY, false);
+                    FacilityReadAndWriteFileToCSV.writeToFile(facilityListRoom, FILE_PATH_ROOM);
+                    FacilityReadAndWriteFileToCSV.writeToFile(facilityList, FILE_PATH_FACILITY);
 
                     flag = false;
                     break;

@@ -1,6 +1,8 @@
 package models.person;
 
-public abstract class Person {
+import java.io.Serializable;
+
+public abstract class Person implements Serializable {
     private String id;
     private String name;
     private String dayOfBirth;
@@ -87,5 +89,9 @@ public abstract class Person {
                 ", identityNumber=" + identityNumber +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", email='" + email ;
+    }
+
+    public String getInfoToCSV(){
+        return "";
     }
 }

@@ -7,12 +7,13 @@ import services.input.PersonInput;
 import utils.CustomerReadAndWriteFileToCSV;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CustomerServiceImpl implements CustomerService {
     //EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
     public static final String FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\customerdata.csv";
-    public static LinkedList<Customer> customerList = CustomerReadAndWriteFileToCSV.getListCustomerFromCSV(FILE_PATH);
+    public static List<Customer> customerList = CustomerReadAndWriteFileToCSV.readDataFromFile(FILE_PATH);
     Scanner sc = new Scanner(System.in);
 
 //    static {
@@ -44,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
         String address = CustomerInput.address();
         Customer customer = new Customer(id, name, dayOfBirth, gender, identityNumber, phoneNumber, email, typeOfCustomer, address);
         customerList.add(customer);
-        CustomerReadAndWriteFileToCSV.writeListCustomerToCSV(customerList,FILE_PATH,false);
+        CustomerReadAndWriteFileToCSV.writeToFile(customerList,FILE_PATH);
 //        System.out.println("after add new employee");
 //        showList();
     }
@@ -160,25 +161,29 @@ public class CustomerServiceImpl implements CustomerService {
                 }
             }
         }
-        CustomerReadAndWriteFileToCSV.writeListCustomerToCSV(customerList,FILE_PATH,false);
+        CustomerReadAndWriteFileToCSV.writeToFile(customerList,FILE_PATH);
     }
 
-    public static Customer setCustomer(String id) {
-        while (true){
-            for (Customer customer: customerList) {
-                if (customer.getId().equals(id)){
-                    return customer;
-                }
+    public static void setCustomer(String id) {
+        Scanner scanner = new Scanner(System.in);
+        boolean flag = false;
+        System.out.println("Enter customer name :");
+        String name = scanner.nextLine();
+        for (Customer customer : customerList) {
+            if (customer.getName().equals(name)) {
+                System.out.println(customer);
+                flag = true;
             }
-            System.out.println("not found");
-            return null;
+        }
+        if (!flag) {
+            System.err.println("Not found !");
         }
     }
 
     @Override
     public void showList() {
-        for (int i = 0; i < customerList.size(); i++) {
-            System.out.println(customerList.get(i));
+        for (Customer customer: customerList) {
+            System.out.println(customer);
         }
     }
 

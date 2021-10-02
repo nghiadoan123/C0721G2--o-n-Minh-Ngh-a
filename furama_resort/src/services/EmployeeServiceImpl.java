@@ -62,6 +62,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                     return Employee.AFFTERUNIVERSITY;
                 default:
                     System.out.println("in put again");
+                    break;
             }
         }
     }

@@ -12,67 +12,100 @@ import java.util.*;
 public class BookingServiceImpl implements BookingService {
     Scanner scanner = new Scanner(System.in);
     public static final String FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\booking.csv";
-    public static TreeSet<Booking> bookingList = BookingReadAndWriteFileToCSV.readListBookingFromCSV(FILE_PATH);
+    public static final String FILE_PATH_LIST_ALL = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\bookinglist.csv";
+    public static TreeSet<Booking> bookingList = BookingReadAndWriteFileToCSV.readDataFromFile(FILE_PATH);
+    public static TreeSet<Booking> bookingListAll = BookingReadAndWriteFileToCSV.readDataFromFile(FILE_PATH_LIST_ALL);
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
     ContractServiceImpl contactService = new ContractServiceImpl();
 
     @Override
-    public void add() {
+    public void add() throws Exception {
         customerService.showList();
         facilityService.showList();
         System.out.println("Enter customer ID");
-        String customerId = scanner.nextLine();
-        Customer customer = CustomerServiceImpl.setCustomer(customerId);
+        Customer customer = inputCustomer();
         if (customer == null){
-            System.out.println("please register customer first");
             return;
-        }
-        for (Booking booking: bookingList) {
-           if (booking.getCustomer().getId().contains(customerId)){
-               System.out.println("being booking");
-               return;
-           }
+        }else {
+            for (Booking booking:bookingList) {
+                if (booking.getCustomer().getId().equals(customer.getId())){
+                    System.out.println("had booking");
+                    System.out.println(booking);
+                    return;
+                }
+            }
         }
         System.out.println("Enter service name");
-        String serviceName = scanner.nextLine();
-        Facility facility = FacilityServiceImpl.setFacilityTime(serviceName);
+        Facility facility = inputFacility();
         if (facility == null){
-            System.out.println("please register facility first");
             return;
         }
         System.out.println("Enter bookingID");
         String bookingID = scanner.nextLine();
         System.out.println("enter checkin day");
-        String checkinDay = PersonInput.inputCheckInOut();
+        Date checkinDay = PersonInput.inputCheckInOut();
         System.out.println("enter checkout day");
-        String checkoutDay = PersonInput.inputCheckInOut();
+        Date checkoutDay = PersonInput.inputCheckInOut();
         Booking booking = new Booking(bookingID,checkinDay,checkoutDay,customer,facility);
+        CustomerServiceImpl.customerList.remove(customer);
+        String facilityName = facility.getServiceName();
+        FacilityServiceImpl.facilityTime(facilityName);
         bookingList.add(booking);
-        BookingReadAndWriteFileToCSV.writeListBookingToCSV(bookingList,FILE_PATH,false);
+        bookingListAll.add(booking);
+        BookingReadAndWriteFileToCSV.writeToFile(bookingList,FILE_PATH);
+        BookingReadAndWriteFileToCSV.writeToFile(bookingListAll,FILE_PATH_LIST_ALL);
         showBookingList();
     }
 
-    public void showContractList() {
-        contactService.displayContractList();
-    }
-
-    public  void editContract(){
-        contactService.editContract();
-    }
-
-    public void createContract(){
-        Scanner sc = new Scanner(System.in);
-        Queue<Booking> queue = new LinkedList<Booking>();
-        for (Booking booking : bookingList) {
-            queue.offer(booking);
+    public static Customer inputCustomer() throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        while (true){
+            System.out.println("Enter customer ID");
+            String customerID = scanner.nextLine();
+            for (Customer customer: CustomerServiceImpl.customerList) {
+                if (customerID.equals(customer.getId())){
+                    return customer;
+                }
+            }
+            System.out.println("not found");
+           return null;
         }
 
-        for (Booking booking: bookingList) {
-            System.out.println(queue.poll());
-            contactService.createContract();
+    }
+
+    public static Facility inputFacility() throws Exception {
+        Scanner scanner = new Scanner(System.in);
+        while (true){
+            System.out.println("Enter facility name");
+            String facilityName = scanner.nextLine();
+            for (Facility facility: FacilityServiceImpl.facilityList.keySet()) {
+                if (facilityName.equals(facility.getServiceName())){
+                    return facility;
+                }
+            }
+            System.out.println("not found");
+            return null;
         }
     }
+//
+//    public void showContractList() {
+//        contactService.displayContractList();
+//    }
+//
+//    public  void editContract(){
+//        contactService.editContract();
+//    }
+//
+//    public static  Queue<Booking> setToQueue() {
+//        Scanner sc = new Scanner(System.in);
+//        Queue<Booking> queue = new LinkedList<Booking>();
+//        for (Booking booking : bookingList) {
+//            queue.offer(booking);
+//        }
+//        return queue;
+//    }
+
     @Override
     public void showBookingList() {
         for (Booking booking : bookingList) {

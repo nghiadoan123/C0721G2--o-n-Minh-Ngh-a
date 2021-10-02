@@ -1,6 +1,8 @@
 package models.person;
 
-public class Customer extends Person {
+import java.io.Serializable;
+
+public class Customer extends Person implements Serializable {
     private String typeOfCustomer;
     private String address;
 
@@ -44,7 +46,8 @@ public class Customer extends Person {
                 ", address='" + address + '\'' +
                 '}';
     }
-    public String getInfoCustomerToCSV(){
-        return super.getId()+","+super.getName()+","+super.getDayOfBirth()+","+super.getGender()+","+super.getIdentityNumber()+","+super.getPhoneNumber()+","+super.getEmail()+","+typeOfCustomer+","+address+",";
+    @Override
+    public String getInfoToCSV(){
+        return super.getId()+","+super.getName()+","+super.getDayOfBirth()+","+super.getGender()+","+super.getIdentityNumber()+","+super.getPhoneNumber()+","+super.getEmail()+","+typeOfCustomer+","+address;
     }
 }

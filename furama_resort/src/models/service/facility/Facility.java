@@ -1,8 +1,9 @@
 package models.service.facility;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public abstract class Facility {
+public abstract class Facility implements Serializable {
     private String serviceName;
     private int usableArea;
     private int rentalCost;

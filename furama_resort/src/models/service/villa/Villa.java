@@ -2,7 +2,9 @@ package models.service.villa;
 
 import models.service.facility.Facility;
 
-public class Villa extends Facility {
+import java.io.Serializable;
+
+public class Villa extends Facility implements Serializable {
 
     private String roomStandard ;
     private double poolArea;

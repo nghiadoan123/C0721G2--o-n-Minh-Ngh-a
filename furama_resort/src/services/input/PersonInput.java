@@ -42,25 +42,24 @@ public class PersonInput {
                 System.out.println(yearOld);
                 if (yearOld>17&&yearOld<100) {
                     System.out.println(birthday + " is valid date");
+                    return simpleDateFormat.format(birth);
                 } else {
                     System.out.println("Age must be between 18 and 100");
                 }
 
-                return simpleDateFormat.format(birth);
             } catch (ParseException e) {
                 System.out.println("Please enter birthday again");
             }
         }
     }
 
-    public static String inputCheckInOut() {
+    public static Date inputCheckInOut() {
         while (true) {
             System.out.println("Enter day (dd/MM/yyyy) ");
             String day = scanner.nextLine();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             try {
-                Date birth = simpleDateFormat.parse(day);
-                return simpleDateFormat.format(birth);
+                return simpleDateFormat.parse(day);
             } catch (ParseException e) {
                 System.out.println("Please enter day again");
             }
