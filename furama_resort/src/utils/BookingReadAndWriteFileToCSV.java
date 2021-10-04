@@ -15,21 +15,21 @@ import java.util.Map;
 import java.util.TreeSet;
 
 public class BookingReadAndWriteFileToCSV {
-//    public static void writeListBookingToCSV(TreeSet<Booking> bookingList, String pathFile, boolean append) {
-//        File file = new File(pathFile);
-//        try {
-//            FileWriter fileWriter = new FileWriter(file, append);// append: true // cho phép ghi tiếp/ false nghi đề
-//            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-//            for (Booking booking : bookingList) {
-//                bufferedWriter.write(booking.getInfoBookingToCSV());
-//                bufferedWriter.newLine();
-//            }
-//            bufferedWriter.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
+    public static void writeListBookingToCSV(TreeSet<Booking> bookingList, String pathFile, boolean append) {
+        File file = new File(pathFile);
+        try {
+            FileWriter fileWriter = new FileWriter(file, append);// append: true // cho phép ghi tiếp/ false nghi đề
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            for (Booking booking : bookingList) {
+                bufferedWriter.write(booking.getInfoBookingToCSV());
+                bufferedWriter.newLine();
+            }
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 //    public static TreeSet<Booking> readListBookingFromCSV(String pathFile) {
 //        TreeSet<Booking> bookingList = new TreeSet<>();
 //        File file = new File(pathFile);

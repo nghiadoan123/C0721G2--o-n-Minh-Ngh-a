@@ -104,6 +104,6 @@ public class Booking implements Comparable<Booking>,Serializable {
     }
 
     public String getInfoBookingToCSV(){
-        return bookingId+","+checkIn+","+checkOut+","+customer.getId()+","+facility.getServiceName();
+        return bookingId+","+checkIn.getDate() + "/" + (checkIn.getMonth()+1) + "/" + (checkIn.getYear()+1900)+","+checkOut.getDate() + "/" + (checkOut.getMonth()+1) + "/" + (checkOut.getYear()+1900)+","+customer.getId()+","+facility.getServiceName();
     }
 }

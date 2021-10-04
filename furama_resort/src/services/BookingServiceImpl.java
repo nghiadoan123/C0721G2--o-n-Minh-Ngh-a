@@ -13,6 +13,8 @@ public class BookingServiceImpl implements BookingService {
     Scanner scanner = new Scanner(System.in);
     public static final String FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\booking.csv";
     public static final String FILE_PATH_LIST_ALL = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\bookinglist.csv";
+    public static final String READ_FILE_PATH_LIST = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\readbookinglist.csv";
+
     public static TreeSet<Booking> bookingList = BookingReadAndWriteFileToCSV.readDataFromFile(FILE_PATH);
     public static TreeSet<Booking> bookingListAll = BookingReadAndWriteFileToCSV.readDataFromFile(FILE_PATH_LIST_ALL);
     CustomerServiceImpl customerService = new CustomerServiceImpl();
@@ -55,6 +57,7 @@ public class BookingServiceImpl implements BookingService {
         bookingListAll.add(booking);
         BookingReadAndWriteFileToCSV.writeToFile(bookingList,FILE_PATH);
         BookingReadAndWriteFileToCSV.writeToFile(bookingListAll,FILE_PATH_LIST_ALL);
+        BookingReadAndWriteFileToCSV.writeListBookingToCSV(bookingListAll,READ_FILE_PATH_LIST,false);
         showBookingList();
     }
 
