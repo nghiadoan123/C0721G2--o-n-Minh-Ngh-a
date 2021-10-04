@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class CustomerServiceImpl implements CustomerService {
     //EmployeeServiceImpl employeeService = new EmployeeServiceImpl();
     public static final String FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\customerdata.csv";
-    public static List<Customer> customerList = CustomerReadAndWriteFileToCSV.readDataFromFile(FILE_PATH);
+    public static List<Customer> customerList = CustomerReadAndWriteFileToCSV.readListCustomerFromCSV(FILE_PATH);
     Scanner sc = new Scanner(System.in);
 
 //    static {
@@ -45,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
         String address = CustomerInput.address();
         Customer customer = new Customer(id, name, dayOfBirth, gender, identityNumber, phoneNumber, email, typeOfCustomer, address);
         customerList.add(customer);
-        CustomerReadAndWriteFileToCSV.writeToFile(customerList,FILE_PATH);
+        CustomerReadAndWriteFileToCSV.writeListCustomerToCSV(customerList,FILE_PATH,false);
 //        System.out.println("after add new employee");
 //        showList();
     }
@@ -161,7 +161,7 @@ public class CustomerServiceImpl implements CustomerService {
                 }
             }
         }
-        CustomerReadAndWriteFileToCSV.writeToFile(customerList,FILE_PATH);
+        CustomerReadAndWriteFileToCSV.writeListCustomerToCSV(customerList,FILE_PATH,false);
     }
 
     public static void setCustomer(String id) {

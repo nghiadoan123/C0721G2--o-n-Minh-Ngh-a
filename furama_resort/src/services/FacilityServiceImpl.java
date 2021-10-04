@@ -11,7 +11,7 @@ import java.util.*;
 
 public class FacilityServiceImpl implements FacilityService {
     public static final String FILE_PATH_FACILITY = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\facility.csv";
-    public static Map<Facility, Integer> facilityList = FacilityReadAndWriteFileToCSV.readDataFromFile(FILE_PATH_FACILITY);
+    public static Map<Facility, Integer> facilityList = FacilityReadAndWriteFileToCSV.readListFacilityToCSV(FILE_PATH_FACILITY);
     public static final String FILE_PATH_ROOM = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\facilityroomdata.csv";
     public static final String FILE_PATH_HOUSE = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\facilityhousedata.csv";
     public static final String FILE_PATH_VILLA = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\furama_resort\\src\\data\\facilityvilladata.csv";
@@ -103,8 +103,8 @@ public class FacilityServiceImpl implements FacilityService {
                     Map<Facility, Integer> facilityListVilla = new LinkedHashMap<>();
                     facilityListVilla.put(villa, 1);
                     facilityList.put(villa, 1);
-                    FacilityReadAndWriteFileToCSV.writeToFile(facilityListVilla, FILE_PATH_VILLA);
-                    FacilityReadAndWriteFileToCSV.writeToFile(facilityList, FILE_PATH_FACILITY);
+                    FacilityReadAndWriteFileToCSV.writeListFacilityToCSV(facilityListVilla, FILE_PATH_VILLA,false);
+                    FacilityReadAndWriteFileToCSV.writeListFacilityToCSV(facilityList, FILE_PATH_FACILITY,false);
                     flag = false;
                     break;
                 case "2":
@@ -122,8 +122,8 @@ public class FacilityServiceImpl implements FacilityService {
                     Map<Facility, Integer> facilityListHouse = new LinkedHashMap<>();
                     facilityList.put(house, 1);
                     facilityListHouse.put(house, 1);
-                    FacilityReadAndWriteFileToCSV.writeToFile(facilityListHouse, FILE_PATH_HOUSE);
-                    FacilityReadAndWriteFileToCSV.writeToFile(facilityList, FILE_PATH_FACILITY);
+                    FacilityReadAndWriteFileToCSV.writeListFacilityToCSV(facilityListHouse, FILE_PATH_HOUSE,false);
+                    FacilityReadAndWriteFileToCSV.writeListFacilityToCSV(facilityList, FILE_PATH_FACILITY,false);
                     flag = false;
                     break;
                 case "3":
@@ -140,8 +140,8 @@ public class FacilityServiceImpl implements FacilityService {
                     facilityList.put(room, 1);
                     Map<Facility, Integer> facilityListRoom = new LinkedHashMap<>();
                     facilityListRoom.put(room, 1);
-                    FacilityReadAndWriteFileToCSV.writeToFile(facilityListRoom, FILE_PATH_ROOM);
-                    FacilityReadAndWriteFileToCSV.writeToFile(facilityList, FILE_PATH_FACILITY);
+                    FacilityReadAndWriteFileToCSV.writeListFacilityToCSV(facilityListRoom, FILE_PATH_ROOM,false);
+                    FacilityReadAndWriteFileToCSV.writeListFacilityToCSV(facilityList, FILE_PATH_FACILITY,false);
 
                     flag = false;
                     break;

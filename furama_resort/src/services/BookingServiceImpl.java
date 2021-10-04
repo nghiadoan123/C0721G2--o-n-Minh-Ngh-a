@@ -108,7 +108,7 @@ public class BookingServiceImpl implements BookingService {
 
     @Override
     public void showBookingList() {
-        for (Booking booking : bookingList) {
+        for (Booking booking : bookingListAll) {
             System.out.println(booking);
         }
     }

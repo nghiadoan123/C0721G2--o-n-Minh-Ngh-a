@@ -14,13 +14,11 @@ public class PromotionServiceImpl {
         System.out.println("Enter year used services !");
         System.out.println(BookingServiceImpl.bookingListAll);
         int yearInput = 0;
-        while (true) {
             try {
                 yearInput = Integer.parseInt(scanner.nextLine());
                 for (Booking e : BookingServiceImpl.bookingListAll) {
                     if (yearInput == e.getCheckIn().getYear() + 1900) {
                         System.out.println(e);
-                        return;
                     } else {
                         System.out.println("not found");
                         return;
@@ -29,7 +27,6 @@ public class PromotionServiceImpl {
             } catch (Exception e) {
                 System.out.println("in valid input again");
             }
-        }
     }
 
     public static void createVouchers() {
@@ -69,8 +66,8 @@ public class PromotionServiceImpl {
             if ((LocalDate.now().getYear() == e.getCheckIn().getYear() + 1900) && (LocalDate.now().getMonthValue() == e.getCheckIn().getMonth()+1)) {
                bookingListMonth.push(e);
             } else {
-                System.out.println("not found");
-                return;
+                System.out.println(e.getBookingId()+":"+"month:"+e.getCheckIn().getMonth()+",year:"+e.getCheckIn().getYear()+"not found");
+                //return;
             }
         }
         createVouchers();

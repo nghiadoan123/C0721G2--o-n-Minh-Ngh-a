@@ -16,15 +16,16 @@ public class InputDayForm {
             String birthday = scanner.nextLine();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             try {
-                Date birth = simpleDateFormat.parse(birthday);
-                int yearOld = LocalDate.now().getYear()-birth.getYear();
-                if (yearOld>17&&yearOld<100&&yearOld<0) {
+                Date birth = new Date();
+                birth = simpleDateFormat.parse(birthday);
+                int yearOld = LocalDate.now().getYear() - birth.getYear();
+                if (yearOld > 17 && yearOld < 100 && yearOld < 0) {
                     System.out.println(birthday + " is valid date");
                 } else {
                     System.out.println("Age must be between 18 and 100");
                 }
-
-                return simpleDateFormat.format(birth);
+                String birthReturn = simpleDateFormat.format(birth);
+                return birthReturn;
             } catch (ParseException e) {
                 System.out.println("Please enter birthday again");
             }
