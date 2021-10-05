@@ -229,13 +229,5 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
     }
 
-    @Override
-    public void search() {
 
-    }
-
-    @Override
-    public void delete() {
-
-    }
 }

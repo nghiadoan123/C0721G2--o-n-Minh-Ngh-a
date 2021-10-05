@@ -45,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
         String address = CustomerInput.address();
         Customer customer = new Customer(id, name, dayOfBirth, gender, identityNumber, phoneNumber, email, typeOfCustomer, address);
         customerList.add(customer);
-        CustomerReadAndWriteFileToCSV.writeListCustomerToCSV(customerList,FILE_PATH,false);
+        CustomerReadAndWriteFileToCSV.writeListCustomerToCSV(customerList, FILE_PATH, false);
 //        System.out.println("after add new employee");
 //        showList();
     }
@@ -152,7 +152,7 @@ public class CustomerServiceImpl implements CustomerService {
                             break;
                         case 9:
                             System.out.println("Enter new address");
-                            String address =CustomerInput.address();
+                            String address = CustomerInput.address();
                             customer.setAddress(address);
                             break;
                         case 10:
@@ -161,7 +161,7 @@ public class CustomerServiceImpl implements CustomerService {
                 }
             }
         }
-        CustomerReadAndWriteFileToCSV.writeListCustomerToCSV(customerList,FILE_PATH,false);
+        CustomerReadAndWriteFileToCSV.writeListCustomerToCSV(customerList, FILE_PATH, false);
     }
 
     public static void setCustomer(String id) {
@@ -182,19 +182,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void showList() {
-        for (Customer customer: customerList) {
+        for (Customer customer : customerList) {
             System.out.println(customer);
         }
     }
 
 
-    @Override
-    public void search() {
 
-    }
-
-    @Override
-    public void delete() {
-
-    }
 }

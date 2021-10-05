@@ -6,7 +6,7 @@ import models.service.facility.Facility;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Booking implements Comparable<Booking>,Serializable {
+public class Booking implements Comparable<Booking>, Serializable {
     private String bookingId;
     private Date checkIn;
     private Date checkOut;
@@ -68,26 +68,22 @@ public class Booking implements Comparable<Booking>,Serializable {
 
     @Override
     public int compareTo(Booking o) {
-        try {
-            if (this.bookingId.compareTo(o.bookingId) == 0) {
-                if (this.checkIn.compareTo(o.checkIn) == 0) {
-                    if (this.checkOut.compareTo(o.checkOut) == 0) {
-                        if (this.getCustomer().getId() == o.getCustomer().getId()) {
-                            return this.getFacility().getServiceName().compareTo(o.getFacility().getServiceName());
-                        } else {
-                            return this.getCustomer().getId().compareTo(o.getCustomer().getId());
-                        }
-                    } else {
-                        return this.checkOut.compareTo(o.checkOut);
-                    }
+        if (this.bookingId.compareTo(o.bookingId) == 0) {
+            return this.bookingId.compareTo(o.bookingId);
+        }
+
+        if (this.checkIn.compareTo(o.checkIn) == 0) {
+            if (this.checkOut.compareTo(o.checkOut) == 0) {
+                if (this.getCustomer().getId() == o.getCustomer().getId()) {
+                    return this.getFacility().getServiceName().compareTo(o.getFacility().getServiceName());
                 } else {
-                    return this.checkIn.compareTo(o.checkIn);
+                    return this.getCustomer().getId().compareTo(o.getCustomer().getId());
                 }
             } else {
-                return this.bookingId.compareTo(o.bookingId);
+                return this.checkOut.compareTo(o.checkOut);
             }
-        } catch (NullPointerException e) {
-            return 0;
+        } else {
+            return this.checkIn.compareTo(o.checkIn);
         }
 
     }
@@ -103,7 +99,7 @@ public class Booking implements Comparable<Booking>,Serializable {
                 '}';
     }
 
-    public String getInfoBookingToCSV(){
-        return bookingId+","+checkIn.getDate() + "/" + (checkIn.getMonth()+1) + "/" + (checkIn.getYear()+1900)+","+checkOut.getDate() + "/" + (checkOut.getMonth()+1) + "/" + (checkOut.getYear()+1900)+","+customer.getId()+","+facility.getServiceName();
+    public String getInfoBookingToCSV() {
+        return bookingId + "," + checkIn.getDate() + "/" + (checkIn.getMonth() + 1) + "/" + (checkIn.getYear() + 1900) + "," + checkOut.getDate() + "/" + (checkOut.getMonth() + 1) + "/" + (checkOut.getYear() + 1900) + "," + customer.getId() + "," + facility.getServiceName();
     }
 }

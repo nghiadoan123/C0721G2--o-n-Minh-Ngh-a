@@ -11,6 +11,7 @@ import services.FacilityServiceImpl;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 import java.util.TreeSet;
 
@@ -30,50 +31,56 @@ public class BookingReadAndWriteFileToCSV {
         }
     }
 
-//    public static TreeSet<Booking> readListBookingFromCSV(String pathFile) {
-//        TreeSet<Booking> bookingList = new TreeSet<>();
-//        File file = new File(pathFile);
-//        if (file.length() > 0) {
-//            try {
-//                FileReader fileReader = new FileReader(file);
-//                BufferedReader bufferedReader = new BufferedReader(fileReader);
-//
-//                String line = "";
-//                String[] array = null;
-//                while ((line = bufferedReader.readLine()) != null) {
-//                    array = line.split(",");
-//                    String bookingId = array[0];
-//                    String checkIn = array[1];
-//                    String checkOut = array[2];
-//
-//                    String idNumber = array[3];
-//                    Customer customer = new Customer();
-//                    for (Customer customers : CustomerServiceImpl.customerList) {
-//                        if (customer.getId() ==idNumber) {
-//                            customer = customers;
-//                        }
-//                    }
-//                    String serviceName = array[4];
-//                    Facility facility = null;
-//                    for (Map.Entry<Facility,Integer> entry : FacilityServiceImpl.facilityList.entrySet()) {
-//                        if (entry.getKey().getServiceName().equals(serviceName)){
-//                            facility = entry.getKey();
-//                        }
-//                    }
-//                    Booking booking = new Booking(bookingId, checkIn, checkOut, customer, facility);
-//                    bookingList.add(booking);
-//                }
-//                bufferedReader.close();
-//            }catch (EOFException e){
-//
-//            }
-//            catch (IOException e) {
-//                e.printStackTrace();
-//                System.out.println("Lỗi đọc file");
-//            }
-//        }
-//        return bookingList;
-//    }
+    public static TreeSet<Booking> readListBookingFromCSV(String pathFile) {
+        TreeSet<Booking> bookingList = new TreeSet<>();
+        File file = new File(pathFile);
+        if (file.length() > 0) {
+            try {
+                FileReader fileReader = new FileReader(file);
+                BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+                String line = "";
+                String[] array = null;
+                while ((line = bufferedReader.readLine()) != null) {
+                    array = line.split(",");
+                    String bookingId = array[0];
+                   // String checkInString = array[1];
+                    String[] arrayCheckIn = array[1].split("/");
+                    Date checkIn = new Date(Integer.parseInt(arrayCheckIn[2])-1900,Integer.parseInt(arrayCheckIn[1])-1,Integer.parseInt(arrayCheckIn[0]));
+                   // String checkOutString = array[2];
+                    String[] arrayCheckOut = array[2].split("/");
+                    Date checkOut = new Date(Integer.parseInt(arrayCheckOut[2])-1900,Integer.parseInt(arrayCheckOut[1])-1,Integer.parseInt(arrayCheckOut[0]));
+
+                    String idNumber = array[3];
+                    Customer customer = new Customer();
+                    for (Customer customers : CustomerServiceImpl.customerList) {
+                        if (customer.getId() ==idNumber) {
+                            customer = customers;
+                        }
+                    }
+                    String serviceName = array[4];
+                    Facility facility = null;
+                    for (Map.Entry<Facility,Integer> entry : FacilityServiceImpl.facilityList.entrySet()) {
+                        if (entry.getKey().getServiceName().equals(serviceName)){
+                            facility = entry.getKey();
+                        }
+                    }
+                    Booking booking = new Booking(bookingId, checkIn, checkOut, customer, facility);
+                    bookingList.add(booking);
+                }
+                bufferedReader.close();
+            }catch (EOFException e){
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("Lỗi đọc file");
+            }catch (Exception e){
+
+            }
+        }
+        return bookingList;
+    }
 
     public static TreeSet<Booking> readDataFromFile(String bookingFile) {
         TreeSet<Booking> bookingTreeSet = new TreeSet<>();

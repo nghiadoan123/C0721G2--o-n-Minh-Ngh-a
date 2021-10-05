@@ -17,6 +17,8 @@ public class BookingServiceImpl implements BookingService {
 
     public static TreeSet<Booking> bookingList = BookingReadAndWriteFileToCSV.readDataFromFile(FILE_PATH);
     public static TreeSet<Booking> bookingListAll = BookingReadAndWriteFileToCSV.readDataFromFile(FILE_PATH_LIST_ALL);
+    public static TreeSet<Booking> bookingReadListAll = BookingReadAndWriteFileToCSV.readListBookingFromCSV(FILE_PATH_LIST_ALL);
+
     CustomerServiceImpl customerService = new CustomerServiceImpl();
     FacilityServiceImpl facilityService = new FacilityServiceImpl();
     ContractServiceImpl contactService = new ContractServiceImpl();
@@ -27,11 +29,11 @@ public class BookingServiceImpl implements BookingService {
         facilityService.showList();
         System.out.println("Enter customer ID");
         Customer customer = inputCustomer();
-        if (customer == null){
+        if (customer == null) {
             return;
-        }else {
-            for (Booking booking:bookingList) {
-                if (booking.getCustomer().getId().equals(customer.getId())){
+        } else {
+            for (Booking booking : bookingList) {
+                if (booking.getCustomer().getId().equals(customer.getId())) {
                     System.out.println("had booking");
                     System.out.println(booking);
                     return;
@@ -40,7 +42,7 @@ public class BookingServiceImpl implements BookingService {
         }
         System.out.println("Enter service name");
         Facility facility = inputFacility();
-        if (facility == null){
+        if (facility == null) {
             return;
         }
         System.out.println("Enter bookingID");
@@ -49,41 +51,46 @@ public class BookingServiceImpl implements BookingService {
         Date checkinDay = PersonInput.inputCheckInOut();
         System.out.println("enter checkout day");
         Date checkoutDay = PersonInput.inputCheckInOut();
-        Booking booking = new Booking(bookingID,checkinDay,checkoutDay,customer,facility);
+        Booking booking = new Booking(bookingID, checkinDay, checkoutDay, customer, facility);
         CustomerServiceImpl.customerList.remove(customer);
         String facilityName = facility.getServiceName();
         FacilityServiceImpl.facilityTime(facilityName);
         bookingList.add(booking);
         bookingListAll.add(booking);
-        BookingReadAndWriteFileToCSV.writeToFile(bookingList,FILE_PATH);
-        BookingReadAndWriteFileToCSV.writeToFile(bookingListAll,FILE_PATH_LIST_ALL);
-        BookingReadAndWriteFileToCSV.writeListBookingToCSV(bookingListAll,READ_FILE_PATH_LIST,false);
+        BookingReadAndWriteFileToCSV.writeToFile(bookingList, FILE_PATH);
+        BookingReadAndWriteFileToCSV.writeToFile(bookingListAll, FILE_PATH_LIST_ALL);
+        BookingReadAndWriteFileToCSV.writeListBookingToCSV(bookingListAll, READ_FILE_PATH_LIST, false);
         showBookingList();
     }
 
     public static Customer inputCustomer() throws Exception {
         Scanner scanner = new Scanner(System.in);
-        while (true){
+        while (true) {
             System.out.println("Enter customer ID");
             String customerID = scanner.nextLine();
-            for (Customer customer: CustomerServiceImpl.customerList) {
-                if (customerID.equals(customer.getId())){
+            for (Customer customer : CustomerServiceImpl.customerList) {
+                if (customerID.equals(customer.getId())) {
                     return customer;
                 }
             }
             System.out.println("not found");
-           return null;
+            return null;
         }
 
     }
 
     public static Facility inputFacility() throws Exception {
         Scanner scanner = new Scanner(System.in);
-        while (true){
+        while (true) {
             System.out.println("Enter facility name");
             String facilityName = scanner.nextLine();
-            for (Facility facility: FacilityServiceImpl.facilityList.keySet()) {
-                if (facilityName.equals(facility.getServiceName())){
+//            for (Map.Entry<Facility,Integer> facilityIntegerEntry: FacilityServiceImpl.facilityList.entrySet()) {
+//                if (facilityName.equals(facilityIntegerEntry.getKey().getServiceName())){
+//                    return facilityIntegerEntry.getKey();
+//                }
+//            }
+            for (Facility facility : FacilityServiceImpl.facilityList.keySet()) {
+                if (facilityName.equals(facility.getServiceName())) {
                     return facility;
                 }
             }
@@ -121,15 +128,6 @@ public class BookingServiceImpl implements BookingService {
 
     }
 
-    @Override
-    public void search() {
-
-    }
-
-    @Override
-    public void delete() {
-
-    }
 
 
 }

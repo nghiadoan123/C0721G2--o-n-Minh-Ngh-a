@@ -110,7 +110,7 @@ public class PersonInput {
     }
 
     public static boolean validateEmail(String name) {
-        String regexEmail = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
+        String regexEmail = "^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*$";
         return name.matches(regexEmail);
     }
 

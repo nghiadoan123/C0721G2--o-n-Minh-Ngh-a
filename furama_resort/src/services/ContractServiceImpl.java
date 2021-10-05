@@ -113,13 +113,5 @@ public class ContractServiceImpl implements ContractService {
 
     }
 
-    @Override
-    public void search() {
 
-    }
-
-    @Override
-    public void delete() {
-
-    }
 }

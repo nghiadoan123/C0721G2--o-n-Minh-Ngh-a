@@ -171,15 +171,7 @@ public class FacilityServiceImpl implements FacilityService {
         }
     }
 
-    @Override
-    public void search() {
 
-    }
-
-    @Override
-    public void delete() {
-
-    }
 
 
 }

@@ -16,5 +16,6 @@ public class demo {
             System.out.println("Ký tự nhận được: " + (char) ch);
         }
     }
+
 }
 
