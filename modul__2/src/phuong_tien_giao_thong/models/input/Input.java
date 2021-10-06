@@ -36,15 +36,15 @@ public class Input {
     }
 
     public static boolean validateBienKiemSoatXeTai(String bienKiemSoat) {
-        String regex = "^\\d\\d[C]\\d\\d\\d.\\d\\d$";
+        String regex = "^\\d\\d[C]-\\d\\d\\d.\\d\\d$";
         return bienKiemSoat.matches(regex);
     }
 
-    public static String inputBienKIemSoatXeDuLich() {
+    public static String inputBienKIemSoatXeMay() {
         while (true) {
             System.out.println("Enter bien kiem soat");
             String bienKiemSoat = scanner.nextLine();
-            if (validateBienKiemSoatXeDuLich(bienKiemSoat)) {
+            if (validateBienKiemSoatXeMay(bienKiemSoat)) {
                 return bienKiemSoat;
             } else {
                 System.out.println("nhap bien kiem soat lai");
@@ -52,16 +52,16 @@ public class Input {
         }
     }
 
-    public static boolean validateBienKiemSoatXeDuLich(String bienKiemSoat) {
-        String regex = "^\\d\\d[A]\\d\\d\\d.\\d\\d$";
+    public static boolean validateBienKiemSoatXeMay(String bienKiemSoat) {
+        String regex = "^\\d\\d-[A-Z](\\d|[A-Z])-\\d\\d\\d.\\d\\d$";
         return bienKiemSoat.matches(regex);
     }
 
-    public static String inputBienKIemSoatXeKhach() {
+    public static String inputBienKIemSoatXeOto() {
         while (true) {
             System.out.println("Enter bien kiem soat");
             String bienKiemSoat = scanner.nextLine();
-            if (validateBienKiemSoatXeDuLich(bienKiemSoat)) {
+            if (validateBienKiemSoatXeOto(bienKiemSoat)) {
                 return bienKiemSoat;
             } else {
                 System.out.println("nhap bien kiem soat lai");
@@ -69,15 +69,41 @@ public class Input {
         }
     }
 
-    public static boolean validateBienKiemSoatXeKhach(String bienKiemSoat) {
-        String regex = "^\\d\\d[B]\\d\\d\\d.\\d\\d$";
+    public static boolean validateBienKiemSoatXeOto(String bienKiemSoat) {
+        String regex = "^\\d\\d[AB]-\\d\\d\\d.\\d\\d$";
         return bienKiemSoat.matches(regex);
     }
 
-    public static String inputNấmnXuat() {
-        System.out.println("Enter Name");
-        String name = scanner.nextLine();
-        return name;
+    public static String inputTenHangSanXuat() {
+        while (true) {
+            System.out.println("nhập tên hãng sản xuất");
+            String hangsanXuat = scanner.nextLine();
+            if (validateTenHangSanXuat(hangsanXuat)) {
+                return hangsanXuat;
+            } else {
+                System.out.println("nhap lại tên hãng sản xuất");
+            }
+        }
+
+    }
+
+    public static boolean validateTenHangSanXuat(String bienKiemSoat) {
+        String regex = "^([Y][a][m][a][h][a])|([H][o][n][d][a])|([D][o][n][g][f][e][n][g])|([H][y][u][n][d][a][i])$";
+        return bienKiemSoat.matches(regex);
+    }
+
+    public static String inputNamsanXuat() {
+        while (true) {
+            System.out.println("nhap nam san xuat");
+            String name = scanner.nextLine();
+            if (Integer.parseInt(name) > 0) {
+                return name;
+            } else {
+                System.out.println("nhập lại nam san xuat");
+            }
+
+        }
+
     }
 
     public static String inputChuSoHuu() {
@@ -92,9 +118,43 @@ public class Input {
             String inputSoChoNgoi = scanner.nextLine();
             if (isStringInt(inputSoChoNgoi)) {
                 int choNgoi = Integer.parseInt(inputSoChoNgoi);
-                if (choNgoi>0) {
+                if (choNgoi > 0) {
                     return choNgoi;
-                }else {
+                } else {
+                    System.out.println("enter again");
+                }
+            } else {
+                System.out.println("Enter again");
+            }
+        }
+    }
+
+    public static double inputTrongTai() {
+        while (true) {
+            System.out.println("nhap trong tai");
+            String inputTrongTai = scanner.nextLine();
+            if (isStringDouble(inputTrongTai)) {
+                double trongTai = Double.parseDouble(inputTrongTai);
+                if (trongTai > 0) {
+                    return trongTai;
+                } else {
+                    System.out.println("enter again");
+                }
+            } else {
+                System.out.println("Enter again");
+            }
+        }
+    }
+
+    public static double inputCongSuat() {
+        while (true) {
+            System.out.println("nhap cong suat");
+            String inputCongSuat = scanner.nextLine();
+            if (isStringDouble(inputCongSuat)) {
+                double congSuat = Double.parseDouble(inputCongSuat);
+                if (congSuat > 0) {
+                    return congSuat;
+                } else {
                     System.out.println("enter again");
                 }
             } else {

@@ -4,7 +4,7 @@ import models.service.facility.Facility;
 import models.service.house.House;
 import models.service.room.Room;
 import models.service.villa.Villa;
-import services.input.FacilityInput;
+import services.input.InpuFacility;
 import utils.FacilityReadAndWriteFileToCSV;
 
 import java.util.*;
@@ -86,10 +86,10 @@ public class FacilityServiceImpl implements FacilityService {
             String choose = scanner.nextLine();
             switch (choose) {
                 case "1":
-                    String name = FacilityInput.serviceNameInput();
-                    int Area = FacilityInput.usableAreaInput();
-                    int rentalCost = FacilityInput.rentalCostInput();
-                    int maxNumberOfTenants = FacilityInput.maxNumberOfTenantsInput();
+                    String name = InpuFacility.serviceNameInput();
+                    int Area = InpuFacility.usableAreaInput();
+                    int rentalCost = InpuFacility.rentalCostInput();
+                    int maxNumberOfTenants = InpuFacility.maxNumberOfTenantsInput();
                     System.out.println("Enter typeOfRent");
                     String typeOfRent = chooseTypeOfRent();
 
@@ -98,7 +98,7 @@ public class FacilityServiceImpl implements FacilityService {
                     System.out.println("Enter poolArea");
                     int poolArea = Integer.parseInt(scanner.nextLine());
                     System.out.println("Enter numOfFloor");
-                    int numOfFloor = FacilityInput.numberOfFloorInput();
+                    int numOfFloor = InpuFacility.numberOfFloorInput();
                     Villa villa = new Villa(name, Area, rentalCost, maxNumberOfTenants, typeOfRent, roomStandard, poolArea, numOfFloor);
                     Map<Facility, Integer> facilityListVilla = new LinkedHashMap<>();
                     facilityListVilla.put(villa, 1);
@@ -108,16 +108,16 @@ public class FacilityServiceImpl implements FacilityService {
                     flag = false;
                     break;
                 case "2":
-                    String serviceNameHouse = FacilityInput.serviceNameInput();
-                    int areaHouse = FacilityInput.usableAreaInput();
-                    int rentalCostHouse = FacilityInput.rentalCostInput();
-                    int maxNumberOfTenantsHouse = FacilityInput.maxNumberOfTenantsInput();
+                    String serviceNameHouse = InpuFacility.serviceNameInput();
+                    int areaHouse = InpuFacility.usableAreaInput();
+                    int rentalCostHouse = InpuFacility.rentalCostInput();
+                    int maxNumberOfTenantsHouse = InpuFacility.maxNumberOfTenantsInput();
                     System.out.println("Enter typeOfRent");
                     String typeOfRentHouse = chooseTypeOfRent();
                     System.out.println("Enter roomStandard");
                     String roomStandardHouse = scanner.nextLine();
                     System.out.println("Enter numOfFloor");
-                    int numOfFloorHouse = FacilityInput.numberOfFloorInput();
+                    int numOfFloorHouse = InpuFacility.numberOfFloorInput();
                     House house = new House(serviceNameHouse, areaHouse, rentalCostHouse, maxNumberOfTenantsHouse, typeOfRentHouse, roomStandardHouse, numOfFloorHouse);
                     Map<Facility, Integer> facilityListHouse = new LinkedHashMap<>();
                     facilityList.put(house, 1);
@@ -127,10 +127,10 @@ public class FacilityServiceImpl implements FacilityService {
                     flag = false;
                     break;
                 case "3":
-                    String serviceNameRoom = FacilityInput.serviceNameInput();
-                    int areaRoom = FacilityInput.usableAreaInput();
-                    int rentalCostRoom = FacilityInput.rentalCostInput();
-                    int maxNumberOfTenantsRoom = FacilityInput.maxNumberOfTenantsInput();
+                    String serviceNameRoom = InpuFacility.serviceNameInput();
+                    int areaRoom = InpuFacility.usableAreaInput();
+                    int rentalCostRoom = InpuFacility.rentalCostInput();
+                    int maxNumberOfTenantsRoom = InpuFacility.maxNumberOfTenantsInput();
                     System.out.println("Enter typeOfRent");
                     String typeOfRentRoom = chooseTypeOfRent();
 

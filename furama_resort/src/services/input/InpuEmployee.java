@@ -2,7 +2,7 @@ package services.input;
 
 import java.util.Scanner;
 
-public class EmployeeInput {
+public class InpuEmployee {
     static Scanner scanner = new Scanner(System.in);
 
     public static double salary() {

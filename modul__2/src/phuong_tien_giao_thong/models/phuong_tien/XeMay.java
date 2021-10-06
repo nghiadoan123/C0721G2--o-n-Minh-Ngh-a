@@ -22,6 +22,7 @@ public class XeMay extends PhuongTien implements Comparable<XeMay>{
     @Override
     public String toString() {
         return "XeMay{" +
+                super.toString()+
                 "congSuat=" + congSuat +
                 '}';
     }

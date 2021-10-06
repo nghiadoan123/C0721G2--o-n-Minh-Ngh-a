@@ -1,12 +1,10 @@
 package services;
 
 import models.person.Customer;
-import services.input.CustomerInput;
-import services.input.InputDayForm;
-import services.input.PersonInput;
+import services.input.InputCustomer;
+import services.input.InputPerson;
 import utils.CustomerReadAndWriteFileToCSV;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,16 +31,16 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void add() {
-        String id = PersonInput.inputId();
-        String name = PersonInput.inputName();
-        String dayOfBirth = PersonInput.inputBirthday();
-        String gender = PersonInput.inputGender();
-        int identityNumber = PersonInput.identityNumber();
-        String phoneNumber = PersonInput.phoneNumber();
-        String email = PersonInput.emailInput();
+        String id = InputPerson.inputId();
+        String name = InputPerson.inputName();
+        String dayOfBirth = InputPerson.inputBirthday();
+        String gender = InputPerson.inputGender();
+        int identityNumber = InputPerson.identityNumber();
+        String phoneNumber = InputPerson.phoneNumber();
+        String email = InputPerson.emailInput();
         System.out.print("input customer type:");
         String typeOfCustomer = selectTypeOfCustomer();
-        String address = CustomerInput.address();
+        String address = InputCustomer.address();
         Customer customer = new Customer(id, name, dayOfBirth, gender, identityNumber, phoneNumber, email, typeOfCustomer, address);
         customerList.add(customer);
         CustomerReadAndWriteFileToCSV.writeListCustomerToCSV(customerList, FILE_PATH, false);
@@ -86,17 +84,17 @@ public class CustomerServiceImpl implements CustomerService {
                     switch (choice) {
                         case 1:
                             System.out.println("Enter new ID");
-                            String ID = PersonInput.inputId();
+                            String ID = InputPerson.inputId();
                             customer.setId(ID);
                             break;
                         case 2:
                             System.out.println("Enter new name");
-                            String name1 = PersonInput.inputName();
+                            String name1 = InputPerson.inputName();
                             customer.setName(name1);
                             break;
                         case 3:
                             System.out.println("Enter new birthday");
-                            String birthday = PersonInput.inputBirthday();
+                            String birthday = InputPerson.inputBirthday();
                             customer.setDayOfBirth(birthday);
                             break;
                         case 4:
@@ -106,17 +104,17 @@ public class CustomerServiceImpl implements CustomerService {
                             break;
                         case 5:
                             System.out.println("Enter new identity number");
-                            int identity = PersonInput.identityNumber();
+                            int identity = InputPerson.identityNumber();
                             customer.setIdentityNumber(identity);
                             break;
                         case 6:
                             System.out.println("Enter new phoneNumber");
-                            String phoneNumber = PersonInput.phoneNumber();
+                            String phoneNumber = InputPerson.phoneNumber();
                             customer.setPhoneNumber(phoneNumber);
                             break;
                         case 7:
                             System.out.println("Enter new email");
-                            String email = PersonInput.emailInput();
+                            String email = InputPerson.emailInput();
                             customer.setEmail(email);
                             break;
                         case 8:
@@ -152,7 +150,7 @@ public class CustomerServiceImpl implements CustomerService {
                             break;
                         case 9:
                             System.out.println("Enter new address");
-                            String address = CustomerInput.address();
+                            String address = InputCustomer.address();
                             customer.setAddress(address);
                             break;
                         case 10:

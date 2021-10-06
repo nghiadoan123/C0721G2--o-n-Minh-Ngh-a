@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.Scanner;
 
-public class PersonInput {
+public class InputPerson {
     static Scanner scanner = new Scanner(System.in);
 
     public static String inputId() {

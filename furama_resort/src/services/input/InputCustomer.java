@@ -2,7 +2,7 @@ package services.input;
 
 import java.util.Scanner;
 
-public class CustomerInput {
+public class InputCustomer {
     private static Scanner scanner = new Scanner(System.in);
 
     public static String address() {

@@ -22,6 +22,7 @@ public class XeTai extends PhuongTien implements Comparable<XeTai>{
     @Override
     public String toString() {
         return "XeTai{" +
+                super.toString()+
                 "trongTai=" + trongTai +
                 '}';
     }

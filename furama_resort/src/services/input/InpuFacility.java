@@ -2,7 +2,7 @@ package services.input;
 
 import java.util.Scanner;
 
-public class FacilityInput {
+public class InpuFacility {
     static Scanner scanner = new Scanner(System.in);
 
     public static String serviceNameInput() {

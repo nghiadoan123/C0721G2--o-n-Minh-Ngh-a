@@ -3,8 +3,7 @@ package services;
 import models.person.Customer;
 import models.service.facility.Facility;
 import models.service.booking.Booking;
-import services.input.InputDayForm;
-import services.input.PersonInput;
+import services.input.InputPerson;
 import utils.BookingReadAndWriteFileToCSV;
 
 import java.util.*;
@@ -48,9 +47,9 @@ public class BookingServiceImpl implements BookingService {
         System.out.println("Enter bookingID");
         String bookingID = scanner.nextLine();
         System.out.println("enter checkin day");
-        Date checkinDay = PersonInput.inputCheckInOut();
+        Date checkinDay = InputPerson.inputCheckInOut();
         System.out.println("enter checkout day");
-        Date checkoutDay = PersonInput.inputCheckInOut();
+        Date checkoutDay = InputPerson.inputCheckInOut();
         Booking booking = new Booking(bookingID, checkinDay, checkoutDay, customer, facility);
         CustomerServiceImpl.customerList.remove(customer);
         String facilityName = facility.getServiceName();

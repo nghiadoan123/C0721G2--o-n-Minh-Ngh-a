@@ -1,9 +1,8 @@
 package services;
 
 import models.person.Employee;
-import services.input.EmployeeInput;
-import services.input.InputDayForm;
-import services.input.PersonInput;
+import services.input.InpuEmployee;
+import services.input.InputPerson;
 import utils.EmployeeReadAndWriteFileToCSV;
 
 import java.util.ArrayList;
@@ -27,18 +26,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void add() {
-        String name = PersonInput.inputName();
-        String dayOfBirth = PersonInput.inputBirthday();
-        String gender = PersonInput.inputGender();
-        int identityNumber = PersonInput.identityNumber();
-        String phoneNumber = PersonInput.phoneNumber();
-        String email = PersonInput.emailInput();
-        String id = PersonInput.inputId();
+        String name = InputPerson.inputName();
+        String dayOfBirth = InputPerson.inputBirthday();
+        String gender = InputPerson.inputGender();
+        int identityNumber = InputPerson.identityNumber();
+        String phoneNumber = InputPerson.phoneNumber();
+        String email = InputPerson.emailInput();
+        String id = InputPerson.inputId();
         System.out.println("input employee degree:");
         String degree = chooseLevel();
         System.out.println("input employee position:");
         String position = choosePosition();
-        double salary = EmployeeInput.salary();
+        double salary = InpuEmployee.salary();
         Employee employee = new Employee(id, name, dayOfBirth, gender, identityNumber, phoneNumber, email, degree, position, salary);
         employeeServices.add(employee);
         EmployeeReadAndWriteFileToCSV.writeListStudentToCSV(employeeServices,FILE_PATH,false);
@@ -104,41 +103,41 @@ public class EmployeeServiceImpl implements EmployeeService {
                     switch (choice) {
                         case 1:
                             System.out.println("Enter new ID");
-                            String ID = PersonInput.inputId();
+                            String ID = InputPerson.inputId();
                             e.setId(ID);
                             break;
                         case 2:
                             System.out.println("Enter new name");
-                            String nameNew = PersonInput.inputName();
+                            String nameNew = InputPerson.inputName();
                             e.setName(nameNew);
                             break;
 
                         case 3:
                             System.out.println("Enter new bithday");
-                            String birth = PersonInput.inputBirthday();
+                            String birth = InputPerson.inputBirthday();
                             e.setDayOfBirth(birth);
                             break;
 
                         case 4:
                             System.out.println("Enter new gender");
-                            String gender = PersonInput.inputGender();
+                            String gender = InputPerson.inputGender();
                             e.setGender(gender);
                             break;
 
                         case 5:
                             System.out.println("Enter new identityNumber");
-                            int identityNumber = PersonInput.identityNumber();
+                            int identityNumber = InputPerson.identityNumber();
                             e.setIdentityNumber(identityNumber);
                             break;
 
                         case 6:
                             System.out.println("Enter new phone");
-                            String phone = PersonInput.phoneNumber();
+                            String phone = InputPerson.phoneNumber();
                             e.setPhoneNumber(phone);
                             break;
                         case 7:
                             System.out.println("Enter new email");
-                            String email = PersonInput.emailInput();
+                            String email = InputPerson.emailInput();
                             e.setEmail(email);
                             break;
                         case 8:
@@ -208,7 +207,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                             break;
                         case 10:
                             System.out.println("Enter new Salary");
-                            double salary = EmployeeInput.salary();
+                            double salary = InpuEmployee.salary();
                             e.setSalary(salary);
                             break;
                         case 11:

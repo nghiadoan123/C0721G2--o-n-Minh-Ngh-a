@@ -36,6 +36,7 @@ public class Oto extends PhuongTien implements Comparable<PhuongTien>{
     @Override
     public String toString() {
         return "Oto{" +
+                super.toString()+
                 "soChoNgoi=" + soChoNgoi +
                 ", kieuXe='" + kieuXe + '\'' +
                 '}';
