@@ -3,38 +3,38 @@ create database furama;
 use furama;
 
 create table vitri(
-id_vitri int primary key,
+id_vitri int auto_increment primary key,
 ten_vi_tri varchar(45)
 );
 
 create table trinh_do(
-id_trinh_do int primary key,
+id_trinh_do int auto_increment primary key,
 trinh_do varchar(45)
 );
 
 create table bo_phan(
-id_bo_phan int primary key,
+id_bo_phan int auto_increment primary key,
 ten_bo_phan varchar(45)
 );
 
 create table loai_khach(
-id_loai_khach int primary key,
+id_loai_khach int auto_increment primary key,
 ten_loai_khach varchar(45)
 );
 
 create table kieu_thue(
-id_kieu_thue int primary key,
+id_kieu_thue int auto_increment primary key,
 ten_kieu_thue varchar(45),
 gia int
 );
 
 create table loai_dich_vu(
-id_loai_dich_vu int primary key,
+id_loai_dich_vu int auto_increment primary key,
 ten_loai_dich_vu varchar(45)
 );
 
 create table nhan_vien(
-id_nhan_vien int primary key,
+id_nhan_vien int auto_increment primary key,
 ho_ten varchar(45),
 id_vitri int,
 id_trinh_do int,
@@ -50,7 +50,7 @@ foreign key(id_trinh_do) references trinh_do(id_trinh_do),
 foreign key(id_bo_phan) references bo_phan(id_bo_phan)
 );
 create table khach_hang(
-id_khach_hang int primary key,
+id_khach_hang int auto_increment primary key,
 id_loai_khach int,
 ho_ten varchar(45),
 ngay_sinh date,
@@ -62,7 +62,7 @@ foreign key(id_loai_khach) references loai_khach(id_loai_khach)
 );
 
 create table dich_vu(
-id_dich_vu int primary key,
+id_dich_vu int auto_increment primary key,
 ten_dich_vu varchar(45),
 dien_tich int,
 so_tang int,
@@ -76,7 +76,7 @@ foreign key(id_loai_dich_vu) references loai_dich_vu(id_loai_dich_vu)
 );
 
 create table hop_dong(
-id_hop_dong int primary key,
+id_hop_dong int auto_increment primary key,
 id_nhan_vien int ,
 id_khach_hang int,
 id_dich_vu int,
@@ -90,7 +90,7 @@ foreign key(id_dich_vu) references dich_vu(id_dich_vu)
 );
 
 create table dich_vu_di_kem(
-id_dich_vu_di_kem int primary key,
+id_dich_vu_di_kem int auto_increment primary key,
 ten_dich_vu_di_kem varchar(45),
 gia int,
 don_vi int,
@@ -98,13 +98,14 @@ trang_thai_kha_dung varchar(45)
 );
 
 create table hop_dong_chi_tiet(
-id_hop_dong_chi_tiet int primary key,
+id_hop_dong_chi_tiet int auto_increment primary key,
 id_hop_dong int,
 id_dich_vu_di_kem int,
 so_luong int,
 foreign key(id_hop_dong) references hop_dong(id_hop_dong),
 foreign key(id_dich_vu_di_kem) references dich_vu_di_kem(id_dich_vu_di_kem)
 );
+
 
 
 

@@ -37,52 +37,45 @@ CREATE TABLE Mark
     FOREIGN KEY (SubId) REFERENCES Subject (SubId),
     FOREIGN KEY (StudentId) REFERENCES Student (StudentId)
 );
+
 INSERT INTO Class
-VALUES
-(1, 'A1', '2008-12-20', 1),
-(2, 'A2', '2008-12-22', 1),
-(3, 'B3', current_date, 0),
-(4, 'B4', '2012-10-25', 0);
+VALUES (1, 'A1', '2008-12-20', 1);
+INSERT INTO Class
+VALUES (2, 'A2', '2008-12-22', 1);
+INSERT INTO Class
+VALUES (3, 'B3', current_date, 0);
+
 INSERT INTO Student (StudentName, Address, Phone, Status, ClassId)
 VALUES ('Hung', 'Ha Noi', '0912113113', 1, 1);
 INSERT INTO Student (StudentName, Address, Status, ClassId)
 VALUES ('Hoa', 'Hai phong', 1, 1);
 INSERT INTO Student (StudentName, Address, Phone, Status, ClassId)
 VALUES ('Manh', 'HCM', '0123123123', 0, 2);
+
 INSERT INTO Subject
 VALUES (1, 'CF', 5, 1),
        (2, 'C', 6, 1),
        (3, 'HDJ', 5, 1),
        (4, 'RDBMS', 10, 1);
+
 INSERT INTO Mark (SubId, StudentId, Mark, ExamTimes)
 VALUES (1, 1, 8, 1),
        (1, 2, 10, 2),
-       (2, 1, 12, 1),
-        (2, 2, 8, 1);
-       
-select * from Student
-where StudentName like'h%';
+       (2, 1, 19, 1);
 
-select * from Class 
-where month(StartDate) = 12;
+# Hiển thị tất cả các thông tin môn học (bảng subject) có credit lớn nhất.
+select max(Credit) as creditMax from Subject;
 
-select * from Subject
-where credit between 3 and 5;
+# Hiển thị các thông tin môn học có điểm thi lớn nhất.
+select max(Mark) as maxMark from Mark;
 
-SET SQL_SAFE_UPDATES = 0;
-update Student 
-set ClassID = 2
-where StudentName = 'Hung';
-
-SELECT Student.StudentName, Subject.SubName,Mark
-FROM Student 
-join Mark on Mark.StudentId = Student.StudentId
-join Subject on Subject.SubId = Mark.SubId
-order by Mark desc, StudentName asc;
-
-
-
-
+# Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
+-- select Student.StudentId,Student.StudentName,avg(Mark.Mark) cách 1
+select Student.StudentId,Student.StudentName,avg(Mark.Mark) as diemTrungBinh -- cách 2 đặt tên hàm
+from Student join Mark 
+on Student.StudentId = Mark.StudentId
+-- group by Student.StudentName order by avg(Mark.Mark) desc; cách 1
+group by Student.StudentName order by diemTrungbinh desc; -- cách 2 dặt tên hàm
 
 
 
