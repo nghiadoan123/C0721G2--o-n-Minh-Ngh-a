@@ -92,9 +92,10 @@ insert into khach_hang(id_khach_hang,id_loai_khach,ho_ten,ngay_sinh,dia_chi) val
 (101,2,'Nguyen Anh', '1981-10-20', 'Da Nang'),
 (102,3,'Nguyen Binh', '1988-11-20', 'Quang Tri'),
 (103,2,'Nguyen An', '1963-10-20', 'Quang Nam'),
-(104,4,'Nguyen Trai', '1982-09-20', 'Da Nang'),
+(104,1,'Nguyen Trai', '1982-09-20', 'Quang Ngai'),
 (105,4,'Doan Truong', '1983-11-20', 'Hue'),
-(106,4,'Dinh Thang', '1985-06-20', 'Ho Chi Minh');
+(106,2,'Nguyen Anh', '1981-10-20', 'Da Nang'),
+(107,4,'Dinh Thang', '1985-06-20', 'Ho Chi Minh');
 
 create table dich_vu(
 id_dich_vu int auto_increment primary key,
@@ -139,10 +140,11 @@ foreign key(id_dich_vu) references dich_vu(id_dich_vu)
 
 insert into hop_dong(id_hop_dong,id_nhan_vien,id_khach_hang,id_dich_vu,ngay_lam_hd,ngay_ket_thuc,tien_dat_coc,tong_tien)
 values (1,1001,101,1,'2021-08-11','2021-12-16',20,200),
-       (2,1002,101,2,'2021-07-21','2021-10-10',30,300),
+       (2,1002,101,2,'2018-07-21','2018-10-10',30,300),
 	   (3,1003,103,3,'2021-05-01','2021-08-12',5,50),
 	   (4,1004,104,3,'2021-06-17','2021-09-13',10,1000),
-	   (5,1003,105,3,'2019-01-10','2019-02-11',50,5000);
+	   (5,1003,105,2,'2019-01-10','2019-02-11',50,5000),
+	   (6,1003,107,3,'2019-01-10','2019-02-11',50,5000);
 
 create table dich_vu_di_kem(
 id_dich_vu_di_kem int auto_increment primary key,
@@ -169,7 +171,9 @@ insert into hop_dong_chi_tiet(id_hop_dong_chi_tiet,id_hop_dong,id_dich_vu_di_kem
 values (1,1,2,3),
        (2,2,1,4),
        (3,3,2,9),
-       (4,2,1,5)
+       (4,5,1,5),
+       (5,4,2,25),
+       (6,6,2,5)
        ;
        
 
@@ -201,7 +205,7 @@ join dich_vu dv
 on dv.id_dich_vu = hd.id_dich_vu
 join loai_dich_vu ldv
 on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
-where lk.ten_loai_khach = 'Gold'
+where lk.ten_loai_khach = 'Diamond'
 group by kh.id_khach_hang
 order by solanthue;
 
@@ -220,7 +224,7 @@ left join hop_dong_chi_tiet hdct
 on hdct.id_hop_dong = hd.id_hop_dong
 left join dich_vu_di_kem dvdk
 on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
-group by hd.id_hop_dong
+group by kh.ho_ten
 order by kh.id_khach_hang;
 
 
@@ -235,9 +239,81 @@ on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
 where year(hd.ngay_lam_hd) <> '2019' and (month(hd.ngay_lam_hd) <> '1' or month(hd.ngay_lam_hd) <> '2' or month(hd.ngay_lam_hd) <> '3');
 
 
+# 7.Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue, TenLoaiDichVu của tất cả các loại dịch vụ đã từng được Khách hàng đặt phòng trong năm 2018 
+ # nhưng chưa từng được Khách hàng đặt phòng  trong năm 2019.
+select dv.id_dich_vu,dv.ten_dich_vu,dv.dien_tich,dv.so_nguoi_toi_da,dv.chi_phi_thue,ldv.ten_loai_dich_vu
+from hop_dong hd
+join dich_vu dv
+on hd.id_dich_vu = dv.id_dich_vu
+join loai_dich_vu ldv
+on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
+where year(hd.ngay_lam_hd) = '2018';
+
+# 8.Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau.
+# cách 1
+select distinct ho_ten
+from khach_hang;
+
+# cách 2
+select ho_ten
+from khach_hang 
+group by ho_ten;
+
+# cách 3
 
 
 
+# 11.Hiển thị thông tin các Dịch vụ đi kèm đã được sử dụng bởi những Khách hàng có 
+# TenLoaiKhachHang là “Diamond” và có địa chỉ là “Vinh” hoặc “Quảng Ngãi”.
+select kh.ho_ten,kh.dia_chi,lk.ten_loai_khach,dvdk.id_dich_vu_di_kem,dvdk.ten_dich_vu_di_kem
+from loai_khach lk 
+join khach_hang kh
+on lk.id_loai_khach = kh.id_loai_khach
+join hop_dong hd
+on kh.id_khach_hang = hd.id_khach_hang
+join dich_vu dv
+on dv.id_dich_vu = hd.id_dich_vu
+join hop_dong_chi_tiet hdct
+on hdct.id_hop_dong = hd.id_hop_dong
+join dich_vu_di_kem dvdk
+on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
+where lk.ten_loai_khach = 'Diamond' and (kh.dia_chi = 'Vinh' or kh.dia_chi = 'Quang Ngai');
+
+# 12.	Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, SoLuongDichVuDikem 
+#(được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2019 
+#nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019
+
+
+# 13.Hiển thị thông tin các Dịch vụ đi kèm được sử dụng nhiều nhất bởi các Khách hàng đã đặt phòng
+select kh.ho_ten,kh.dia_chi,lk.ten_loai_khach,dvdk.id_dich_vu_di_kem,dvdk.ten_dich_vu_di_kem,max(hdct.so_luong) SoLuongMax
+from loai_khach lk 
+join khach_hang kh
+on lk.id_loai_khach = kh.id_loai_khach
+join hop_dong hd
+on kh.id_khach_hang = hd.id_khach_hang
+join dich_vu dv
+on dv.id_dich_vu = hd.id_dich_vu
+join hop_dong_chi_tiet hdct
+on hdct.id_hop_dong = hd.id_hop_dong
+join dich_vu_di_kem dvdk
+on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem;
+
+#14.Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
+# Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.
+select kh.id_khach_hang,kh.ho_ten,lk.ten_loai_khach,hd.id_hop_dong,dv.ten_dich_vu,dv.id_dich_vu,hd.ngay_lam_hd,hd.ngay_ket_thuc,count(dvdk.id_dich_vu_di_kem) as count
+from loai_khach lk 
+join khach_hang kh
+on lk.id_loai_khach = kh.id_loai_khach
+join hop_dong hd
+on kh.id_khach_hang = hd.id_khach_hang
+join dich_vu dv
+on dv.id_dich_vu = hd.id_dich_vu
+join hop_dong_chi_tiet hdct
+on hdct.id_hop_dong = hd.id_hop_dong
+join dich_vu_di_kem dvdk
+on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
+group by dv.ten_dich_vu
+having count=1;
 
 
 
