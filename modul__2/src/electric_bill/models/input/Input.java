@@ -1,5 +1,9 @@
 package electric_bill.models.input;
 
+import electric_bill.models.customer.Customer;
+import electric_bill.models.customer.ForengCustomer;
+import electric_bill.service.CustomerSerrvice;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;

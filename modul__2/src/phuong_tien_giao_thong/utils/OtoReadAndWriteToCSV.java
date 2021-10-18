@@ -42,6 +42,8 @@ public class OtoReadAndWriteToCSV {
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println("Lỗi đọc file");
+            }catch (Exception e){
+
             }
         }
         return otoList;

@@ -84,7 +84,6 @@ public class Input {
                 System.out.println("nhap lại tên hãng sản xuất");
             }
         }
-
     }
 
     public static boolean validateTenHangSanXuat(String bienKiemSoat) {

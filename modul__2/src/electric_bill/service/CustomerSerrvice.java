@@ -13,8 +13,8 @@ import java.util.*;
 public class CustomerSerrvice implements Service {
 
     public static Scanner scanner = new Scanner(System.in);
-    public static final String FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\modul__2\\src\\electric_bill\\data\\khachHang.csv";
-    public static final String TYPE_CUSTOMER_FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\modul__2\\src\\electric_bill\\data\\loaiKhach.csv";
+    public static final String FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\modul__2\\src\\electric_bill\\data\\customer.csv";
+    public static final String TYPE_CUSTOMER_FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\modul__2\\src\\electric_bill\\data\\typeOfCustomer.csv";
     public static ArrayList<TypeCustomer> typeCustomers = CustomerTypeReadToCSV.readFromCSV(TYPE_CUSTOMER_FILE_PATH);
     public static TreeSet<Customer> customerArrayList = CustomerReadAndWriteToCSV.readListFromCSV(FILE_PATH);
 

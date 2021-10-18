@@ -41,6 +41,8 @@ public class XeMayReadAndWriteToCSV {
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println("Lỗi đọc file");
+            }catch (Exception e){
+
             }
         }
         return xeMayList;

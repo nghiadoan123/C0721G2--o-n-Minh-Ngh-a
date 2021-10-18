@@ -15,7 +15,7 @@ import java.util.TreeSet;
 public class BillService implements Service {
     int number = 0;
     public static Scanner scanner = new Scanner(System.in);
-    public static final String FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\modul__2\\src\\electric_bill\\data\\hoaDon.csv";
+    public static final String FILE_PATH = "D:\\first\\module1-6\\C0721G2--o-n-Minh-Ngh-a\\modul__2\\src\\electric_bill\\data\\bill.csv";
     public static TreeSet<Bill> billList = BillReadAndWriteToCSV.readListFromCSV(FILE_PATH);
     CustomerSerrvice customerSerrvice = new CustomerSerrvice();
     Bill bill = new Bill();

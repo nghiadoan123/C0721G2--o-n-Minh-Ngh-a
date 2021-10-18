@@ -26,6 +26,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void add() {
+
         String name = InputPerson.inputName();
         String dayOfBirth = InputPerson.inputBirthday();
         String gender = InputPerson.inputGender();

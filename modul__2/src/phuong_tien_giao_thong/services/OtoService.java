@@ -28,7 +28,7 @@ public class OtoService implements Service {
                 case "2":
                     return Oto.KIEU_XE_KHACH;
                 default:
-                    System.out.println("in put again");
+                    System.out.println("nhập lại");
                     break;
             }
         }
@@ -80,6 +80,7 @@ public class OtoService implements Service {
                         case 1:
                             System.out.println("xóa thành thông"+oto);
                             otoList.remove(oto);
+                            OtoReadAndWriteToCSV.writeListToCSV(otoList,FILE_PATH,false);
                             flagRemove = false;
                             break;
                         case 2:

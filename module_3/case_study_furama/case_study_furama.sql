@@ -31,11 +31,11 @@ insert into bo_phan values
 
 create table loai_khach(
 id_loai_khach int auto_increment primary key,
-ten_loai_khach varchar(45)
+ten_loai_khach varchar(45) 
 );
 
 insert into loai_khach values
-(1,'Diamond'),(2,'Gold'),(3,'Sliver'),(4,'Member');
+(1,'Diamond'),(2,'Gold'),(3,'Sliver'),(4,'Member'),(5,'Platinum');
 
 create table kieu_thue(
 id_kieu_thue int auto_increment primary key,
@@ -70,11 +70,12 @@ foreign key(id_trinh_do) references trinh_do(id_trinh_do),
 foreign key(id_bo_phan) references bo_phan(id_bo_phan)
 );
 
-insert into nhan_vien (id_nhan_vien, ho_ten,id_vitri,id_trinh_do, id_bo_phan, ngay_sinh) values
-(1001,'Truong Hung',1,2,3,'1989-09-09'),
-(1002,'Nguyen Thao',2,3,3,'1990-09-08'),
-(1003,'Hoang Khoi',3,3,2,'1989-08-08'),
-(1004,'Nguyen Hung',3,2,3,'1989-08-08');
+insert into nhan_vien (id_nhan_vien, ho_ten,id_vitri,id_trinh_do, id_bo_phan, ngay_sinh, so_CMTND, luong, sdt, email, dia_chi) values
+(1001,'Truong Hung',1,2,3,'1989-09-09', 'A123456', 10, 0905112112, 'TruongHung@gmail.com', 'Hải Châu'),
+(1002,'Nguyen Thao',2,3,3,'1990-09-08', 'A123457', 20, 0863159875, 'NguyenThao@gmail.com', 'Liên Chiểu'),
+(1003,'Hoang Khoi',3,3,2,'1989-08-08', 'A123458', 30, 0121589789, 'HoangKhoi@gmail.com', 'Hải Châu'),
+(1004,'Nguyen Hung',3,2,3,'1986-08-08', 'A123459', 30, 0987154698, 'NguyenHung@gmail.com', 'Hòa phú'),
+(1005,'Nguyen Hoang',3,2,3,'1988-01-01', 'A123489', 30, 0121458987, 'NguyenHoang@gmail.com', 'Hòa Vang');
 
 create table khach_hang(
 id_khach_hang int auto_increment primary key,
@@ -85,17 +86,18 @@ so_cmtnd varchar(45),
 sdt varchar(45),
 email varchar(45),
 dia_chi varchar(45),
-foreign key(id_loai_khach) references loai_khach(id_loai_khach)
+foreign key(id_loai_khach) references loai_khach(id_loai_khach) on delete set null
 );
 
-insert into khach_hang(id_khach_hang,id_loai_khach,ho_ten,ngay_sinh,dia_chi) values
-(101,2,'Nguyen Anh', '1981-10-20', 'Da Nang'),
+
+insert into khach_hang(id_khach_hang, id_loai_khach, ho_ten, ngay_sinh, dia_chi) values
+(101,5,'Nguyen Anh', '1981-10-20', 'Da Nang'),
 (102,3,'Nguyen Binh', '1988-11-20', 'Quang Tri'),
 (103,2,'Nguyen An', '1963-10-20', 'Quang Nam'),
 (104,1,'Nguyen Trai', '1982-09-20', 'Quang Ngai'),
 (105,4,'Doan Truong', '1983-11-20', 'Hue'),
 (106,2,'Nguyen Anh', '1981-10-20', 'Da Nang'),
-(107,4,'Dinh Thang', '1985-06-20', 'Ho Chi Minh');
+(107,5,'Dinh Thang', '1985-06-20', 'Ho Chi Minh');
 
 create table dich_vu(
 id_dich_vu int auto_increment primary key,
@@ -133,18 +135,18 @@ ngay_lam_hd date ,
 ngay_ket_thuc date,
 tien_dat_coc int,
 tong_tien int,
-foreign key(id_nhan_vien) references nhan_vien(id_nhan_vien),
-foreign key(id_khach_hang) references khach_hang(id_khach_hang),
-foreign key(id_dich_vu) references dich_vu(id_dich_vu)
+foreign key(id_nhan_vien) references nhan_vien(id_nhan_vien) on delete set null,
+foreign key(id_khach_hang) references khach_hang(id_khach_hang) on delete set null,
+foreign key(id_dich_vu) references dich_vu(id_dich_vu) on delete set null
 );
 
 insert into hop_dong(id_hop_dong,id_nhan_vien,id_khach_hang,id_dich_vu,ngay_lam_hd,ngay_ket_thuc,tien_dat_coc,tong_tien)
-values (1,1001,101,1,'2021-08-11','2021-12-16',20,200),
+values (1,1001,101,1,'2015-08-11','2016-12-16',20,12000),
        (2,1002,101,2,'2018-07-21','2018-10-10',30,300),
 	   (3,1003,103,3,'2021-05-01','2021-08-12',5,50),
-	   (4,1004,107,3,'2019-11-17','2019-11-19',10,1000),
+	   (4,1004,107,3,'2019-12-12','2019-12-19',10,1000),
 	   (5,1003,107,2,'2019-10-10','2019-10-11',50,5000),
-	   (6,1003,107,3,'2019-11-10','2019-11-11',50,5000);
+	   (6,1003,107,3,'2019-12-12','2019-12-15',50,11000);
 
 create table dich_vu_di_kem(
 id_dich_vu_di_kem int auto_increment primary key,
@@ -154,7 +156,7 @@ don_vi int,
 trang_thai_kha_dung bit default 0
 );
 
-insert into dich_vu_di_kem (id_dich_vu_di_kem,ten_dich_vu_di_kem,gia,don_vi,trang_thai_kha_dung) values
+insert into dich_vu_di_kem (id_dich_vu_di_kem, ten_dich_vu_di_kem, gia,don_vi,trang_thai_kha_dung) values
 (1,'Freepool',50,3,1),(2,'Free Breakfast',20,5,1);
 
 create table hop_dong_chi_tiet(
@@ -171,7 +173,7 @@ insert into hop_dong_chi_tiet(id_hop_dong_chi_tiet,id_hop_dong,id_dich_vu_di_kem
 values (1,1,2,3),
        (2,2,1,4),
        (3,3,2,9),
-       (4,5,1,5),
+       (4,5,1,25),
        (5,4,2,25),
        (6,6,2,5)
        ;
@@ -241,7 +243,7 @@ where year(hd.ngay_lam_hd) <> '2019' and (month(hd.ngay_lam_hd) <> '1' or month(
 
 # 7.Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue, TenLoaiDichVu của tất cả các loại dịch vụ đã từng được Khách hàng đặt phòng trong năm 2018 
  # nhưng chưa từng được Khách hàng đặt phòng  trong năm 2019.
-select dv.id_dich_vu,dv.ten_dich_vu,dv.dien_tich,dv.so_nguoi_toi_da,dv.chi_phi_thue,ldv.ten_loai_dich_vu
+select dv.id_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.so_nguoi_toi_da, dv.chi_phi_thue, ldv.ten_loai_dich_vu
 from hop_dong hd
 join dich_vu dv
 on hd.id_dich_vu = dv.id_dich_vu
@@ -333,7 +335,8 @@ from loai_khach lk
 	join hop_dong_chi_tiet hdct
 		on hdct.id_hop_dong = hd.id_hop_dong
 	join dich_vu_di_kem dvdk
-		on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem;
+		on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
+	group by dvdk.ten_dich_vu_di_kem;
 
 #14.Hiển thị thông tin tất cả các Dịch vụ đi kèm chỉ mới được sử dụng một lần duy nhất. 
 # Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.
@@ -352,8 +355,142 @@ on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
 group by dv.ten_dich_vu
 having count=1;
 
+# 15.Hiển thi thông tin của tất cả nhân viên bao gồm IDNhanVien, HoTen, TrinhDo, TenBoPhan, SoDienThoai, DiaChi 
+# mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
+
+select nv.id_nhan_vien, nv.ho_ten, td.trinh_do, bp.ten_bo_phan, nv.sdt, nv.dia_chi, count(hd.id_hop_dong) as so_hop_dong
+from vitri vt
+	join nhan_vien nv
+			on vt.id_vitri = nv.id_vitri
+	join bo_phan bp
+			on bp.id_bo_phan = nv.id_bo_phan
+	join trinh_do td 
+			on td.id_trinh_do = nv.id_trinh_do
+	join hop_dong hd
+			on hd.id_nhan_vien = nv.id_nhan_vien
+	where hd.ngay_lam_hd between '2018-01-01' and '2019-12-30'
+    group by nv.id_nhan_vien
+		having  so_hop_dong <=3
+		order by nv.ho_ten;
+        
+# 16.Xóa những Nhân viên chưa từng lập được hợp đồng nào từ năm 2017 đến năm 2019.
+
+delete from nhan_vien 
+where nhan_vien.id_nhan_vien not in 
+(select * from (select nv.id_nhan_vien 
+from hop_dong hd
+	join nhan_vien nv
+		on hd.id_nhan_vien = nv.id_nhan_vien
+where year(hd.ngay_lam_hd)  between '2017' and '2019'
+group by nv.ho_ten) as id_nhan_vien);
+
+# 17.Cập nhật thông tin những khách hàng có TenLoaiKhachHang từ  Platinium lên Diamond,
+# chỉ cập nhật những khách hàng đã từng đặt phòng với tổng Tiền thanh toán trong năm 2019 là lớn hơn 10.000.000 VNĐ.
+
+SET SQL_SAFE_UPDATES = 0;
+update khach_hang
+set id_loai_khach = '5'
+where khach_hang.id_loai_khach in (
+select * from (select khach_hang.id_loai_khach
+		from loai_khach lk 
+			join khach_hang kh 
+				on kh.id_loai_khach = lk.id_loai_khach
+			join hop_dong hd
+				on hd.id_khach_hang = kh.id_khach_hang
+			where year(hd.ngay_lam_hd) = '2019' and hd.tong_tien > 10000 and kh.id_loai_khach = '1'
+				group by kh.id_khach_hang) as loai_khach
+);
+select * from khach_hang;
 
 
+# 18.Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràngbuộc giữa các bảng).
+delete  from  khach_hang kh
+where kh.id_khach_hang in (
+select * from (select kh.id_khach_hang
+from hop_dong hd
+	join khach_hang kh
+		on kh.id_khach_hang = hd.id_khach_hang
+where year(hd.ngay_lam_hd) < '2016'
+group by kh.id_khach_hang) as kh
+);
+ 
+ select * from khach_hang;
+
+
+
+# 19.Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi.
+
+update dich_vu_di_kem dvdk
+set dvdk.gia = dvdk.gia*2
+where id_dich_vu_di_kem in(
+select * from (select dvdk.id_dich_vu_di_kem
+from loai_khach lk 
+	join khach_hang kh
+		on lk.id_loai_khach = kh.id_loai_khach
+	join hop_dong hd
+		on kh.id_khach_hang = hd.id_khach_hang
+	join dich_vu dv
+		on dv.id_dich_vu = hd.id_dich_vu
+	join hop_dong_chi_tiet hdct
+		on hdct.id_hop_dong = hd.id_hop_dong
+	join dich_vu_di_kem dvdk
+		on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
+     where hdct.so_luong > 10) as hd
+     group by dvdk.ten_dich_vu_di_kem
+     ) ;
+
+select * from dich_vu_di_kem;
+# 20.Hiển thị thông tin của tất cả các Nhân viên và Khách hàng có trong hệ thống, 
+# thông tin hiển thị bao gồm ID (IDNhanVien, IDKhachHang), HoTen, Email, SoDienThoai, NgaySinh, DiaChi.
+
+select nv.id_nhan_vien, nv.ho_ten as ho_ten_nv, nv.email, nv.sdt, nv.ngay_sinh, nv.dia_chi ,
+       kh.id_khach_hang, kh.ho_ten as ho_ten_kh, kh.email, kh.sdt, kh.ngay_sinh, kh.dia_chi
+
+from nhan_vien nv 
+	left join hop_dong hd
+		on nv.id_nhan_vien = hd.id_nhan_vien
+	right join khach_hang kh
+		on kh.id_khach_hang = hd.id_khach_hang
+group by nv.id_nhan_vien, kh.id_khach_hang
+order by nv.id_nhan_vien;
+
+#21.Tạo khung nhìn có tên là V_NHANVIEN để lấy được thông tin của tất cả các nhân viên có địa chỉ là “Hải Châu” và 
+# đã từng lập hợp đồng cho 1 hoặc nhiều Khách hàng bất kỳ với ngày lập hợp đồng là “12/12/2019”
+
+-- drop view if exists v_nhan_vien;
+create view v_nhan_vien 
+as
+select  nv.dia_chi, hd.id_hop_dong, count(kh.id_khach_hang) as count_
+from nhan_vien nv 
+	join hop_dong hd
+		on nv.id_nhan_vien = hd.id_nhan_vien
+	join khach_hang kh
+		on hd.id_khach_hang = kh.id_khach_hang
+    where hd.ngay_lam_hd = '2019-12-12'
+    group by nv.id_nhan_vien
+    having  count_ > 0;
+
+select * from v_nhan_vien;
+
+#22.Thông qua khung nhìn V_NHANVIEN thực hiện cập nhật địa chỉ thành “Liên Chiểu” 
+# đối với tất cả các Nhân viên được nhìn thấy bởi khung nhìn này.
+
+
+#23.Tạo Store procedure Sp_1 Dùng để xóa thông tin của một Khách hàng nào đó với Id Khách hàng 
+# được truyền vào như là 1 tham số của Sp_1
+
+delimiter //
+create procedure sp_1(id int)
+begin
+delete from khach_hang
+where id_khach_hang = id;
+select* from khach_hang;
+end//
+delimiter ;
+call sp_1(104);
+
+#24.Tạo Store procedure Sp_2 Dùng để thêm mới vào bảng HopDong với yêu cầu Sp_2 phải thực hiện kiểm tra tính hợp lệ của dữ liệu bổ sung,
+# với nguyên tắc không được trùng khóa chính và đảm bảo toàn vẹn tham chiếu đến các bảng liên quan.
 
 
 
