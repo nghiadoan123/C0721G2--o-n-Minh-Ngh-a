@@ -86,7 +86,7 @@ so_cmtnd varchar(45),
 sdt varchar(45),
 email varchar(45),
 dia_chi varchar(45),
-foreign key(id_loai_khach) references loai_khach(id_loai_khach) on delete set null
+foreign key(id_loai_khach) references loai_khach(id_loai_khach)
 );
 
 
@@ -137,7 +137,7 @@ tien_dat_coc int,
 tong_tien int,
 foreign key(id_nhan_vien) references nhan_vien(id_nhan_vien) on delete set null,
 foreign key(id_khach_hang) references khach_hang(id_khach_hang) on delete set null,
-foreign key(id_dich_vu) references dich_vu(id_dich_vu) on delete set null
+foreign key(id_dich_vu) references dich_vu(id_dich_vu) on delete set null 
 );
 
 insert into hop_dong(id_hop_dong,id_nhan_vien,id_khach_hang,id_dich_vu,ngay_lam_hd,ngay_ket_thuc,tien_dat_coc,tong_tien)
@@ -165,8 +165,8 @@ id_hop_dong int,
 id_dich_vu_di_kem int,
 so_luong int,
 -- unique(id_hopdong,id_dich_vu_di_kem),
-foreign key(id_hop_dong) references hop_dong(id_hop_dong),
-foreign key(id_dich_vu_di_kem) references dich_vu_di_kem(id_dich_vu_di_kem)
+foreign key(id_hop_dong) references hop_dong(id_hop_dong) on delete set null,
+foreign key(id_dich_vu_di_kem) references dich_vu_di_kem(id_dich_vu_di_kem) on delete set null
 );
 
 insert into hop_dong_chi_tiet(id_hop_dong_chi_tiet,id_hop_dong,id_dich_vu_di_kem,so_luong)
@@ -199,33 +199,33 @@ select * from dich_vu;
 # Chỉ đếm những khách hàng nào có Tên loại khách hàng là “Gold”.
 select lk.ten_loai_khach,kh.ho_ten,hd.id_hop_dong,dv.ten_dich_vu,ldv.ten_loai_dich_vu,count(kh.ho_ten) as solanthue
 from loai_khach lk 
-join khach_hang kh
-on lk.id_loai_khach = kh.id_loai_khach
-join hop_dong hd
-on kh.id_khach_hang = hd.id_khach_hang
-join dich_vu dv
-on dv.id_dich_vu = hd.id_dich_vu
-join loai_dich_vu ldv
-on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
+	join khach_hang kh
+		on lk.id_loai_khach = kh.id_loai_khach
+	join hop_dong hd
+		on kh.id_khach_hang = hd.id_khach_hang
+	join dich_vu dv
+		on dv.id_dich_vu = hd.id_dich_vu
+	join loai_dich_vu ldv
+		on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
 where lk.ten_loai_khach = 'Diamond'
 group by kh.id_khach_hang
-order by solanthue;
+	order by solanthue;
 
 
 # 5.Hiển thị IDKhachHang, HoTen, TenLoaiKhach, IDHopDong, TenDichVu, NgayLamHopDong, NgayKetThuc, TongTien (Với TongTien được tính theo công thức như sau: ChiPhiThue + SoLuong*Gia, với SoLuong và Giá là từ bảng DichVuDiKem) 
 # cho tất cả các Khách hàng đã từng đặt phỏng. (Những Khách hàng nào chưa từng đặt phòng cũng phải hiển thị ra).
 select kh.id_khach_hang,kh.ho_ten,lk.ten_loai_khach,hd.id_hop_dong,dv.ten_dich_vu,hd.ngay_lam_hd,hd.ngay_ket_thuc,sum(dv.chi_phi_thue+hdct.so_luong*dvdk.gia) as tongtien
 from loai_khach lk 
-left join khach_hang kh
-on lk.id_loai_khach = kh.id_loai_khach
- left join hop_dong hd
-on kh.id_khach_hang = hd.id_khach_hang
-left join dich_vu dv
-on dv.id_dich_vu = hd.id_dich_vu
-left join hop_dong_chi_tiet hdct
-on hdct.id_hop_dong = hd.id_hop_dong
-left join dich_vu_di_kem dvdk
-on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
+	left join khach_hang kh
+		on lk.id_loai_khach = kh.id_loai_khach
+	left join hop_dong hd
+		on kh.id_khach_hang = hd.id_khach_hang
+	left join dich_vu dv
+		on dv.id_dich_vu = hd.id_dich_vu
+	left join hop_dong_chi_tiet hdct
+		on hdct.id_hop_dong = hd.id_hop_dong
+	left join dich_vu_di_kem dvdk
+		on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
 group by kh.ho_ten
 order by kh.id_khach_hang;
 
@@ -234,10 +234,10 @@ order by kh.id_khach_hang;
 # chưa từng được Khách hàng thực hiện đặt từ quý 1 của năm 2019 (Quý 1 là tháng 1, 2, 3).
 select dv.id_dich_vu,dv.ten_dich_vu,dv.dien_tich,dv.chi_phi_thue,ldv.ten_loai_dich_vu
 from hop_dong hd
-join dich_vu dv
-on hd.id_dich_vu = dv.id_dich_vu
-join loai_dich_vu ldv
-on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
+	join dich_vu dv
+		on hd.id_dich_vu = dv.id_dich_vu
+	join loai_dich_vu ldv
+		on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
 where year(hd.ngay_lam_hd) <> '2019' and (month(hd.ngay_lam_hd) <> '1' or month(hd.ngay_lam_hd) <> '2' or month(hd.ngay_lam_hd) <> '3');
 
 
@@ -245,10 +245,10 @@ where year(hd.ngay_lam_hd) <> '2019' and (month(hd.ngay_lam_hd) <> '1' or month(
  # nhưng chưa từng được Khách hàng đặt phòng  trong năm 2019.
 select dv.id_dich_vu, dv.ten_dich_vu, dv.dien_tich, dv.so_nguoi_toi_da, dv.chi_phi_thue, ldv.ten_loai_dich_vu
 from hop_dong hd
-join dich_vu dv
-on hd.id_dich_vu = dv.id_dich_vu
-join loai_dich_vu ldv
-on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
+	join dich_vu dv
+		on hd.id_dich_vu = dv.id_dich_vu
+	join loai_dich_vu ldv
+		on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
 where year(hd.ngay_lam_hd) = '2018';
 
 # 8.Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau.
@@ -342,18 +342,18 @@ from loai_khach lk
 # Thông tin hiển thị bao gồm IDHopDong, TenLoaiDichVu, TenDichVuDiKem, SoLanSuDung.
 select kh.id_khach_hang,kh.ho_ten,lk.ten_loai_khach,hd.id_hop_dong,dv.ten_dich_vu,dv.id_dich_vu,hd.ngay_lam_hd,hd.ngay_ket_thuc,count(dvdk.id_dich_vu_di_kem) as count
 from loai_khach lk 
-join khach_hang kh
-on lk.id_loai_khach = kh.id_loai_khach
-join hop_dong hd
-on kh.id_khach_hang = hd.id_khach_hang
-join dich_vu dv
-on dv.id_dich_vu = hd.id_dich_vu
-join hop_dong_chi_tiet hdct
-on hdct.id_hop_dong = hd.id_hop_dong
-join dich_vu_di_kem dvdk
-on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
+	join khach_hang kh
+		on lk.id_loai_khach = kh.id_loai_khach
+	join hop_dong hd
+		on kh.id_khach_hang = hd.id_khach_hang
+	join dich_vu dv
+		on dv.id_dich_vu = hd.id_dich_vu
+	join hop_dong_chi_tiet hdct
+		on hdct.id_hop_dong = hd.id_hop_dong
+	join dich_vu_di_kem dvdk
+		on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
 group by dv.ten_dich_vu
-having count=1;
+	having count=1;
 
 # 15.Hiển thi thông tin của tất cả nhân viên bao gồm IDNhanVien, HoTen, TrinhDo, TenBoPhan, SoDienThoai, DiaChi 
 # mới chỉ lập được tối đa 3 hợp đồng từ năm 2018 đến 2019.
@@ -397,26 +397,24 @@ select * from (select khach_hang.id_loai_khach
 				on kh.id_loai_khach = lk.id_loai_khach
 			join hop_dong hd
 				on hd.id_khach_hang = kh.id_khach_hang
-			where year(hd.ngay_lam_hd) = '2019' and hd.tong_tien > 10000 and kh.id_loai_khach = '1'
-				group by kh.id_khach_hang) as loai_khach
+where year(hd.ngay_lam_hd) = '2019' and hd.tong_tien > 10000 and kh.id_loai_khach = '1'
+	group by kh.id_khach_hang) as loai_khach
 );
 select * from khach_hang;
 
 
 # 18.Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràngbuộc giữa các bảng).
-delete  from  khach_hang kh
+delete from  khach_hang kh
 where kh.id_khach_hang in (
 select * from (select kh.id_khach_hang
 from hop_dong hd
 	join khach_hang kh
 		on kh.id_khach_hang = hd.id_khach_hang
 where year(hd.ngay_lam_hd) < '2016'
-group by kh.id_khach_hang) as kh
+	group by kh.id_khach_hang) as kh
 );
  
  select * from khach_hang;
-
-
 
 # 19.Cập nhật giá cho các Dịch vụ đi kèm được sử dụng trên 10 lần trong năm 2019 lên gấp đôi.
 
@@ -435,7 +433,7 @@ from loai_khach lk
 		on hdct.id_hop_dong = hd.id_hop_dong
 	join dich_vu_di_kem dvdk
 		on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
-     where hdct.so_luong > 10) as hd
+where hdct.so_luong > 10) as hd
      group by dvdk.ten_dich_vu_di_kem
      ) ;
 
@@ -452,22 +450,22 @@ from nhan_vien nv
 	right join khach_hang kh
 		on kh.id_khach_hang = hd.id_khach_hang
 group by nv.id_nhan_vien, kh.id_khach_hang
-order by nv.id_nhan_vien;
+	order by nv.id_nhan_vien;
 
 #21.Tạo khung nhìn có tên là V_NHANVIEN để lấy được thông tin của tất cả các nhân viên có địa chỉ là “Hải Châu” và 
 # đã từng lập hợp đồng cho 1 hoặc nhiều Khách hàng bất kỳ với ngày lập hợp đồng là “12/12/2019”
 
--- drop view if exists v_nhan_vien;
+drop view if exists v_nhan_vien;
 create view v_nhan_vien 
 as
-select  nv.dia_chi, hd.id_hop_dong, count(kh.id_khach_hang) as count_
+select nv.id_nhan_vien, nv.dia_chi as nvdc, hd.id_hop_dong as idhd, count(kh.id_khach_hang) as count_
 from nhan_vien nv 
 	join hop_dong hd
 		on nv.id_nhan_vien = hd.id_nhan_vien
 	join khach_hang kh
 		on hd.id_khach_hang = kh.id_khach_hang
-    where hd.ngay_lam_hd = '2019-12-12'
-    group by nv.id_nhan_vien
+where hd.ngay_lam_hd = '2019-12-12'
+group by nv.id_nhan_vien
     having  count_ > 0;
 
 select * from v_nhan_vien;
@@ -475,22 +473,110 @@ select * from v_nhan_vien;
 #22.Thông qua khung nhìn V_NHANVIEN thực hiện cập nhật địa chỉ thành “Liên Chiểu” 
 # đối với tất cả các Nhân viên được nhìn thấy bởi khung nhìn này.
 
+update nhan_vien nv
+set nv.dia_chi = 'Liển  Chiểu'
+where nv.id_nhan_vien in (
+		select bang_gia.id_nhan_vien from (
+			select v.id_nhan_vien from v_nhan_vien as v
+            ) as bang_gia
+	);
+select * from v_nhan_vien;
+
+-- update v_nhan_vien
+-- set v_nhan_vien.dia_chi = 'Liên Chiểu';
+-- select * from v_nhan_vien;
 
 #23.Tạo Store procedure Sp_1 Dùng để xóa thông tin của một Khách hàng nào đó với Id Khách hàng 
 # được truyền vào như là 1 tham số của Sp_1
 
+drop procedure if exists sp_1; 
 delimiter //
 create procedure sp_1(id int)
 begin
-delete from khach_hang
-where id_khach_hang = id;
-select* from khach_hang;
+	delete from khach_hang
+	where id_khach_hang = id;
+	select* from khach_hang;
 end//
 delimiter ;
 call sp_1(104);
 
-#24.Tạo Store procedure Sp_2 Dùng để thêm mới vào bảng HopDong với yêu cầu Sp_2 phải thực hiện kiểm tra tính hợp lệ của dữ liệu bổ sung,
+#24.Tạo Store procedure Sp_2 Dùng để thêm mới vào bảng HopDong với yêu cầu 
+# Sp_2 phải thực hiện kiểm tra tính hợp lệ của dữ liệu bổ sung,
 # với nguyên tắc không được trùng khóa chính và đảm bảo toàn vẹn tham chiếu đến các bảng liên quan.
+
+drop procedure if exists sp_2;
+delimiter //
+create procedure sp_2(ip_id_nhan_vien int, ip_id_hop_dong int, ip_id_khach_hang int, ip_id_dich_vu int,ip_ngay_lam_hd date, ip_ngay_ket_thuc date, ip_tien_dat_coc int, ip_tong_tien int)
+begin
+	if ip_id_nhan_vien in (select id_nhan_vien from nhan_vien) and ip_id_khach_hang in (select id_khach_hang from khach_hang)
+		then 
+			insert into hop_dong(id_nhan_vien, id_hop_dong,id_khach_hang, id_dich_vu
+                         , ngay_lam_hd, ngay_ket_thuc, tien_dat_coc, tong_tien)
+    values(ip_id_nhan_vien, ip_id_hop_dong, ip_id_khach_hang, ip_id_dich_vu, 
+              ip_ngay_lam_hd, ip_ngay_ket_thuc, ip_tien_dat_coc,ip_tong_tien);
+	else 
+		select concat('id nhan vien khong ton tai',ip_id_nhan_vien ) as id_nv;
+         select concat('id khach hang khong ton tai',ip_id_khach_hang ) as id_kh;
+	end if;
+end//
+delimiter ;
+
+call sp_2(1004,13, 1010, 1, '2021-10-10', '2021-10-19', 200,2000);
+select * from hop_dong;
+
+
+# 25.Tạo triggers có tên Tr_1 Xóa bản ghi trong bảng HopDong 
+# thì hiển thị tổng số lượng bản ghi còn lại có trong bảng HopDong ra giao diện console của database
+
+
+
+
+#26.Tạo triggers có tên Tr_2 Khi cập nhật Ngày kết thúc hợp đồng, 
+#cần kiểm tra xem thời gian cập nhật có phù hợp hay không, với quy tắc sau: 
+#Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày. 
+#Nếu dữ liệu hợp lệ thì cho phép cập nhật, nếu dữ liệu không hợp lệ thì in ra thông báo
+ #“Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày” trên console của database
+ 
+ 
+ 
+ 
+# 27.Tạo user function thực hiện yêu cầu sau:
+# a.Tạo user function func_1: Đếm các dịch vụ đã được sử dụng với Tổng tiền là > 2.000.000 VNĐ.
+# b.Tạo user function Func_2: Tính khoảng thời gian dài nhất tính từ lúc bắt đầu 
+# làm hợp đồng đến lúc kết thúc hợp đồng mà Khách hàng đã thực hiện thuê dịch vụ 
+# (lưu ý chỉ xét các khoảng thời gian dựa vào từng lần làm hợp đồng thuê dịch vụ, không xét trên toàn bộ các lần làm hợp đồng).
+# Mã của Khách hàng được truyền vào như là 1 tham số của function này.
+
+ #a.Tạo user function func_1: Đếm các dịch vụ đã được sử dụng với Tổng tiền là > 2.000.000 VNĐ.
+drop function if exists func_1;
+-- delimiter //
+-- create function func_1(ip_id_loai_dich_vu int)
+-- returns int
+-- deterministic
+-- begin
+-- 	declare sum int;
+--    if ip_id_loai_dich_vu in (select id_loai_dich_vu from dich_vu)
+--    then 
+--     create temporary table bang_tam (select count(ldv.id_loai_dich_vu) as count_
+--     from loai_dich_vu ldv
+-- 		join dich_vu dv
+-- 			on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
+-- 		join hop_dong hd
+-- 			on hd.id_dich_vu = dv.id_dich_vu
+-- 		where hd.tong_tien > 50);
+-- 	else select concat ('khong ton tai',ip_id_loai_dich_vu ) as id;
+-- 		set sum = select count_ from bang_tam;
+--         return sum;
+-- end ;
+-- delimiter ;
+
+-- select func_1(2);
+
+
+
+#28.Tạo Store procedure Sp_3 để tìm các dịch vụ được thuê bởi khách hàng với loại dịch vụ là “Room” 
+#từ đầu năm 2015 đến hết năm 2019 để xóa thông tin của các dịch vụ đó (tức là xóa các bảng ghi trong bảng DichVu) 
+#và xóa những HopDong sử dụng dịch vụ liên quan (tức là phải xóa những bản gi trong bảng HopDong) và những bản liên quan khác.
 
 
 
