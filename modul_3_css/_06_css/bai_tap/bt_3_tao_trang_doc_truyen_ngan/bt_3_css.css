@@ -1,0 +1,48 @@
+div.header{
+    position: fixed;
+    border: aqua;
+    background: whitesmoke;
+    width: 100%;
+    height: 200px;
+}
+
+.header p{
+    text-align: left;
+}
+
+h5.dschuong{
+    text-align: left;
+    text-align: justify;
+    width: 100px;
+}
+p.content{
+    width: 900px;
+    height: 480px;
+    text-align: right;
+    text-align: justify;
+
+}
+div.logo {
+    position: fixed;
+    padding-left: 500px;
+    padding-top: 20px;
+}
+
+div.header img{
+    padding-top: 0px;
+}
+
+div.slidebar{
+    padding: 200px 10px 25px 10px;
+    position: fixed;
+    justify-content: space-between;
+}
+div.slidebarright{
+    padding: 50px 600px 0px 100px;
+}
+.slidebarright h3 {
+    padding-top: 210px;
+}
+body{
+    background: aliceblue;
+}

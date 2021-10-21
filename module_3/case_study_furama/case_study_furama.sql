@@ -307,7 +307,7 @@ where lk.ten_loai_khach = 'Diamond' and (kh.dia_chi = 'Vinh' or kh.dia_chi = 'Qu
 #(được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2019 
 #nhưng chưa từng được khách hàng đặt vào 6 tháng đầu năm 2019
 
-select hd.id_hop_dong as id_hop_dong, nv.ho_ten as ten_nhan_vien, kh.ho_ten as ten_khach_hang,
+select hd.id_hop_dong as id_hop_dong, nv.ho_ten as ten_nhan_vien, kh.ho_ten as ten_khach_hang,dv.id_dich_vu as id_dich_vu,
 		dv.ten_dich_vu as ten_dich_vu, count(hdct.id_hop_dong_chi_tiet) as so_luong, hd.tong_tien
 from khach_hang kh
 	join hop_dong hd 
@@ -320,8 +320,8 @@ from khach_hang kh
 		on hdct.id_hop_dong = hd.id_hop_dong
 where hd.ngay_lam_hd  between '2019-10-01' and '2019-12-31' 
 	group by  hd.id_hop_dong
-		having ten_dich_vu not in (
-	select dv.ten_dich_vu from  dich_vu dv
+		having id_dich_vu not in (
+	select dv.id_dich_vu from  dich_vu dv
 		join hop_dong hd  
 			on dv.id_dich_vu = hd.id_dich_vu
         where hd.ngay_lam_hd between '2019-01-01' and '2019-06-30'
