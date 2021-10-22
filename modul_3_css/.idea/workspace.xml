@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ce296f6f-8c53-49a9-b755-b10706deb373" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../module_3/case_study_furama/case_study_furama.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../module_3/case_study_furama/case_study_furama.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_01_create_layout_with_css/create_layout_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_01_create_layout_with_css/create_layout_css.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_01_create_layout_with_css/create_layout_css.html" beforeDir="false" afterPath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_01_create_layout_with_css/create_layout_css.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,11 +34,14 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../module 1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\first\module1-6\C0721G2--o-n-Minh-Ngh-a\modul_3_css" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\modul_3_css\_06_css\bai_tap\bt_1_nhung_css_vao_html" />
       <recent name="D:\modul_3_css\_06_css\bai_tap\mystyle" />
@@ -72,6 +76,8 @@
       <workItem from="1634779937441" duration="43000" />
       <workItem from="1634780240301" duration="929000" />
       <workItem from="1634781221434" duration="26782000" />
+      <workItem from="1634864559761" duration="12365000" />
+      <workItem from="1634884220607" duration="30474000" />
     </task>
     <servers />
   </component>
