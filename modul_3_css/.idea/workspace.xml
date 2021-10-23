@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ce296f6f-8c53-49a9-b755-b10706deb373" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_01_create_layout_with_css/create_layout_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_01_create_layout_with_css/create_layout_css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_01_create_layout_with_css/create_layout_css.html" beforeDir="false" afterPath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_01_create_layout_with_css/create_layout_css.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/create_simple_facebook_web.html" beforeDir="false" afterPath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/create_simple_facebook_web.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/create_simple_facebook_web_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/create_simple_facebook_web_css.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,6 +78,7 @@
       <workItem from="1634781221434" duration="26782000" />
       <workItem from="1634864559761" duration="12365000" />
       <workItem from="1634884220607" duration="30474000" />
+      <workItem from="1634953259130" duration="1298000" />
     </task>
     <servers />
   </component>
