@@ -20,17 +20,33 @@
     padding: 5px;
 }
 
+/*.container {*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*}*/
 
+/*.item1 ,.item2 {*/
+/*    flex: 50%;*/
+/*}*/
+
+/*.container2 {*/
+/*    width: 100%;*/
+/*    display: flex;*/
+/*}*/
+
+/*.item3, .item4, .item5, .item6, .item7 {*/
+/*    flex: 20%;*/
+/*}*/
 .row::after {
     clear: both;
     display: block;
     content: "";
 }
 .header {
-    background: cornflowerblue;
-    position: sticky;
+   background-color: blue;
+    position: fixed;
+    width: 100%;
     top: 0px;
-    float: left;
 }
 
 .icon-left-header {
@@ -70,6 +86,11 @@
     float: left;
 }
 
+.relative {
+    display: inline;
+    position: relative;
+}
+
 .span-middle {
     padding: 5px;
 }
@@ -78,7 +99,7 @@
     height: 20px;
     align-items: center;
     float: left;
-    border-radius: 50px;
+    border-radius: 5px;
 
 }
 
@@ -94,7 +115,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50px;
-    align-items: center;
+    /*align-items: center;*/
     float: left;
 }
 
@@ -120,21 +141,39 @@
     padding: 5px;
 }
 
-.body-right {
-    margin: 5px;
-    padding: 15px;
-    position: relative;
+/*.body-right {*/
+/*    padding: 5px;*/
+/*    !*position: relative;*!*/
+/*}*/
+.taskbar ul li {
+    display: inline;
+
+}
+
+
+.inline {
+    display: inline;
 }
 
 .absolute {
-    margin: 5px;
-    padding: 5px;
+    display: inline;
+    bottom: 0px;
+    left: 0px;
     position: absolute;
-    top: 5px;
-    left: 5px;
 }
 
-.body-left , .body-right-stick {
+.body-text {
+    /*margin: 5px;*/
+    display: inline;
+}
+
+.body-left  {
+    background-color: aliceblue;
+    position: sticky;
+    top: 50px;
+}
+.body-right-stick {
+    background-color: aliceblue;
     position: sticky;
     top: 50px;
 }
@@ -156,8 +195,8 @@
 .body-icon-right-search {
     width: 20px;
     height: 20px;
-    padding-top: 5px;
     margin: 5px 5px 5px 5px;
+    background-color: aliceblue;
     float: left;
 }
 
@@ -166,7 +205,6 @@
     padding: 5px;
 }
 .theh1 {
-    margin: 5px;
     padding: 35px 0px 5px 2px;
 }
 

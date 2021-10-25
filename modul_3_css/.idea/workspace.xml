@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ce296f6f-8c53-49a9-b755-b10706deb373" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_03_create_cartoon_website/create_cartoon_web_site.html" beforeDir="false" afterPath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_03_create_cartoon_website/create_cartoon_web_site.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/create_simple_facebook_web.html" beforeDir="false" afterPath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/create_simple_facebook_web.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/create_simple_facebook_web_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/create_simple_facebook_web_css.css" afterDir="false" />
     </list>
@@ -34,18 +35,18 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../lt codegym/modul 3/c07g2-bootstrap" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\first\module1-6\C0721G2--o-n-Minh-Ngh-a\modul_3_css" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\modul_3_css\_06_css\bai_tap\bt_1_nhung_css_vao_html" />
       <recent name="D:\modul_3_css\_06_css\bai_tap\mystyle" />
       <recent name="D:\modul_3_css\_06_css\thuc_hanh" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\first\module1-6\C0721G2--o-n-Minh-Ngh-a\modul_3_css" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -78,7 +79,12 @@
       <workItem from="1634781221434" duration="26782000" />
       <workItem from="1634864559761" duration="12365000" />
       <workItem from="1634884220607" duration="30474000" />
-      <workItem from="1634953259130" duration="1298000" />
+      <workItem from="1634953259130" duration="20515000" />
+      <workItem from="1635050718921" duration="5956000" />
+      <workItem from="1635057091630" duration="50000" />
+      <workItem from="1635057746594" duration="159000" />
+      <workItem from="1635069676742" duration="10631000" />
+      <workItem from="1635125949391" duration="25439000" />
     </task>
     <servers />
   </component>
@@ -90,10 +96,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="446" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1634791865415" />
-    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1634781430936">
+    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1635147259944">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1634781430936" />
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1635147259944" />
     <state x="184" y="7" key="SettingsEditor" timestamp="1634779827777">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
