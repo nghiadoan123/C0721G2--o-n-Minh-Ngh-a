@@ -1,133 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ce296f6f-8c53-49a9-b755-b10706deb373" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/.idea/modul_3_css.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_06_css/bai_tap/bt_1_nhung_css_vao_html/bt_nhung_css_vao_html.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_06_css/bai_tap/bt_1_nhung_css_vao_html/mystyle.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_06_css/bai_tap/bt_2_dinh_dang_van_ban_voi_css/dinh_dang_van_ban.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_06_css/bai_tap/bt_3_tao_trang_doc_truyen_ngan/bt_3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_06_css/bai_tap/bt_3_tao_trang_doc_truyen_ngan/bt_3_css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_06_css/bai_tap/bt_3_tao_trang_doc_truyen_ngan/tải xuống.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_06_css/thuc_hanh/th_su_dung_css.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_01_create_layout_with_css/create_layout_css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_01_create_layout_with_css/create_layout_css.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_02_create_layout_with_RWD/create_layout_with_RWD.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_02_create_layout_with_RWD/create_layout_with_RWD_css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_02_create_layout_with_RWD/thumbpower.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_03_create_cartoon_website/create_cartoon_web_site.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_03_create_cartoon_website/create_cartoon_web_site_css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_03_create_cartoon_website/modern-icon-solution-letter-c-png_83268.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/create_simple_facebook_web.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/create_simple_facebook_web_css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/Menu.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/anhnghia.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/bell.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/cameraright.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/daubachamright.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/dongholeft.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/firendicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/flagleft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/gaming.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/group.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/groupleft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/home.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/iconxanhlacay.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/marketleft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/mesenger.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/shop.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/star.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/th_icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/thiet.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/triangle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/watchleft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/bai_tap/_04_create_simple_facebook_back_ground/icon/youtube.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/thuc_hanh/_1_use_box_model.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/thuc_hanh/_2_create_vertical_menu/create_vertical_menu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/thuc_hanh/_2_create_vertical_menu/style_css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/thuc_hanh/_3_create_horizontal_menu/horizontal_css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_07_thiet_ke_bo_cuc_trang_web/thuc_hanh/_3_create_horizontal_menu/horizontal_menu.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_01_create_simple_gallery/gallery.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_01_create_simple_gallery/images/img_fjords.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_01_create_simple_gallery/images/img_forest.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_01_create_simple_gallery/images/img_lights.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_01_create_simple_gallery/images/img_mountains.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_01_create_simple_gallery/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/create_landing_page.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/create_landing_page_css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/images/Surface_F21_Hero_FamilyDevices_V2_En-us.jpg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/images/comparedevice.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/images/deals.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/images/forbusiness.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/images/helpmechoose.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/images/maytinh1-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/images/maytinh1-3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/images/maytinh1-4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/images/maytinh1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/images/micrisoft.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/bai_tap/_02_create_landing_page/images/surfaceathome.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/thuc_hanh/bootstrap.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/thuc_hanh/styles.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/_08_bootstrap_co_ban/thuc_hanh/th_create_simple_bootstrap.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/create_menubar/background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/create_menubar/create_menubar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/create_menubar/create_menubar_css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-grid.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-reboot.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-utilities.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-utilities.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-utilities.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-utilities.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-utilities.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/css/bootstrap.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/drop_down_menu_bar/drop_down_menu_bar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/drop_down_menu_bar/drop_down_menu_bar_css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/file_css.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/js/bootstrap.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/js/bootstrap.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/js/bootstrap.esm.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/js/bootstrap.esm.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/js/bootstrap.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../modul_3_css/tải xuống.jpg" beforeDir="false" />
-    </list>
+    <list default="true" id="ce296f6f-8c53-49a9-b755-b10706deb373" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -208,6 +82,7 @@
       <workItem from="1635125949391" duration="26261000" />
       <workItem from="1635169912928" duration="978000" />
       <workItem from="1635233150269" duration="2445000" />
+      <workItem from="1635319902106" duration="1559000" />
     </task>
     <servers />
   </component>
@@ -219,10 +94,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="446" y="167" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1634791865415" />
-    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1635147259944">
+    <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1635319942594">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1635147259944" />
+    <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1635319942594" />
     <state x="184" y="7" key="SettingsEditor" timestamp="1634779827777">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
