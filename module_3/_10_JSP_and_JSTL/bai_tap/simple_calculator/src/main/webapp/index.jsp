@@ -40,14 +40,6 @@
   </form>
 
   <h1>Result:</h1>
-  <c:catch var ="ex">
-    <c
-  </c:catch>
-  <c:if test = "${ex != null}">
-    Exception : ${ex}
-    <br />
-    Message: ${ex.message}
-  </c:if>
   <h1><c:out value="${Calculator}"/></h1>
   </body>
 </html>
