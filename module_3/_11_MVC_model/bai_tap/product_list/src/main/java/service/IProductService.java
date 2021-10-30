@@ -4,7 +4,7 @@ import model.Product;
 
 import java.util.List;
 
-public interface ProductService {
+public interface IProductService {
 
     List<Product> findAll();
 
@@ -12,7 +12,11 @@ public interface ProductService {
 
     Product findById(int id);
 
+
     void update(int id, Product customer);
 
     void remove(int id);
+
+    List<Product> searchByName(String name);
+
 }
