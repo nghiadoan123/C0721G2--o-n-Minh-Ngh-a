@@ -20,19 +20,19 @@
         <table>
             <tr>
                 <td>Name: </td>
-                <td><input type="text" name="name" id="name" value="${requestScope["products"].getProductName()}"></td>
+                <td><input type="text" name="name" id="name" value="${product_edit.getProductName()}"></td>
             </tr>
             <tr>
                 <td>Price: </td>
-                <td><input type="text" name="price" id="price" value="${requestScope["products"].getProductPrice()}"></td>
+                <td><input type="text" name="price" id="price" value="${product_edit.getProductPrice()}"></td>
             </tr>
             <tr>
                 <td>Description: </td>
-                <td><input type="text" name="description" id="description" value="${requestScope["products"].getProductDescription()}"></td>
+                <td><input type="text" name="description" id="description" value="${product_edit.getProductDescription()}"></td>
             </tr>
             <tr>
                 <td>Manage: </td>
-                <td><input type="text" name="manage" id="manage" value="${requestScope["products"].getProductManage()}"></td>
+                <td><input type="text" name="manage" id="manage" value="${product_edit.getProductManage()}"></td>
             </tr>
             <tr>
                 <td></td>

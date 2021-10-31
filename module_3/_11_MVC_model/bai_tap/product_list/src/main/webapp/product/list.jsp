@@ -9,6 +9,13 @@
 <p>
     <a href="/products?actionUser=create">Create new product</a>
 </p>
+<p>
+    <a href="/products?actionUser=search">Search product</a>
+</p>
+<form method="post" action="/products?actionUser=search">
+    <input type="text" name="search" >
+    <input type="submit"  value="searchproduct">
+</form>
 <table border="1">
     <tr>
         <td>Name</td>
@@ -18,7 +25,7 @@
         <td>Edit</td>
         <td>Delete</td>
     </tr>
-    <c:forEach items='${requestScope["products"]}' var="product">
+    <c:forEach items='${productList}' var="product">
         <tr>
             <td><a href="/products?actionUser=view&id=${product.getProductId()}">${product.getProductName()}</a></td>
             <td>${product.getProductPrice()}</td>

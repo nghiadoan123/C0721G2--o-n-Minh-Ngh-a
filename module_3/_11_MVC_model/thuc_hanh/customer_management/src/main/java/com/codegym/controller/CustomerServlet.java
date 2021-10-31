@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.util.List;
 
 @WebServlet(name = "CustomerServlet", urlPatterns = "/customers")
+
 public class CustomerServlet extends HttpServlet {
 
     private final CustomerService customerService = new CustomerServiceImpl();
@@ -193,6 +194,7 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
 
     private void listCustomers(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customers = this.customerService.findAll();
