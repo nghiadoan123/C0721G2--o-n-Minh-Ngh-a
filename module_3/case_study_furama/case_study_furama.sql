@@ -7,8 +7,8 @@ id_vitri int auto_increment primary key,
 ten_vi_tri varchar(45)
 );
 
-insert into vitri 
-values (1,'Manager'),(2,'HR'),(3,'Chef'),(4,'Staff');
+insert into vitri values
+(1,'GM'),(2,'Manager'),(3,'Supervisor'),(4,'Employee'), (5,'Sever'),(6, 'Receptionist');
 
 
 create table trinh_do(
@@ -35,7 +35,7 @@ ten_loai_khach varchar(45)
 );
 
 insert into loai_khach values
-(1,'Diamond'),(2,'Gold'),(3,'Sliver'),(4,'Member'),(5,'Platinum');
+(1,'Diamond'),(2,'Platium'),(3,'Gold'),(4,'Sliver'),(5,'Member');
 
 create table kieu_thue(
 id_kieu_thue int auto_increment primary key,
@@ -462,47 +462,44 @@ group by nv.id_nhan_vien, kh.id_khach_hang
 drop view if exists v_nhan_vien;
 create view v_nhan_vien 
 as
-select nv.id_nhan_vien, nv.dia_chi as nvdc, hd.id_hop_dong as idhd, count(kh.id_khach_hang) as count_
-from nhan_vien nv 
-	join hop_dong hd
-		on nv.id_nhan_vien = hd.id_nhan_vien
-	join khach_hang kh
-		on hd.id_khach_hang = kh.id_khach_hang
-where hd.ngay_lam_hd = '2019-12-12'
-group by nv.id_nhan_vien
-    having  count_ > 0;
-
+select * from nhan_vien
+where dia_chi = 'Hải Châu' and id_nhan_vien in (
+	select hd.id_nhan_vien
+    from hop_dong hd
+    where hd.ngay_lam_hd = '2019-12-12'
+);
 select * from v_nhan_vien;
 
 #22.Thông qua khung nhìn V_NHANVIEN thực hiện cập nhật địa chỉ thành “Liên Chiểu” 
 # đối với tất cả các Nhân viên được nhìn thấy bởi khung nhìn này.
 
 update nhan_vien nv
-set nv.dia_chi = 'Liển  Chiểu'
+set nv.dia_chi = 'Liển Chiểu'
 where nv.id_nhan_vien in (
-		select bang_gia.id_nhan_vien from (
-			select v.id_nhan_vien from v_nhan_vien as v
-            ) as bang_gia
+	select bang_gia.id_nhan_vien from (
+			select v_nhan_vien.id_nhan_vien from v_nhan_vien
+    ) as bang_gia
 	);
-select * from v_nhan_vien;
+select * from nhan_vien;
 
--- update v_nhan_vien
--- set v_nhan_vien.dia_chi = 'Liên Chiểu';
--- select * from v_nhan_vien;
+-- cách 2 
+update v_nhan_vien
+set v_nhan_vien.dia_chi = 'Liên Chiểu';
+select * from v_nhan_vien;
 
 #23.Tạo Store procedure Sp_1 Dùng để xóa thông tin của một Khách hàng nào đó với Id Khách hàng 
 # được truyền vào như là 1 tham số của Sp_1
 
-drop procedure if exists sp_1; 
-delimiter //
-create procedure sp_1(id int)
-begin
-	delete from khach_hang
-	where id_khach_hang = id;
-	select* from khach_hang;
-end//
-delimiter ;
-call sp_1(104);
+-- drop procedure if exists sp_1; 
+-- delimiter //
+-- create procedure sp_1(id int)
+-- begin
+-- 	delete from khach_hang
+-- 	where id_khach_hang = id;
+-- 	select* from khach_hang;
+-- end//
+-- delimiter ;
+-- call sp_1(104);
 
 #24.Tạo Store procedure Sp_2 Dùng để thêm mới vào bảng HopDong với yêu cầu 
 # Sp_2 phải thực hiện kiểm tra tính hợp lệ của dữ liệu bổ sung,
