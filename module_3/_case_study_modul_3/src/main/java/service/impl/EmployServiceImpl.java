@@ -25,7 +25,7 @@ public class EmployServiceImpl  implements IEmployeeService {
     }
 
     @Override
-    public Employee findById(int id) {
+    public Employee findById(String id) {
         return iEmployeeRepository.findById(id);
     }
 

@@ -102,14 +102,14 @@ where order_.oId is null;
 # (giá một hóa đơn được tính bằng tổng giá bán của từng loại mặt hàng xuất hiện trong hóa đơn. 
 # Giá bán của từng loại được tính = odQTY*pPrice)
 
-select customer.cName,order_.oId,order_.oDate,sum(detail.oQuantity * product.pPrice) as 'total_price'
-from customer join order_
-on customer.cId = order_.oId
-join detail 
-on detail.oId = order_.oId
-join product 
-on product.pId = detail.pId
-group by customer.cName;
+select ct.cName, od.oId, od.oDate, sum(dt.oQuantity * pd.pPrice) as 'total_price'
+from customer ct join order_ od
+on ct.cId = od.oId
+join detail dt
+on dt.oId = od.oId
+join product pd
+on pd.pId = dt.pId
+group by ct.cName;
 
 -- select now() from customer; hien ngay gio hien tai
 -- select length(cName) as lengthofnamecustomer from customer; hien thi chieu dai cua name trong bang

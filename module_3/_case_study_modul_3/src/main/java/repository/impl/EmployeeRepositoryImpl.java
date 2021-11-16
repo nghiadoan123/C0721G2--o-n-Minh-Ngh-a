@@ -87,13 +87,40 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
     }
 
     @Override
-    public Employee findById(int id) {
-        return null;
+    public Employee findById(String id) {
+        List< Employee > listEmployee = findAll();
+        Employee employee = null;
+        for (Employee list : listEmployee) {
+            if (list.getId().contains(id)) {
+                employee = list;
+            }
+        }
+        return employee;
     }
 
     @Override
-    public void update(Employee user) {
+    public void update(Employee employee) {
+        try {
+            PreparedStatement preparedStatement =
+                    BaseRepository.connection.prepareStatement("update employee set employee_id=?, employee_name=?,position_id=?," +
+                            "degree_id=?,division_id=?,birthday=?,id_card=?,salary=?,phone=?,email=?,address=? where id=?");
 
+            preparedStatement.setString(1, employee.getId());
+            preparedStatement.setString(2, employee.getName());
+            preparedStatement.setInt(3, employee.getPosition().getId());
+            preparedStatement.setInt(4, employee.getEducationDegree().getId());
+            preparedStatement.setInt(5, employee.getDivision().getId());
+            preparedStatement.setString(6, employee.getBirthDay());
+            preparedStatement.setString(7, employee.getIdCard());
+            preparedStatement.setDouble(8, employee.getSalary());
+            preparedStatement.setString(9, employee.getPhone());
+            preparedStatement.setString(10, employee.getEmail());
+            preparedStatement.setString(11, employee.getAddress());
+
+            preparedStatement.executeLargeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     @Override

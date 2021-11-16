@@ -93,7 +93,7 @@
     <td>${employee.division.name}</td>
         <td>
             <button type="button" class="btn btn-light">
-                <a href="/employee?userAction=edit&id=${employee.getId() }"
+                <a href="/employee?userAction=edit&id=${employee.getId()}"
                    class="text-decoration-none" onclick="return confirm('Do you want to edit ${employee.getName()} ?')">Edit</a>
             </button>
 

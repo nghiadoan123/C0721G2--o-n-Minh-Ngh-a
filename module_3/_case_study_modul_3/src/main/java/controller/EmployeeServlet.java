@@ -32,7 +32,7 @@ public class EmployeeServlet extends HttpServlet {
                 createEmployee(request,response);
                 break;
             case "edit":
-
+                updateEmployee(request,response);
                 break;
 
             default:
@@ -52,7 +52,7 @@ public class EmployeeServlet extends HttpServlet {
                 showCreateForm(request,response);
                 break;
             case "edit":
-
+                showEditForm(request,response);
                 break;
             case "delete":
                 deleteEmployee(request,response);
@@ -189,7 +189,61 @@ public class EmployeeServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void showEditForm(HttpServletRequest request, HttpServletResponse response){
+        String id = request.getParameter("id");
+        Employee employee = this.iEmployeeService.findById(id);
+        List<Division> divisionList = GetInformationSQL.divisionList();
+        List<EducationDegree> educationDegreeList = GetInformationSQL.educationDegreeList();
+        List<Position> positionList = GetInformationSQL.positionList();
+
+        request.setAttribute("employee",employee);
+        request.setAttribute("divisionList",divisionList);
+        request.setAttribute("educationDegreeList",educationDegreeList);
+        request.setAttribute("positionList",positionList);
+
+        try {
+            request.getRequestDispatcher("/pages/employee/edit.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateEmployee(HttpServletRequest request, HttpServletResponse response){
+        String id = request.getParameter("id");
+        String name = request.getParameter("name");
+        String birthday = request.getParameter("birthday");
+        String id_card = request.getParameter("id_card");
+        double salary = Double.parseDouble(request.getParameter("salary"));
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
 
 
+        int degreeID = Integer.parseInt(request.getParameter("degree"));
+        int divisionID = Integer.parseInt(request.getParameter("division"));
+        int positionID = Integer.parseInt(request.getParameter("position"));
+
+        EducationDegree educationDegree = new EducationDegree();
+        Division division = new Division();
+        Position position = new Position();
+
+        educationDegree.setId(degreeID);
+        division.setId(divisionID);
+        position.setId(positionID);
+
+        Employee employee = new Employee(id,name,birthday,id_card,salary,phone,email,address,position,educationDegree,division);
+        this.iEmployeeService.update(employee);
+
+
+        // cách 2 dùng redirect
+        try {
+            response.sendRedirect("/employee");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
