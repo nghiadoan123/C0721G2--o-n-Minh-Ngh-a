@@ -1,0 +1,9 @@
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.changecolor:hover {
+    text-decoration: #0c63e4;
+}

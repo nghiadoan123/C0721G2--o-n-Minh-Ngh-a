@@ -1,0 +1,56 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Verdana,sans-serif;
+    font-size: 0.9em;
+}
+
+header, footer {
+    padding: 10px;
+    color: white;
+    background-color: black;
+}
+
+footer{
+    clear: both;
+}
+section {
+    margin: 5px;
+    padding: 5px;
+    background-color: lightgrey;
+    float: left;
+    width: 75%;
+}
+
+article {
+    margin: 5px;
+    padding: 5px;
+    border-style: solid;
+    background-color: white;
+    float: left;
+
+}
+
+aside {
+    margin: 5px;
+    padding: 5px;
+    background-color: lightgrey;
+    float: left;
+    width: 23%;
+    height: 450px;
+}
+
+aside :after{
+    content: "";
+    clear: both;
+}
+nav ul {
+    padding: 5px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 5px;
+}
