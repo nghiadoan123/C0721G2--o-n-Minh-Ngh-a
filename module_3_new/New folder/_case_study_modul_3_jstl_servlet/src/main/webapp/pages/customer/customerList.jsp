@@ -72,7 +72,7 @@
             <th scope="col">Phone</th>
             <th scope="col">Email</th>
             <th scope="col">Address</th>
-<%--            <th scope="col">Customer Type</th>--%>
+            <th scope="col">Customer Type</th>
             <th scope="col">Edit</th>
             <th scope="col">Delete</th>
         </tr>
@@ -88,7 +88,7 @@
                 <td>${customer.phone}</td>
                 <td>${customer.email}</td>
                 <td>${customer.address}</td>
-<%--                <td>${customer.customerType.id}</td>--%>
+                <td>${customer.customerType.id}</td>
                 <td>
                     <button type="button" class="btn btn-light">
                         <a href="/customer?userAction=edit&id=${customer.getId()}"

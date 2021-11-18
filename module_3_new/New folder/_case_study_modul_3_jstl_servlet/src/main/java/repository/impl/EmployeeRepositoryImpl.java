@@ -18,8 +18,8 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
     public List<Employee> findAll() {
         List<Employee> employeeList = new ArrayList<>();
         try {
-            Statement statement = BaseRepository.connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select * from employee");
+            PreparedStatement preparedStatement = BaseRepository.connection.prepareStatement("select * from employee");
+            ResultSet resultSet = preparedStatement.executeQuery();
             Employee employee = null;
             Division division = null;
             EducationDegree educationDegree = null;
@@ -79,6 +79,7 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
         }
     }
 
+
     @Override
     public void remove(int id) {
         try {
@@ -123,7 +124,7 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
             preparedStatement.setString(10, employee.getAddress());
             preparedStatement.setString(11, employee.getId());
 
-            preparedStatement.executeLargeUpdate();
+        preparedStatement.executeLargeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }

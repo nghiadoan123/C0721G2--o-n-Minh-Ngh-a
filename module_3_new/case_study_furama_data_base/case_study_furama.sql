@@ -233,14 +233,20 @@ order by kh.id_khach_hang;
 
 # 6.Hiển thị IDDichVu, TenDichVu, DienTich, ChiPhiThue, TenLoaiDichVu của tất cả các loại Dịch vụ 
 # chưa từng được Khách hàng thực hiện đặt từ quý 1 của năm 2019 (Quý 1 là tháng 1, 2, 3).
-select dv.id_dich_vu,dv.ten_dich_vu,dv.dien_tich,dv.chi_phi_thue,ldv.ten_loai_dich_vu
+select hd.ngay_lam_hd, dv.id_dich_vu,dv.ten_dich_vu,dv.dien_tich,dv.chi_phi_thue,ldv.ten_loai_dich_vu
 from hop_dong hd
 	join dich_vu dv
 		on hd.id_dich_vu = dv.id_dich_vu
 	join loai_dich_vu ldv
 		on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
-where year(hd.ngay_lam_hd) <> '2019' and (month(hd.ngay_lam_hd) <> '1' or month(hd.ngay_lam_hd) <> '2' or month(hd.ngay_lam_hd) <> '3');
+		-- 	where hd.ngay_lam_hd between '2019-04-01' and '2019-12-31' 
+--             or hd.ngay_lam_hd > '2019-12-31'
+-- 				or hd.ngay_lam_hd <'2019-12-31';
 
+where dv.id_dich_vu not in (
+	select hd.id_dich_vu from hop_dong hd
+    where (hd.ngay_lam_hd between '2019-01-01' and '2019-03-31')
+);
 
 # 7.Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue, TenLoaiDichVu của tất cả các loại dịch vụ đã từng được Khách hàng đặt phòng trong năm 2018 
  # nhưng chưa từng được Khách hàng đặt phòng  trong năm 2019.

@@ -1,5 +1,6 @@
 package repository.impl;
 
+import bean.customer.CustomerType;
 import bean.employee.Division;
 import bean.employee.EducationDegree;
 import bean.employee.Position;
@@ -66,5 +67,24 @@ public class GetInformationSQL {
             throwables.printStackTrace();
         }
         return positionList;
+    }
+
+    public  static List<CustomerType> customerTypeList(){
+
+        List<CustomerType> customerTypeList = new ArrayList<>();
+        try {
+            Statement statement = BaseRepository.connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select  * from customer_type");
+            CustomerType customerType = null;
+            while (resultSet.next()){
+                customerType = new CustomerType();
+                customerType.setId(Integer.parseInt(resultSet.getString("customer_type_id")));
+                customerType.setName(resultSet.getString("customer_type_name"));
+                customerTypeList.add(customerType);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return customerTypeList;
     }
 }

@@ -57,7 +57,8 @@
         <div class="form-group col-12">
             <label class="col-12 float-left">Id:</label>
             <input type="text" name="id" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Id" value="${employee.getId}">
+                   placeholder="Enter Id" >
+
         </div>
         <div class="form-group col-12">
             <label class="col-12 float-left">Name:</label>
@@ -68,31 +69,31 @@
         <div class="form-group col-12">
             <label class="col-12 float-left">Birth day:</label>
             <input type="text" name="birthday" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Birth day" value="${employee.birthDay}">
+                   placeholder="Enter Birth day">
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Id card:</label>
             <input type="text" name="id_card" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Id card" value="${employee.idCard}">
+                   placeholder="Enter Id card">
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Salary:</label>
             <input type="text" name="salary" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Salary" value="${employee.salary}">
+                   placeholder="Enter Salary">
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Phone:</label>
             <input type="text" name="phone" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Phone" value="${employee.phone}">
+                   placeholder="Enter Phone">
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Email:</label>
             <input type="text" name="email" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Email" value="${employee.email}">
+                   placeholder="Enter Email">
         </div>
 
         <div class="form-group col-12">
@@ -106,7 +107,11 @@
                 <option>Chose option ...</option>
                 <c:forEach var="position" items="${positionList}">
                     <c:choose>
-                        <c:when test="${position.id == employee.getPosition().getId()}">
+                        <c:when test="${position.id == employees.getPosition().getId()}">
+                        <%--
+                        enmployees lấy từ employees đã khai báo trong file employeeLisst.jsp dòng 91
+                        <c:forEach var="employees" items="${employeeList}" >
+                        --%>
                             <option value="${position.id}" selected> ${position.name}</option>
                         </c:when>
                         <c:otherwise>
@@ -122,7 +127,7 @@
                 <option>Chose option ...</option>
                 <c:forEach var="degree" items="${educationDegreeList}">
                     <c:choose>
-                        <c:when test="${degree.id == employee.getEducationDegree().getId()}">
+                        <c:when test="${degree.id == employees.getEducationDegree().getId()}">
                             <option value="${degree.id}" selected> ${degree.name}</option>
                         </c:when>
                         <c:otherwise>
@@ -138,7 +143,7 @@
                 <option>Chose option ...</option>
                 <c:forEach var="division" items="${divisionList}">
                     <c:choose>
-                        <c:when test="${division.id == employee.getDivision().getId()}">
+                        <c:when test="${division.id == employees.getDivision().getId()}">
                             <option value="${division.id}" selected> ${division.name}</option>
                         </c:when>
 

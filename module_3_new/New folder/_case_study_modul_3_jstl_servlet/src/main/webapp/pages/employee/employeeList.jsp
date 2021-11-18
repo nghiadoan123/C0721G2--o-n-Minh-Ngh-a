@@ -88,30 +88,30 @@
 </tr>
 </thead>
 <tbody>
-<c:forEach var="employee" items="${employeeList}">
+<c:forEach var="employees" items="${employeeList}">
     <tr>
-    <th>${employee.id}</th>
-    <td>${employee.name}</td>
-    <td>${employee.birthDay}</td>
-    <td>${employee.idCard}</td>
-    <td>${employee.salary}</td>
-    <td>${employee.phone}</td>
-    <td>${employee.email}</td>
-    <td>${employee.address}</td>
-    <td>${employee.position.id}</td>
-    <td>${employee.educationDegree.id}</td>
-    <td>${employee.division.id}</td>
+    <th>${employees.id}</th>
+    <td>${employees.name}</td>
+    <td>${employees.birthDay}</td>
+    <td>${employees.idCard}</td>
+    <td>${employees.salary}</td>
+    <td>${employees.phone}</td>
+    <td>${employees.email}</td>
+    <td>${employees.address}</td>
+    <td>${employees.position.id}</td>
+    <td>${employees.educationDegree.id}</td>
+    <td>${employees.division.id}</td>
         <td>
             <button type="button" class="btn btn-light">
-                <a href="/employee?userAction=edit&id=${employee.getId()}"
-                   class="text-decoration-none" onclick="return confirm('Do you want to edit ${employee.getName()} ?')">Edit</a>
+                <a href="/employee?userAction=edit&id=${employees.getId()}"
+                   class="text-decoration-none" onclick="return confirm('Do you want to edit ${employees.getName()} ?')">Edit</a>
             </button>
 
         </td>
         <td>
             <button type="button" class="btn btn-light">
-                <a href="/employee?userAction=delete&id=${employee.getId()}"
-                   class="text-decoration-none"  onclick="return confirm('Do you want to delete ${employee.getName()} ?')">Delete</a>
+                <a href="/employee?userAction=delete&id=${employees.getId()}"
+                   class="text-decoration-none"  onclick="return confirm('Do you want to delete ${employees.getName()} ?')">Delete</a>
             </button>
 
         </td>

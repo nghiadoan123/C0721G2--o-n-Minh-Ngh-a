@@ -4,11 +4,13 @@ import bean.employee.Division;
 import bean.employee.EducationDegree;
 import bean.employee.Employee;
 import bean.employee.Position;
+import jdk.nashorn.internal.ir.RuntimeNode;
 import repository.impl.GetInformationSQL;
 import service.IEmployeeService;
 import service.impl.EmployServiceImpl;
 import util.Validate;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -79,15 +81,6 @@ public class EmployeeServlet extends HttpServlet {
         }
     }
 
-    public void deleteEmployee(HttpServletRequest request, HttpServletResponse response){
-        int id = Integer.parseInt(request.getParameter("id"));
-        this.iEmployeeService.remove(id);
-        try {
-            response.sendRedirect("/employee");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void showCreateForm(HttpServletRequest request, HttpServletResponse response){
 
@@ -239,8 +232,19 @@ public class EmployeeServlet extends HttpServlet {
         Employee employee = new Employee(id,name,birthday,id_card,salary,phone,email,address,position,educationDegree,division);
         this.iEmployeeService.update(employee);
 
-
+        request.setAttribute("employee_update",employee);
         // cách 2 dùng redirect
+        try {
+            response.sendRedirect("/employee");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void deleteEmployee(HttpServletRequest request, HttpServletResponse response){
+        int id = Integer.parseInt(request.getParameter("id"));
+        this.iEmployeeService.remove(id);
         try {
             response.sendRedirect("/employee");
         } catch (IOException e) {

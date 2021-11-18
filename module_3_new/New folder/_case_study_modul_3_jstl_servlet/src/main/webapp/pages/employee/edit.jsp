@@ -57,48 +57,48 @@
         <div class="form-group col-12">
             <label class="col-12 float-left">Id:</label>
             <input type="text" name="id" class="form-control col-12 float-left mt-2"
-                   value="${employee.id}" >
+                   value="${employee.getId()}" >
         </div>
         <div class="form-group col-12">
             <label class="col-12 float-left">Name:</label>
             <input type="text" name="name" class="form-control col-12 float-left mt-2"
-                  value="${employee.name}">
+                  value="${employee.getName()}">
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Birth day:</label>
             <input type="text" name="birthday" class="form-control col-12 float-left mt-2"
-                    value="${employee.birthDay}">
+                    value="${employee.getBirthDay()}">
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Id card:</label>
             <input type="text" name="id_card" class="form-control col-12 float-left mt-2"
-                   value="${employee.idCard}">
+                   value="${employee.getIdCard()}">
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Salary:</label>
             <input type="text" name="salary" class="form-control col-12 float-left mt-2"
-                   value="${employee.salary}">
+                   value="${employee.getSalary()}">
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Phone:</label>
             <input type="text" name="phone" class="form-control col-12 float-left mt-2"
-                    value="${employee.phone}">
+                    value="${employee.getPhone()}">
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Email:</label>
             <input type="text" name="email" class="form-control col-12 float-left mt-2"
-                    value="${employee.email}">
+                    value="${employee.getEmail()}">
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Address:</label>
             <input type="text" name="address" class="form-control col-12 float-left mt-2"
-                   value="${employee.address}" >
+                   value="${employee.getAddress()}" >
         </div>
         <div class="form-group col-12">
             <label class="col-12 float-left mt-1">Position:</label>
