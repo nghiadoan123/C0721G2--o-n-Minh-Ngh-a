@@ -6,7 +6,7 @@ CREATE TABLE class
     class_id   INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
     class_name VARCHAR(60) NOT NULL,
     start_date DATETIME    NOT NULL,
-    Status    BIT
+    status    BIT
 );
 CREATE TABLE student
 (
@@ -34,15 +34,15 @@ CREATE TABLE mark
     mark      FLOAT   DEFAULT 0 CHECK ( mark BETWEEN 0 AND 100),
     exam_times TINYINT DEFAULT 1,
     UNIQUE (sub_id, student_id),
-    FOREIGN KEY (sub_id) REFERENCES Subject (sub_id),
+    FOREIGN KEY (sub_id) REFERENCES subject (sub_id),
     FOREIGN KEY (student_id) REFERENCES student (student_id)
 );
 
 INSERT INTO class
 VALUES (1, 'A1', '2008-12-20', 1);
-INSERT INTO Class
+INSERT INTO class
 VALUES (2, 'A2', '2008-12-22', 1);
-INSERT INTO Class
+INSERT INTO class
 VALUES (3, 'B3', current_date, 0);
 
 INSERT INTO student (student_name, address, phone, status, class_id)
