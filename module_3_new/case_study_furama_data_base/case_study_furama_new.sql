@@ -73,11 +73,11 @@ foreign key(id_bo_phan) references bo_phan(id_bo_phan)
 );
 
 insert into nhan_vien (id_nhan_vien, ho_ten,id_vitri,id_trinh_do, id_bo_phan, ngay_sinh, so_CMTND, luong, sdt, email, dia_chi) values
-(1001,'Truong Hung',1,2,3,'1989-09-09', 'A123456', 10, 0905112112, 'TruongHung@gmail.com', 'Hải Châu'),
-(1002,'Nguyen Thao',2,3,3,'1990-09-08', 'A123457', 20, 0863159875, 'NguyenThao@gmail.com', 'Liên Chiểu'),
+(1001,'Truong Hang',1,2,3,'1989-09-09', 'A123456', 10, 0905112112, 'TruongHung@gmail.com', 'Hải Châu'),
+(1002,'Nguyen Thanh',2,3,3,'1990-09-08', 'A123457', 20, 0863159875, 'NguyenThao@gmail.com', 'Liên Chiểu'),
 (1003,'Hoang Khoi',3,3,2,'1989-08-08', 'A123458', 30, 0121589789, 'HoangKhoi@gmail.com', 'Hải Châu'),
-(1004,'Nguyen Hung',3,2,3,'1986-08-08', 'A123459', 30, 0987154698, 'NguyenHung@gmail.com', 'Hòa phú'),
-(1005,'Nguyen Hoang',3,2,3,'1988-01-01', 'A123489', 30, 0121458987, 'NguyenHoang@gmail.com', 'Hòa Vang');
+(1004,'Nguyen Hai',3,2,3,'1986-08-08', 'A123459', 30, 0987154698, 'NguyenHung@gmail.com', 'Hòa phú'),
+(1005,'Nguyen Ham',3,2,3,'1988-01-01', 'A123489', 30, 0121458987, 'NguyenHoang@gmail.com', 'Hòa Vang');
 
 create table khach_hang(
 id_khach_hang int auto_increment primary key,
@@ -93,12 +93,12 @@ foreign key(id_loai_khach) references loai_khach(id_loai_khach)
 
 
 insert into khach_hang(id_khach_hang, id_loai_khach, ho_ten, ngay_sinh, dia_chi) values
-(101,5,'Nguyen Anh', '1981-10-20', 'Da Nang'),
-(102,1,'Nguyen Binh', '1988-11-20', 'Quang Ngai'),
-(103,2,'Nguyen An', '1963-10-20', 'Quang Nam'),
+(101,5,'Nguyen Oanh', '1981-10-20', 'Da Nang'),
+(102,1,'Nguyen Bach', '1988-11-20', 'Quang Ngai'),
+(103,2,'Nguyen Ai', '1963-10-20', 'Quang Nam'),
 (104,1,'Nguyen Trai', '1982-09-20', 'Quang Ngai'),
-(105,4,'Doan Truong', '1983-11-20', 'Hue'),
-(106,2,'Nguyen Anh', '1981-10-20', 'Da Nang'),
+(105,4,'Doan Trung', '1983-11-20', 'Hue'),
+(106,2,'Nguyen Oanh', '1981-10-20', 'Da Nang'),
 (107,5,'Dinh Thang', '1985-06-20', 'Ho Chi Minh');
 
 create table dich_vu(
