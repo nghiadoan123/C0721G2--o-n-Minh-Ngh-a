@@ -40,8 +40,8 @@
                     <a class="nav-link active" href="/contract">Contract</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" action="/employee?userAction=search" method="post">
+                <input class="form-control me-2" name="searchName" type="text" placeholder="Search Employee Name" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
@@ -57,7 +57,7 @@
         <div class="form-group col-12">
             <label class="col-12 float-left">Id:</label>
             <input type="text" name="id" class="form-control col-12 float-left mt-2"
-                   value="${employee.getId()}" >
+                   value="${employee.getId()}" readonly>
         </div>
         <div class="form-group col-12">
             <label class="col-12 float-left">Name:</label>
@@ -67,7 +67,7 @@
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Birth day:</label>
-            <input type="text" name="birthday" class="form-control col-12 float-left mt-2"
+            <input type="date" name="birthday" class="form-control col-12 float-left mt-2"
                     value="${employee.getBirthDay()}">
         </div>
 

@@ -36,7 +36,7 @@ public class CustomerServlet extends HttpServlet {
                 createCustomer(request,response);
                 break;
             case "edit":
-
+                updateCustomer(request,response);
                 break;
             case "search":
                 searchNameCustomer(request,response);
@@ -154,10 +154,10 @@ public class CustomerServlet extends HttpServlet {
         customer.setAddress(address);
         customer.setCustomerType(customerType);
 
-        if (!Validate.validateIdCustomer(request.getParameter("id"))){
-            flag = false;
-            customerIDMess = "Customer id invalid ex: KH-1234";
-        }
+//        if (!Validate.validateIdCustomer(request.getParameter("id"))){
+//            flag = false;
+//            customerIDMess = "Customer id invalid ex: KH-1234";
+//        }
 
         if (!Validate.validateEmail(email)){
             flag = false;
@@ -174,16 +174,19 @@ public class CustomerServlet extends HttpServlet {
             idCardIMess = "personal id  invalid ex: xxxx... with x = 9 or x = 12";
         }
 
-        if (flag == false) {
-
-        }
-
-        this.iCustomerService.save(customer);
-
-        try {
-            response.sendRedirect("/customer");
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (!flag) {
+            request.setAttribute("customerError",customerIDMess);
+            request.setAttribute("emailError",emailIMess);
+            request.setAttribute("phoneError",phoneIMess);
+            request.setAttribute("idcardError",idCardIMess);
+            showCreateForm(request,response);
+        }else {
+            this.iCustomerService.save(customer);
+            try {
+                response.sendRedirect("/customer");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -207,15 +210,27 @@ public class CustomerServlet extends HttpServlet {
 
     public void updateCustomer(HttpServletRequest request, HttpServletResponse response){
 
+        int id = Integer.parseInt(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String birthDay = request.getParameter("birthday");
+        String gender = request.getParameter("gender");
+        String idCard = request.getParameter("id_card");
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        int customerTypeId = Integer.parseInt(request.getParameter("customerType"));
 
+        CustomerType customerType = new CustomerType();
+        customerType.setId(customerTypeId);
+        Customer customer = new Customer(id,customerType,  name, birthDay, gender, idCard, phone, email, address);
 
+        this.iCustomerService.update(customer);
 
-//        request.setAttribute("employee_update",employee);
-//        // cách 2 dùng redirect
-//        try {
-//            response.sendRedirect("/employee");
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+        // cách 2 dùng redirect
+        try {
+            response.sendRedirect("/customer");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

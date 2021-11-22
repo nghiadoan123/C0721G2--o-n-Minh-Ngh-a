@@ -40,8 +40,8 @@
                     <a class="nav-link active" href="/contract">Contract</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" action="/employee?userAction=search" method="post">
+                <input class="form-control me-2" name="searchName" type="text" placeholder="Search Employee Name" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
@@ -54,11 +54,18 @@
         <div>
             <h4>Create new employee</h4>
         </div>
+<%--        <div>--%>
+<%--            <p>--%>
+<%--                <c:if test='${requestScope["message"] != null}'>--%>
+<%--                    <span class="message">${requestScope["message"]}</span>--%>
+<%--                </c:if>--%>
+<%--            </p>--%>
+<%--        </div>--%>
+
         <div class="form-group col-12">
             <label class="col-12 float-left">Id:</label>
             <input type="text" name="id" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Id" >
-
         </div>
         <div class="form-group col-12">
             <label class="col-12 float-left">Name:</label>
@@ -68,7 +75,7 @@
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Birth day:</label>
-            <input type="text" name="birthday" class="form-control col-12 float-left mt-2"
+            <input type="date" name="birthday" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Birth day">
         </div>
 
@@ -76,24 +83,44 @@
             <label class="col-12 float-left">Id card:</label>
             <input type="text" name="id_card" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Id card">
+            <p class="text-danger" >
+                <c:if test='${requestScope["personalIDMess"] != null}'>
+                    <span class="message">${requestScope["personalIDMess"]}</span>
+                </c:if>
+            </p>
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Salary:</label>
             <input type="text" name="salary" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Salary">
+            <p class="text-danger" >
+                <c:if test='${requestScope["salaryMess"] != null}'>
+                    <span class="message">${requestScope["salaryMess"]}</span>
+                </c:if>
+            </p>
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Phone:</label>
             <input type="text" name="phone" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Phone">
+            <p class="text-danger" >
+                <c:if test='${requestScope["phoneNumberMess"] != null}'>
+                    <span class="message">${requestScope["phoneNumberMess"]}</span>
+                </c:if>
+            </p>
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Email:</label>
             <input type="text" name="email" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Email">
+            <p class="text-danger" >
+                <c:if test='${requestScope["emailMess"] != null}'>
+                    <span class="message">${requestScope["emailMess"]}</span>
+                </c:if>
+            </p>
         </div>
 
         <div class="form-group col-12">

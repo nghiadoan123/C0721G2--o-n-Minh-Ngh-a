@@ -94,12 +94,51 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
 
     @Override
     public Employee findById(String id) {
-        List< Employee > listEmployee = findAll();
         Employee employee = null;
-        for (Employee list : listEmployee) {
-            if (list.getId().contains(id)) {
-                employee = list;
+        Division division = null;
+        EducationDegree educationDegree = null;
+        Position position = null;
+//        List< Employee > listEmployee = findAll();
+//        Employee employee = null;
+//        for (Employee list : listEmployee) {
+//            if (list.getId().contains(id)) {
+//                employee = list;
+//            }
+//        }
+        try {
+            PreparedStatement preparedStatement =
+                    BaseRepository.connection.prepareStatement("select  * from employee where employee_id = ?");
+            preparedStatement.setString(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                employee = new Employee();
+                division = new Division();
+                educationDegree = new EducationDegree();
+                position = new Position();
+
+
+                employee.setId(resultSet.getString("employee_id"));
+                employee.setName(resultSet.getString("employee_name"));
+                employee.setBirthDay(resultSet.getString("birthday"));
+                employee.setIdCard(resultSet.getString("id_card"));
+                employee.setSalary(Double.parseDouble(resultSet.getString("salary")));
+                employee.setPhone(resultSet.getString("phone"));
+                employee.setEmail(resultSet.getString("email"));
+                employee.setAddress(resultSet.getString("address"));
+
+
+                division.setId(Integer.parseInt(resultSet.getString("division_id")));
+                educationDegree.setId(Integer.parseInt(resultSet.getString("degree_id")));
+                position.setId(Integer.parseInt(resultSet.getString("position_id")));
+
+
+                employee.setPosition(position);
+                employee.setEducationDegree(educationDegree);
+                employee.setDivision(division);
             }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
         return employee;
     }
@@ -130,6 +169,7 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
         }
     }
 
+    
     @Override
     public List<Employee> findByName(String name) {
         List<Employee> employeeList = new ArrayList<>();

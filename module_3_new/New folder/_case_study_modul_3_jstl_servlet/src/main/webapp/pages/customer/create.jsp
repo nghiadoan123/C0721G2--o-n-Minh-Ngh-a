@@ -40,8 +40,8 @@
                     <a class="nav-link active" href="/contract">Contract</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" action="/employee?userAction=search" method="post">
+                <input class="form-control me-2" name="searchName" type="text" placeholder="Search Employee Name" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
@@ -58,6 +58,11 @@
             <label class="col-12 float-left">Id:</label>
             <input type="text" name="id" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Id">
+            <p class="text-danger" >
+                <c:if test='${requestScope["customerError"]!= null}'>
+                    <span class="message">${requestScope["customerError"]}</span>
+                </c:if>
+            </p>
         </div>
         <div class="form-group col-12">
             <label class="col-12 float-left">Name:</label>
@@ -67,7 +72,7 @@
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Birth day:</label>
-            <input type="text" name="birthday" class="form-control col-12 float-left mt-2"
+            <input type="date" name="birthday" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Birth day">
         </div>
 
@@ -83,18 +88,33 @@
             <label class="col-12 float-left">Id card:</label>
             <input type="text" name="id_card" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Id card">
+            <p class="text-danger" >
+                <c:if test='${requestScope["idcardError"] != null}'>
+                    <span class="message">${requestScope["idcardError"]}</span>
+                </c:if>
+            </p>
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Phone:</label>
             <input type="text" name="phone" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Phone">
+            <p class="text-danger" >
+                <c:if test='${requestScope["phoneError"]  != null}'>
+                    <span class="message">${requestScope["phoneError"]}</span>
+                </c:if>
+            </p>
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Email:</label>
             <input type="text" name="email" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Email">
+            <p class="text-danger" >
+                <c:if test='${requestScope["emailError"] != null}'>
+                    <span class="message">${requestScope["emailError"]}</span>
+                </c:if>
+            </p>
         </div>
 
         <div class="form-group col-12">
@@ -103,7 +123,7 @@
                    placeholder="Enter Address">
         </div>
         <div class="form-group col-12">
-            <label class="col-12 float-left mt-1">Position:</label>
+            <label class="col-12 float-left mt-1">Customer Type:</label>
             <select name="customerType" class="form-control col-12 float-left">
                 <option>Chose option ...</option>
                 <c:forEach var="customerType" items="${customerTypeList}">

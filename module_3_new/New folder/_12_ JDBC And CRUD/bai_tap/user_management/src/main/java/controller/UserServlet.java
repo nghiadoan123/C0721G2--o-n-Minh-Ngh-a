@@ -158,25 +158,25 @@ public class UserServlet extends HttpServlet {
 
 
         // cách 1 dùng forward
-        RequestDispatcher dispatcher;
-        request.setAttribute("user_update", user);// đặt tên sao cũng được ví chỉ cần điều hướng tới file edit.jsp
-                                                  // thông qua forward
-        request.setAttribute("message", "user information was updated");
-        dispatcher = request.getRequestDispatcher("user/edit.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        // cách 2 dùng redirect
+//        RequestDispatcher dispatcher;
+//        request.setAttribute("user_update", user);// đặt tên sao cũng được ví chỉ cần điều hướng tới file edit.jsp
+//                                                  // thông qua forward
+//        request.setAttribute("message", "user information was updated");
+//        dispatcher = request.getRequestDispatcher("user/edit.jsp");
 //        try {
-//            response.sendRedirect("/users");
+//            dispatcher.forward(request, response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+
+        // cách 2 dùng redirect
+        try {
+            response.sendRedirect("/users");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

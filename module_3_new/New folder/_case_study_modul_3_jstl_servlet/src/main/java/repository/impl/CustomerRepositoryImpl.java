@@ -79,12 +79,37 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
 
     @Override
     public Customer findById(int id) {
-        List<Customer> customerList = findAll();
+//        List<Customer> customerList = findAll();
+//        Customer customer = null;
+//        for (Customer customer1: customerList) {
+//            if (customer1.getId() == id){
+//                customer = customer1;
+//            }
+//        }
         Customer customer = null;
-        for (Customer customer1: customerList) {
-            if (customer1.getId() == id){
-                customer = customer1;
+        CustomerType customerType = null;
+        try {
+            PreparedStatement preparedStatement =
+                    BaseRepository.connection.prepareStatement("select  * from customer where customer_id = ?");
+            preparedStatement.setInt(1,id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                customer = new Customer();
+                customerType = new CustomerType();
+                customer.setId(Integer.parseInt(resultSet.getString("customer_id")));
+                customerType.setId(Integer.parseInt(resultSet.getString("customer_type_id")));
+                customer.setName(resultSet.getString("customer_name"));
+                customer.setBirthDay(resultSet.getString("birthday"));
+                customer.setGender(resultSet.getString("gender"));
+                customer.setIdCard(resultSet.getString("id_card"));
+                customer.setPhone(resultSet.getString("phone"));
+                customer.setEmail(resultSet.getString("email"));
+                customer.setAddress(resultSet.getString("address"));
+                customer.setCustomerType(customerType);
+
             }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
         return customer;
     }

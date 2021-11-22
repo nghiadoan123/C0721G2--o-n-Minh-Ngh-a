@@ -129,21 +129,20 @@ public class EmployeeServlet extends HttpServlet {
         int positionID = Integer.parseInt(request.getParameter("position"));
 
 
-
         if (!Validate.validatePersonalId(idCard)) {
-            personalIDMess = "Personal ID is invalid!";
+            personalIDMess = "Personal ID is invalid! EX: xxx... (x = 9 or x = 12) ";
             flag = false;
         }
         if (!Validate.validatePhonenumber(phone)) {
-            phoneNumberMess = "Phone Number is invalid!";
+            phoneNumberMess = "Phone Number is invalid! EX: 0903111111";
             flag = false;
         }
         if (salary < 0 || salary.isNaN()) {
-            salaryMess = "Salary is invalid!";
+            salaryMess = "Salary is invalid! Salary>0";
             flag = false;
         }
         if (!Validate.validateEmail(email)) {
-            emailMess = "Email is invalid!";
+            emailMess = "Email is invalid! EX: aaa@gmail.com";
             flag = false;
         }
 
@@ -168,17 +167,37 @@ public class EmployeeServlet extends HttpServlet {
         employee.setDivision(division);
         employee.setPosition(position);
 
+
+
         if (!flag) {
             request.setAttribute("personalIDMess", personalIDMess);
             request.setAttribute("phoneNumberMess", phoneNumberMess);
             request.setAttribute("salaryMess", salaryMess);
             request.setAttribute("emailMess", emailMess);
             request.setAttribute("employee", employee);
-            showCreateForm(request, response);
+
+
+//            List<Division> divisionList = GetInformationSQL.divisionList();
+//            List<EducationDegree> educationDegreeList = GetInformationSQL.educationDegreeList();
+//            List<Position> positionList = GetInformationSQL.positionList();
+//
+//            request.setAttribute("divisionList",divisionList);
+//            request.setAttribute("educationDegreeList",educationDegreeList);
+//            request.setAttribute("positionList",positionList);
+
+            showCreateForm(request,response);
+
+//            try {
+//                request.getRequestDispatcher("pages/employee/create.jsp").forward(request,response);
+//            } catch (ServletException e) {
+//                e.printStackTrace();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         } else {
             this.iEmployeeService.save(employee);
             try {
-                response.sendRedirect("/employee");
+               response.sendRedirect("/employee");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -206,6 +225,7 @@ public class EmployeeServlet extends HttpServlet {
         }
     }
 
+
     public void updateEmployee(HttpServletRequest request, HttpServletResponse response){
         String id = request.getParameter("id");
         String name = request.getParameter("name");
@@ -221,6 +241,7 @@ public class EmployeeServlet extends HttpServlet {
         int divisionID = Integer.parseInt(request.getParameter("division"));
         int positionID = Integer.parseInt(request.getParameter("position"));
 
+        Employee employee = new Employee();
         EducationDegree educationDegree = new EducationDegree();
         Division division = new Division();
         Position position = new Position();
@@ -229,10 +250,31 @@ public class EmployeeServlet extends HttpServlet {
         division.setId(divisionID);
         position.setId(positionID);
 
-        Employee employee = new Employee(id,name,birthday,id_card,salary,phone,email,address,position,educationDegree,division);
+        employee.setId(id);
+        employee.setName(name);
+        employee.setBirthDay(birthday);
+        employee.setIdCard(id_card);
+        employee.setSalary(salary);
+        employee.setPhone(phone);
+        employee.setAddress(address);
+        employee.setEmail(email);
+        employee.setEducationDegree(educationDegree);
+        employee.setDivision(division);
+        employee.setPosition(position);
+
+
         this.iEmployeeService.update(employee);
 
-        request.setAttribute("employee_update",employee);
+//        request.setAttribute("employee_update",employee);
+//        try {
+//            request.getRequestDispatcher("pages/employee/edit.jsp").forward(request,response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+
         // cách 2 dùng redirect
         try {
             response.sendRedirect("/employee");

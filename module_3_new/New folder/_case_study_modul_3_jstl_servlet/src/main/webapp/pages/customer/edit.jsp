@@ -40,8 +40,8 @@
                     <a class="nav-link active" href="/contract">Contract</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <form class="d-flex" action="/employee?userAction=search" method="post">
+                <input class="form-control me-2" name="searchName" type="text" placeholder="Search Employee Name" aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
@@ -67,14 +67,22 @@
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Birth day:</label>
-            <input type="text" name="birthday" class="form-control col-12 float-left mt-2"
+            <input type="date" name="birthday" class="form-control col-12 float-left mt-2"
                    value="${customer.getBirthDay()}">
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Gender:</label>
-            <input type="text" name="gender" class="form-control col-12 float-left mt-2"
-                   value="${customer.getGender()}">
+<%--            <input type="text" name="gender" class="form-control col-12 float-left mt-2"--%>
+<%--                   value="${customer.getGender()}">--%>
+
+            <c:set var = "gender" scope = "session" value = "${customer.getGender()}"/>
+            <c:if test='${"gender" == null or "gender"!= null}'>
+                <select name="gender" class="form-control col-12 float-left">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </c:if>
         </div>
 
         <div class="form-group col-12">
@@ -101,7 +109,7 @@
                    value="${customer.getAddress()}" >
         </div>
         <div class="form-group col-12">
-            <label class="col-12 float-left mt-1">Position:</label>
+            <label class="col-12 float-left mt-1">Customer Type:</label>
             <select name="customerType" class="form-control col-12 float-left">
                 <option>Chose option ...</option>
                 <c:forEach var="customerType" items="${customerTypeList}">

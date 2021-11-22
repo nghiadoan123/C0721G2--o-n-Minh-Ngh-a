@@ -1,6 +1,8 @@
-drop database if exists furama;
-create database furama;
-use furama;
+drop database if exists furama_resort;
+create database furama_resort;
+use furama_resort;
+
+
 SET SQL_SAFE_UPDATES = 0;
 create table vitri(
 id_vitri int auto_increment primary key,
@@ -169,7 +171,7 @@ foreign key(id_hop_dong) references hop_dong(id_hop_dong) on delete set null,
 foreign key(id_dich_vu_di_kem) references dich_vu_di_kem(id_dich_vu_di_kem) on delete set null
 );
 
-insert into hop_dong_chi_tiet(id_hop_dong_chi_tiet,id_hop_dong,id_dich_vu_di_kem,so_luong)
+insert into hop_dong_chi_tiet(id_hop_dong_chi_tiet, id_hop_dong, id_dich_vu_di_kem, so_luong)
 values (1,1,2,3),
        (2,2,1,4),
        (3,3,2,9),
@@ -239,14 +241,14 @@ from hop_dong hd
 		on hd.id_dich_vu = dv.id_dich_vu
 	join loai_dich_vu ldv
 		on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
-		-- 	where hd.ngay_lam_hd between '2019-04-01' and '2019-12-31' 
---             or hd.ngay_lam_hd > '2019-12-31'
--- 				or hd.ngay_lam_hd <'2019-12-31';
+  where hd.ngay_lam_hd between '2019-04-01' and '2019-12-31' 
+           or hd.ngay_lam_hd > '2019-12-31'
+ 				or hd.ngay_lam_hd <'2019-12-31';
 
-where dv.id_dich_vu not in (
-	select hd.id_dich_vu from hop_dong hd
-    where (hd.ngay_lam_hd between '2019-01-01' and '2019-03-31')
-);
+-- where dv.id_dich_vu not in (
+-- 	select hd.id_dich_vu from hop_dong hd
+--     where (hd.ngay_lam_hd between '2019-01-01' and '2019-03-31')
+-- );
 
 # 7.Hiển thị thông tin IDDichVu, TenDichVu, DienTich, SoNguoiToiDa, ChiPhiThue, TenLoaiDichVu của tất cả các loại dịch vụ đã từng được Khách hàng đặt phòng trong năm 2018 
  # nhưng chưa từng được Khách hàng đặt phòng  trong năm 2019.
@@ -257,6 +259,7 @@ from hop_dong hd
 	join loai_dich_vu ldv
 		on dv.id_loai_dich_vu = ldv.id_loai_dich_vu
 where year(hd.ngay_lam_hd) = '2018';
+
 
 # 8.Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoThenKhachHang không trùng nhau.
 # cách 1
@@ -315,6 +318,7 @@ from loai_khach lk
 	join dich_vu_di_kem dvdk
 		on dvdk.id_dich_vu_di_kem = hdct.id_dich_vu_di_kem
 where lk.ten_loai_khach = 'Diamond' and (kh.dia_chi = 'Vinh' or kh.dia_chi = 'Quang Ngai');
+
 
 # 12.	Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, SoLuongDichVuDikem 
 #(được tính dựa trên tổng Hợp đồng chi tiết), TienDatCoc của tất cả các dịch vụ đã từng được khách hàng đặt vào 3 tháng cuối năm 2019 
@@ -405,7 +409,7 @@ group by nv.ho_ten) as nhan_vien);
 
 SET SQL_SAFE_UPDATES = 0;
 update khach_hang
-set id_loai_khach = '5'
+set id_loai_khach = '1'
 where khach_hang.id_loai_khach in (
 select * from (select khach_hang.id_loai_khach
 		from loai_khach lk 
@@ -413,10 +417,13 @@ select * from (select khach_hang.id_loai_khach
 				on kh.id_loai_khach = lk.id_loai_khach
 			join hop_dong hd
 				on hd.id_khach_hang = kh.id_khach_hang
-where year(hd.ngay_lam_hd) = '2019' and hd.tong_tien > 10000 and kh.id_loai_khach = '1'
+where year(hd.ngay_lam_hd) = '2019' and hd.tong_tien > 10000 and kh.id_loai_khach = '5'
 	group by kh.id_khach_hang) as loai_khach
 );
+
+
 select * from khach_hang;
+
 
 
 # 18.Xóa những khách hàng có hợp đồng trước năm 2016 (chú ý ràngbuộc giữa các bảng).
@@ -484,7 +491,7 @@ where nv.id_nhan_vien in (
 			select v_nhan_vien.id_nhan_vien from v_nhan_vien
     ) as bang_gia
 	);
-select * from v_nhan_vien;
+select * from nhan_vien;
 
 -- cách 2 
 -- update v_nhan_vien
@@ -520,8 +527,14 @@ begin
     values(ip_id_nhan_vien, ip_id_hop_dong, ip_id_khach_hang, ip_id_dich_vu, 
               ip_ngay_lam_hd, ip_ngay_ket_thuc, ip_tien_dat_coc,ip_tong_tien);
 	else 
-		select concat('id nhan vien khong ton tai',ip_id_nhan_vien ) as id_nv;
-         select concat('id khach hang khong ton tai',ip_id_khach_hang ) as id_kh;
+    -- c1 dùng concat để h thị ra trên bảng
+	-- 	select concat('id nhan vien khong ton tai',ip_id_nhan_vien ) as id_nv;
+--          select concat('id khach hang khong ton tai',ip_id_khach_hang ) as id_kh;
+
+		-- c2 dùng signal sqlstate '45000' đê h thị t báo ở thanh action out put
+         set  @bien_tam = concat('id nhan vien khong ton tai',ip_id_nhan_vien );
+		-- signal sqlstate '45000' set message_text = @bien_tam; -- '45000 h thị t báo loi ngoai le
+		signal sqlstate '01000' set message_text = @bien_tam; -- 01000 h thị thông báo warning 
 	end if;
 end //
 delimiter ;
@@ -533,21 +546,30 @@ select * from hop_dong;
 # 25.Tạo triggers có tên Tr_1 Xóa bản ghi trong bảng HopDong 
 # thì hiển thị tổng số lượng bản ghi còn lại có trong bảng HopDong ra giao diện console của database
 
--- delimiter //
--- create trigger tr_1
--- after delete
--- on hop_dong for each row
+delimiter //
+create trigger tr_1
+after delete
+on hop_dong for each row
 -- begin
 -- create temporary table bang_tam (select count(id_hop_dong) as count_
 --      from hop_dong);
 -- 	 set @temp= (select count_ from bang_tam);
+
 -- end //
--- delimiter ;
 
--- drop trigger tr_1;
 
--- delete from hop_dong
--- where id_hop_dong = 5;
+begin
+	 set @temp= (select count(id_hop_dong) as count_
+     from hop_dong);
+	signal sqlstate '45000' set message_text = @temp;
+end //
+
+delimiter ;
+
+drop trigger tr_1;
+
+delete from hop_dong
+where id_hop_dong = 5;
 
 -- select @temp;
 
@@ -557,24 +579,26 @@ select * from hop_dong;
 -- #Nếu dữ liệu hợp lệ thì cho phép cập nhật, nếu dữ liệu không hợp lệ thì in ra thông báo
 --  #“Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày” trên console của database
 --  
--- delimiter //
--- CREATE TRIGGER  tr_2
--- before update
--- ON hop_dong FOR EACH ROW 
--- BEGIN
--- 	if datediff(new.ngay_ket_thuc,old.ngay_lam_hd) >2
---     then set  @bien_tam = (select "Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày");
---     end if;
--- END //
--- delimiter ;
+delimiter //
+CREATE TRIGGER  tr_2
+before update
+ON hop_dong FOR EACH ROW 
+BEGIN
+	if datediff(new.ngay_ket_thuc,old.ngay_lam_hd) >2
+    then set  @bien_tam = (select "Ngày kết thúc hợp đồng phải lớn hơn ngày làm hợp đồng ít nhất là 2 ngày");
+		signal sqlstate '45000' set message_text = @bien_tam;  --  cách 2 bắn ra ngoại lệ dùng signal sqlstate
+    end if;
+END //
+delimiter ;
 
--- DROP TRIGGER tr_2;
+DROP TRIGGER tr_2;
 
--- update hop_dong
--- set hop_dong.ngay_ket_thuc = "2019-12-01"
--- where id_hop_dong = 6;
+update hop_dong
+set hop_dong.ngay_ket_thuc = "2019-12-01"
+where id_hop_dong = 1;
 
--- select @bien_tam;
+
+-- select @bien_tam; -- cách 1 hien ra man hình
  
  
 # 27.Tạo user function thực hiện yêu cầu sau:
