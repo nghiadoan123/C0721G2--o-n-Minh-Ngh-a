@@ -118,8 +118,8 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     public void update(Customer customer) {
         try {
             PreparedStatement preparedStatement =
-                    BaseRepository.connection.prepareStatement("update customer , customer_type_id=?,customer_name=?," +
-                            "birthday=?,id_card=?,phone=?,email=?,address=? where customer_id=?");
+                    BaseRepository.connection.prepareStatement("update customer set customer_type_id=?,customer_name=?," +
+                            "birthday=?,gender=?,id_card=?,phone=?,email=?,address=? where customer_id=?");
 
 
             preparedStatement.setInt(1,customer.getCustomerType().getId());

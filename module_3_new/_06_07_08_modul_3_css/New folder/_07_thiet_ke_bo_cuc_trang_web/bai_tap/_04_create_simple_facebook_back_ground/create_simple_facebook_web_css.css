@@ -86,11 +86,6 @@
     float: left;
 }
 
-.relative {
-    display: inline;
-    position: relative;
-}
-
 .span-middle {
     padding: 5px;
 }
@@ -145,21 +140,27 @@
 /*    padding: 5px;*/
 /*    !*position: relative;*!*/
 /*}*/
-.taskbar ul li {
-    display: inline;
 
-}
+/*.taskbar ul li {*/
+/*    display: inline;*/
+
+/*}*/
 
 
-.inline {
-    display: inline;
-}
+/*.inline {*/
+/*    display: inline;*/
+/*}*/
 
 .absolute {
     display: inline;
     bottom: 0px;
     left: 0px;
     position: absolute;
+}
+
+.relative {
+    display: inline;
+    position: relative;
 }
 
 .body-text {

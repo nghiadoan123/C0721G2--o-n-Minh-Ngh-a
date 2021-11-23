@@ -207,6 +207,7 @@ public class EmployeeServlet extends HttpServlet {
     public void showEditForm(HttpServletRequest request, HttpServletResponse response){
         String id = request.getParameter("id");
         Employee employee = this.iEmployeeService.findById(id);
+
         List<Division> divisionList = GetInformationSQL.divisionList();
         List<EducationDegree> educationDegreeList = GetInformationSQL.educationDegreeList();
         List<Position> positionList = GetInformationSQL.positionList();

@@ -147,7 +147,7 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
     public void update(Employee employee) {
         try {
             PreparedStatement preparedStatement =
-                    BaseRepository.connection.prepareStatement("update employee , employee_name=?,position_id=?," +
+                    BaseRepository.connection.prepareStatement("update employee set employee_name=?,position_id=?," +
                             "degree_id=?,division_id=?,birthday=?,id_card=?,salary=?,phone=?,email=?,address=? where employee_id=?");
 
 
@@ -162,8 +162,8 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
             preparedStatement.setString(9, employee.getEmail());
             preparedStatement.setString(10, employee.getAddress());
             preparedStatement.setString(11, employee.getId());
+            preparedStatement.executeLargeUpdate();
 
-        preparedStatement.executeLargeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
