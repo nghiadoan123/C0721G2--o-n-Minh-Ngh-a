@@ -15,7 +15,9 @@
             <h6>Fumara Resort</h6>
         </div>
         <div class="col-lg-6 text-end pt-4">
-            <h5> Nguyễn Văn A </h5>
+            <tr>
+                <td ><c:out value="${loginInformation.username}"/></td>
+            </tr>
         </div>
     </div>
 </div>
@@ -90,7 +92,7 @@
 <tbody>
 <c:forEach var="employees" items="${employeeList}">
     <tr>
-    <th>${employees.id}</th>
+    <td>${employees.id}</td>
     <td>${employees.name}</td>
     <td>${employees.birthDay}</td>
     <td>${employees.idCard}</td>

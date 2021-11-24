@@ -17,7 +17,12 @@
             <h6>Fumara Resort</h6>
         </div>
         <div class="col-lg-6 text-end pt-4">
-            <h5> Nguyễn Văn A </h5>
+    <tr>
+    <td ><c:out value="${loginInformation.username}"/></td>
+   </tr>
+
+<%--            <h5> Nguyễn Văn A </h5>--%>
+
         </div>
     </div>
 </div>

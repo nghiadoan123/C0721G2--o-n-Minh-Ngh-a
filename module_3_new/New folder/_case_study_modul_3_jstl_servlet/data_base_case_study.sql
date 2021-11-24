@@ -128,7 +128,7 @@ insert service values
 (106,'Room_B',20, 100,2,1,1,null,null,null,null),
 (107,'Room_C',20, 100,1,2,1,null,null,null,null);
 
--- SET FOREIGN_KEY_CHECKS=0;
+SET FOREIGN_KEY_CHECKS=0;
 create table contract (
 contract_id int primary key auto_increment,
 employee_id int,
@@ -181,3 +181,20 @@ values (1,1,2,3),
        (5,4,2,25),
        (6,6,2,5)
        ;
+       
+create table `login` (
+  `username` varchar(45) NOT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+INSERT INTO `login` (`username`, `password`) VALUES 
+		("TruongHung", "TruongHung"),
+        ("NguyenThao", "NguyenThao"),
+        ("HoangKhoi", "HoangKhoi"),
+        ("NguyenHung", "NguyenHung"),
+        ("NguyenHoang", "NguyenHoang");
+
+
+

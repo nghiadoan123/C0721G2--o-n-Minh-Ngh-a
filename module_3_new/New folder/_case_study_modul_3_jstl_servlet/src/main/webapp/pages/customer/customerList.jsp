@@ -15,9 +15,6 @@
             <img src="../../image/logo.jpg" alt="" width="15%" height="100%">
             <h6>Fumara Resort</h6>
         </div>
-        <div class="col-lg-6 text-end pt-4">
-            <h5> Nguyễn Văn A </h5>
-        </div>
     </div>
 </div>
 <br>

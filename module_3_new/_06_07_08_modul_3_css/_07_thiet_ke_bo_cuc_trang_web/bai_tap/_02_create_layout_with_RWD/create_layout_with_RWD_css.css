@@ -20,6 +20,14 @@
     padding: 5px;
 }
 
+@media only screen and (max-width: 786px){
+    [class*= col-] {
+        width: 100%;
+    }
+}
+
+
+
 .header {
     background: black;
     align-items: center;
@@ -78,9 +86,4 @@
     color: white;
 }
 
-@media only screen and (max-width: 786px){
-    [class*= col-] {
-        width: 100%;
-    }
-}
 
