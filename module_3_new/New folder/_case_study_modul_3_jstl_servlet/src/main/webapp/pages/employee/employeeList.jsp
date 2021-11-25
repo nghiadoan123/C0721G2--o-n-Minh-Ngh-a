@@ -16,8 +16,11 @@
         </div>
         <div class="col-lg-6 text-end pt-4">
             <tr>
-                <td ><c:out value="${loginInformation.username}"/></td>
+                <td ><c:out value="${usernameinfo}"/></td>
             </tr>
+<%--            <input type="text" disabled value="${usernameinfo}" name="username">--%>
+            <%--            <h5> Nguyễn Văn A </h5>--%>
+
         </div>
     </div>
 </div>
@@ -115,7 +118,6 @@
                 <a href="/employee?userAction=delete&id=${employees.getId()}"
                    class="text-decoration-none"  onclick="return confirm('Do you want to delete ${employees.getName()} ?')">Delete</a>
             </button>
-
         </td>
     </tr>
 </c:forEach>

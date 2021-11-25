@@ -7,7 +7,9 @@ import bean.employee.Position;
 import jdk.nashorn.internal.ir.RuntimeNode;
 import repository.impl.GetInformationSQL;
 import service.IEmployeeService;
+import service.ILoginService;
 import service.impl.EmployServiceImpl;
+import service.impl.LoginServiceImpl;
 import util.Validate;
 
 import javax.servlet.RequestDispatcher;
@@ -16,6 +18,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -23,6 +26,7 @@ import java.util.List;
 public class EmployeeServlet extends HttpServlet {
 
     IEmployeeService iEmployeeService = new EmployServiceImpl();
+    ILoginService iLoginService = new LoginServiceImpl();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userAction = request.getParameter("userAction");
@@ -72,6 +76,13 @@ public class EmployeeServlet extends HttpServlet {
     public void employeeList(HttpServletRequest request, HttpServletResponse response){
         List<Employee> employeeList = this.iEmployeeService.findAll();
         request.setAttribute("employeeList",employeeList);
+
+        // phần sesion để lấy thông tin lưu sẵn trong tên nhân viên bỏ vào các trang
+        HttpSession session = request.getSession();
+        String username =  session.getAttribute("usernameinfo").toString();
+        String password =  session.getAttribute("passwordinfo").toString();
+
+
         try {
             request.getRequestDispatcher("pages/employee/employeeList.jsp").forward(request,response);
         } catch (ServletException e) {
@@ -288,6 +299,9 @@ public class EmployeeServlet extends HttpServlet {
     public void deleteEmployee(HttpServletRequest request, HttpServletResponse response){
         int id = Integer.parseInt(request.getParameter("id"));
         this.iEmployeeService.remove(id);
+
+        String userName = request.getParameter("username");
+        this.iLoginService.remove(userName);
         try {
             response.sendRedirect("/employee");
         } catch (IOException e) {

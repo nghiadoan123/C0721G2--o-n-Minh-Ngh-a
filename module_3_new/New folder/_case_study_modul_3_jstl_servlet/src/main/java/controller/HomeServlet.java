@@ -25,6 +25,12 @@ public class HomeServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        // sau khi tạo sesion sau khi set attribute bên phía login thì bên trang home chỉ
+        // cần lấy thông tin vì tất cả t tin đã để trên đám mây
+        HttpSession session = request.getSession();
+        String username =  session.getAttribute("usernameinfo").toString();
+        String password =  session.getAttribute("passwordinfo").toString();
+
         request.getRequestDispatcher("pages/home/home.jsp").forward(request,response);
     }
 }

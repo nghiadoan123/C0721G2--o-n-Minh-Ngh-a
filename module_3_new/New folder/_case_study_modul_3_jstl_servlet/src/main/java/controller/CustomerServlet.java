@@ -75,6 +75,12 @@ public class CustomerServlet extends HttpServlet {
         List<Customer> customerList = this.iCustomerService.findAll();
         
         request.setAttribute("customerList",customerList);
+
+
+        //        HttpSession session = request.getSession();
+//        String username =  session.getAttribute("usernameinfo").toString();
+//        String password =  session.getAttribute("passwordinfo").toString();
+
         try {
             request.getRequestDispatcher("pages/customer/customerList.jsp").forward(request,response);
         } catch (ServletException e) {

@@ -1,11 +1,13 @@
 package repository.impl;
 
-import bean.employee.Login;
+import bean.employee.*;
 import repository.ILoginRepository;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginRepositoryImpl implements ILoginRepository {
     @Override
@@ -26,6 +28,41 @@ public class LoginRepositoryImpl implements ILoginRepository {
             throwables.printStackTrace();
         }
         return status;
+    }
+
+    @Override
+    public void remove(String userName) {
+        try {
+            PreparedStatement preparedStatement =
+                    BaseRepository.connection.prepareStatement("delete from login\n" +
+                            "where username = ?");
+            preparedStatement.setString(1,userName);
+            preparedStatement.executeUpdate();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<Login> findAll() {
+        List<Login> loginList = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = BaseRepository.connection.prepareStatement("select * from login");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Login login = null;
+            while (resultSet.next()){
+                login = new Login();
+                login.setUsername(resultSet.getString("username"));
+                login.setPassword(resultSet.getString("password"));
+
+
+                loginList.add(login);
+            }
+
+        }catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return loginList;
     }
 
     private void printSQLException(SQLException ex) {

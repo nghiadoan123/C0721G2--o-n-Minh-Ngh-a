@@ -15,9 +15,18 @@
             <img src="../../image/logo.jpg" alt="" width="15%" height="100%">
             <h6>Fumara Resort</h6>
         </div>
+        <div class="col-lg-6 text-end pt-4">
+            <tr>
+                <td ><c:out value="${usernameinfo}"/></td>
+            </tr>
+<%--            <input type="text" disabled value="${usernameinfo}" name="username">--%>
+            <%--            <h5> Nguyễn Văn A </h5>--%>
+
+        </div>
     </div>
 </div>
 <br>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
