@@ -38,6 +38,7 @@ public class InputPerson {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
             try {
                 Date birth = simpleDateFormat.parse(birthday);
+              
                 int yearOld = LocalDate.now().getYear()-birth.getYear()-1900;
                 System.out.println(yearOld);
                 if (yearOld>17&&yearOld<100) {

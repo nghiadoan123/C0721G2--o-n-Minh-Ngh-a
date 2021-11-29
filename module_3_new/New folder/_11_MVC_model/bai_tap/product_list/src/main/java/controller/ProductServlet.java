@@ -183,24 +183,24 @@ public class ProductServlet extends HttpServlet {
             this.IProductService.update(id, product);
 
 // cách 1 không tự động nhảy trang mà vẫn ở trang cũ
-//            request.setAttribute("product_update", product);
-//            request.setAttribute("message", "Product information was updated");
-//            dispatcher = request.getRequestDispatcher("product/edit.jsp");
+            request.setAttribute("product_update", product);
+            request.setAttribute("message", "Product information was updated");
+            dispatcher = request.getRequestDispatcher("product/edit.jsp");
         }
-//        try {
-//            dispatcher.forward(request, response);
-//        } catch (ServletException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-// cách 2 se tự động nhyar trang về /products
         try {
-            response.sendRedirect("/products");
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+// cách 2 se tự động nhyar trang về /products
+//        try {
+//            response.sendRedirect("/products");
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
 

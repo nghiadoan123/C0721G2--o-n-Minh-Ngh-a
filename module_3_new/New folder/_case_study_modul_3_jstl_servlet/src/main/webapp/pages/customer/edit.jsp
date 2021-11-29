@@ -57,7 +57,7 @@
         <div class="form-group col-12">
             <label class="col-12 float-left">Id:</label>
             <input type="text" name="id" class="form-control col-12 float-left mt-2"
-                   value="${customer.getId()}" >
+                   value="${customer.getId()}" readonly >
         </div>
         <div class="form-group col-12">
             <label class="col-12 float-left">Name:</label>
@@ -84,6 +84,7 @@
                 </select>
             </c:if>
         </div>
+
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Id card:</label>
