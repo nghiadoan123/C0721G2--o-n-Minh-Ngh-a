@@ -277,7 +277,7 @@ public class EmployeeServlet extends HttpServlet {
 
         this.iEmployeeService.update(employee);
 
-//        request.setAttribute("employee_update",employee);
+//        request.setAttribute("employee",employee);
 //        try {
 //            request.getRequestDispatcher("pages/employee/edit.jsp").forward(request,response);
 //        } catch (ServletException e) {
