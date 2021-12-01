@@ -251,9 +251,10 @@ public class ProductServlet extends HttpServlet {
 
         Product product = new Product(id, name, price, description, manage);
 
-
-
         this.IProductService.save(product);
+
+
+
 
         request.setAttribute("product_create", product); // đặt tên giống với biến trong thẻ html bên jsp
         request.setAttribute("message", "Product information was created");
