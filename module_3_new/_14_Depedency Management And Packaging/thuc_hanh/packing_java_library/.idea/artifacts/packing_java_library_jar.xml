@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="packing_java_library:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/packing_java_library_jar</output-path>
+    <root id="archive" name="packing_java_library.jar">
+      <element id="module-output" name="packing_java_library" />
+    </root>
+  </artifact>
+</component>

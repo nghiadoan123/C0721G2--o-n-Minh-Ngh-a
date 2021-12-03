@@ -91,10 +91,12 @@ public class UserServlet extends HttpServlet {
         }
     }
     public void createUser(HttpServletRequest request, HttpServletResponse response){
+        int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String country = request.getParameter("country");
         User user = new User();
+        user.setId(id);
         user.setName(name);
         user.setEmail(email);
         user.setCountry(country);

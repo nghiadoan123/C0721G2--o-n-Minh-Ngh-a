@@ -1,8 +1,10 @@
 package controller;
 
-import dao.IUserDAO;
-import dao.UserDAO;
-import model.User;
+import repository.IUserRepository;
+import repository.UserRepository;
+import bean.User;
+import service.IUserService;
+import service.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -17,10 +19,10 @@ import java.util.List;
 @WebServlet(name = "UserServlet", urlPatterns = {"","/users"})
 public class UserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private IUserDAO userDAO;
+    private IUserService userDAO;
 
     public void init() {
-        userDAO = new UserDAO();
+        userDAO = new UserService();
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -63,6 +65,7 @@ public class UserServlet extends HttpServlet {
                 //thuc hanh 2
                 case "permission":
                     addUserPermission(request, response);
+
                     break;
 
                 //thuc-hanh 3
@@ -84,13 +87,17 @@ public class UserServlet extends HttpServlet {
         }
     }
     //thuc hanh 2
-    private void addUserPermission(HttpServletRequest request, HttpServletResponse response) {
+    private void addUserPermission(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         User user = new User("quan", "quan.nguyen@codegym.vn", "vn");
 
         int[] permission = {1, 2, 4};
 
-        userDAO.addUserTransaction(user, permission);
+        String msg = userDAO.addUserTransaction(user, permission);
+
+        request.setAttribute("message",msg);
+
+        request.getRequestDispatcher("showinfo.jsp").forward(request,response);
 
     }
 
@@ -104,7 +111,7 @@ public class UserServlet extends HttpServlet {
     private void listUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
 //        List<User> listUser = userDAO.selectAllUsers();
-        
+
         List<User> listUser = userDAO.selectAllUserStore();
 
         request.setAttribute("listUser", listUser);
@@ -159,8 +166,11 @@ public class UserServlet extends HttpServlet {
         String email = request.getParameter("email");
         String country = request.getParameter("country");
 
-        User book = new User(id, name, email, country);
-        userDAO.updateUser(book);
+        User user = new User(id, name, email, country);
+
+//        userDAO.updateUser(user);
+        userDAO.updateUserStore(user);
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
         dispatcher.forward(request, response);
     }
@@ -168,7 +178,11 @@ public class UserServlet extends HttpServlet {
     private void deleteUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         int id = Integer.parseInt(request.getParameter("id"));
-        userDAO.deleteUser(id);
+//        userDAO.deleteUser(id);
+
+        // bt1
+        userDAO.deleteUserStore(id);
+
 
         List<User> listUser = userDAO.selectAllUsers();
         request.setAttribute("listUser", listUser);

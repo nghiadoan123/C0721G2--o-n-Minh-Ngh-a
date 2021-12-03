@@ -12,6 +12,10 @@
         <legend>Information User</legend>
         <table>
             <tr>
+                <td>Id:</td>
+                <td><input type="text" name="id" id="id" placeholder="Enter your id"></td>
+            </tr>
+            <tr>
                 <td>Name:</td>
                 <td><input type="text" name="name" id="name" placeholder="Enter your name"></td>
             </tr>
