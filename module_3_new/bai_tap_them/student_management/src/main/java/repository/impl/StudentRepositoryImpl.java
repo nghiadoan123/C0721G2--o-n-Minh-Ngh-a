@@ -1,5 +1,6 @@
 package repository.impl;
 
+import bean.StudentClass;
 import bean.Student;
 import repository.IStudentRepository;
 
@@ -28,6 +29,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
                 student.setAge(Integer.parseInt(resultSet.getString("age")));
                 student.setGender(resultSet.getString("gender"));
                 student.setName(resultSet.getString("name"));
+                student.setIdClass(Integer.parseInt(resultSet.getString("id_class")));
                 studentList.add(student);
             }
         } catch (SQLException throwables) {
@@ -41,13 +43,14 @@ public class StudentRepositoryImpl implements IStudentRepository {
     public void save(Student student) {
         try {
             PreparedStatement preparedStatement =
-                    BaseRepository.connection.prepareStatement("insert into student (id,name,gender,age,average)" +
-                            "values(?,?,?,?,?)");
+                    BaseRepository.connection.prepareStatement("insert into student (id,name,gender,age,average,id_class)" +
+                            "values(?,?,?,?,?,?)");
             preparedStatement.setInt(1, student.getId());
             preparedStatement.setString(2, student.getName());
             preparedStatement.setString(3, student.getGender());
             preparedStatement.setInt(4, student.getAge());
             preparedStatement.setDouble(5, student.getAverage());
+            preparedStatement.setInt(6, student.getIdClass());
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -82,6 +85,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
                 student.setAge(Integer.parseInt(resultSet.getString("age")));
                 student.setGender(resultSet.getString("gender"));
                 student.setName(resultSet.getString("name"));
+                student.setIdClass(Integer.parseInt(resultSet.getString("id_class")));
             }
 
         } catch (SQLException throwables) {
@@ -94,13 +98,15 @@ public class StudentRepositoryImpl implements IStudentRepository {
     public void update(Student student) {
         try {
             PreparedStatement preparedStatement =
-                    BaseRepository.connection.prepareStatement("update student set name=?,gender=?,age=?,average=? where id=?");
+                    BaseRepository.connection.prepareStatement("update student set name=?,gender=?,age=?,average=?,id_class=? where id=?");
 
             preparedStatement.setString(1, student.getName());
             preparedStatement.setString(2, student.getGender());
             preparedStatement.setInt(3,student.getAge());
             preparedStatement.setDouble(4, student.getAverage());
-            preparedStatement.setInt(5, student.getId());
+            preparedStatement.setInt(5, student.getIdClass());
+            preparedStatement.setInt(6, student.getId());
+
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -124,6 +130,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
                 student.setAge(Integer.parseInt(resultSet.getString("age")));
                 student.setGender(resultSet.getString("gender"));
                 student.setName(resultSet.getString("name"));
+                student.setIdClass(Integer.parseInt(resultSet.getString("id_class")));
                 studentList.add(student);
             }
 
@@ -150,12 +157,33 @@ public class StudentRepositoryImpl implements IStudentRepository {
                 student.setAge(Integer.parseInt(resultSet.getString("age")));
                 student.setGender(resultSet.getString("gender"));
                 student.setName(resultSet.getString("name"));
+                student.setIdClass(Integer.parseInt(resultSet.getString("id_class")));
                 studentList.add(student);
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return studentList;
+    }
+
+    @Override
+    public List<StudentClass> findAllClass() {
+        List<StudentClass> studentClassList = new ArrayList<>();
+        try {
+            Statement statement = BaseRepository.connection.createStatement();
+            ResultSet resultSet =statement.executeQuery("select * from class");
+            StudentClass aStudentClass = null;
+            while (resultSet.next()){
+                aStudentClass = new StudentClass();
+                aStudentClass.setIdClass(Integer.parseInt(resultSet.getString("id_class")));
+                aStudentClass.setClassName(resultSet.getString("class_name"));
+                studentClassList.add(aStudentClass);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+        return studentClassList;
     }
 
 }

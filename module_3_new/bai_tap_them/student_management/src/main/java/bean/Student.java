@@ -7,6 +7,7 @@ public class Student {
     private String gender;
     private int age;
     private double average;
+    private int idClass;
 
     public Student() {
     }
@@ -17,6 +18,15 @@ public class Student {
         this.gender = gender;
         this.age = age;
         this.average = average;
+    }
+
+    public Student(int id, String name, String gender, int age, double average, int idClass) {
+        this.id = id;
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.average = average;
+        this.idClass = idClass;
     }
 
     public int getId() {
@@ -57,5 +67,13 @@ public class Student {
 
     public void setAverage(double average) {
         this.average = average;
+    }
+
+    public int getIdClass() {
+        return idClass;
+    }
+
+    public void setIdClass(int idClass) {
+        this.idClass = idClass;
     }
 }

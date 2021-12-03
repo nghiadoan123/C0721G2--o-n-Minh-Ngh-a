@@ -1,6 +1,7 @@
 package service;
 
 import bean.Student;
+import bean.StudentClass;
 
 import java.util.List;
 
@@ -14,4 +15,5 @@ public interface IStudentService {
     List<Student> findByName(String name);
     List<Student> sortByAverage();
 
+    List<StudentClass> findAllClass();
 }

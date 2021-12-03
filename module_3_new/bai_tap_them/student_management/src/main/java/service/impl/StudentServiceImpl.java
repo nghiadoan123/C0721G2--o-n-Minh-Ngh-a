@@ -1,6 +1,7 @@
 package service.impl;
 
 import bean.Student;
+import bean.StudentClass;
 import repository.IStudentRepository;
 import repository.impl.StudentRepositoryImpl;
 import service.IStudentService;
@@ -44,6 +45,11 @@ public class StudentServiceImpl implements IStudentService {
     @Override
     public List<Student> sortByAverage() {
         return iStudentRepository.sortByAverage();
+    }
+
+    @Override
+    public List<StudentClass> findAllClass() {
+        return iStudentRepository.findAllClass();
     }
 
 }

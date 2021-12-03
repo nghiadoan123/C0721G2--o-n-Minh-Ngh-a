@@ -1,24 +1,33 @@
-drop database if exists student;
+drop database if exists student_data_base;
 
-create database student;
+create database student_data_base;
 
-use student;
+use student_data_base;
 
+create table class (
+id_class int primary key auto_increment,
+class_name varchar(50)
+);
 
 create table student (
 id int primary key auto_increment,
-`name` varchar(60),
+name varchar(60),
 gender varchar(60),
 age int,
-average double 
+average double ,
+id_class int,
+foreign key (id_class) references class(id_class)
 );
 
-insert into student values 
-('1', 'Nam', 'male', '18', '5.9'),
-('2', 'Anh', 'male', '20', '7.0'),
-('3', 'Mai', 'female', '26', '8.0'),
-('4', 'Hoa', 'female', '21', '9.0');
+insert into class (id_class,class_name) values (1,'ClassDay' );
+insert into class (id_class,class_name) values (2,'ClassNight');
 
+
+
+insert into student (name,gender,age,average,id_class) values ('Nam', 'male', 18, 6,1);
+insert into student (name,gender,age,average,id_class) values ('Anh', 'male', 20, 7,2);
+insert into student (name,gender,age,average,id_class) values ('Mai', 'female', 26, 8,2);
+insert into student (name,gender,age,average,id_class) values ('Hoa', 'female', 21, 9,2);
 
 
 

@@ -1,6 +1,7 @@
 package controller;
 
 import bean.Student;
+import bean.StudentClass;
 import service.IStudentService;
 import service.impl.StudentServiceImpl;
 
@@ -113,8 +114,9 @@ public class StudentServlet extends HttpServlet {
         String gender = request.getParameter("gender");
         int age = Integer.parseInt(request.getParameter("age"));
         double average = Double.parseDouble(request.getParameter("average"));
+        int idClass = Integer.parseInt(request.getParameter("idClass"));
 
-        Student student = new Student(id,name,gender,age,average);
+        Student student = new Student(id,name,gender,age,average,idClass);
         this.iStudentService.save(student);
         try {
             response.sendRedirect("/student");
@@ -146,9 +148,10 @@ public class StudentServlet extends HttpServlet {
         String gender = request.getParameter("gender");
         int age = Integer.parseInt(request.getParameter("age"));
         double average = Double.parseDouble(request.getParameter("average"));
+        int classId = Integer.parseInt(request.getParameter("classId"));
 
 
-        Student student = new Student(id,name,gender,age,average);
+        Student student = new Student(id,name,gender,age,average,classId);
         this.iStudentService.update(student);
 
         try {
@@ -172,6 +175,8 @@ public class StudentServlet extends HttpServlet {
     private void studentList(HttpServletRequest request, HttpServletResponse response) {
         List<Student> studentList = this.iStudentService.findAll();
         request.setAttribute("studentList",studentList);
+        List<StudentClass> studentClassList = this.iStudentService.findAllClass();
+        request.setAttribute("studentClassList",studentClassList);
         try {
             request.getRequestDispatcher("student/list.jsp").forward(request,response);
         } catch (ServletException e) {

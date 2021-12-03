@@ -38,6 +38,10 @@
                 <td><input type="text" name="average" placeholder="Enter your average"></td>
             </tr>
             <tr>
+                <td>ID Class:</td>
+                <td><input type="text" name="idClass" placeholder="Enter your id class"></td>
+            </tr>
+            <tr>
                 <td></td>
                 <td><button type="submit">Create</button></td>
             </tr>

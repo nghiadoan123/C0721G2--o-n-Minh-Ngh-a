@@ -37,6 +37,10 @@
                 <td><input type="text" name="average"  value="${edit.getAverage()}"></td>
             </tr>
             <tr>
+                <td>ID Class:</td>
+                <td><input type="text" name="classId"  value="${edit.getIdClass()}"></td>
+            </tr>
+            <tr>
                 <td></td>
                 <td><button type="submit">Save</button></td>
             </tr>
