@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "StudentServlet", urlPatterns = {"","/student"})
 public class StudentServlet extends HttpServlet {
@@ -43,18 +45,7 @@ public class StudentServlet extends HttpServlet {
         }
     }
 
-    private void searchStudent(HttpServletRequest request, HttpServletResponse response) {
-        String name = request.getParameter("search");
-        List<Student> studentList = this.iStudentService.findByName(name);
-        request.setAttribute("studentList",studentList);
-        try {
-            request.getRequestDispatcher("student/list.jsp").forward(request,response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -85,9 +76,26 @@ public class StudentServlet extends HttpServlet {
         }
     }
 
+    private void searchStudent(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("search");
+        List<Student> studentList = this.iStudentService.findByName(name);
+        request.setAttribute("studentList",studentList);
+        List<StudentClass> studentClassList = this.iStudentService.findAllClass();
+        request.setAttribute("studentClassList",studentClassList);
+        try {
+            request.getRequestDispatcher("student/list.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void sortAverage(HttpServletRequest request, HttpServletResponse response) {
         List<Student> studentList =  this.iStudentService.sortByAverage();
         request.setAttribute("studentList",studentList);
+        List<StudentClass> studentClassList = this.iStudentService.findAllClass();
+        request.setAttribute("studentClassList",studentClassList);
         try {
             request.getRequestDispatcher("student/list.jsp").forward(request,response);
         } catch (ServletException e) {
@@ -117,12 +125,23 @@ public class StudentServlet extends HttpServlet {
         int idClass = Integer.parseInt(request.getParameter("idClass"));
 
         Student student = new Student(id,name,gender,age,average,idClass);
-        this.iStudentService.save(student);
-        try {
-            response.sendRedirect("/student");
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        Map<String,String> message = this.iStudentService.save(student);
+
+        if (message.isEmpty()){
+            try {
+                response.sendRedirect("/student");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else {
+            request.setAttribute("errormessage", message.get("message"));
+            request.setAttribute("messageName", message.get("messageName"));
+            request.setAttribute("messageAge", message.get("messageAge"));
+            request.setAttribute("messageAverage", message.get("messageAverage"));
+            this.showCreateForm(request,response);
         }
+
     }
 
 
@@ -152,12 +171,21 @@ public class StudentServlet extends HttpServlet {
 
 
         Student student = new Student(id,name,gender,age,average,classId);
-        this.iStudentService.update(student);
 
-        try {
-            response.sendRedirect("/student");
-        } catch (IOException e) {
-            e.printStackTrace();
+        Map<String,String> message = this.iStudentService.update(student);
+
+        if (message.isEmpty()){
+            try {
+                response.sendRedirect("/student");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else {
+            request.setAttribute("errormessage", message.get("message"));
+            request.setAttribute("messageName", message.get("messageName"));
+            request.setAttribute("messageAge", message.get("messageAge"));
+            request.setAttribute("messageAverage", message.get("messageAverage"));
+            this.showEditForm(request,response);
         }
     }
 

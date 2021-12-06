@@ -5,8 +5,11 @@ import bean.StudentClass;
 import repository.IStudentRepository;
 import repository.impl.StudentRepositoryImpl;
 import service.IStudentService;
+import util.Validate;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class StudentServiceImpl implements IStudentService {
 
@@ -18,8 +21,22 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public void save(Student student) {
-        iStudentRepository.save(student);
+    public  Map<String,String> save(Student student) {
+        Map<String,String> messageList = new HashMap<>();
+        Map<String,String> messageListRepo = this.iStudentRepository.save(student);
+        if (!messageListRepo.isEmpty()){
+            messageList.put("message",messageListRepo.get("message"));
+        }
+        if (!Validate.validateName(student.getName())){
+            messageList.put("messageName","Invalid Name ex: Nguyen Văn A ");
+        }
+        if (student.getAge()>100 || student.getAge()<0){
+            messageList.put("messageAge","Invalid Age age from 1-100");
+        }
+        if (student.getAverage()>10 || student.getAverage()<0){
+            messageList.put("messageAverage","Invalid Average average from 1-10");
+        }
+        return messageList;
     }
 
     @Override
@@ -33,8 +50,24 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
-    public void update(Student student) {
-        iStudentRepository.update(student);
+    public Map<String,String> update(Student student) {
+        Map<String,String> messageList = new HashMap<>();
+       Map<String,String> messageListRepo = iStudentRepository.update(student);
+
+       if (!messageListRepo.isEmpty()){
+           messageList.put("message",messageListRepo.get("message"));
+       }
+       if (!Validate.validateName(student.getName())){
+           messageList.put("messageName","Invalid Name ex: Nguyen Văn A ");
+       }
+       if (student.getAge()>100 || student.getAge()<0){
+           messageList.put("messageAge","Invalid Age age from 1-100");
+       }
+       if (student.getAverage()>10 || student.getAverage()<0){
+           messageList.put("messageAverage","Invalid Average average from 1-10");
+       }
+
+       return messageList;
     }
 
     @Override

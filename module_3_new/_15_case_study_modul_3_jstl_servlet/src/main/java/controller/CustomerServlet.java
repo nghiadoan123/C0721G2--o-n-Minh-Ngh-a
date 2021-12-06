@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "CustomerServlet" , urlPatterns = "/customer")
 public class CustomerServlet extends HttpServlet {
@@ -129,11 +130,7 @@ public class CustomerServlet extends HttpServlet {
     }
 
     public void createCustomer(HttpServletRequest request, HttpServletResponse response){
-        String customerIDMess = null;
-        String emailIMess = null;
-        String phoneIMess = null;
-        String idCardIMess = null;
-        boolean flag = true;
+
 
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
@@ -160,31 +157,14 @@ public class CustomerServlet extends HttpServlet {
         customer.setAddress(address);
         customer.setCustomerType(customerType);
 
-//        if (!Validate.validateIdCustomer(request.getParameter("id"))){
-//            flag = false;
-//            customerIDMess = "Customer id invalid ex: KH-1234";
-//        }
+        Map<String,String> messageList = iCustomerService.save(customer);
 
-        if (!Validate.validateEmail(email)){
-            flag = false;
-            emailIMess = "email invalid ex: john@gmail.com";
-        }
-
-        if (!Validate.validatePhonenumber(phone)){
-            flag = false;
-            phoneIMess = "phone invalid ex: 0905111111";
-        }
-
-        if (!Validate.validatePersonalId(idCard)){
-            flag = false;
-            idCardIMess = "personal id  invalid ex: xxxx... with x = 9 or x = 12";
-        }
-
-        if (!flag) {
-            request.setAttribute("customerError",customerIDMess);
-            request.setAttribute("emailError",emailIMess);
-            request.setAttribute("phoneError",phoneIMess);
-            request.setAttribute("idcardError",idCardIMess);
+        if (!messageList.isEmpty()) {
+            request.setAttribute("customerId",messageList.get("sameId"));
+            request.setAttribute("empty",messageList.get("empty"));
+            request.setAttribute("personalIDMess", messageList.get("personalId"));
+            request.setAttribute("phoneNumberMess", messageList.get("phoneNumber"));
+            request.setAttribute("emailMess", messageList.get("email"));
             showCreateForm(request,response);
         }else {
             this.iCustomerService.save(customer);
@@ -230,13 +210,19 @@ public class CustomerServlet extends HttpServlet {
         customerType.setId(customerTypeId);
         Customer customer = new Customer(id,customerType,  name, birthDay, gender, idCard, phone, email, address);
 
-        this.iCustomerService.update(customer);
-
-        // cách 2 dùng redirect
-        try {
-            response.sendRedirect("/customer");
-        } catch (IOException e) {
-            e.printStackTrace();
+        Map<String,String> messageList = iCustomerService.update(customer);
+        if (!messageList.isEmpty()) {
+            request.setAttribute("personalIDMess", messageList.get("personalId"));
+            request.setAttribute("phoneNumberMess", messageList.get("phoneNumber"));
+            request.setAttribute("emailMess", messageList.get("email"));
+            request.setAttribute("message", messageList.get("message"));
+            this.showEditForm(request,response);
+        }else {
+            try {
+                response.sendRedirect("/customer");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

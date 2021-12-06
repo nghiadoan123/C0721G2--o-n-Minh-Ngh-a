@@ -157,7 +157,9 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
     }
 
     @Override
-    public void update(Employee employee) {
+    public  Map<String, String> update(Employee employee) {
+        Map<String, String> messageList = new HashMap<>();
+
         try {
             PreparedStatement preparedStatement =
                     BaseRepository.connection.prepareStatement("update employee set employee_name=?,position_id=?," +
@@ -179,7 +181,10 @@ public class EmployeeRepositoryImpl implements IEmployeeRepository {
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            messageList.put("message", "invalid class id");
+            return messageList;
         }
+        return messageList;
     }
 
     

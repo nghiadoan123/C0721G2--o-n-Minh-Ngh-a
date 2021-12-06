@@ -75,24 +75,45 @@
             <label class="col-12 float-left">Id card:</label>
             <input type="text" name="id_card" class="form-control col-12 float-left mt-2"
                    value="${employee.getIdCard()}">
+            <p class="text-danger" >
+                <c:if test='${requestScope["personalIDMess"]!= null}'>
+                    <span class="message">${requestScope["personalIDMess"]}</span>
+                </c:if>
+            </p>
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Salary:</label>
             <input type="text" name="salary" class="form-control col-12 float-left mt-2"
                    value="${employee.getSalary()}">
+            <p class="text-danger" >
+                <c:if test='${requestScope["salaryMess"] != null}'>
+                    <span class="message">${requestScope["salaryMess"]}</span>
+                </c:if>
+            </p>
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Phone:</label>
             <input type="text" name="phone" class="form-control col-12 float-left mt-2"
                     value="${employee.getPhone()}">
+
+            <p class="text-danger" >
+                <c:if test='${requestScope["phoneNumberMess"]!= null}'>
+                    <span class="message">${requestScope["phoneNumberMess"]}</span>
+                </c:if>
+            </p>
         </div>
 
         <div class="form-group col-12">
             <label class="col-12 float-left">Email:</label>
             <input type="text" name="email" class="form-control col-12 float-left mt-2"
                     value="${employee.getEmail()}">
+            <p class="text-danger" >
+                <c:if test='${requestScope["emailMess"]!= null}'>
+                    <span class="message">${requestScope["emailMess"]}</span>
+                </c:if>
+            </p>
         </div>
 
         <div class="form-group col-12">

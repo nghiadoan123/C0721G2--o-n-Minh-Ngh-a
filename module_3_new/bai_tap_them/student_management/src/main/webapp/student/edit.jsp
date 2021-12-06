@@ -7,13 +7,24 @@
 <body>
 <h1>Student Management</h1>
 <h3>Edit Student</h3>
+
+
+
+
 <form method="post">
     <fieldset>
         <legend>Information Student</legend>
         <table>
             <tr>
+                <td>Id:</td>
+                <td><input type="text" name="id" id="id" value="${edit.getId()}" readonly></td>
+            </tr>
+            <tr>
                 <td>Name:</td>
-                <td><input type="text" name="name" id="name" value="${edit.getName()}"></td>
+                <td>
+                    <input type="text" name="name" id="name" value="${edit.getName()}">
+                    <span style="color: red"> ${messageName}</span>
+                </td>
             </tr>
             <tr>
                 <td>Gender:</td>
@@ -30,15 +41,26 @@
             </tr>
             <tr>
                 <td>Age:</td>
-                <td><input type="text" name="age" id="country" value="${edit.getAge()}"></td>
+                <td>
+                    <input type="text" name="age" id="country" value="${edit.getAge()}">
+                    <span style="color: red"> ${messageAge}</span>
+                </td>
             </tr>
             <tr>
                 <td>Average:</td>
-                <td><input type="text" name="average"  value="${edit.getAverage()}"></td>
+                <td>
+                    <input type="text" name="average"  value="${edit.getAverage()}">
+                    <span style="color: red"> ${messageAverage}</span>
+
+                </td>
             </tr>
             <tr>
                 <td>ID Class:</td>
-                <td><input type="text" name="classId"  value="${edit.getIdClass()}"></td>
+                <td>
+                    <input type="text" name="classId"  value="${edit.getIdClass()}">
+                    <span style="color: red"> ${errormessage}</span>
+                </td>
+
             </tr>
             <tr>
                 <td></td>

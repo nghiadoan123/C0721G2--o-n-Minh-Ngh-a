@@ -9,7 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class StudentRepositoryImpl implements IStudentRepository {
 
@@ -20,9 +22,9 @@ public class StudentRepositoryImpl implements IStudentRepository {
 
         try {
             Statement statement = BaseRepository.connection.createStatement();
-            ResultSet resultSet =statement.executeQuery("select * from student");
+            ResultSet resultSet = statement.executeQuery("select * from student");
             Student student = null;
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 student = new Student();
                 student.setId(Integer.parseInt(resultSet.getString("id")));
                 student.setAverage(Double.parseDouble(resultSet.getString("average")));
@@ -40,7 +42,8 @@ public class StudentRepositoryImpl implements IStudentRepository {
     }
 
     @Override
-    public void save(Student student) {
+    public  Map<String,String> save(Student student) {
+        Map<String,String> messageList = new HashMap<>();
         try {
             PreparedStatement preparedStatement =
                     BaseRepository.connection.prepareStatement("insert into student (id,name,gender,age,average,id_class)" +
@@ -54,7 +57,10 @@ public class StudentRepositoryImpl implements IStudentRepository {
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            messageList.put("message","can not create Student");
+            return messageList;
         }
+        return messageList;
     }
 
     @Override
@@ -62,7 +68,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
         try {
             PreparedStatement preparedStatement =
                     BaseRepository.connection.prepareStatement("delete from student where id=?");
-            preparedStatement.setInt(1,id);
+            preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -75,10 +81,10 @@ public class StudentRepositoryImpl implements IStudentRepository {
         try {
             PreparedStatement preparedStatement =
                     BaseRepository.connection.prepareStatement("select * from student where id=?");
-            preparedStatement.setInt(1,id);
+            preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 student = new Student();
                 student.setId(Integer.parseInt(resultSet.getString("id")));
                 student.setAverage(Double.parseDouble(resultSet.getString("average")));
@@ -95,22 +101,29 @@ public class StudentRepositoryImpl implements IStudentRepository {
     }
 
     @Override
-    public void update(Student student) {
+    public Map<String, String> update(Student student) {
+        Map<String, String> messageList = new HashMap<>();
+
         try {
             PreparedStatement preparedStatement =
                     BaseRepository.connection.prepareStatement("update student set name=?,gender=?,age=?,average=?,id_class=? where id=?");
 
             preparedStatement.setString(1, student.getName());
             preparedStatement.setString(2, student.getGender());
-            preparedStatement.setInt(3,student.getAge());
+            preparedStatement.setInt(3, student.getAge());
             preparedStatement.setDouble(4, student.getAverage());
             preparedStatement.setInt(5, student.getIdClass());
             preparedStatement.setInt(6, student.getId());
 
             preparedStatement.executeUpdate();
+
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            messageList.put("message", "invalid class id");
+            return messageList;
         }
+        return messageList;
     }
 
     @Override
@@ -120,10 +133,10 @@ public class StudentRepositoryImpl implements IStudentRepository {
             PreparedStatement preparedStatement =
                     BaseRepository.connection.prepareStatement("select * from student " +
                             "where `name`=?");
-            preparedStatement.setString(1,name);
+            preparedStatement.setString(1, name);
             ResultSet resultSet = preparedStatement.executeQuery();
             Student student = null;
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 student = new Student();
                 student.setId(Integer.parseInt(resultSet.getString("id")));
                 student.setAverage(Double.parseDouble(resultSet.getString("average")));
@@ -150,7 +163,7 @@ public class StudentRepositoryImpl implements IStudentRepository {
 
             ResultSet resultSet = preparedStatement.executeQuery();
             Student student = null;
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 student = new Student();
                 student.setId(Integer.parseInt(resultSet.getString("id")));
                 student.setAverage(Double.parseDouble(resultSet.getString("average")));
@@ -171,9 +184,9 @@ public class StudentRepositoryImpl implements IStudentRepository {
         List<StudentClass> studentClassList = new ArrayList<>();
         try {
             Statement statement = BaseRepository.connection.createStatement();
-            ResultSet resultSet =statement.executeQuery("select * from class");
+            ResultSet resultSet = statement.executeQuery("select * from class");
             StudentClass aStudentClass = null;
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 aStudentClass = new StudentClass();
                 aStudentClass.setIdClass(Integer.parseInt(resultSet.getString("id_class")));
                 aStudentClass.setClassName(resultSet.getString("class_name"));

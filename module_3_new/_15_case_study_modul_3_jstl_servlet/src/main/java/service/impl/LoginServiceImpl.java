@@ -1,6 +1,6 @@
 package service.impl;
 
-import bean.employee.Login;
+import bean.user.Login;
 import repository.ILoginRepository;
 import repository.impl.LoginRepositoryImpl;
 import service.ILoginService;

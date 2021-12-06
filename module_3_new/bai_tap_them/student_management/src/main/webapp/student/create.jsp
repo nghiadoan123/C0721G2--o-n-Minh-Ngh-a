@@ -7,6 +7,7 @@
 <body>
 <h1>Student Management</h1>
 <h3>Edit Student</h3>
+
 <form method="post">
     <fieldset>
         <legend>Information Student</legend>
@@ -17,7 +18,10 @@
             </tr>
             <tr>
                 <td>Name:</td>
-                <td><input type="text" name="name" id="name" placeholder="Enter your Name"></td>
+                <td>
+                    <input type="text" name="name" id="name" placeholder="Enter your Name">
+                    <span style="color: red"> ${messageName}</span>
+                </td>
             </tr>
             <tr>
                 <td>Gender:</td>
@@ -31,15 +35,24 @@
             </tr>
             <tr>
                 <td>Age:</td>
-                <td><input type="text" name="age" id="country" placeholder="Enter your age"></td>
+                <td>
+                    <input type="text" name="age" id="country" placeholder="Enter your age">
+                    <span style="color: red"> ${messageAge}</span>
+                </td>
             </tr>
             <tr>
                 <td>Average:</td>
-                <td><input type="text" name="average" placeholder="Enter your average"></td>
+                <td>
+                    <input type="text" name="average" placeholder="Enter your average">
+                    <span style="color: red"> ${messageAverage}</span>
+                </td>
             </tr>
             <tr>
                 <td>ID Class:</td>
-                <td><input type="text" name="idClass" placeholder="Enter your id class"></td>
+                <td>
+                    <input type="text" name="idClass" placeholder="Enter your id class">
+                    <span style="color: red"> ${errormessage}</span>
+                </td>
             </tr>
             <tr>
                 <td></td>

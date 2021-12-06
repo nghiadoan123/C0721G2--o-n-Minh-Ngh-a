@@ -1,4 +1,4 @@
-package bean.employee;
+package bean.user;
 
 import java.io.Serializable;
 

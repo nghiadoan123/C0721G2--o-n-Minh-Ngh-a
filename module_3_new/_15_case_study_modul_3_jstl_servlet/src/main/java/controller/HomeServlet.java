@@ -1,6 +1,5 @@
 package controller;
 
-import bean.employee.Login;
 import service.ILoginService;
 import service.impl.LoginServiceImpl;
 

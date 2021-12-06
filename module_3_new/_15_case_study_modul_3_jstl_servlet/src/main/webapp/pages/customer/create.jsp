@@ -59,8 +59,8 @@
             <input type="text" name="id" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Id">
             <p class="text-danger" >
-                <c:if test='${requestScope["customerError"]!= null}'>
-                    <span class="message">${requestScope["customerError"]}</span>
+                <c:if test='${requestScope["customerId"]!= null}'>
+                    <span class="message">${requestScope["customerId"]}</span>
                 </c:if>
             </p>
         </div>
@@ -89,8 +89,8 @@
             <input type="text" name="id_card" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Id card">
             <p class="text-danger" >
-                <c:if test='${requestScope["idcardError"] != null}'>
-                    <span class="message">${requestScope["idcardError"]}</span>
+                <c:if test='${requestScope["personalIDMess"] != null}'>
+                    <span class="message">${requestScope["personalIDMess"]}</span>
                 </c:if>
             </p>
         </div>
@@ -100,8 +100,8 @@
             <input type="text" name="phone" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Phone">
             <p class="text-danger" >
-                <c:if test='${requestScope["phoneError"]  != null}'>
-                    <span class="message">${requestScope["phoneError"]}</span>
+                <c:if test='${requestScope["phoneNumberMess"]  != null}'>
+                    <span class="message">${requestScope["phoneNumberMess"]}</span>
                 </c:if>
             </p>
         </div>
@@ -111,8 +111,8 @@
             <input type="text" name="email" class="form-control col-12 float-left mt-2"
                    placeholder="Enter Email">
             <p class="text-danger" >
-                <c:if test='${requestScope["emailError"] != null}'>
-                    <span class="message">${requestScope["emailError"]}</span>
+                <c:if test='${requestScope["emailMess"] != null}'>
+                    <span class="message">${requestScope["emailMess"]}</span>
                 </c:if>
             </p>
         </div>

@@ -1,6 +1,6 @@
 package repository.impl;
 
-import bean.employee.*;
+import bean.user.Login;
 import repository.ILoginRepository;
 
 import java.sql.PreparedStatement;

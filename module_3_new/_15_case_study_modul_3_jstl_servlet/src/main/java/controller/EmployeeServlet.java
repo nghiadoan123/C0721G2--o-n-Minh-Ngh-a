@@ -230,7 +230,22 @@ public class EmployeeServlet extends HttpServlet {
         employee.setPosition(position);
 
 
-        this.iEmployeeService.update(employee);
+        Map<String,String> messageList = iEmployeeService.update(employee);
+        if (!messageList.isEmpty()) {
+            request.setAttribute("personalIDMess", messageList.get("personalId"));
+            request.setAttribute("phoneNumberMess", messageList.get("phoneNumber"));
+            request.setAttribute("emailMess", messageList.get("email"));
+            request.setAttribute("message", messageList.get("message"));
+            request.setAttribute("salaryMess", messageList.get("salary"));
+            this.showEditForm(request,response);
+        } else {
+            // cách 2 dùng redirect
+            try {
+                response.sendRedirect("/employee");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
 //        request.setAttribute("employee",employee);
 //        try {
@@ -242,12 +257,7 @@ public class EmployeeServlet extends HttpServlet {
 //        }
 
 
-        // cách 2 dùng redirect
-        try {
-            response.sendRedirect("/employee");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
 

@@ -56,8 +56,27 @@ public class EmployServiceImpl implements IEmployeeService {
     }
 
     @Override
-    public void update(Employee employee) {
-        iEmployeeRepository.update(employee);
+    public  Map<String, String> update(Employee employee) {
+        Map<String,String> messageList = new HashMap<>();
+        Map<String,String> messageListRepo = iEmployeeRepository.update(employee);
+        if (!messageListRepo.isEmpty()){
+            messageList.put("message",messageListRepo.get("message"));
+        }
+
+        if (!Validate.validatePersonalId(employee.getIdCard())) {
+            messageList.put("personalId", "invalid personal id!");
+        }
+        if (!Validate.validatePhonenumber(employee.getPhone())) {
+            messageList.put("phoneNumber", "invalid phone number!");
+        }
+        if (!Validate.validateEmail(employee.getEmail())) {
+            messageList.put("email", "invalid email!");
+        }
+        if (employee.getSalary() < 0) {
+            messageList.put("salary", "invalid salary!");
+        }
+
+        return messageList;
     }
 
     @Override

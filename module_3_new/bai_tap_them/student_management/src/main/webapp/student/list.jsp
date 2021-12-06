@@ -12,6 +12,7 @@
 </head>
 <body>
 <h1>Student Management</h1>
+
 <p><a href="/student?userAction=create">Create new Student</a></p>
 <%-- cách 1 dùng nút bấm với form để sort--%>
 <form action="/student?userAction=sort" method="post">
@@ -52,6 +53,14 @@
                         <c:if test="${student.getIdClass() == studentClass.getIdClass()}">
                             ${studentClass.getClassName()}
                         </c:if>
+<%--                        <c:choose>--%>
+<%--                            <c:when test="${student.getIdClass() == studentClass.getIdClass()}">--%>
+<%--                                ${studentClass.getClassName()}--%>
+<%--                            </c:when>--%>
+<%--                            <c:otherwise>--%>
+<%--                                ${"null"}--%>
+<%--                            </c:otherwise>--%>
+<%--                        </c:choose>--%>
                     </c:forEach>
                 </td>
                     <%--                <td>${student.getIdClass()}</td>--%>

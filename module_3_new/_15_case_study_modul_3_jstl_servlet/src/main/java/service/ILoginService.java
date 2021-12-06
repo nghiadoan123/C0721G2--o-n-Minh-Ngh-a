@@ -1,6 +1,6 @@
 package service;
 
-import bean.employee.Login;
+import bean.user.Login;
 
 import java.util.List;
 

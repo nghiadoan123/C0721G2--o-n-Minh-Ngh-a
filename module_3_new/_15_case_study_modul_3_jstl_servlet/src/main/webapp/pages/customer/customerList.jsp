@@ -95,6 +95,7 @@
                 <td>${customer.email}</td>
                 <td>${customer.address}</td>
                 <td>${customer.customerType.id}</td>
+
                 <td>
                     <button type="button" class="btn btn-light">
                         <a href="/customer?userAction=edit&id=${customer.getId()}"

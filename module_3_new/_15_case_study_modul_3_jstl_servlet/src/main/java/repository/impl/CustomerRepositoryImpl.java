@@ -9,7 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CustomerRepositoryImpl implements ICustomerRepository {
 
@@ -22,10 +24,13 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
             Customer customer = null;
             CustomerType customerType = null;
             while (resultSet.next()){
-                customer = new Customer();
+
+
                 customerType = new CustomerType();
-                customer.setId(Integer.parseInt(resultSet.getString("customer_id")));
                 customerType.setId(Integer.parseInt(resultSet.getString("customer_type_id")));
+
+                customer = new Customer();
+                customer.setId(Integer.parseInt(resultSet.getString("customer_id")));
                 customer.setName(resultSet.getString("customer_name"));
                 customer.setBirthDay(resultSet.getString("birthday"));
                 customer.setGender(resultSet.getString("gender"));
@@ -45,24 +50,36 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     }
 
     @Override
-    public void save(Customer customer) {
+    public Map<String, String> save(Customer customer) {
+        Map<String,String> messageList = new HashMap<>();
         try {
-            PreparedStatement preparedStatement =
-                    BaseRepository.connection.prepareStatement("insert into customer(customer_id, customer_type_id, customer_name, birthday,gender,id_card,phone,email,address) " +
-                            "values(?,?,?,?,?,?,?,?,?)");
-            preparedStatement.setInt(1,customer.getId());
-            preparedStatement.setInt(2,customer.getCustomerType().getId());
-            preparedStatement.setString(3,customer.getName());
-            preparedStatement.setString(4,customer.getBirthDay());
-            preparedStatement.setString(5,customer.getGender());
-            preparedStatement.setString(6,customer.getIdCard());
-            preparedStatement.setString(7,customer.getPhone());
-            preparedStatement.setString(8,customer.getEmail());
-            preparedStatement.setString(9,customer.getAddress());
-            preparedStatement.executeLargeUpdate();
+            PreparedStatement preparedStatementCheck =
+                    BaseRepository.connection.prepareStatement("select  * from customer where customer_id = ?");
+            preparedStatementCheck.setString(1, String.valueOf(customer.getId()));
+            ResultSet resultSet = preparedStatementCheck.executeQuery();
+            if (resultSet.next()) {
+                messageList.put("sameId", "Input Same Id!");
+                return messageList;
+            } else {
+
+                PreparedStatement preparedStatement =
+                        BaseRepository.connection.prepareStatement("insert into customer(customer_id, customer_type_id, customer_name, birthday,gender,id_card,phone,email,address) " +
+                                "values(?,?,?,?,?,?,?,?,?)");
+                preparedStatement.setInt(1, customer.getId());
+                preparedStatement.setInt(2, customer.getCustomerType().getId());
+                preparedStatement.setString(3, customer.getName());
+                preparedStatement.setString(4, customer.getBirthDay());
+                preparedStatement.setString(5, customer.getGender());
+                preparedStatement.setString(6, customer.getIdCard());
+                preparedStatement.setString(7, customer.getPhone());
+                preparedStatement.setString(8, customer.getEmail());
+                preparedStatement.setString(9, customer.getAddress());
+                preparedStatement.executeLargeUpdate();
+            }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return messageList;
     }
 
     @Override
@@ -115,8 +132,10 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
     }
 
     @Override
-    public void update(Customer customer) {
+    public  Map<String, String> update(Customer customer) {
+        Map<String, String> messageList = new HashMap<>();
         try {
+
             PreparedStatement preparedStatement =
                     BaseRepository.connection.prepareStatement("update customer set customer_type_id=?,customer_name=?," +
                             "birthday=?,gender=?,id_card=?,phone=?,email=?,address=? where customer_id=?");
@@ -136,7 +155,10 @@ public class CustomerRepositoryImpl implements ICustomerRepository {
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
+            messageList.put("message", "invalid class id");
+            return messageList;
         }
+        return messageList;
     }
 
     @Override

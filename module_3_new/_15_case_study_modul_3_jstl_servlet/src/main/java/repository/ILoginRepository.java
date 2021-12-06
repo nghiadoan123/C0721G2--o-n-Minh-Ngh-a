@@ -1,7 +1,6 @@
 package repository;
 
-import bean.employee.Employee;
-import bean.employee.Login;
+import bean.user.Login;
 
 import java.util.List;
 
