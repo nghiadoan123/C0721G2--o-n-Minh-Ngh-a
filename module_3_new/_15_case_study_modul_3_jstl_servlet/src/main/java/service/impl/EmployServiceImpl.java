@@ -37,9 +37,9 @@ public class EmployServiceImpl implements IEmployeeService {
             messageList.put("salary", "invalid salary!");
         }
 
-        Map<String, String> mesageRepo = iEmployeeRepository.save(employee);
-        if (!mesageRepo.isEmpty()) {
-            messageList.put("sameId", mesageRepo.get("sameId"));
+        Map<String, String> messageRepo = iEmployeeRepository.save(employee);
+        if (!messageRepo.isEmpty()) {
+            messageList.put("sameId", messageRepo.get("sameId"));
         }
 
         return messageList;

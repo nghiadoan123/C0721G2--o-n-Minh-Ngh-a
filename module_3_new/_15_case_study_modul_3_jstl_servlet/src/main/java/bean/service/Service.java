@@ -2,7 +2,7 @@ package bean.service;
 
 public class Service {
 
-    private int id;
+    private String id;
     private String name;
     private int area;
     private int cost;
@@ -17,7 +17,7 @@ public class Service {
     public Service() {
     }
 
-    public Service(int id, String name, int area, int cost, int numberOfPerson, RentalType rentalType, ServiceType serviceType, String standardRoom, String description, int poolArea, int numberOfFloor) {
+    public Service(String id, String name, int area, int cost, int numberOfPerson, RentalType rentalType, ServiceType serviceType, String standardRoom, String description, int poolArea, int numberOfFloor) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -31,11 +31,11 @@ public class Service {
         this.numberOfFloor = numberOfFloor;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -157,10 +157,14 @@ public class CustomerServlet extends HttpServlet {
         customer.setAddress(address);
         customer.setCustomerType(customerType);
 
+
+
         Map<String,String> messageList = iCustomerService.save(customer);
 
         if (!messageList.isEmpty()) {
             request.setAttribute("customerId",messageList.get("sameId"));
+
+
             request.setAttribute("empty",messageList.get("empty"));
             request.setAttribute("personalIDMess", messageList.get("personalId"));
             request.setAttribute("phoneNumberMess", messageList.get("phoneNumber"));

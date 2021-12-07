@@ -20,6 +20,7 @@ public class CustomerServiceImpl implements ICustomerService {
     @Override
     public Map<String, String> save(Customer customer) {
         Map<String, String> messageList = new HashMap<>();
+
         if (customer.getName().equals("") || customer.getAddress().equals("") || customer.getBirthDay().equals("")) {
             messageList.put("empty", "please input information");
         }
@@ -32,6 +33,7 @@ public class CustomerServiceImpl implements ICustomerService {
         if (!Validate.validateEmail(customer.getEmail())) {
             messageList.put("email", "invalid email!");
         }
+
 
         Map<String, String> mesageRepo = iCustomerRepository.save(customer);
         if (!mesageRepo.isEmpty()) {

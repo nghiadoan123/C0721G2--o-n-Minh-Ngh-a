@@ -10,7 +10,7 @@ public interface IServiceRepository {
 
     List<Service> findAll();
     Map<String,String> save(Service service);
-    void remove(int id);
+    void remove(String id);
     Service findById(String id);
     Map<String, String> update(Service service);
     List<Service> findByName(String name);

@@ -4,6 +4,8 @@ import bean.customer.CustomerType;
 import bean.employee.Division;
 import bean.employee.EducationDegree;
 import bean.employee.Position;
+import bean.service.RentalType;
+import bean.service.ServiceType;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -87,4 +89,46 @@ public class GetInformationSQL {
         }
         return customerTypeList;
     }
+
+    public  static List<RentalType> rentalTypeList(){
+
+        List<RentalType> rentalTypeList = new ArrayList<>();
+        try {
+            Statement statement = BaseRepository.connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select  * from rental_type");
+            RentalType rentalType = null;
+            while (resultSet.next()){
+                rentalType = new RentalType();
+                rentalType.setId(Integer.parseInt(resultSet.getString("rental_type_id")));
+                rentalType.setName(resultSet.getString("rental_type_name"));
+                rentalType.setCost(Double.parseDouble(resultSet.getString("price")));
+                rentalTypeList.add(rentalType);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return rentalTypeList;
+    }
+
+    public  static List<ServiceType> serviceTypeList(){
+
+        List<ServiceType> serviceTypeList = new ArrayList<>();
+        try {
+            Statement statement = BaseRepository.connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select  * from service_type");
+            ServiceType serviceType = null;
+            while (resultSet.next()){
+                serviceType = new ServiceType();
+                serviceType.setId(Integer.parseInt(resultSet.getString("service_type_id")));
+                serviceType.setName(resultSet.getString("service_type_name"));
+                serviceTypeList.add(serviceType);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return serviceTypeList;
+    }
+
+
+
 }
