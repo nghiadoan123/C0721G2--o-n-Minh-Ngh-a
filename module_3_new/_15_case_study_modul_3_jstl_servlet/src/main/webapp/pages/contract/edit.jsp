@@ -45,8 +45,8 @@
                     <a class="nav-link active" href="/contract">Contract</a>
                 </li>
             </ul>
-            <form class="d-flex" action="/employee?userAction=search" method="post">
-                <input class="form-control me-2" name="searchName" type="text" placeholder="Search Employee Name" aria-label="Search">
+            <form class="d-flex" action="/contract?userAction=search" method="post">
+                <input class="form-control me-2" name="searchName" type="text" placeholder="Search Service " aria-label="Search">
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
@@ -57,15 +57,8 @@
 <div class="container-fluid">
     <form class="col-6  m-auto" method="post">
         <div>
-            <h4>Create new employee</h4>
+            <h4>Edit Contract</h4>
         </div>
-<%--        <div>--%>
-<%--            <p>--%>
-<%--                <c:if test='${requestScope["message"] != null}'>--%>
-<%--                    <span class="message">${requestScope["message"]}</span>--%>
-<%--                </c:if>--%>
-<%--            </p>--%>
-<%--        </div>--%>
         <p class="text-danger" >
             <c:if test='${requestScope["empty"] != null}'>
                 <span class="message">${requestScope["empty"]}</span>
@@ -74,127 +67,117 @@
         <div class="form-group col-12">
             <label class="col-12 float-left">Id:</label>
             <input type="text" name="id" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Id" >
+                   placeholder="Enter Id" readonly value="${edit.id}">
             <p class="text-danger" >
-                <c:if test='${requestScope["employeeId"] != null}'>
-                    <span class="message">${requestScope["employeeId"]}</span>
+                <c:if test='${requestScope["contractId"] != null}'>
+                    <span class="message">${requestScope["contractId"]}</span>
                 </c:if>
             </p>
-        </div>
-        <div class="form-group col-12">
-            <label class="col-12 float-left">Name:</label>
-            <input type="text" name="name" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Name">
-        </div>
-
-        <div class="form-group col-12">
-            <label class="col-12 float-left">Birth day:</label>
-            <input type="date" name="birthday" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Birth day">
-        </div>
-
-        <div class="form-group col-12">
-            <label class="col-12 float-left">Id card:</label>
-            <input type="text" name="id_card" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Id card">
             <p class="text-danger" >
-                <c:if test='${requestScope["personalIDMess"] != null}'>
-                    <span class="message">${requestScope["personalIDMess"]}</span>
+                <c:if test='${requestScope["sameId"] != null}'>
+                    <span class="message">${requestScope["sameId"]}</span>
                 </c:if>
             </p>
         </div>
 
         <div class="form-group col-12">
-            <label class="col-12 float-left">Salary:</label>
-            <input type="text" name="salary" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Salary">
+            <label class="col-12 float-left">Check In:</label>
+            <input type="date" name="checkIn" class="form-control col-12 float-left mt-2"
+                   placeholder="Enter check in" value="${edit.checkIn}">
+
             <p class="text-danger" >
-                <c:if test='${requestScope["salaryMess"] != null}'>
-                    <span class="message">${requestScope["salaryMess"]}</span>
+                <c:if test='${requestScope["checkInOut"] != null}'>
+                    <span class="message">${requestScope["checkInOut"]}</span>
                 </c:if>
             </p>
         </div>
 
         <div class="form-group col-12">
-            <label class="col-12 float-left">Phone:</label>
-            <input type="text" name="phone" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Phone">
+            <label class="col-12 float-left">Check Out:</label>
+            <input type="date" name="checkOut" class="form-control col-12 float-left mt-2"
+                   placeholder="Enter check out" value="${edit.checkOut}">
             <p class="text-danger" >
-                <c:if test='${requestScope["phoneNumberMess"] != null}'>
-                    <span class="message">${requestScope["phoneNumberMess"]}</span>
+                <c:if test='${requestScope["checkInOut"] != null}'>
+                    <span class="message">${requestScope["checkInOut"]}</span>
                 </c:if>
             </p>
         </div>
 
         <div class="form-group col-12">
-            <label class="col-12 float-left">Email:</label>
-            <input type="text" name="email" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Email">
+            <label class="col-12 float-left">Deposit:</label>
+            <input type="text" name="deposit" class="form-control col-12 float-left mt-2"
+                   placeholder="Enter deposit" value="${edit.deposit}">
             <p class="text-danger" >
-                <c:if test='${requestScope["emailMess"] != null}'>
-                    <span class="message">${requestScope["emailMess"]}</span>
+                <c:if test='${requestScope["deposit"] != null}'>
+                    <span class="message">${requestScope["deposit"]}</span>
                 </c:if>
             </p>
         </div>
 
         <div class="form-group col-12">
-            <label class="col-12 float-left">Address:</label>
-            <input type="text" name="address" class="form-control col-12 float-left mt-2"
-                   placeholder="Enter Address">
+            <label class="col-12 float-left">Total Money:</label>
+            <input type="text" name="totalMoney" class="form-control col-12 float-left mt-2"
+                   placeholder="Enter total money" value="${edit.totalMoney}">
+            <p class="text-danger" >
+                <c:if test='${requestScope["totalMoney"] != null}'>
+                    <span class="message">${requestScope["totalMoney"]}</span>
+                </c:if>
+            </p>
         </div>
+
+
         <div class="form-group col-12">
-            <label class="col-12 float-left mt-1">Position:</label>
-            <select name="position" class="form-control col-12 float-left">
+            <label class="col-12 float-left mt-1">Customer:</label>
+            <select name="customer" class="form-control col-12 float-left">
                 <option>Chose option ...</option>
-                <c:forEach var="position" items="${positionList}">
+                <c:forEach var="customer" items="${customerList}">
                     <c:choose>
-                        <c:when test="${position.id == employees.getPosition().getId()}">
-                        <%--
-                        enmployees lấy từ employees đã khai báo trong file employeeLisst.jsp dòng 91
-                        <c:forEach var="employees" items="${employeeList}" >
-                        --%>
-                            <option value="${position.id}" selected> ${position.name}</option>
+                        <c:when test="${customer.id == contract.getCustomer().getId()}">
+                            <option value="${customer.id}" > ${customer.name}</option>
                         </c:when>
                         <c:otherwise>
-                            <option value="${position.id}">${position.name}</option>
+                            <option value="${customer.id}">${customer.name}</option>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>
             </select>
         </div>
-        <div class="form-group col-12">
-            <label class="col-12 float-left mt-1">Education Degree:</label>
-            <select name="degree" class="form-control col-12 float-left">
-                <option>Chose option ...</option>
-                <c:forEach var="degree" items="${educationDegreeList}">
-                    <c:choose>
-                        <c:when test="${degree.id == employees.getEducationDegree().getId()}">
-                            <option value="${degree.id}" selected> ${degree.name}</option>
-                        </c:when>
-                        <c:otherwise>
-                            <option value="${degree.id}">${degree.name}</option>
-                        </c:otherwise>
-                    </c:choose>
-                </c:forEach>
-            </select>
-        </div>
-        <div class="form-group col-12">
-            <label class="col-12 float-left mt-1">Division:</label>
-            <select name="division" class="form-control col-12 float-left">
-                <option>Chose option ...</option>
-                <c:forEach var="division" items="${divisionList}">
-                    <c:choose>
-                        <c:when test="${division.id == employees.getDivision().getId()}">
-                            <option value="${division.id}" selected> ${division.name}</option>
-                        </c:when>
 
+        <div class="form-group col-12">
+            <label class="col-12 float-left mt-1">Employee:</label>
+            <select name="employee" class="form-control col-12 float-left">
+                <option>Chose option ...</option>
+                <c:forEach var="employee" items="${employeeList}">
+                    <c:choose>
+                        <c:when test="${employee.id == contract.getEmployee().getId()}">
+                            <option value="${employee.id}" > ${employee.id}</option>
+                        </c:when>
                         <c:otherwise>
-                            <option value="${division.id}">${division.name}</option>
+                            <option value="${employee.id}">${employee.id}</option>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>
             </select>
         </div>
+
+        <div class="form-group col-12">
+            <label class="col-12 float-left mt-1">Service:</label>
+            <select name="service" class="form-control col-12 float-left">
+                <option>Chose option ...</option>
+                <c:forEach var="service" items="${serviceList}">
+                    <c:choose>
+                        <c:when test="${service.id == contract.getService().getId()}">
+                            <option value="${service.id}" > ${service.name}</option>
+                        </c:when>
+                        <c:otherwise>
+                            <option value="${service.id}">${service.name}</option>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+            </select>
+        </div>
+
+
         <div class="col-12 " style="padding: 2% 0%">
             <button type="submit" class="btn btn-primary float-right">Create</button>
         </div>

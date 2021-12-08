@@ -44,7 +44,6 @@ public class LoginServlet extends HttpServlet {
 //            request.getRequestDispatcher("pages/home/home.jsp").forward(request, response);
             response.sendRedirect("/home");
 
-//          response.sendRedirect("/home");
         } else {
             request.setAttribute("messageLogin", "incorrect username or pass word");
             response.sendRedirect("/index.jsp");

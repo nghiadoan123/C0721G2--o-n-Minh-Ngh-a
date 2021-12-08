@@ -1,5 +1,8 @@
 package repository.impl;
 
+import bean.contract.AttachService;
+import bean.contract.Contract;
+import bean.contract.ContractDetail;
 import bean.customer.CustomerType;
 import bean.employee.Division;
 import bean.employee.EducationDegree;
@@ -129,6 +132,53 @@ public class GetInformationSQL {
         return serviceTypeList;
     }
 
+    public  static List<AttachService> attachServiceList(){
 
+        List<AttachService> attachServiceList = new ArrayList<>();
+        try {
+            Statement statement = BaseRepository.connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select  * from attach_service");
+            AttachService attachService = null;
+            while (resultSet.next()){
+                attachService = new AttachService();
+                attachService.setId(Integer.parseInt(resultSet.getString("a_id")));
+                attachService.setName(resultSet.getString("a_name"));
+                attachService.setCost(Double.valueOf(resultSet.getString("a_price")));
+                attachService.setUnit(Integer.parseInt(resultSet.getString("unit")));
+                attachService.setStatus(resultSet.getString("status"));
+                attachServiceList.add(attachService);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return attachServiceList;
+    }
+
+    public  static List<ContractDetail> contractDetailList(){
+
+        List<ContractDetail> contractDetailList = new ArrayList<>();
+        try {
+            Statement statement = BaseRepository.connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select  * from detail_contract");
+            ContractDetail contractDetail = null;
+            Contract contract = null;
+            AttachService attachService = null;
+            while (resultSet.next()){
+                contractDetail = new ContractDetail();
+                contract = new Contract();
+                attachService = new AttachService();
+                contractDetail.setId(Integer.parseInt(resultSet.getString("detail_contract_id")));
+                contractDetail.setQuantity(Integer.parseInt(resultSet.getString("quantity")));
+                contract.setId(Integer.parseInt(resultSet.getString("contract_id")));
+                attachService.setId(Integer.parseInt(resultSet.getString("a_id")));
+                contractDetail.setContractId(contract);
+                contractDetail.setAttachServiceId(attachService);
+                contractDetailList.add(contractDetail);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return contractDetailList;
+    }
 
 }
