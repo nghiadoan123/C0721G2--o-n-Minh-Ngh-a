@@ -15,6 +15,7 @@ public interface IStudentRepository {
     Map<String,String> update(Student student);
     List<Student> findByName(String name);
     List<Student> sortByAverage();
+    public List<Student> findTwoElement(String name,int id);
 
     List<StudentClass> findAllClass();
 

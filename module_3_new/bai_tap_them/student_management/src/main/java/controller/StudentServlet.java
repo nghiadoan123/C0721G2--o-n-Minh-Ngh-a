@@ -38,9 +38,11 @@ public class StudentServlet extends HttpServlet {
             case "search":
                 searchStudent(request,response);
                 break;
+            case "searchTwo":
+                searchTwoElement(request,response);
+                break;
             default:
                 break;
-
 
         }
     }
@@ -77,8 +79,24 @@ public class StudentServlet extends HttpServlet {
     }
 
     private void searchStudent(HttpServletRequest request, HttpServletResponse response) {
-        String name = request.getParameter("search");
+        String name = request.getParameter("searchName");
         List<Student> studentList = this.iStudentService.findByName(name);
+        request.setAttribute("studentList",studentList);
+        List<StudentClass> studentClassList = this.iStudentService.findAllClass();
+        request.setAttribute("studentClassList",studentClassList);
+        try {
+            request.getRequestDispatcher("student/list.jsp").forward(request,response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void searchTwoElement(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("searchNameTwo");
+        int id = Integer.parseInt(request.getParameter("searchIdTwo"));
+        List<Student> studentList = this.iStudentService.findTwoElement(name,id);
         request.setAttribute("studentList",studentList);
         List<StudentClass> studentClassList = this.iStudentService.findAllClass();
         request.setAttribute("studentClassList",studentClassList);

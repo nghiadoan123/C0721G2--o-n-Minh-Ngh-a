@@ -74,8 +74,11 @@ public class CustomerServlet extends HttpServlet {
 
     public void customerList(HttpServletRequest request, HttpServletResponse response){
         List<Customer> customerList = this.iCustomerService.findAll();
-        
         request.setAttribute("customerList",customerList);
+
+        List<CustomerType> customerTypeList = GetInformationSQL.customerTypeList();
+        request.setAttribute("customerTypeList",customerTypeList);
+
 
 
         //        HttpSession session = request.getSession();

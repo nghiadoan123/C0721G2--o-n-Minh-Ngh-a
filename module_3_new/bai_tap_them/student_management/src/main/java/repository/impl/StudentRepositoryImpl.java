@@ -130,11 +130,20 @@ public class StudentRepositoryImpl implements IStudentRepository {
     public List<Student> findByName(String name) {
         List<Student> studentList = new ArrayList<>();
         try {
-            PreparedStatement preparedStatement =
-                    BaseRepository.connection.prepareStatement("select * from student " +
-                            "where `name`=?");
-            preparedStatement.setString(1, name);
+            // tìm chính xác tên
+//            PreparedStatement preparedStatement =
+//                    BaseRepository.connection.prepareStatement("select * from student " +
+//                            "where `name`=?");
+//            preparedStatement.setString(1, name);
+//            ResultSet resultSet = preparedStatement.executeQuery();
+
+
+            // tìm gần đúng theo tên
+            PreparedStatement preparedStatement = BaseRepository.connection.prepareStatement
+                    ("select * from student where `name` like ? ;");
+            preparedStatement.setString(1,"%"+name+"%");
             ResultSet resultSet = preparedStatement.executeQuery();
+
             Student student = null;
             while (resultSet.next()) {
                 student = new Student();
@@ -176,6 +185,38 @@ public class StudentRepositoryImpl implements IStudentRepository {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return studentList;
+    }
+
+    @Override
+    public List<Student> findTwoElement(String name, int id) {
+        List<Student> studentList = new ArrayList<>();
+        try {
+
+            PreparedStatement preparedStatement =
+                    BaseRepository.connection.prepareStatement("select * from student " +
+                            "where `name`like ? and id=?");
+            preparedStatement.setString(1,"%"+name+"%");
+            preparedStatement.setInt(2, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+
+            Student student = null;
+            while (resultSet.next()) {
+                student = new Student();
+                student.setId(Integer.parseInt(resultSet.getString("id")));
+                student.setAverage(Double.parseDouble(resultSet.getString("average")));
+                student.setAge(Integer.parseInt(resultSet.getString("age")));
+                student.setGender(resultSet.getString("gender"));
+                student.setName(resultSet.getString("name"));
+                student.setIdClass(Integer.parseInt(resultSet.getString("id_class")));
+                studentList.add(student);
+            }
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
         return studentList;
     }
 

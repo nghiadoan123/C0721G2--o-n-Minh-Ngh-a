@@ -147,18 +147,7 @@
             <select name="position" class="form-control col-12 float-left">
                 <option>Chose option ...</option>
                 <c:forEach var="position" items="${positionList}">
-                    <c:choose>
-                        <c:when test="${position.id == employees.getPosition().getId()}">
-                        <%--
-                        enmployees lấy từ employees đã khai báo trong file employeeLisst.jsp dòng 91
-                        <c:forEach var="employees" items="${employeeList}" >
-                        --%>
-                            <option value="${position.id}" selected> ${position.name}</option>
-                        </c:when>
-                        <c:otherwise>
-                            <option value="${position.id}">${position.name}</option>
-                        </c:otherwise>
-                    </c:choose>
+                    <option value="${position.id}">${position.name}</option>
                 </c:forEach>
             </select>
         </div>
@@ -167,14 +156,7 @@
             <select name="degree" class="form-control col-12 float-left">
                 <option>Chose option ...</option>
                 <c:forEach var="degree" items="${educationDegreeList}">
-                    <c:choose>
-                        <c:when test="${degree.id == employees.getEducationDegree().getId()}">
-                            <option value="${degree.id}" selected> ${degree.name}</option>
-                        </c:when>
-                        <c:otherwise>
-                            <option value="${degree.id}">${degree.name}</option>
-                        </c:otherwise>
-                    </c:choose>
+                    <option value="${degree.id}">${degree.name}</option>
                 </c:forEach>
             </select>
         </div>
@@ -183,15 +165,7 @@
             <select name="division" class="form-control col-12 float-left">
                 <option>Chose option ...</option>
                 <c:forEach var="division" items="${divisionList}">
-                    <c:choose>
-                        <c:when test="${division.id == employees.getDivision().getId()}">
-                            <option value="${division.id}" selected> ${division.name}</option>
-                        </c:when>
-
-                        <c:otherwise>
-                            <option value="${division.id}">${division.name}</option>
-                        </c:otherwise>
-                    </c:choose>
+                    <option value="${division.id}">${division.name}</option>
                 </c:forEach>
             </select>
         </div>

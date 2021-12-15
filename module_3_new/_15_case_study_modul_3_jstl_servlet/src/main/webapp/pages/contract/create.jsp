@@ -131,14 +131,7 @@
             <select name="customer" class="form-control col-12 float-left">
                 <option>Chose option ...</option>
                 <c:forEach var="customer" items="${customerList}">
-                    <c:choose>
-                        <c:when test="${customer.id == contract.getCustomer().getId()}">
-                            <option value="${customer.id}" > ${customer.name}</option>
-                        </c:when>
-                        <c:otherwise>
-                            <option value="${customer.id}">${customer.name}</option>
-                        </c:otherwise>
-                    </c:choose>
+                    <option value="${customer.id}">${customer.name}</option>
                 </c:forEach>
             </select>
         </div>
@@ -148,14 +141,7 @@
             <select name="employee" class="form-control col-12 float-left">
                 <option>Chose option ...</option>
                 <c:forEach var="employee" items="${employeeList}">
-                    <c:choose>
-                        <c:when test="${employee.id == contract.getEmployee().getId()}">
-                            <option value="${employee.id}" > ${employee.id}</option>
-                        </c:when>
-                        <c:otherwise>
-                            <option value="${employee.id}">${employee.id}</option>
-                        </c:otherwise>
-                    </c:choose>
+                    <option value="${employee.id}">${employee.id}</option>
                 </c:forEach>
             </select>
         </div>
@@ -165,14 +151,7 @@
             <select name="service" class="form-control col-12 float-left">
                 <option>Chose option ...</option>
                 <c:forEach var="service" items="${serviceList}">
-                    <c:choose>
-                        <c:when test="${service.id == contract.getService().getId()}">
-                            <option value="${service.id}" > ${service.name}</option>
-                        </c:when>
-                        <c:otherwise>
-                            <option value="${service.id}">${service.name}</option>
-                        </c:otherwise>
-                    </c:choose>
+                    <option value="${service.id}">${service.name}</option>
                 </c:forEach>
             </select>
         </div>

@@ -94,15 +94,22 @@
                 <td>${customer.phone}</td>
                 <td>${customer.email}</td>
                 <td>${customer.address}</td>
-                <td>${customer.customerType.id}</td>
+                <td>
+<%--                        ${customer.customerType.id}--%>
+                            <c:forEach var="customerType" items="${customerTypeList}">
+                                <c:if test="${customer.customerType.id == customerType.id}">
+                                    ${customerType.name}
+                                </c:if>
+                            </c:forEach>
+                </td>
 
                 <td>
                     <button type="button" class="btn btn-light">
                         <a href="/customer?userAction=edit&id=${customer.getId()}"
                            class="text-decoration-none" onclick="return confirm('Do you want to edit ${customer.getName()} ?')">Edit</a>
                     </button>
-
                 </td>
+
                 <td>
                     <button type="button" class="btn btn-light">
                         <a href="/customer?userAction=delete&id=${customer.getId()}"

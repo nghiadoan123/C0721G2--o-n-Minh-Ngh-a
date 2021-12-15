@@ -14,16 +14,41 @@
 <h1>Student Management</h1>
 
 <p><a href="/student?userAction=create">Create new Student</a></p>
+
 <%-- cách 1 dùng nút bấm với form để sort--%>
 <form action="/student?userAction=sort" method="post">
     <button type="submit">Sort by average</button>
 </form>
+
+
 <%--cách 2 dùng thẻ a khi dùng thẻ a thì mặc định là get--%>
 <%--<p><a href="/users?userAction=sort">Sort by Name</a></p>--%>
+
+
+<%--cách 3 dùng với thẻ input dang hidden--%>
+<%--<form action="/student" method="post">--%>
+<%--    <input name="userAction" value="sort" hidden>--%>
+<%--    <button type="submit">Sort by average</button>--%>
+<%--</form>--%>
+
+
+
 <form action="/student?userAction=search" method="post">
     <table>
         <tr>
-            <td><input type="text" name="search" id="country" placeholder="Enter name "></td>
+            <td><input type="text" name="searchName" placeholder="Enter name "></td>
+            <td>
+                <button type="submit">Search</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
+<form action="/student?userAction=searchTwo" method="post">
+    <table>
+        <tr>
+            <td><input type="text" name="searchNameTwo" placeholder="Enter name "></td>
+            <td><input type="text" name="searchIdTwo" placeholder="Enter Id "></td>
             <td>
                 <button type="submit">Search</button>
             </td>
@@ -53,23 +78,17 @@
                         <c:if test="${student.getIdClass() == studentClass.getIdClass()}">
                             ${studentClass.getClassName()}
                         </c:if>
-<%--                        <c:choose>--%>
-<%--                            <c:when test="${student.getIdClass() == studentClass.getIdClass()}">--%>
-<%--                                ${studentClass.getClassName()}--%>
-<%--                            </c:when>--%>
-<%--                            <c:otherwise>--%>
-<%--                                ${"null"}--%>
-<%--                            </c:otherwise>--%>
-<%--                        </c:choose>--%>
                     </c:forEach>
                 </td>
                     <%--                <td>${student.getIdClass()}</td>--%>
                 <td>
                     <a href="/student?userAction=edit&id=${student.getId()}"
                        onclick="return confirm('Do you want to edit ${student.getName()} ?')">Edit</a>
+
                     <a href="/student?userAction=delete&id=${student.getId()}"
                        onclick="return confirm('Do you want to delete ${student.getName()} ?')">Delete</a>
                 </td>
+
             </tr>
         </c:forEach>
     </table>

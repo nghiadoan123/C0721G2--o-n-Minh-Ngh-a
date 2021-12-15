@@ -132,14 +132,7 @@
             <select name="customerType" class="form-control col-12 float-left">
                 <option>Chose option ...</option>
                 <c:forEach var="customerType" items="${customerTypeList}">
-                    <c:choose>
-                        <c:when test="${customerType.id == customer.getCustomerType().getId()}">
-                            <option value="${customerType.id}" selected> ${customerType.name}</option>
-                        </c:when>
-                        <c:otherwise>
-                            <option value="${customerType.id}">${customerType.name}</option>
-                        </c:otherwise>
-                    </c:choose>
+                    <option value="${customerType.id}">${customerType.name}</option>
                 </c:forEach>
             </select>
         </div>

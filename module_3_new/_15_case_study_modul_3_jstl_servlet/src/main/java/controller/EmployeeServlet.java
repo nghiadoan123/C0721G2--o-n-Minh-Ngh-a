@@ -78,6 +78,13 @@ public class EmployeeServlet extends HttpServlet {
     public void employeeList(HttpServletRequest request, HttpServletResponse response){
         List<Employee> employeeList = this.iEmployeeService.findAll();
         request.setAttribute("employeeList",employeeList);
+        List<Position> positionList = GetInformationSQL.positionList();
+        request.setAttribute("positionList",positionList);
+        List<EducationDegree> educationDegreeList = GetInformationSQL.educationDegreeList();
+        request.setAttribute("educationDegreeList",educationDegreeList);
+        List<Division> divisionList = GetInformationSQL.divisionList();
+        request.setAttribute("divisionList",divisionList);
+
 
         // phần sesion để lấy thông tin lưu sẵn trong tên nhân viên bỏ vào các trang
         HttpSession session = request.getSession();

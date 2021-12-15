@@ -81,6 +81,11 @@ public class StudentServiceImpl implements IStudentService {
     }
 
     @Override
+    public List<Student> findTwoElement(String name, int id) {
+        return this.iStudentRepository.findTwoElement(name,id);
+    }
+
+    @Override
     public List<StudentClass> findAllClass() {
         return iStudentRepository.findAllClass();
     }

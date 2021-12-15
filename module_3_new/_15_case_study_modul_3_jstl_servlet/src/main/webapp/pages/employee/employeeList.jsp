@@ -103,9 +103,30 @@
     <td>${employees.phone}</td>
     <td>${employees.email}</td>
     <td>${employees.address}</td>
-    <td>${employees.position.id}</td>
-    <td>${employees.educationDegree.id}</td>
-    <td>${employees.division.id}</td>
+    <td>
+<%--            ${employees.position.id}--%>
+                <c:forEach var="position" items="${positionList}">
+                    <c:if test="${employees.position.id == position.id}">
+                        ${position.name}
+                    </c:if>
+                </c:forEach>
+    </td>
+    <td>
+<%--            ${employees.educationDegree.id}--%>
+            <c:forEach var="educationDegree" items="${educationDegreeList}">
+                <c:if test="${employees.educationDegree.id == educationDegree.id}">
+                    ${educationDegree.name}
+                </c:if>
+            </c:forEach>
+    </td>
+    <td>
+<%--            ${employees.division.id}--%>
+                <c:forEach var="division" items="${divisionList}">
+                    <c:if test="${employees.division.id == division.id}">
+                        ${division.name}
+                    </c:if>
+                </c:forEach>
+    </td>
         <td>
             <button type="button" class="btn btn-light">
                 <a href="/employee?userAction=edit&id=${employees.getId()}"

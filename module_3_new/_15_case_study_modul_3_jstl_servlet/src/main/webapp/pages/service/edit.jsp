@@ -126,8 +126,8 @@
                 <option>Chose option ...</option>
                 <c:forEach var="rentalType" items="${rentalTypeList}">
                     <c:choose>
-                        <c:when test="${rentalType.id == service.getRentalType().getId()}">
-                            <option value="${rentalType.id}" > ${rentalType.name}</option>
+                        <c:when test="${rentalType.id == edit.getRentalType().getId()}">
+                            <option value="${rentalType.id}" selected> ${rentalType.name}</option>
                         </c:when>
                         <c:otherwise>
                             <option value="${rentalType.id}">${rentalType.name}</option>
@@ -143,8 +143,8 @@
                 <option>Chose option ...</option>
                 <c:forEach var="serviceType" items="${serviceTypeList}">
                     <c:choose>
-                        <c:when test="${serviceType.id == service.getServiceType().getId()}">
-                            <option value="${serviceType.id}" > ${serviceType.name}</option>
+                        <c:when test="${serviceType.id == edit.getServiceType().getId()}">
+                            <option value="${serviceType.id}" selected> ${serviceType.name}</option>
                         </c:when>
                         <c:otherwise>
                             <option value="${serviceType.id}">${serviceType.name}</option>
