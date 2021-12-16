@@ -15,7 +15,7 @@ public class ExchangeMoneyController {
     }
 
     @PostMapping("/converter")
-    public String exchange(@RequestParam double usd, @RequestParam double exchangeRate , Model model){
+    public String exchange(@RequestParam(name = "usd") double usd, @RequestParam(name = "exchangeRate") double exchangeRate , Model model){
         double result = usd*exchangeRate;
         model.addAttribute("exchangeResult",result);
         return "result"; // chuyển về trang result

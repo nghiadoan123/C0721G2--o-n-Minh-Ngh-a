@@ -12,7 +12,7 @@
     <title>$Title$</title>
   </head>
   <body>
-    <form method="post" action="">
+    <form method="post">
       <p>Input USD:</p>
       <div>
         <input type="text" name="usd" placeholder="input usd">
