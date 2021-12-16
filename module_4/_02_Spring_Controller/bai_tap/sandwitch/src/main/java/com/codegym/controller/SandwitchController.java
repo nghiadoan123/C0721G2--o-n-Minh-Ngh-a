@@ -14,7 +14,7 @@ public class SandwitchController {
         return "index";
     }
 
-    @GetMapping("/sand_witch")
+    @PostMapping("/sand_witch")
     public String showResult(@RequestParam(name = "condiment") String[] condiment, Model model){
         model.addAttribute("condimentList",condiment);
         return "result";

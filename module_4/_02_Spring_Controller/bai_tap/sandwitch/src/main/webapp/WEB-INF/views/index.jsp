@@ -11,7 +11,7 @@
     <title>$Title$</title>
   </head>
   <body>
-    <form action="/sand_witch">
+    <form action="/sand_witch" method="post">
       <input type="checkbox" name="condiment" value="Lettuce">
       <label >Lettuce</label>
       <input type="checkbox" name="condiment"  value="Tomato">
