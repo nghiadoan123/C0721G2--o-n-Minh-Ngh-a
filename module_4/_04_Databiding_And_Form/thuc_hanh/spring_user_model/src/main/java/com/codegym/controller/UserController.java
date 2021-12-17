@@ -12,37 +12,37 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
 
     // cách 1
-//    @GetMapping("/home")
-//    public ModelAndView home() {
-//        ModelAndView modelAndView = new ModelAndView("home", "login", new Login());
-//        return modelAndView;
-//    }
-//
-//    @PostMapping("/login")
-//    public ModelAndView login(@ModelAttribute("login") Login login){
-//        User user = UserDao.checkLogin(login);
-//        if(user == null){
-//            ModelAndView modelAndView = new ModelAndView("error");
-//            return modelAndView;
-//        } else {
-//            ModelAndView modelAndView = new ModelAndView("user");
-//            modelAndView.addObject("user", user);
-//            return modelAndView;
-//        }
-//    }
+    @GetMapping("/home")
+    public ModelAndView home() {
+        ModelAndView modelAndView = new ModelAndView("home", "login", new Login());
+        return modelAndView;
+    }
+
+    @PostMapping("/login")
+    public ModelAndView login(@ModelAttribute("login") Login login){
+        User user = UserDao.checkLogin(login);
+        if(user == null){
+            ModelAndView modelAndView = new ModelAndView("error");
+            return modelAndView;
+        } else {
+            ModelAndView modelAndView = new ModelAndView("user");
+            modelAndView.addObject("user", user);
+            return modelAndView;
+        }
+    }
 
 
     // cách 2
-    @RequestMapping(value = "/home", method = RequestMethod.GET)
-    public String showForm(ModelMap model) {
-        model.addAttribute("login", new Login());
-        return "home";
-    }
-
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String submit(@ModelAttribute Login login, ModelMap model) {
-        User user = UserDao.checkLogin(login);
-        model.addAttribute("user", user);
-        return "user";
-    }
+//    @RequestMapping(value = "/home", method = RequestMethod.GET)
+//    public String home(ModelMap model) {
+//        model.addAttribute("login", new Login());
+//        return "home";
+//    }
+//
+//    @RequestMapping(value = "/login", method = RequestMethod.POST)
+//    public String login(@ModelAttribute Login login, ModelMap model) {
+//        User user = UserDao.checkLogin(login);
+//        model.addAttribute("user", user);
+//        return "user";
+//    }
 }

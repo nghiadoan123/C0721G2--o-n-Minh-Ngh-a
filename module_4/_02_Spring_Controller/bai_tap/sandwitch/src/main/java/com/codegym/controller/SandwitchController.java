@@ -13,8 +13,15 @@ public class SandwitchController {
     public String showCheckBox(){
         return "index";
     }
+        //c1
+//    @PostMapping("/sand_witch")
+//    public String showResult(@RequestParam(name = "condiment") String[] condiment, Model model){
+//        model.addAttribute("condimentList",condiment);
+//        return "result";
+//    }
 
-    @PostMapping("/sand_witch")
+    // c2
+    @GetMapping("/sand_witch")
     public String showResult(@RequestParam(name = "condiment") String[] condiment, Model model){
         model.addAttribute("condimentList",condiment);
         return "result";

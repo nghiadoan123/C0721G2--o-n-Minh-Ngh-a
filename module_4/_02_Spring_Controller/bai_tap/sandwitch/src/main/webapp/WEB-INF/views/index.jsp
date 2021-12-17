@@ -11,7 +11,10 @@
     <title>$Title$</title>
   </head>
   <body>
-    <form action="/sand_witch" method="post">
+<%-- cách 1 dùng post--%>
+<%--    <form action="/sand_witch" method="post">--%>
+<%--cách 2 dùng get--%>
+      <form action="/sand_witch" method="get">
       <input type="checkbox" name="condiment" value="Lettuce">
       <label >Lettuce</label>
       <input type="checkbox" name="condiment"  value="Tomato">
@@ -22,6 +25,5 @@
       <label >Sprouts</label>
       <button type="submit">Save</button>
     </form>
-
   </body>
 </html>

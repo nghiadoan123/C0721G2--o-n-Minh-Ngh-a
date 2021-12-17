@@ -38,7 +38,7 @@ public class ProductController {
 
     @GetMapping("/create")
     public ModelAndView showCreateForm() {
-        ModelAndView modelAndView = new ModelAndView("/create");
+        ModelAndView modelAndView = new ModelAndView("create");
         modelAndView.addObject("productForm", new ProductForm());
         return modelAndView;
     }
@@ -54,7 +54,7 @@ public class ProductController {
         }
         Product product = new Product(productForm.getId(), productForm.getName(), productForm.getDescription(), fileName);
         productService.save(product);
-        ModelAndView modelAndView = new ModelAndView("/create");
+        ModelAndView modelAndView = new ModelAndView("create");
         modelAndView.addObject("productForm", productForm);
         modelAndView.addObject("message", "Created new product successfully !");
         return modelAndView;
