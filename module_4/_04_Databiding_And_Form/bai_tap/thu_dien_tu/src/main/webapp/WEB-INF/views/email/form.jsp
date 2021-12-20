@@ -13,7 +13,7 @@
 </head>
 <body>
 <h3>Language</h3>
-<form:form  method="post" modelAttribute="Email" >
+<form:form action="/show" method="post" modelAttribute="Email" >
     <label for="language"><strong> Choose language:</strong></label>
     <form:select path="language" id="language">
         <form:options items="${language}"></form:options>

@@ -24,7 +24,7 @@ public class EmailFormController {
     }
 
 
-    @PostMapping("")
+    @PostMapping("/show")
     public String create(@ModelAttribute ("Email") Email email, Model model){
         model.addAttribute("email", email);
         return "email/show";
