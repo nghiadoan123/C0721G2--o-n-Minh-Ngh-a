@@ -4,6 +4,7 @@ package com.codegym.controller;
 import com.codegym.model.Product;
 import com.codegym.service.IProductService;
 import com.codegym.service.impl.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +17,8 @@ import java.util.Map;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
-    IProductService iProductService = new ProductService();
+    @Autowired
+    private IProductService iProductService;
 
 
     @GetMapping("")
@@ -43,7 +45,7 @@ public class ProductController {
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("product", new Product());
-        // tạo thành đối tượng product1 trong file html create dòng 19
+        // tạo thành đối tượng product trong file html create dòng 19
         return "create";
     }
 
@@ -70,7 +72,7 @@ public class ProductController {
     }
 
     @PostMapping("/edit")
-    public String edit(Product product, Model model,RedirectAttributes redirectAttributes){
+    public String edit(@ModelAttribute("product") Product product, Model model,RedirectAttributes redirectAttributes){
         iProductService.update(product.getId(),product);
         redirectAttributes.addFlashAttribute("message","Edit success");
         return "redirect:/product";

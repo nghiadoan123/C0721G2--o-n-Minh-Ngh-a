@@ -1,5 +1,6 @@
 package cg.wbd.grandemonstration.model;
 
+
 import javax.persistence.*;
 
 @Entity

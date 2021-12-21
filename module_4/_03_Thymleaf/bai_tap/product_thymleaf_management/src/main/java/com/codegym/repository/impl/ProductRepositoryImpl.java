@@ -3,9 +3,11 @@ package com.codegym.repository.impl;
 import com.codegym.model.Product;
 import com.codegym.repository.IProductRepository;
 import com.codegym.service.IProductService;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class ProductRepositoryImpl implements IProductRepository {
 
     private static final Map<Integer,Product> productList = new HashMap<>();
