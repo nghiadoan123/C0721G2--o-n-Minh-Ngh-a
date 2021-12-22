@@ -60,6 +60,7 @@ public class ProductController {
         return "edit";
     }
 
+
     @GetMapping("/edit_param")
     public String showEditParam(@RequestParam(name = "id") int id, Model model){
         model.addAttribute("product",iProductService.findById(id));

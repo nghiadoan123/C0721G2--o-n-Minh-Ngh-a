@@ -12,9 +12,9 @@ import java.util.List;
 public class ProductRepositoryImpl implements IProductRepository {
     @Override
     public List<Product> findAll() {
-       List<Product> productList = BaseRepository.entityManager
-               .createQuery("select p from product as p",Product.class).getResultList();
-       return productList;
+        List<Product> productList = BaseRepository.entityManager
+                .createQuery("select p from product as p", Product.class).getResultList();
+        return productList;
     }
 
     @Override
@@ -28,15 +28,20 @@ public class ProductRepositoryImpl implements IProductRepository {
         product1.setDescription(product.getDescription());
         product1.setProducer(product.getProducer());
         BaseRepository.entityManager.persist(product1);
+        // hoặc chỉ cần dùng dòng lênh    BaseRepository.entityManager.persist(product1); thôi cũng dược
         entityTransaction.commit();
     }
 
     @Override
     public Product findById(int id) {
-        String string = "select p from product p where p.id = :id";
-        TypedQuery<Product> query =BaseRepository.entityManager.createQuery(string,Product.class);
-        query.setParameter("id",id);
-        return query.getSingleResult();
+        // cách 1
+        Product product = BaseRepository.entityManager
+                .createQuery("select p from product p where p.id = :id", Product.class)
+                .setParameter("id", id)
+                .getSingleResult();
+        return product;
+        // cách 2
+//        return BaseRepository.entityManager.find(Product.class, id);
     }
 
     @Override
@@ -44,7 +49,13 @@ public class ProductRepositoryImpl implements IProductRepository {
         try {
             EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
             entityTransaction.begin();
-            Product product1 = findById(product.getId());
+            // cách 1
+//            Product product1 = findById(product.getId());
+            // cách 2
+            Product product1 = BaseRepository.entityManager
+                    .createQuery("select p from product p where p.id = :id", Product.class)
+                    .setParameter("id", id)
+                    .getSingleResult();
             product1.setId(product.getId());
             product1.setName(product.getName());
             product1.setPrice(product.getPrice());
@@ -71,8 +82,13 @@ public class ProductRepositoryImpl implements IProductRepository {
     @Override
     public List<Product> searchName(String name) {
         List<Product> list = BaseRepository.entityManager
-                .createQuery("select p from product p where p.name = ?1" , Product.class)
-                .setParameter(1,name)
+                // cách khai báo 1:  ?1 khai báo theo dấu hỏi và vị trí tham số
+//                .createQuery("select p from product p where p.name = ?1" , Product.class)
+//                .setParameter(1,name)
+//                .getResultList();
+                // cách khai báo 2 sử dụng =: param
+                .createQuery("select p from product p where p.name = :nameOfProduct", Product.class)
+                .setParameter("nameOfProduct", name)
                 .getResultList();
         return list;
     }

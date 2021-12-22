@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head >
+    <title>List Blog</title>
+</head>
+<body>
+<h3>Blog</h3>
+<p>
+    <a th:href="@{/blog/create}" style="text-decoration: none">Add new Blog</a>
+</p>
+<form action="#" th:action="@{/blog/search}" method="get">
+    <label>Name: </label>
+    <input name="name">
+    <button type="submit">search</button>
+</form>
+
+<div>
+    <!--/*@thymesVar id="message" type=""*/-->
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+
+<table border="1px">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Edit param</th>
+        <th>Edit path variable</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="blog,rowstat : ${blogList}" >
+        <td th:text="${blog.id}"></td>
+        <td th:text="${blog.title}"></td>
+        <td th:text="${blog.content}"></td>
+        <!--        request param-->
+        <td><a th:href="@{/blog/edit_param/(id = ${blog.id})}">Edit</a></td>
+        <!--         path variable-->
+        <td ><a th:href="@{/blog/{id}/edit(id=${blog.getId()})}">Edit</a></td>
+        <td ><a th:href="@{/blog/{id}/delete(id=${blog.getId()})}">Delete</a></td>
+        <td ><a th:href="@{/blog/{id}/view(id=${blog.getId()})}">View</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
