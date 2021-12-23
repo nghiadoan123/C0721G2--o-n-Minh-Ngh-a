@@ -18,13 +18,22 @@
 <div id="form">
     <form action="#" th:action="@{/blog/edit}" th:object="${blog}"
           method="POST" novalidate="novalidate">
-        <input type="text" readonly th:field="*{id}"/>
+        <div>
+            <label>Id</label>
+        </div>
+        <div>
+            <input type="text" readonly th:field="*{id}"/>
+        </div>
         <div>
             <label>Title</label>
+        </div>
+        <div>
             <input type="text" th:field="*{title}"/>
         </div>
         <div>
             <label>Content</label>
+        </div>
+        <div>
             <input type="text" th:field="*{content}"/>
         </div>
         <input type="submit" value="Edit"/>

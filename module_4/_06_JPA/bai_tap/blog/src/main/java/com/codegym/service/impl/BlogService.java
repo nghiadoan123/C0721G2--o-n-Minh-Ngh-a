@@ -34,7 +34,10 @@ public class BlogService implements IBlogService {
 
     @Override
     public List<Blog> findByName(String name) {
+        // tìm gần đúng theo tên
         return iBlogRepository.getByName("%"+name+"%");
+        // tìm chính xác theo tên
+//        return iBlogRepository.getByName(name);
     }
 
     @Override

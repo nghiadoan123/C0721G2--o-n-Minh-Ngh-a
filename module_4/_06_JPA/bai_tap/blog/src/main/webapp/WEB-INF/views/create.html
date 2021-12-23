@@ -18,13 +18,18 @@
 <div id="form">
     <form th:action="@{/blog/save}" th:object="${blog}"
           method="POST" novalidate="novalidate">
+
         <input type="hidden" th:field="*{id}"/>
         <div>
             <label>Title</label>
+        </div>
+        <div>
             <input type="text" th:field="*{title}"/>
         </div>
         <div>
             <label>Content</label>
+        </div>
+        <div>
             <input type="text" th:field="*{content}"/>
         </div>
         <button type="submit">save</button>

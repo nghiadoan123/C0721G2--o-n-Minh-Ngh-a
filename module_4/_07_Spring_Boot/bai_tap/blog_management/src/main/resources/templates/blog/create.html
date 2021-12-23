@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head ></head>
+<body>
+<h3>Add Blog</h3>
+<div class="notify">
+    <!--/*@thymesVar id="message" type=""*/-->
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+
+<p>
+    <a th:href="@{/blog}">
+        Back to customer list
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/blog/save}" th:object="${blog}"
+          method="POST" novalidate="novalidate">
+
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Title</label>
+        </div>
+        <div>
+            <input type="text" th:field="*{title}"/>
+        </div>
+        <div>
+            <label>Content</label>
+        </div>
+        <div>
+            <input type="text" th:field="*{content}"/>
+        </div>
+        <div>
+            <label>Date Create</label>
+        </div>
+        <div>
+            <input type="date" th:field="*{dateCreate}"/>
+        </div>
+        <div>
+            <select th:field="*{category}">
+                <option th:each="cate : ${categoryList}" th:value="${cate.id}" th:text="${cate.name}">
+
+                </option>
+            </select>
+        </div>
+        <button type="submit">save</button>
+    </form>
+</div>
+
+</body>
+</html>
