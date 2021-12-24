@@ -34,7 +34,7 @@ public class BlogController {
 //        return "blog/index";
 //    }
 
-    @GetMapping(value = "/list")
+    @GetMapping(value = {"","/list"})
     public String listPageable(Model model, @RequestParam(value = "page", defaultValue = "0")int page) {
         // nhớ viết theo tên thuộc tính trong class
         Sort sort = Sort.by("dateCreate").descending().and(Sort.by("id").ascending());
@@ -106,6 +106,6 @@ public class BlogController {
     public String search(@RequestParam(name = "name") String name, Model model) {
         List<Blog> blogList = iBlogService.findByName(name);
         model.addAttribute("blogList", blogList);
-        return "blog/index";
+        return "blog/search_list";
     }
 }

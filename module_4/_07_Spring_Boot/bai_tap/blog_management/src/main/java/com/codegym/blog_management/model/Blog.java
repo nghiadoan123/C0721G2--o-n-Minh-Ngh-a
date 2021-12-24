@@ -12,10 +12,10 @@ public class Blog {
     private Integer id;
     @Column(name = "title")
     String title;
-    @Column(name = "content")
+    @Column(name = "content",)
     String content;
 
-    @Column(name = "date_create",columnDefinition = "DATE")
+    @Column(name = "date_create",columnDefinition = "DATE",nullable = true)
     String dateCreate;
 
     @ManyToOne

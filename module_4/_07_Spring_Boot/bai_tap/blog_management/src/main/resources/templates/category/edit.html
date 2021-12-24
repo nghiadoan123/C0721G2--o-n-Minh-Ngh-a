@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<title></title>
+<body>
+<h3>Edit Product</h3>
+<p>
+    <a th:href="@{/category}">
+        Back to category list
+    </a>
+</p>
+<div class="notify">
+    <!--/*@thymesVar id="message" type=""*/-->
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+<div id="form">
+    <form action="#" th:action="@{/category/edit}" th:object="${category}"
+          method="POST" novalidate="novalidate">
+        <div>
+            <label>Id</label>
+        </div>
+        <div>
+            <input type="text" readonly th:field="*{id}"/>
+        </div>
+        <div>
+            <label>Name</label>
+        </div>
+        <div>
+            <input type="text" th:field="*{name}"/>
+        </div>
+        <input type="submit" value="Edit"/>
+    </form>
+</div>
+</body>
+</html>
