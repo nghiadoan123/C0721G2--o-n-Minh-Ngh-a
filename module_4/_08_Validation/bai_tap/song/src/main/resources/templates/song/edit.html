@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<title></title>
+<body>
+<h3>Edit Song</h3>
+<p>
+    <a th:href="@{/song}">
+        Back to song list
+    </a>
+</p>
+<div class="notify">
+    <!--/*@thymesVar id="message" type=""*/-->
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+<div id="form">
+    <form action="#" th:action="@{/song/edit}" th:object="${song}"
+          method="POST" novalidate="novalidate">
+        <div>
+            <label>Id</label>
+        </div>
+        <div>
+            <input type="text" readonly th:field="*{id}"/>
+        </div>
+        <div>
+            <label>Title</label>
+        </div>
+        <div>
+            <input type="text" th:field="*{name}"/>
+        </div>
+        <div>
+            <label>Content</label>
+        </div>
+        <div>
+            <input type="text" th:field="*{singer}"/>
+        </div>
+        <div>
+            <label>Date Create</label>
+        </div>
+        <div>
+            <input type="text" th:field="*{kindOfMusic}"/>
+        </div>
+        <input type="submit" value="Edit"/>
+    </form>
+</div>
+</body>
+</html>
