@@ -22,23 +22,27 @@
             <label>Id</label>
         </div>
         <input type="text" th:field="*{id}"/>
+        <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
         <div>
             <label>Name</label>
         </div>
         <div>
             <input type="text" th:field="*{name}"/>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
         </div>
         <div>
             <label>Singer</label>
         </div>
         <div>
             <input type="text" th:field="*{singer}"/>
+            <p th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></p>
         </div>
         <div>
             <label>Type of music</label>
         </div>
         <div>
-            <input type="date" th:field="*{kindOfMusic}"/>
+            <input type="text" th:field="*{kindOfMusic}"/>
+            <p th:if="${#fields.hasErrors('kindOfMusic')}" th:errors="*{kindOfMusic}"></p>
         </div>
         <button type="submit">save</button>
     </form>

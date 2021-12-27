@@ -9,10 +9,16 @@
     </a>
 </p>
 <div>
-    <h1 th:text="${song.getTitle()}"></h1>
+    <h1 th:text="${song.getId()}"></h1>
 </div>
 <div>
     <p th:text="${song.getName()}"></p>
+</div>
+<div>
+    <p th:text="${song.getKindOfMusic()}"></p>
+</div>
+<div>
+    <p th:text="${song.getSinger()}"></p>
 </div>
 
 </body>

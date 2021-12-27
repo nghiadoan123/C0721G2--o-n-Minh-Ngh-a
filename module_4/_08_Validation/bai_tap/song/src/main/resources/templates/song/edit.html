@@ -23,24 +23,28 @@
         </div>
         <div>
             <input type="text" readonly th:field="*{id}"/>
+            <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
         </div>
         <div>
             <label>Title</label>
         </div>
         <div>
             <input type="text" th:field="*{name}"/>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
         </div>
         <div>
             <label>Content</label>
         </div>
         <div>
             <input type="text" th:field="*{singer}"/>
+            <p th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></p>
         </div>
         <div>
-            <label>Date Create</label>
+            <label>Kind Of Music</label>
         </div>
         <div>
             <input type="text" th:field="*{kindOfMusic}"/>
+            <p th:if="${#fields.hasErrors('kindOfMusic')}" th:errors="*{kindOfMusic}"></p>
         </div>
         <input type="submit" value="Edit"/>
     </form>

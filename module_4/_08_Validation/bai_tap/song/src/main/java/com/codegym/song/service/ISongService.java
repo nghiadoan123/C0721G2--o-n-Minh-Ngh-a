@@ -9,9 +9,10 @@ import java.util.List;
 public interface ISongService {
 
     List<SongDTO> getAll();
-    Song findById(Integer id);
 
-    void save(Song song);
+    SongDTO findById(Integer id);
+
+    void save(SongDTO songDTO);
 
     List<Song> findByName(String name);
 
