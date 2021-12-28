@@ -50,5 +50,20 @@
     </tbody>
 </table>
 
+<span>
+    <a th:if="${songList.hasPrevious()}" th:href="@{/song/list(page = ${songList.number - 1})}">
+        Previous
+    </a>
+     <span>
+        <span th:each="pageNo: ${#numbers.sequence(0,songList.totalPages - 1)}">
+            <a th:href="@{/song/list(page = ${pageNo})}" th:text="${pageNo}"></a>
+        </span>
+    </span>
+     <a th:if="${songList.hasNext()}" th:href="@{/song/list(page = ${songList.number + 1})}">
+        Next
+    </a>
+
+</span>
+
 </body>
 </html>

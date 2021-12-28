@@ -86,7 +86,8 @@ public class InpuFacility {
 
     public static boolean validateServiceName(String name) {
         String regexServiceName = "[S][V]([V][L]|[HR][O])-\\d{4}";
-        return name.matches(regexServiceName);
+        String regexServiceName1 = "[0-9A-Za-z!@#$%-^&*()]\\d{6,}";
+        return name.matches(regexServiceName1);
     }
 
 }

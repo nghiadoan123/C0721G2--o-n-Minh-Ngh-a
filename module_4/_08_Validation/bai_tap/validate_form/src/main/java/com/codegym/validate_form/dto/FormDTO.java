@@ -1,6 +1,7 @@
 package com.codegym.validate_form.dto;
 
 import com.codegym.validate_form.common.IdConstrain;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -10,10 +11,10 @@ public class FormDTO implements Validator {
 
 
     @NotNull(message = "Id không được để trống")
-    @IdConstrain
+    @IdConstrain(message = "Id không dược bé hơn 0")
     private Integer id;
 
-
+// String khai báo notBlank
     @NotBlank(message = "Tên không được để trống")
     @Pattern(regexp = "^[a-z A-Z]{5,}$",message = "tên không dược chưa ký tự đặc biệt")
     @Size(min = 5,max = 45, message = "dộ dài từ 5-45 ký tự")
@@ -26,7 +27,7 @@ public class FormDTO implements Validator {
     @Size(min = 5,max = 45, message = "dộ dài từ 5-45 ký tự")
     private String lastName;
 
-
+// Kiểu int khai báo NotNull và khai báo min max không được khai báo size
     @NotNull(message = "Tuổi không được để trống")
     @Min(value = 18, message = "tuối phải lớn hơn 18")
     @Max(value = 120, message = "tuổi phải nhỏ hơn 120")

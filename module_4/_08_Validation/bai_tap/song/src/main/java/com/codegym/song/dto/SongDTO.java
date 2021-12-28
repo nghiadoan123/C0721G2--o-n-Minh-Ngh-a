@@ -4,9 +4,10 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
 public class SongDTO {
-
+// Kiểu Int khai báo notNull
     private Integer id;
 
+//    kiểu String khai báo NotBlank
     @NotBlank(message = "Ten bai hat khong chua cac ky tu dac biet, toi da 800 ky tu" )
     @Pattern(regexp = "^[a-zA-Z0-9 ]{1,800}$",message = "Ten bai hat khong chua cac ky tu dac biet, toi da 800 ky tu")
     private String name;

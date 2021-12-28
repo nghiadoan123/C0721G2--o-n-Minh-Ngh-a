@@ -5,6 +5,8 @@ import com.codegym.song.model.Song;
 import com.codegym.song.repository.ISongRepository;
 import com.codegym.song.service.ISongService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -47,5 +49,10 @@ public class SongService implements ISongService {
     @Override
     public void remove(Integer id) {
         iSongRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Song> findAll(PageRequest of) {
+       return iSongRepository.findAll(of);
     }
 }

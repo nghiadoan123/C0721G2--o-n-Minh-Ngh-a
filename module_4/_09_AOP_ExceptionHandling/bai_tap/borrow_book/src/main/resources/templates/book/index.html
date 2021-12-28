@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List Book</title>
+</head>
+<body>
+<h3>Book</h3>
+<p>
+    <a th:href="@{/book/create}" style="text-decoration: none">Add new Book</a>
+</p>
+<form action="#" th:action="@{/book/search}" method="get">
+    <label>Name: </label>
+    <input name="name">
+    <button type="submit">search</button>
+</form>
+
+<div>
+    <!--/*@thymesVar id="message" type=""*/-->
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+
+<table border="1px">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Tittle</th>
+        <th>Number</th>
+        <th>Card Borrow</th>
+        <th>Borrow</th>
+        <th>Give Back</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book,rowstat : ${bookList}">
+        <td th:text="${book.id}"></td>
+        <td th:text="${book.name}"></td>
+        <td th:text="${book.title}"></td>
+        <td th:text="${book.number}"></td>
+        <td th:text="${book.cardBorrow.codeBorrow}"></td>
+        <!--        request param-->
+        <td><a th:href="@{/book/borrow/(id = ${book.id})}">Borrow</a></td>
+        <td><a th:href="@{/book/return/(id = ${book.id})}">Give Back</a></td>
+        <td><a th:href="@{/book/{id}/delete(id=${book.getId()})}">Delete</a></td>
+        <td><a th:href="@{/book/{id}/view(id=${book.getId()})}">View</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

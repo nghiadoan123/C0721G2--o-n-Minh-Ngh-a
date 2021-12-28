@@ -21,7 +21,7 @@ public class IdValidator implements ConstraintValidator<IdConstrain,Integer> {
 
     @Override
     public boolean isValid(Integer value, ConstraintValidatorContext context) {
-        if (value <0 ){
+        if (iFormRepository.getById(value).getId()<0 ){
             return false ;
         }
         return true;

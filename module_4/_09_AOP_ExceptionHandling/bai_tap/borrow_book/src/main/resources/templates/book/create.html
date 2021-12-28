@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head ></head>
+<body>
+<h3>Add book</h3>
+<div class="notify">
+    <!--/*@thymesVar id="message" type=""*/-->
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+
+<p>
+    <a th:href="@{/book}">
+        Back to book list
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/book/save}" th:object="${book}"
+          method="POST" novalidate="novalidate">
+<!--        <div>-->
+<!--            <label>Id</label>-->
+<!--        </div>-->
+        <input type="hidden" th:field="*{id}"/>
+        <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
+        <div>
+            <label>Name</label>
+        </div>
+        <div>
+            <input type="text" th:field="*{name}"/>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+        </div>
+        <div>
+            <label>Title</label>
+        </div>
+        <div>
+            <input type="text" th:field="*{title}"/>
+            <p th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></p>
+        </div>
+        <div>
+            <label>Number</label>
+        </div>
+        <div>
+            <input type="text" th:field="*{number}"/>
+            <p th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></p>
+        </div>
+        <div>
+            <label>Card Borrow</label>
+        </div>
+        <div>
+            <select th:field="*{cardBorrow}">
+                <option th:each="card : ${cardBorrowList}" th:value="${card.id}" th:text="${card.codeBorrow}">
+
+                </option>
+            </select>
+        </div>
+        <button type="submit">save</button>
+    </form>
+</div>
+
+</body>
+</html>

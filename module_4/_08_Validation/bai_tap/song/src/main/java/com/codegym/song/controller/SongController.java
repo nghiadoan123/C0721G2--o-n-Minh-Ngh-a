@@ -5,6 +5,9 @@ import com.codegym.song.model.Song;
 import com.codegym.song.service.ISongService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,9 +24,18 @@ public class SongController {
     @Autowired
     ISongService iSongService;
 
-    @GetMapping({"","list"})
-    public String showList(Model model) {
-        List<SongDTO> songList = iSongService.getAll();
+//    @GetMapping({"","list"})
+//    public String showList(Model model) {
+//        List<SongDTO> songList = iSongService.getAll();
+//        model.addAttribute("songList", songList);
+//        return "song/index";
+//    }
+
+    @GetMapping(value = {"","/list"})
+    public String listPageable(Model model, @RequestParam(value = "page", defaultValue = "0")int page) {
+        // nhớ viết theo tên thuộc tính trong class
+        Sort sort = Sort.by("name").descending().and(Sort.by("id").ascending());
+        Page<Song> songList = iSongService.findAll(PageRequest.of(page,1));
         model.addAttribute("songList", songList);
         return "song/index";
     }
