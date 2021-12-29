@@ -65,6 +65,16 @@ public class BookController {
         return "book/search_list";
     }
 
+//    @GetMapping("/borrow")
+//    public String borrow(@RequestParam(name = "id") Integer id, Model model) throws Exception {
+//        List<Book> bookList = iBookService.borrowBook(id);
+//        if (bookList == null){
+//            throw new Exception();
+//        }
+//        model.addAttribute("bookList", bookList);
+//        return "book/index";
+//    }
+
     @GetMapping("/create")
     public String create(Model model) {
         model.addAttribute("book", new Book());

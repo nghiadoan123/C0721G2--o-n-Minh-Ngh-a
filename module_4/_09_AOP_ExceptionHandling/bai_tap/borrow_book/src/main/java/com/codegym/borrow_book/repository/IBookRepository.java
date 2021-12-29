@@ -14,4 +14,6 @@ public interface IBookRepository extends JpaRepository<Book,Integer> {
     // tìm gần đúng theo title
     @Query(value = "select * from book where name_book like :name",nativeQuery = true)
     List<Book> getByName(@Param("name")String name);
+
+
 }

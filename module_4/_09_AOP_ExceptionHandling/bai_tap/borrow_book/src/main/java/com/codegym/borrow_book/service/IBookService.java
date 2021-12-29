@@ -15,4 +15,5 @@ public interface IBookService {
     List<Book> findByName(String name);
 
     void remove(Integer id);
+
 }

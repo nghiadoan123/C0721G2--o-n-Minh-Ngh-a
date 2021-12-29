@@ -18,10 +18,10 @@
 <div id="form">
     <form th:action="@{/book/save}" th:object="${book}"
           method="POST" novalidate="novalidate">
-<!--        <div>-->
-<!--            <label>Id</label>-->
-<!--        </div>-->
-        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label>Id</label>
+        </div>
+        <input type="text" th:field="*{id}"/>
         <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></p>
         <div>
             <label>Name</label>
