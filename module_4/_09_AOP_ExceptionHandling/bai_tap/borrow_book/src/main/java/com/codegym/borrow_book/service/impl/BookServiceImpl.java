@@ -32,16 +32,6 @@ public class BookServiceImpl implements IBookService {
 
     @Override
     public void save(Book book) {
-//        Integer code = 10000 + new Random().nextInt(90000);
-//        Book book1 = new Book();
-//        CardBorrow cardBorrow = new CardBorrow();
-//        cardBorrow.setCodeBorrow(code);
-//        book1.setCardBorrow(cardBorrow);
-//        book1.setName(book.getName());
-//        book1.setNumber(book.getNumber());
-//        book1.setId(book.getId());
-//        book1.setTitle(book.getTitle());
-//        iBookRepository.save(book1);
         iBookRepository.save(book);
 
     }
@@ -54,6 +44,20 @@ public class BookServiceImpl implements IBookService {
     @Override
     public void remove(Integer id) {
         iBookRepository.deleteById(id);
+    }
+
+    @Override
+    public Book findByIdDecrease(Integer id) {
+        Book book = iBookRepository.findById(id).orElse(null);
+        book.setNumber(book.getNumber()-1);
+        return book;
+    }
+
+    @Override
+    public Book findByIdIncrease(Integer id) {
+        Book book = iBookRepository.findById(id).orElse(null);
+        book.setNumber(book.getNumber()+1);
+        return book;
     }
 
 

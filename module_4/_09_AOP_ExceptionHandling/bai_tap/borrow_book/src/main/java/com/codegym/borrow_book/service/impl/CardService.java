@@ -20,7 +20,7 @@ public class CardService implements ICardService {
 
     @Override
     public CardBorrow findById(Integer id) {
-        return iCardRepository.getById(id);
+        return iCardRepository.findById(id).orElse(null);
     }
 
     @Override

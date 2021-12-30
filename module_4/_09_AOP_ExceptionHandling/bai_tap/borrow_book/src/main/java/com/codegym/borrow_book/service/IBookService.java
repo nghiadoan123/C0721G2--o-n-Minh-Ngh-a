@@ -16,4 +16,8 @@ public interface IBookService {
 
     void remove(Integer id);
 
+    Book findByIdDecrease(Integer id);
+
+    Book findByIdIncrease(Integer id);
+
 }

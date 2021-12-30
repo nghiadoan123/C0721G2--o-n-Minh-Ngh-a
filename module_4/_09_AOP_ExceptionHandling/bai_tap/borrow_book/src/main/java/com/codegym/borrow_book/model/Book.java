@@ -27,25 +27,18 @@ public class Book {
     @Max(value = 999999)
     private Integer number;
 
-    @ManyToOne
-    @JoinColumn(name = "id_card_borrow")
-    private CardBorrow cardBorrow;
+    @OneToMany(mappedBy = "book", cascade = CascadeType.REMOVE)
+    private Set<CardBorrow> cardBorrows;
 
-    public CardBorrow getCardBorrow() {
-        return cardBorrow;
+    public Set<CardBorrow> getCardBorrows() {
+        return cardBorrows;
     }
 
-    public void setCardBorrow(CardBorrow cardBorrow) {
-        this.cardBorrow = cardBorrow;
+    public void setCardBorrows(Set<CardBorrow> cardBorrows) {
+        this.cardBorrows = cardBorrows;
     }
 
-    public Book(Integer id, String name, String title, Integer number, CardBorrow cardBorrow) {
-        this.id = id;
-        this.name = name;
-        this.title = title;
-        this.number = number;
-        this.cardBorrow = cardBorrow;
-    }
+
 
     public Book() {
     }
@@ -55,6 +48,14 @@ public class Book {
         this.name = name;
         this.title = title;
         this.number = number;
+    }
+
+    public Book(Integer id, String name, String title, Integer number, Set<CardBorrow> cardBorrows) {
+        this.id = id;
+        this.name = name;
+        this.title = title;
+        this.number = number;
+        this.cardBorrows = cardBorrows;
     }
 
     public Integer getId() {

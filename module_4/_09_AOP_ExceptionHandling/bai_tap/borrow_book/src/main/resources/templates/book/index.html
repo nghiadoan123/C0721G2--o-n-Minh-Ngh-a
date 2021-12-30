@@ -20,7 +20,9 @@
         <span th:text="${message}"></span>
     </div>
 </div>
-
+<div>
+    <span>Your card Borrow Code is:<span th:text="${cardborrow}"></span></span>
+</div>
 <table border="1px">
     <thead>
     <tr>
@@ -29,7 +31,6 @@
         <th>Tittle</th>
         <th>Number</th>
         <th>Card Borrow</th>
-        <th>Borrow</th>
         <th>Give Back</th>
         <th>Delete</th>
         <th>View</th>
@@ -41,7 +42,6 @@
         <td th:text="${book.name}"></td>
         <td th:text="${book.title}"></td>
         <td th:text="${book.number}"></td>
-        <td th:text="${book.cardBorrow.codeBorrow}"></td>
         <!--        request param-->
         <td><a th:href="@{/book/borrow/(id = ${book.id})}">Borrow</a></td>
         <td><a th:href="@{/book/return/(id = ${book.id})}">Give Back</a></td>
@@ -50,6 +50,7 @@
     </tr>
     </tbody>
 </table>
+
 
 </body>
 </html>

@@ -15,24 +15,31 @@ public class CardBorrow {
     @Column(name = "code")
     private Integer codeBorrow;
 
-    @OneToMany(mappedBy = "cardBorrow")
-    private Set<Book> books;
+    @ManyToOne
+    @JoinColumn(name = "id")
+    private Book book;
 
-    public Set<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }
 
     public CardBorrow() {
     }
 
+    public CardBorrow(Integer id, Integer codeBorrow, Book book) {
+        this.id = id;
+        this.codeBorrow = codeBorrow;
+        this.book = book;
+    }
 
     public CardBorrow(Integer id, Integer codeBorrow) {
         this.id = id;
         this.codeBorrow = codeBorrow;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     public Integer getId() {
