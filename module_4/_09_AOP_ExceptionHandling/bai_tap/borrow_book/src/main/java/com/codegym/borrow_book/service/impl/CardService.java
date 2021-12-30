@@ -1,6 +1,7 @@
 package com.codegym.borrow_book.service.impl;
 
 
+import com.codegym.borrow_book.model.Book;
 import com.codegym.borrow_book.model.CardBorrow;
 import com.codegym.borrow_book.repository.ICardRepository;
 import com.codegym.borrow_book.service.ICardService;
@@ -27,6 +28,19 @@ public class CardService implements ICardService {
     public void save(CardBorrow cardBorrow) {
         iCardRepository.save(cardBorrow);
     }
+
+    @Override
+    public CardBorrow randomBorrowCode(Book book) {
+        CardBorrow cardBorrow = new CardBorrow();
+
+        int ramDom = (int) (Math.random() * 100);
+        cardBorrow.setCodeBorrow(ramDom);
+        cardBorrow.setId(book.getId());
+        cardBorrow.setBook(book);
+        CardBorrow cardBorrow1 = iCardRepository.save(cardBorrow);
+        return cardBorrow1;
+    }
+
 
     @Override
     public List<CardBorrow> findByName(String name) {

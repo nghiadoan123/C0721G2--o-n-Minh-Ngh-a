@@ -14,6 +14,9 @@ public interface ICardService {
 
     void save(CardBorrow cardBorrow);
 
+
+    CardBorrow randomBorrowCode(Book book);
+
     List<CardBorrow> findByName(String name);
 
     void remove(Integer id);

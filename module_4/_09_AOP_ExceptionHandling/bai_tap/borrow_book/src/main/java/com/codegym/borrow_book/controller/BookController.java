@@ -70,29 +70,12 @@ public class BookController {
     @GetMapping("/borrow")
     public String borrow(@RequestParam(name = "id") Integer id, Model model) throws Exception {
         Book book = iBookService.findByIdDecrease(id);
-
-
-        if (book.getNumber() < 0) {
-            throw new Exception();
-        }
         iBookService.save(book);
-
+        CardBorrow cardBorrow =iCardService.randomBorrowCode(book);
         List<Book> bookList = iBookService.getAll();
-
         if (bookList == null || book.getNumber() < 0) {
             throw new Exception();
         }
-
-
-        CardBorrow cardBorrow = new CardBorrow();
-
-        int ramDom = (int) (Math.random() * 100);
-        cardBorrow.setCodeBorrow(ramDom);
-        cardBorrow.setId(book.getId());
-        cardBorrow.setBook(book);
-        iCardService.save(cardBorrow);
-
-
         model.addAttribute("bookList", bookList);
         model.addAttribute("cardborrow", cardBorrow.getCodeBorrow());
         return "book/index";
@@ -110,15 +93,27 @@ public class BookController {
     public String returnConfirm(@ModelAttribute(name = "book") Book book,
                                 @RequestParam(name = "id") Integer id,
                                 @RequestParam(name = "codeBorrow") Integer codeBorrow,
-                                Model model) {
-        Book book1 = null;
-        for (CardBorrow cardBorrow : iCardService.getAll()) {
-            if (cardBorrow.getCodeBorrow() == codeBorrow) {
-                book1 = iBookService.findByIdIncrease(id);
-                iBookService.save(book1);
-                break;
+                                Model model) throws Exception {
+
+//        Book book1 = null;
+//        for (CardBorrow cardBorrow : iCardService.getAll()) {
+//            if (cardBorrow.getCodeBorrow() == codeBorrow) {
+//                book1 = iBookService.findByIdIncrease(id);
+//
+//                iBookService.save(book1);
+//                break;
+//            }
+//
+//            if (book1 == null){
+//                throw new Exception();
+//            }
+//        }
+
+
+        Book book1 = iBookService.returnBook(book,id,codeBorrow);
+        if (book1 == null){
+                throw new Exception();
             }
-        }
         List<Book> bookList = new ArrayList<>();
         bookList.add(book1);
         model.addAttribute("bookList",bookList);

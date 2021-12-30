@@ -5,7 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-<p style="color: blue" th:text="${msg}"></p>
 <a href="/book/list">back</a>
 <form action="/book/return" method="post" th:object="${book}">
     <input type="hidden" th:field="*{id}" name="id">

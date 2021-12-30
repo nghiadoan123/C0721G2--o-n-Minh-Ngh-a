@@ -60,5 +60,19 @@ public class BookServiceImpl implements IBookService {
         return book;
     }
 
+    @Override
+    public Book returnBook(Book book,Integer id, Integer codeBorrow) {
+        for (CardBorrow cardBorrow : iCardRepository.findAll()) {
+            if (cardBorrow.getCodeBorrow() == codeBorrow) {
+                book = findByIdIncrease(id);
+
+                iBookRepository.save(book);
+                return book;
+            }
+
+        }
+        return null;
+    }
+
 
 }

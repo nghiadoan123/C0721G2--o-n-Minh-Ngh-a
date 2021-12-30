@@ -20,4 +20,6 @@ public interface IBookService {
 
     Book findByIdIncrease(Integer id);
 
+    Book returnBook(Book book,Integer id, Integer codeBorrow);
+
 }
