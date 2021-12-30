@@ -65,7 +65,6 @@ public class BookServiceImpl implements IBookService {
         for (CardBorrow cardBorrow : iCardRepository.findAll()) {
             if (cardBorrow.getCodeBorrow() == codeBorrow) {
                 book = findByIdIncrease(id);
-
                 iBookRepository.save(book);
                 return book;
             }

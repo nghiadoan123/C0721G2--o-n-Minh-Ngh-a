@@ -44,19 +44,9 @@
             <input type="text" th:field="*{number}"/>
             <p th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></p>
         </div>
-        <div>
-            <label>Card Borrow</label>
-        </div>
-        <div>
-            <select th:field="*{cardBorrow}">
-                <option th:each="card : ${cardBorrowList}" th:value="${card.id}" th:text="${card.codeBorrow}">
 
-                </option>
-            </select>
-        </div>
         <button type="submit">save</button>
     </form>
 </div>
-
 </body>
 </html>

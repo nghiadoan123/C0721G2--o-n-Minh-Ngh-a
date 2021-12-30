@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head></head>
 <body>
-<h3>View Blog</h3>
+<h3>View Book</h3>
 <p>
     <a th:href="@{/book}">
         Back to book list
@@ -17,9 +17,7 @@
 <div>
     <p th:text="${book.getName()}"></p>
 </div>
-<div>
-    <p th:text="${book.getCardBorrow().getId()}"></p>
-</div>
+
 
 </body>
 </html>

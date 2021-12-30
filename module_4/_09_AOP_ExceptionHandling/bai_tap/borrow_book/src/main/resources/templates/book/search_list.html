@@ -42,7 +42,6 @@
         <td th:text="${book.name}"></td>
         <td th:text="${book.title}"></td>
         <td th:text="${book.number}"></td>
-        <td th:text="${book.cardBorrow.codeBorrow}"></td>
         <!--        request param-->
         <td><a th:href="@{/book/borrow/(id = ${book.id})}">Borrow</a></td>
         <td><a th:href="@{/book/return/(id = ${book.id})}">Give Back</a></td>
