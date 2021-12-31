@@ -15,6 +15,7 @@ public class CardBorrow {
     @Column(name = "code")
     private Integer codeBorrow;
 
+
     @ManyToOne
     @JoinColumn(name = "id")
     private Book book;
@@ -34,7 +35,7 @@ public class CardBorrow {
         this.codeBorrow = codeBorrow;
     }
 
-    public Book getBook() {
+        public Book getBook() {
         return book;
     }
 

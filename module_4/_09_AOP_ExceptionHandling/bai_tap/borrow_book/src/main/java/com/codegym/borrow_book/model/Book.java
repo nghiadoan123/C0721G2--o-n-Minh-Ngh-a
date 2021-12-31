@@ -27,6 +27,7 @@ public class Book {
     @Max(value = 999999)
     private Integer number;
 
+
     @OneToMany(mappedBy = "book", cascade = CascadeType.REMOVE)
     private Set<CardBorrow> cardBorrows;
 
@@ -50,7 +51,8 @@ public class Book {
         this.number = number;
     }
 
-    public Book(Integer id, String name, String title, Integer number, Set<CardBorrow> cardBorrows) {
+
+        public Book(Integer id, String name, String title, Integer number, Set<CardBorrow> cardBorrows) {
         this.id = id;
         this.name = name;
         this.title = title;

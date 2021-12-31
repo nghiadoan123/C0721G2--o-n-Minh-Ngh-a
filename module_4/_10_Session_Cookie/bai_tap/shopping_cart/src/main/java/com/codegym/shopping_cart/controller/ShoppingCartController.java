@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 @Controller
@@ -42,6 +43,13 @@ public class ShoppingCartController {
         model.addAttribute("cart",cart);
         return "pay";
     }
+
+    @PostMapping("/pay")
+    public String pay(@SessionAttribute("cart") Cart cart, Model model, RedirectAttributes redirectAttributes){
+        cart.setProducts(new HashMap<>());
+        return "redirect:/shop";
+    }
+
 
     @GetMapping("/delete")
     public String delete(@RequestParam("id") Long id, @SessionAttribute("cart") Cart cart, RedirectAttributes redirectAttributes) {

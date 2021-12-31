@@ -17,6 +17,10 @@ public class Cart {
         return products;
     }
 
+    public void setProducts(Map<Product, Integer> products) {
+        this.products = products;
+    }
+
     private boolean checkItemInCart(Product product){
         for (Map.Entry<Product, Integer> entry : products.entrySet()) {
             if(entry.getKey().getId().equals(product.getId())){

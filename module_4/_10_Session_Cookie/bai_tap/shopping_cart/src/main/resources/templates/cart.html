@@ -59,13 +59,12 @@
                     <br>
                     <span>Số lượng
                         <br>
-                        <a style="text-decoration: none" id="decrease_button"
+                        <a class="btn btn-primary"  style="text-decoration: none" id="decrease_button"
                            th:href="@{/add/__${product.getKey().id}__(action='decrease')}"
                            th:text="${'-'}">
-
                         </a>
 
-                    <a style="text-decoration: none" id="increase_button"
+                    <a class="btn btn-primary" style="text-decoration: none" id="increase_button"
                        th:href="@{/add/__${product.getKey().id}__(action='show')}"
                        th:text="${'+'}"></a>
                     <span th:text="${product.getValue()}"></span>

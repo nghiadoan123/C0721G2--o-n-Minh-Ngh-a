@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List Blog</title>
+</head>
+<body>
+<h3>Blog</h3>
+<p>
+    <a th:href="@{/student/create}" style="text-decoration: none">Add new student</a>
+</p>
+<form action="#" th:action="@{/student/search}" method="get">
+    <label>Name: </label>
+    <input name="name">
+    <button type="submit">search</button>
+</form>
+
+<div>
+    <!--/*@thymesVar id="message" type=""*/-->
+    <div th:if="${message}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+
+<table border="1px">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Edit param</th>
+        <th>Edit path variable</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student,rowstat : ${studentList}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+
+        <!--        request param-->
+        <td><a th:href="@{/student/edit_param/(id = ${student.id})}">Edit</a></td>
+        <!--         path variable-->
+        <td><a th:href="@{/student/{id}/edit(id=${student.getId()})}">Edit</a></td>
+        <td><a th:href="@{/student/{id}/delete(id=${student.getId()})}">Delete</a></td>
+        <td><a th:href="@{/student/{id}/view(id=${student.getId()})}">View</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

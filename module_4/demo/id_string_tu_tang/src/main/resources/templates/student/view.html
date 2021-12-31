@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<h3>View Blog</h3>
+<p>
+    <a th:href="@{/blog}">
+        Back to blog list
+    </a>
+</p>
+<div>
+    <h1 th:text="${blog.getTitle()}"></h1>
+</div>
+<div>
+    <p th:text="${blog.getContent()}"></p>
+</div>
+
+</body>
+</html>

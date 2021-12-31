@@ -9,6 +9,11 @@
 </head>
 <body>
 <h1>Your total payment is:</h1>
-<p th:text="${cart.countTotalPayment()}"></p>
+<form action="/pay" method="post">
+    <p th:text="${cart.countTotalPayment()}"></p>
+    <button type="submit">Pay</button>
+</form>
+
+
 </body>
 </html>
