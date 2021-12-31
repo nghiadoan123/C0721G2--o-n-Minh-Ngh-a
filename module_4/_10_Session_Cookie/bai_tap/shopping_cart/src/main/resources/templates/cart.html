@@ -52,22 +52,28 @@
         <h3>Total Products: <span th:text="${cart.countProductQuantity()}"></span></h3>
         <table>
             <tr th:each="product: ${cart.products}">
-                <td >
+                <td>
                     <span>Tên
                     <span th:text="${product.getKey().name}"></span>
                     </span>
                     <br>
                     <span>Số lượng
                         <br>
-                        <a class="btn btn-primary"  style="text-decoration: none" id="decrease_button"
+                        <a class="btn btn-primary" style="text-decoration: none"
+                           id="decrease_button"
                            th:href="@{/add/__${product.getKey().id}__(action='decrease')}"
                            th:text="${'-'}">
                         </a>
 
-                    <a class="btn btn-primary" style="text-decoration: none" id="increase_button"
-                       th:href="@{/add/__${product.getKey().id}__(action='show')}"
-                       th:text="${'+'}"></a>
-                    <span th:text="${product.getValue()}"></span>
+                        <a class="btn btn-primary" style="text-decoration: none"
+                           id="increase_button"
+                           th:href="@{/add/__${product.getKey().id}__(action='show')}"
+                           th:text="${'+'}">
+
+                        </a>
+                        <span th:text="${product.getValue()}"></span>
+
+
                     </span>
                     <span>Giá
                     <span th:text="${product.getKey().price}">
@@ -79,14 +85,6 @@
                     <a href="#" th:href="@{/delete/(id = ${product.getKey().id})}">delete</a>
                 </td>
             </tr>
-<!--            <tr>-->
-<!--                <td>Total</td>-->
-<!--                <td></td>-->
-<!--                <td></td>-->
-<!--                <td></td>-->
-<!--                <td th:text="${cart.countTotalPayment()}"></td>-->
-<!--            </tr>-->
-
         </table>
 
     </form>
