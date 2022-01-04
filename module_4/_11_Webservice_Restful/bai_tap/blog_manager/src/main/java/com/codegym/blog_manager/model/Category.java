@@ -1,26 +1,23 @@
 package com.codegym.blog_manager.model;
 
 
-
-
-
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.List;
-
+import java.util.Set;
 
 @Entity(name = "category")
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column( name = "id_category")
-    Integer id;
+    private Integer id;
     @Column( name = "name")
-    String name;
+    private String name;
 
-    @OneToMany(mappedBy = "category",cascade = CascadeType.REMOVE)
+    @JsonBackReference
+    @OneToMany(mappedBy = "category")
     private List<Blog> blogs;
 
     public List<Blog> getBlogs() {
@@ -32,6 +29,11 @@ public class Category {
     }
 
     public Category() {
+    }
+
+    public Category(Integer id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public Category(Integer id, String name, List<Blog> blogs) {

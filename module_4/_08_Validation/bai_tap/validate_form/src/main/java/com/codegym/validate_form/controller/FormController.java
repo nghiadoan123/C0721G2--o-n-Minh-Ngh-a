@@ -35,6 +35,10 @@ public class FormController {
 
     @PostMapping("/create")
     String create(@Valid @ModelAttribute(name = "form") FormDTO formDTO, BindingResult bindingResult) {
+
+        // dùng với cách implements Validator
+        new FormDTO().validate(formDTO,bindingResult);
+
         if (bindingResult.hasErrors()) {
             return "create";
         }else {

@@ -16,8 +16,8 @@ public class FormDTO implements Validator {
 
 // String khai báo notBlank
     @NotBlank(message = "Tên không được để trống")
-    @Pattern(regexp = "^[a-z A-Z]{5,}$",message = "tên không dược chưa ký tự đặc biệt")
-    @Size(min = 5,max = 45, message = "dộ dài từ 5-45 ký tự")
+//    @Pattern(regexp = "^[a-z A-Z]{5,}$",message = "tên không dược chưa ký tự đặc biệt")
+//    @Size(min = 5,max = 45, message = "dộ dài từ 5-45 ký tự")
     private String firstName;
 
 
@@ -95,7 +95,10 @@ public class FormDTO implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-
+        FormDTO formDTO = (FormDTO) target;
+        if (!formDTO.firstName.matches("[A-Z a-z]{4,}")){
+            errors.rejectValue("firstName", "firstName.invalidFormat");
+        }
     }
 
 

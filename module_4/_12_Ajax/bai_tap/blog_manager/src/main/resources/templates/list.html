@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>List Blog</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Blog List</h1>
+<table id="tableList" border="1px">
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Content</td>
+        <td>Date create</td>
+        <td>Category Name</td>
+    </tr>
+    <th:block th:each="blog: ${blogList}">
+        <tr>
+            <td th:text="${blog.id}"></td>
+            <td th:text="${blog.title}"></td>
+            <td th:text="${blog.content}"></td>
+            <td th:text="${blog.dateCreate}"></td>
+            <td th:text="${blog.category.name}"></td>
+            <td><a class="deleteBlog" th:href="${blog.getId()}">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<form action="" id="loadPage">
+    <input type="button" id="btnLoadPage" onclick="loadPage()">
+</form >
+
+<form action="" id="searchBlog">
+    <label>Search</label>
+    <input type="text" id="search">
+    <input type="button" value="search" id="btnSearch" onclick="searchBlog()">
+</form >
+
+
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        $.ajax({
+            url: "/blog/page",
+            type: "GET",
+            contentType:"application/json",
+            success: function () {
+                successHandler();
+            },
+            error: function () {
+                console.log("lỗi");
+            },
+        })
+    })
+
+    function successHandler() {
+        $.ajax({
+            type: "GET",
+            //tên API
+            url: "/blog/page",
+            //xử lý khi thành công
+            success: function (data) {
+                // hien thi danh sach o day
+                let content = '    <tr>\n' +
+                    '        <td>Id</td>\n' +
+                    '        <td>title</td>\n' +
+                    '        <td>content</td>\n' +
+                    '        <td>dateCreate</td>\n' +
+                    '        <td>category</td>\n' +
+                    '    </tr>';
+                for (let i = 0; i < data.length; i++) {
+                    content += getBlog(data[i]);
+                }
+                document.getElementById('tableList').innerHTML = content;
+            }
+        });
+    }
+
+    function getBlog(blog) {
+        return `<tr>
+                        <td >${blog.id}</td>
+                        <td >${blog.title}</td>
+                        <td >${blog.content}</td>
+                        <td >${blog.dateCreate}</td>
+                        <td >${blog.category.name}</td>` +
+            `       <td><a class="deleteBlog" href="${blog.id}">Delete</a></td>
+                    </tr>`;
+    }
+
+
+    function searchBlog(blog) {
+
+    }
+
+    function loadPage() {
+        $(document).ready(function (){
+            $.ajax({
+                url: "/blog/page",
+                type: "GET",
+                contentType:"application/json",
+                success: function () {
+                    successHandler();
+                },
+                error: function () {
+                    console.log("lỗi");
+                },
+            })
+        })
+    }
+</script>
+</body>
+</html>

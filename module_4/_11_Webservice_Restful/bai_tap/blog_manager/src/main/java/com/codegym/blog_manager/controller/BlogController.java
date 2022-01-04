@@ -5,9 +5,13 @@ import com.codegym.blog_manager.model.Blog;
 import com.codegym.blog_manager.service.IBlogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +35,15 @@ public class BlogController {
         return new ResponseEntity<>(blogs, HttpStatus.OK);
     }
 
+    @GetMapping(value = "/page")
+    public ResponseEntity<Page<Blog>> pageList(@PageableDefault(value = 1) Pageable pageable){
+        Page<Blog> blogPage = iBlogService.findAll(pageable);
+        if (blogPage.isEmpty()){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(blogPage,HttpStatus.OK);
+    }
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Blog> findBlogById(@PathVariable Integer id) {
@@ -42,13 +55,13 @@ public class BlogController {
     }
 
 
-    @PostMapping
+    @PostMapping(value = "/save")
     public ResponseEntity<Blog> saveBlog(@RequestBody Blog blog) {
         if (blog == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         iBlogService.save(blog);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 

@@ -1,5 +1,7 @@
 package com.codegym.blog_manager.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity(name = "blog")
@@ -10,12 +12,13 @@ public class Blog {
     @Column(name = "id")
     private Integer id;
     @Column(name = "title")
-    String title;
+    private String title;
     @Column(name = "content")
-    String content;
+    private String content;
 
     @Column(name = "date_create",columnDefinition = "DATE")
-    String dateCreate;
+    private String dateCreate;
+
 
     @ManyToOne
     @JoinColumn(name = "id_category")

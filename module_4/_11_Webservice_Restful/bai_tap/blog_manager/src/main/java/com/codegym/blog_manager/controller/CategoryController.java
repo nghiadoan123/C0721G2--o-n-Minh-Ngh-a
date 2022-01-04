@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@Controller
+@RestController
 @RequestMapping("/category")
 public class CategoryController {
 
@@ -38,9 +38,20 @@ public class CategoryController {
         return new ResponseEntity<>(category, HttpStatus.OK);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Blog> updateBlog(@PathVariable Integer id, @RequestBody Category category) {
+        Category category1 = iCategoryService.findById(id);
+        if (category1 == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        category.setId(category1.getId());
+        iCategoryService.save(category);
+        return new ResponseEntity<>( HttpStatus.OK);
+    }
+
 
     @PostMapping
-    public ResponseEntity<Category> saveBlog(@RequestBody Category category) {
+    public ResponseEntity<Category> saveCategory(@RequestBody Category category) {
         if (category == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
@@ -56,7 +67,7 @@ public class CategoryController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         iCategoryService.remove(id);
-        return new ResponseEntity<>(category,HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(category,HttpStatus.OK);
     }
 
 }
