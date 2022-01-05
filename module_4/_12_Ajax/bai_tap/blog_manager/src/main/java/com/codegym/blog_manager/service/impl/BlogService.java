@@ -45,6 +45,11 @@ public class BlogService implements IBlogService {
     }
 
     @Override
+    public List<Blog> findByNameLimit(String name, Integer offset) {
+        return iBlogRepository.getByNameLimit("%" + name + "%",offset);
+    }
+
+    @Override
     public void remove(Integer id) {
         iBlogRepository.deleteById(id);
     }

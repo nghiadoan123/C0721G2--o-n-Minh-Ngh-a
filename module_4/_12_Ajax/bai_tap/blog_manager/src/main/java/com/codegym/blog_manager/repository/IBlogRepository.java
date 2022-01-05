@@ -17,7 +17,13 @@ public interface IBlogRepository extends JpaRepository<Blog, Integer> {
 
 
     // tìm gần đúng theo title
-    @Query(value = "select * from blog where title like :title",nativeQuery = true)
+    @Query(value = "select * from blog where title like :title ",nativeQuery = true)
     List<Blog> getByName(@Param("title")String title);
 
+
+//    @Query(value = "select * from blog where title like :title & LIMIT :offset , 2;",nativeQuery = true)
+//    List<Blog> getByNameLimit(@Param("title")String title, @Param("offset") Integer offset);
+
+    @Query(value ="SELECT * FROM blog WHERE title like concat('%', ?1, '%') LIMIT ?2 , 2;", nativeQuery=true)
+    List<Blog> getByNameLimit(String title,Integer offset);
 }

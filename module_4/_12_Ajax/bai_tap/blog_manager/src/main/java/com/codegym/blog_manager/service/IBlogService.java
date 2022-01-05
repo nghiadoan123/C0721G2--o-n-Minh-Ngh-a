@@ -17,6 +17,8 @@ public interface IBlogService {
 
     List<Blog> findByName(String name);
 
+    List<Blog> findByNameLimit(String name, Integer offset);
+
     void remove(Integer id);
 
    Page<Blog> findAll(Pageable of);

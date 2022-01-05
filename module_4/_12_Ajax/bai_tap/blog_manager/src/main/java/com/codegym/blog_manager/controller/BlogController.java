@@ -17,6 +17,7 @@ import java.util.List;
 
 
 @RestController
+@CrossOrigin
 @RequestMapping("/blog")
 public class BlogController {
 
@@ -40,7 +41,7 @@ public class BlogController {
         modelAndView.addObject("blogList", iBlogService.getAll());
         return modelAndView;
     }
-
+//
 //    @GetMapping(value = "/page")
 //    public ResponseEntity<Page<Blog>> pageList(@PageableDefault(value = 2) Pageable pageable){
 //        Page<Blog> blogPage = iBlogService.findAll(pageable);
