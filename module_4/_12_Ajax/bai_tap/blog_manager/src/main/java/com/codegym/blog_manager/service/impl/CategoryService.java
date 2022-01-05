@@ -11,10 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service(value = "iCateGoryService")
+@Service
 public class CategoryService implements ICategoryService {
     @Autowired
-    @Qualifier("iCategoryRepository")
     ICategoryRepository iCategoryRepository;
 
     @Override

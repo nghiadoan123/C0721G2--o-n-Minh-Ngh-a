@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository(value = "iCategoryRepository")
+@Repository
 public interface ICategoryRepository extends JpaRepository<Category,Integer> {
 
     @Query(value = "select * from category where name like :name",nativeQuery = true)

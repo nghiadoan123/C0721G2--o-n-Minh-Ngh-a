@@ -2,7 +2,8 @@ package com.codegym.blog_manager.model;
 
 import javax.persistence.*;
 
-@Entity(name = "blog")
+@Entity
+@Table(name = "blog")
 public class Blog {
 
     @Id
@@ -18,8 +19,9 @@ public class Blog {
     private String dateCreate;
 
 
+
     @ManyToOne
-    @JoinColumn(name = "id_category")
+    @JoinColumn(name = "id_category",referencedColumnName = "id_category")
     private Category category;
 
     public Category getCategory() {

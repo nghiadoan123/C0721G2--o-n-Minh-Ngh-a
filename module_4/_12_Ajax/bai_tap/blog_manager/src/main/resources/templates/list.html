@@ -1,113 +1,133 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-        "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>List Blog</title>
-    <script src="jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Danh sách bài viết</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/css/v4-shims.min.css"
+          integrity="sha512-p++g4gkFY8DBqLItjIfuKJPFvTPqcg2FzOns2BNaltwoCOrXMqRIOqgWqWEvuqsj/3aVdgoEo2Y7X6SomTfUPA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 <body>
-<h1>Blog List</h1>
-<table id="tableList" border="1px">
-    <tr>
-        <td>Id</td>
-        <td>Title</td>
-        <td>Content</td>
-        <td>Date create</td>
-        <td>Category Name</td>
-    </tr>
-    <th:block th:each="blog: ${blogList}">
-        <tr>
-            <td th:text="${blog.id}"></td>
-            <td th:text="${blog.title}"></td>
-            <td th:text="${blog.content}"></td>
-            <td th:text="${blog.dateCreate}"></td>
-            <td th:text="${blog.category.name}"></td>
-            <td><a class="deleteBlog" th:href="${blog.getId()}">Delete</a></td>
-        </tr>
-    </th:block>
-</table>
-<form action="" id="loadPage">
-    <input type="button" id="btnLoadPage" onclick="loadPage()">
-</form >
 
-<form action="" id="searchBlog">
-    <label>Search</label>
-    <input type="text" id="search">
-    <input type="button" value="search" id="btnSearch" onclick="searchBlog()">
-</form >
+<nav class="navbar navbar-expand-lg navbar-light bg-warning">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="#">Navbar</a>
 
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled">Disabled</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
-
-<script type="text/javascript">
-    $(document).ready(function (){
-        $.ajax({
-            url: "/blog/page",
-            type: "GET",
-            contentType:"application/json",
-            success: function () {
-                successHandler();
-            },
-            error: function () {
-                console.log("lỗi");
-            },
-        })
-    })
-
-    function successHandler() {
-        $.ajax({
-            type: "GET",
-            //tên API
-            url: "/blog/page",
-            //xử lý khi thành công
-            success: function (data) {
-                // hien thi danh sach o day
-                let content = '    <tr>\n' +
-                    '        <td>Id</td>\n' +
-                    '        <td>title</td>\n' +
-                    '        <td>content</td>\n' +
-                    '        <td>dateCreate</td>\n' +
-                    '        <td>category</td>\n' +
-                    '    </tr>';
-                for (let i = 0; i < data.length; i++) {
-                    content += getBlog(data[i]);
-                }
-                document.getElementById('tableList').innerHTML = content;
-            }
-        });
-    }
-
-    function getBlog(blog) {
-        return `<tr>
-                        <td >${blog.id}</td>
-                        <td >${blog.title}</td>
-                        <td >${blog.content}</td>
-                        <td >${blog.dateCreate}</td>
-                        <td >${blog.category.name}</td>` +
-            `       <td><a class="deleteBlog" href="${blog.id}">Delete</a></td>
-                    </tr>`;
-    }
-
-
-    function searchBlog(blog) {
-
-    }
-
-    function loadPage() {
-        $(document).ready(function (){
-            $.ajax({
-                url: "/blog/page",
-                type: "GET",
-                contentType:"application/json",
-                success: function () {
-                    successHandler();
-                },
-                error: function () {
-                    console.log("lỗi");
-                },
-            })
-        })
-    }
-</script>
+<div class="container-fluid">
+    <div class="row">
+        <div class="row">
+            <div class="form-inline my-2 my-lg-0 w-50 mx-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="nameBlog">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="search">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table table-striped w-50 mx-auto">
+            <thead class="thead-inverse">
+            <tr>
+                <th>ID</th>
+                <th>title</th>
+                <th>Content</th>
+                <th>Date</th>
+                <th>Category</th>
+            </tr>
+            </thead>
+            <tbody id="content">
+            <!--            <tr th:each="blog : ${blogList}">-->
+            <!--                <td scope="row" th:text="${blog.id}"></td>-->
+            <!--                <td th:text="${blog.name}"></td>-->
+            <!--                <td th:text="${blog.category.name}"></td>-->
+            <!--                <td th:text="${blog.postDate}"></td>-->
+            <!--            </tr>-->
+            </tbody>
+        </table>
+    </div>
+    <button class="btn btn-success" id="loadMore">Xem thêm</button>
+</div>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        let index = 0;
+        let data = '';
+        loadData(index);
+
+        $('#search').click(function () {
+            data = '';
+            index = 0;
+            loadData(index);
+        });
+
+        $('#loadMore').click(function () {
+            index += 2;
+            loadData(index);
+        });
+
+        function loadData(index) {
+            let title = $('#nameBlog').val();
+            console.log(nameBlog);
+            $.ajax(
+                {
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Methods': 'GET,POST,OPTIONS,DELETE,PUT'
+                    },
+                    type: "GET",
+                    dataType: 'json',
+                    url: `http://localhost:8080/api/blog?title=${title}&offset=${index}`,
+                    success: function (listBlog) {
+                        for (let i =0; i< listBlog.length; i++){
+                            data += "         <tr>\n" +
+                                "                <td>" + listBlog[i].id + "</td>\n" +
+                                "                <td>" + listBlog[i].title + "</td>\n" +
+                                "                <td>" + listBlog[i].content + "</td>\n" +
+                                "                <td>" + listBlog[i].dateCreate + "</td>\n" +
+                                "                <td>" + listBlog[i].category.name  + "</td>\n" +
+                                "            </tr>"
+                        }
+                        $('#content').html(data);
+                        console.log(listBlog);
+                    }
+                }
+            )
+        }
+
+        function loadDataView() {
+            $.ajax(
+                {
+                    type: "GET",
+                    dataType: 'html',
+                    url: `http://localhost:8080/`,
+                    success: function (listBlog) {
+                        console.log(listBlog);
+                    }
+                }
+            )
+        }
+    })
+</script>
 </html>

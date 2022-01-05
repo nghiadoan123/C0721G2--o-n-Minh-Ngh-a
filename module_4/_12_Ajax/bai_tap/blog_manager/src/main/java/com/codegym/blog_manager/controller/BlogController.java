@@ -10,20 +10,20 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 
-@RestController
-@CrossOrigin
+
+@Controller
 @RequestMapping("/blog")
 public class BlogController {
 
 
     @Autowired
-    @Qualifier("iBlogService")
     private IBlogService iBlogService;
 
     @GetMapping

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository(value = "iBlogRepository")
+@Repository
 public interface IBlogRepository extends JpaRepository<Blog, Integer> {
 
     // tìm chính xác theo title
@@ -24,6 +24,6 @@ public interface IBlogRepository extends JpaRepository<Blog, Integer> {
 //    @Query(value = "select * from blog where title like :title & LIMIT :offset , 2;",nativeQuery = true)
 //    List<Blog> getByNameLimit(@Param("title")String title, @Param("offset") Integer offset);
 
-    @Query(value ="SELECT * FROM blog WHERE title like concat('%', ?1, '%') LIMIT ?2 , 2;", nativeQuery=true)
+    @Query(value ="SELECT * FROM blog WHERE blog.title like concat('%', ?1, '%') LIMIT ?2 , 2;", nativeQuery=true)
     List<Blog> getByNameLimit(String title,Integer offset);
 }

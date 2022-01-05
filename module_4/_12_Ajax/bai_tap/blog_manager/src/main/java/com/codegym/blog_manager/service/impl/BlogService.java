@@ -12,11 +12,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-@Service(value = "iBlogService")
+@Service
 public class BlogService implements IBlogService {
 
     @Autowired
-    @Qualifier("iBlogRepository")
     IBlogRepository iBlogRepository;
 
     @Override
