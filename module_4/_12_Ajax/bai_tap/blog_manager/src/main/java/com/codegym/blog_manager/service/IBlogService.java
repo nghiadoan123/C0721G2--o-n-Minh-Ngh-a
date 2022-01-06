@@ -8,18 +8,9 @@ import java.util.List;
 
 public interface IBlogService {
 
-
-    List<Blog> getAll();
-
-    Blog findById(Integer id);
-
+    List<Blog> findAll();
     void save(Blog blog);
-
-    List<Blog> findByName(String name);
-
-    List<Blog> findByNameLimit(String name, Integer offset);
-
-    void remove(Integer id);
-
-   Page<Blog> findAll(Pageable of);
+    void deleteById(Integer id);
+    Blog findById (Integer id);
+    List<Blog> searchByName(String name, int offset);
 }

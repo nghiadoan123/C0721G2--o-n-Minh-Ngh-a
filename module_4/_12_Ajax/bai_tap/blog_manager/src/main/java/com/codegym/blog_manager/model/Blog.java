@@ -1,54 +1,37 @@
 package com.codegym.blog_manager.model;
 
+
 import javax.persistence.*;
 
-@Entity
-@Table(name = "blog")
+
+@Entity(name = "blog")
 public class Blog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Integer id;
-    @Column(name = "title")
-    private String title;
+
+    @Column(name = "name")
+    private String name;
+    @Column(name = "post_date", columnDefinition = "date")
+    private String postDate;
     @Column(name = "content")
     private String content;
 
-    @Column(name = "date_create",columnDefinition = "DATE")
-    private String dateCreate;
-
-
-
     @ManyToOne
-    @JoinColumn(name = "id_category",referencedColumnName = "id_category")
+    @JoinColumn(name = "category_id",nullable = false,referencedColumnName = "category_id")
     private Category category;
 
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
-    }
 
     public Blog() {
     }
 
-    public Blog(Integer id, String title, String content, String dateCreate, Category category) {
+    public Blog(Integer id, String name, String postDate, String content, Category category) {
         this.id = id;
-        this.title = title;
+        this.name = name;
+        this.postDate = postDate;
         this.content = content;
-        this.dateCreate = dateCreate;
         this.category = category;
-    }
-
-    public String getDateCreate() {
-        return dateCreate;
-    }
-
-    public void setDateCreate(String dateCreate) {
-        this.dateCreate = dateCreate;
     }
 
     public Integer getId() {
@@ -59,12 +42,20 @@ public class Blog {
         this.id = id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPostDate() {
+        return postDate;
+    }
+
+    public void setPostDate(String postDate) {
+        this.postDate = postDate;
     }
 
     public String getContent() {
@@ -73,5 +64,13 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

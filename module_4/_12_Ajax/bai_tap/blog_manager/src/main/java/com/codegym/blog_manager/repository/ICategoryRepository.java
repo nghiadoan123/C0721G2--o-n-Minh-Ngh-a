@@ -1,4 +1,7 @@
 package com.codegym.blog_manager.repository;
+
+
+
 import com.codegym.blog_manager.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

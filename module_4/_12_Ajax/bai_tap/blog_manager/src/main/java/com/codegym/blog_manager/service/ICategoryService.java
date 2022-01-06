@@ -10,15 +10,8 @@ import java.util.List;
 public interface ICategoryService {
 
     List<Category> findAll();
-
-    Category findById(Integer id);
-
-    void remove(Integer id);
-
     void save(Category category);
-
-    Page<Category> findAllPage(PageRequest of);
-
-    List<Category> findByName(String name);
+    void deleteById(Integer id);
+    Category findById(Integer id);
 
 }
