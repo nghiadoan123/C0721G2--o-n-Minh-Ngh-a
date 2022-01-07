@@ -30,4 +30,11 @@ public class BlogRestController {
         blogService.save(blog);
         return new ResponseEntity<>(s,HttpStatus.OK);
     }
+
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteBlog(@RequestParam(name = "id",required = false) Integer id){
+        String s = "success";
+        blogService.deleteById(id);
+        return new ResponseEntity<>(s,HttpStatus.OK);
+    }
 }

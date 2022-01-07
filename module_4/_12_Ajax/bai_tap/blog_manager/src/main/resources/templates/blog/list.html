@@ -35,7 +35,7 @@
     <div class="row">
         <div class="row">
             <div class="form-inline my-2 my-lg-0 w-50 mx-auto">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="nameBlog">
+                <input style="width: 500px" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="nameBlog">
                 <button class="btn btn-outline-success my-2 my-sm-0" id="search">Tìm kiếm</button>
             </div>
         </div>
@@ -43,31 +43,49 @@
 
     <div class="row">
         <div class="row">
-            <div class="form-inline my-2 my-lg-0 w-100 mx-auto">
-                <duv>
-                    <label>Input Blog Name</label>
-                </duv>
-                <br>
-                <div>
-                    <input class="form-control mr-sm-2" type="text" placeholder="input blog name" aria-label="Search" id="name">
-                </div>
-                <br>
-                <label>Input Id category</label>
-                <br>
-                <select name="" id="idCategory">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                </select>
-<!--                <input class="form-control mr-sm-2" type="text" placeholder="input id category" aria-label="Search" id="idCategory">-->
-                <br>
-<!--                <select name="" id="nameCategory">-->
-<!--                    <option value="cate1">category 1</option>-->
-<!--                    <option value="cate1">category 2</option>-->
-<!--                </select>-->
-<!--                <input class="form-control mr-sm-2" type="text" placeholder="input id category" aria-label="Search" id="nameCategory">-->
-                <button class="btn btn-outline-success my-2 my-sm-0" id="create" >Tạo Mới</button>
+            <div class="form-inline my-2 my-lg-0 w-50 mx-auto">
+                <input style="width: 500px" class="form-control mr-sm-1" type="number" placeholder="input your id you want to delete" min="1" max="100" aria-label="Search" id="deleteId">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="delete">Xóa</button>
             </div>
         </div>
+    </div>
+
+    <div class="row">
+            <form class="form-inline my-2 my-lg-0 w-50 mx-auto" action="">
+                <div>
+                    <label class="align-items: first">Input Blog Name</label>
+                    <input class="form-control mr-sm-2" type="text" placeholder="input blog name" aria-label="Search" id="name">
+                </div>
+
+                <div>
+                    <label class="align-items: first">Input Post day</label>
+                    <input class="form-control mr-sm-2" type="date" placeholder="input post day" aria-label="Search" id="postDay">
+                </div>
+
+                <div>
+                    <label class="align-items: first">Input Content</label>
+                    <input class="form-control mr-sm-2" type="text" placeholder="input content" aria-label="Search" id="contentBlog">
+                </div>
+
+                <div>
+                    <span>Select Id category  </span>
+                    <select name="" id="idCategory">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                    <br>
+                    <button class="btn btn-outline-success my-2 my-sm-0" id="create" >Tạo Mới</button>
+                </div>
+                <!--                <input class="form-control mr-sm-2" type="text" placeholder="input id category" aria-label="Search" id="idCategory">-->
+                <!--                <select name="" id="nameCategory">-->
+                <!--                    <option value="cate1">category 1</option>-->
+                <!--                    <option value="cate1">category 2</option>-->
+                <!--                </select>-->
+                <!--                <input class="form-control mr-sm-2" type="text" placeholder="input id category" aria-label="Search" id="nameCategory">-->
+            </form>
+            <div class="form-inline my-2 my-lg-0 w-100 mx-auto">
+
+            </div>
     </div>
     <div class="row">
         <table class="table table-striped w-50 mx-auto">
@@ -121,6 +139,14 @@
             data ="";
             index = 0;
             addBlog();
+            loadData(index);
+        })
+
+        $('#delete').click(function () {
+            data ="";
+            index = 0;
+            deleteBlog();
+            loadData(index);
         })
     })
 
@@ -147,6 +173,7 @@
                                 "                <td>" + listBlog[i].name + "</td>\n" +
                                 "                <td>" + listBlog[i].category.name + "</td>\n" +
                                 "                <td>" + listBlog[i].postDate + "</td>\n"
+
                         }
                         $('#content').html(data);
                         console.log(listBlog);
@@ -157,9 +184,13 @@
 
     function addBlog() {
         let name = $('#name').val();
+        let postDay = $('#postDay').val();
+        let contentBlog = $('#contentBlog').val();
         let idCategory =$('#idCategory').val();
         let blog = {
             name: name,
+            postDate: postDay,
+            content: contentBlog,
             category: {
                 id: idCategory,
             }
@@ -172,6 +203,24 @@
             success: function (res) {
                 console.log(res);
 
+            },
+            error: function () {
+                console.log("không thành công");
+            }
+        })
+    }
+
+    function deleteBlog() {
+        let deleteId = $('#deleteId').val();
+        $.ajax({
+            contentType: "application/json",
+            url: `http://localhost:8080/api/blog/delete?id=${deleteId}`,
+            type: "DELETE",
+            success: function (resultAfterDelete) {
+                console.log(resultAfterDelete);
+                console.log("thành công");
+                data = '';
+                loadData(0);
             },
             error: function () {
                 console.log("không thành công");
