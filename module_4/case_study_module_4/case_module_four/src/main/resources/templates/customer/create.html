@@ -59,12 +59,13 @@
 <div id="form" class="mb-3 row" >
     <form th:action="@{/customer/save}" th:object="${customer}"
           method="POST" novalidate="novalidate">
-        <input type="hidden" th:field="*{id}"/>
+        <input  type="hidden" th:field="*{id}"/>
 
         <div class="mb-3 row">
             <label  class="col-sm-2 col-form-label">Name</label>
             <div class="col-sm-10">
                 <input type="text" th:field="*{name}"/>
+                <p class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
             </div>
         </div>
 
@@ -72,6 +73,7 @@
             <label  class="col-sm-2 col-form-label">codeNumber</label>
             <div class="col-sm-10">
                 <input type="text" th:field="*{codeNumber}"/>
+                <p class="text-danger" th:if="${#fields.hasErrors('codeNumber')}" th:errors="*{codeNumber}"></p>
             </div>
         </div>
 
@@ -79,6 +81,7 @@
             <label  class="col-sm-2 col-form-label">BirthDay</label>
             <div class="col-sm-10">
                 <input type="date" th:field="*{birthDay}"/>
+                <p class="text-danger" th:if="${#fields.hasErrors('birthDay')}" th:errors="*{birthDay}"></p>
             </div>
         </div>
 
@@ -97,6 +100,7 @@
             <label  class="col-sm-2 col-form-label">IdCard</label>
             <div class="col-sm-10">
                 <input type="text" th:field="*{idCard}"/>
+                <p class="text-danger" th:if="${#fields.hasErrors('idCard')}" th:errors="*{idCard}"></p>
             </div>
         </div>
 
@@ -104,6 +108,7 @@
             <label  class="col-sm-2 col-form-label">Phone</label>
             <div class="col-sm-10">
                 <input type="text" th:field="*{phone}"/>
+                <p class="text-danger" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
             </div>
         </div>
 
@@ -111,6 +116,7 @@
             <label  class="col-sm-2 col-form-label">Email</label>
             <div class="col-sm-10">
                 <input type="text" th:field="*{email}"/>
+                <p class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
             </div>
         </div>
 
@@ -118,6 +124,7 @@
             <label  class="col-sm-2 col-form-label">Address</label>
             <div class="col-sm-10">
                 <input type="text" th:field="*{address}"/>
+                <p class="text-danger" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
             </div>
         </div>
 

@@ -1,32 +1,52 @@
 package com.codegym.case_module_four.model.customer;
 
 import com.codegym.case_module_four.model.contract.Contract;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.xml.crypto.Data;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.Date;
 import java.util.List;
 
 @Entity(name = "customer")
-public class Customer {
+public class Customer implements Validator {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
+    @NotNull(message = "input your id")
     private  int id;
     @Column(name = "name")
+    @NotBlank(message = "input your name")
     private String name;
+    @NotBlank(message = "input your code number")
+    @Pattern(regexp = "^[K][H]-\\d{4}$",message = "Not valid ex: KH-0001")
     @Column(name = "code")
     private String codeNumber;
     @Column(name = "birth_day")
+    @NotBlank(message = "input your birth day")
     private String birthDay;
     @Column(name = "gender")
     private String gender;
+    @NotBlank(message = "input your id card")
     @Column(name = "id_card")
     private String idCard;
     @Column(name = "phone")
+    @NotBlank(message = "input your phone")
     private String phone;
     @Column(name = "email")
+    @NotBlank(message = "input your email")
     private String email;
     @Column(name = "address")
+    @NotBlank(message = "input your address")
     private String address;
 
     @ManyToOne
@@ -155,4 +175,30 @@ public class Customer {
         this.customerType = customerType;
     }
 
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Customer customer = (Customer) target;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            Date birth = simpleDateFormat.parse(customer.getBirthDay());
+            int yearOld = LocalDate.now().getYear()-birth.getYear()-1900;
+            int month = LocalDate.now().getMonthValue()-birth.getMonth()-1;
+            int day = LocalDate.now().getDayOfYear()-birth.getDate();
+
+            System.out.println(yearOld);
+            System.out.println(day);
+            if (!(yearOld>17&&yearOld<100 )) {
+                errors.rejectValue("birthDay","birthDay.lessthan18");
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
+

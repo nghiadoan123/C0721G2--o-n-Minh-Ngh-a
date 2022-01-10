@@ -25,7 +25,7 @@ public class BlogService implements IBlogService {
 
     @Override
     public List<Blog> searchByName(String name, int offset) {
-        return iBlogRepository.searchByName("%"+name+"%",offset);
+        return iBlogRepository.searchByName(name,offset);
     }
 
     @Override

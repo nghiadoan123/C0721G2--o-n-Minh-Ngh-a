@@ -7,11 +7,15 @@ import com.codegym.case_module_four.service.customer.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -58,7 +62,16 @@ public class CustomerController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("customer") Customer customer, RedirectAttributes redirectAttributes) {
+    public String save(@Valid  @ModelAttribute("customer") Customer customer,
+                       BindingResult bindingResult,Model model, RedirectAttributes redirectAttributes) {
+        // dùng với cách implements Validator
+        new Customer().validate(customer,bindingResult);
+        if (bindingResult.hasErrors()){
+            String [] genderList = {"Male","Female"};
+            model.addAttribute("genderList", genderList);
+            model.addAttribute("customerTypeList",iCustomerTypeRepository.findAll());
+            return "customer/create";
+        }
         redirectAttributes.addFlashAttribute("message", "Create success");
         iCustomerService.save(customer);
         return "redirect:/customer";
@@ -87,12 +100,25 @@ public class CustomerController {
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("customer") Customer customer, Model model, RedirectAttributes redirectAttributes) {
+    public String edit(@Valid @ModelAttribute("customer") Customer customer,BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()){
+            model.addAttribute("customer", customer);
+            model.addAttribute("customerTypeList",iCustomerTypeRepository.findAll());
+            String [] genderList = {"Male","Female"};
+            model.addAttribute("genderList",genderList);
+            return "customer/edit";
+        }
         iCustomerService.save(customer);
         redirectAttributes.addFlashAttribute("message", "Edit success");
         return "redirect:/customer";
     }
 
 
+    @GetMapping("/search")
+    public String search(@RequestParam(name = "search") String name, Model model) {
+        List<Customer> customerList = iCustomerService.findByName(name);
+        model.addAttribute("customerList", customerList);
+        return "customer/search_list";
+    }
 
 }
