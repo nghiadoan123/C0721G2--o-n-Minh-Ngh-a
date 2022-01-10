@@ -25,48 +25,56 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
 </head>
+
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <a class="navbar-brand" href="#">Navbar</a>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul class="nav navbar-nav menu_nav ml-auto">
-                <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Accomodation</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
-                <li class="nav-item submenu dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Selector</a>
-                    <ul class="dropdown-menu">
-                        <li class="nav-item"><a class="nav-link" href="/customer">Customer</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/employee">Employee</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/contract">Contract</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/service">Service</a></li>
-                        <li class="nav-item"><a class="nav-link" href="">Home</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#">Elemests</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-            </ul>
+        <ul class="nav navbar-nav menu_nav ml-auto">
+            <li class="nav-item active"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About us</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Accomodation</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+            <li class="nav-item submenu dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Selector</a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item"><a class="nav-link" href="/customer">Customer</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/employee">Employee</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contract">Contract</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/service">Service</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Elemests</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
     </div>
 </nav>
 
 <p>
     <a th:href="@{/customer/create}" style="text-decoration: none" class="btn-info">Add new Customer</a>
 </p>
+
+
 <div class="container-fluid">
+
     <div class="row">
         <div class="row">
-            <div class="form-inline my-2 my-lg-0 w-50 mx-auto">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="nameBlog">
+            <form action="#" th:action="@{/customer/search}" method="get">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                       id="nameBlog" name="search">
                 <button class="btn btn-outline-success my-2 my-sm-0" id="search">Tìm kiếm</button>
-            </div>
+            </form>
         </div>
     </div>
+
     <div class="row">
         <table class="table table-striped w-50 mx-auto">
             <thead class="thead-inverse">
@@ -94,14 +102,128 @@
                 <td th:text="${customer.phone}"></td>
                 <td th:text="${customer.email}"></td>
                 <td th:text="${customer.address}"></td>
-                <td th:text="${customer.customerType.name}"></td>
+                <td th:text="${customer.customerType.nameType}"></td>
                 <!--        request param-->
-                <td><a th:href="@{/customer/edit_param/(id = ${customer.id})}"><i class="fas fa-edit">Edit</i></a></td>
-                <td><a th:href="@{/customer/{id}/delete(id=${customer.getId()})} "><i class="fas fa-trash-alt">Delete</i></a></td>
-                <td><a th:href="@{/customer/{id}/view(id=${customer.getId()})}"><i class="fas fa-binoculars">View</i></a></td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">
+                        <i class="fas fa-edit">Edit</i>
+                    </button>
+                </td>
+
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">
+                        <i class="fas fa-trash-alt">Delete</i>
+                    </button>
+
+                </td>
+
+                <td>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal">
+                        <i class="fas fa-binoculars">View</i>
+                    </button>
+
+                </td>
+
+                <!-- Modal edit-->
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure want to edit
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary">
+                                    <a th:href="@{/customer/edit_param/(id = ${customer.id})}">
+                                        <span>Edit</span>
+                                    </a>
+
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal delete-->
+                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure want to delete
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary">
+                                    <a th:href="@{/customer/{id}/delete(id=${customer.getId()})} ">
+                                        <i class="fas fa-trash-alt">Delete</i>
+                                    </a>
+
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal view-->
+                <div class="modal fade" id="viewModal" tabindex="-1" role="dialog"
+                     aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are you sure want to view
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-secondary">
+                                    <a th:href="@{/customer/{id}/view(id=${customer.getId()})}">
+                                        <i class="fas fa-binoculars">View</i>
+                                    </a>
+
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </tr>
+
             </tbody>
+
         </table>
+        <span>
+    <a th:if="${customerList.hasPrevious()}" th:href="@{/customer/(page = ${customerList.number - 1})}">
+        Previous
+    </a>
+     <span>
+        <span th:each="pageNo: ${#numbers.sequence(0,customerList.totalPages - 1)}">
+            <a th:href="@{/customer/(page = ${pageNo})}" th:text="${pageNo}"></a>
+        </span>
+    </span>
+     <a th:if="${customerList.hasNext()}" th:href="@{/customer/(page = ${customerList.number + 1})}">
+        Next
+    </a>
+
+        </span>
     </div>
     <br>
     <div class="container-fluid">
@@ -113,7 +235,7 @@
         </div>
     </div>
 </div>
-</body>
+
 <script src="https://kit.fontawesome.com/0d73d0f6f0.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

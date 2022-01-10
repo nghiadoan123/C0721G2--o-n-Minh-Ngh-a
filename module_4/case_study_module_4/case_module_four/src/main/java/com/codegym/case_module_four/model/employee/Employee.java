@@ -1,7 +1,10 @@
 package com.codegym.case_module_four.model.employee;
 
 
+import com.codegym.case_module_four.model.contract.Contract;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Employee {
@@ -37,6 +40,9 @@ public class Employee {
     @JoinColumn(name = "division_id",referencedColumnName = "division_id")
     private Division division;
 
+    @OneToMany(mappedBy = "employee",cascade = CascadeType.ALL)
+    private List<Contract> contracts;
+
 
     public Employee() {
     }
@@ -55,6 +61,28 @@ public class Employee {
         this.division = division;
     }
 
+    public Employee(Integer id, String name, String birthDay, String idCard, Double salary, String phone, String email, String address, Position position, EducationDegree educationDegree, Division division, List<Contract> contracts) {
+        this.id = id;
+        this.name = name;
+        this.birthDay = birthDay;
+        this.idCard = idCard;
+        this.salary = salary;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.position = position;
+        this.educationDegree = educationDegree;
+        this.division = division;
+        this.contracts = contracts;
+    }
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
+    }
 
     public Integer getId() {
         return id;

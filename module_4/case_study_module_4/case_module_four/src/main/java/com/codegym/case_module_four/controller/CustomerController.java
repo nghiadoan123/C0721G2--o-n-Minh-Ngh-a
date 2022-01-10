@@ -5,6 +5,8 @@ import com.codegym.case_module_four.model.customer.Customer;
 import com.codegym.case_module_four.repository.customer.ICustomerTypeRepository;
 import com.codegym.case_module_four.service.customer.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,12 +24,21 @@ public class CustomerController {
     @Autowired
     ICustomerTypeRepository iCustomerTypeRepository;
 
+//    @GetMapping
+//    public String List(Model model){
+//        List<Customer> customerList = iCustomerService.getAll();
+//        model.addAttribute("customerList", customerList);
+//        return "customer/list";
+//    }
+
+
     @GetMapping
-    public String List(Model model){
-        List<Customer> customerList = iCustomerService.getAll();
+    public String ListPage(Model model,@RequestParam(value = "page",defaultValue = "0") Integer page){
+        Page<Customer> customerList = iCustomerService.findAll(PageRequest.of(page,2));
         model.addAttribute("customerList", customerList);
         return "customer/list";
     }
+
 
 
     @GetMapping("{id}/view")

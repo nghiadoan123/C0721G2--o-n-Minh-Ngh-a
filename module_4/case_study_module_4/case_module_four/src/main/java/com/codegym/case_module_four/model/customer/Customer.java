@@ -1,6 +1,9 @@
 package com.codegym.case_module_four.model.customer;
 
+import com.codegym.case_module_four.model.contract.Contract;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name = "customer")
 public class Customer {
@@ -30,7 +33,25 @@ public class Customer {
     @JoinColumn(name = "customer_type_id", referencedColumnName = "customer_type_id")
     private CustomerType customerType;
 
+    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    private List<Contract> contracts;
+
+
     public Customer() {
+    }
+
+    public Customer(int id, String name, String codeNumber, String birthDay, String gender, String idCard, String phone, String email, String address, CustomerType customerType, List<Contract> contracts) {
+        this.id = id;
+        this.name = name;
+        this.codeNumber = codeNumber;
+        this.birthDay = birthDay;
+        this.gender = gender;
+        this.idCard = idCard;
+        this.phone = phone;
+        this.email = email;
+        this.address = address;
+        this.customerType = customerType;
+        this.contracts = contracts;
     }
 
     public Customer(int id, String name, String birthDay, String gender, String idCard, String phone, String email, String address, CustomerType customerType) {
@@ -45,17 +66,13 @@ public class Customer {
         this.customerType = customerType;
     }
 
-    public Customer(int id, String name, String codeNumber, String birthDay, String gender, String idCard, String phone, String email, String address, CustomerType customerType) {
-        this.id = id;
-        this.name = name;
-        this.codeNumber = codeNumber;
-        this.birthDay = birthDay;
-        this.gender = gender;
-        this.idCard = idCard;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
-        this.customerType = customerType;
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
     }
 
     public String getCodeNumber() {

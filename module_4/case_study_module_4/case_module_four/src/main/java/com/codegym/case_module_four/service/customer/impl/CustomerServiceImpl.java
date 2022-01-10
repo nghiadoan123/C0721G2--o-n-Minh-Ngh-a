@@ -33,7 +33,7 @@ public class CustomerServiceImpl implements ICustomerService {
 
     @Override
     public List<Customer> findByName(String name) {
-        return null;
+        return iCustomerRepository.findByName(name);
     }
 
     @Override
