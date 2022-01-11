@@ -14,9 +14,11 @@ import com.codegym.case_module_four.service.service.IServiceTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -66,7 +68,16 @@ public class ContractController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("contract") Contract contract, RedirectAttributes redirectAttributes) {
+    public String save(@Valid @ModelAttribute("contract") Contract contract,
+                       BindingResult bindingResult,Model model, RedirectAttributes redirectAttributes) {
+        new Contract().validate(contract,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("customerList",iCustomerService.getAll());
+            model.addAttribute("employeeList",iEmployeeService.getAll());
+            model.addAttribute("servicesList",iServiceService.getAll());
+            return "contract/create";
+
+        }
         redirectAttributes.addFlashAttribute("message", "Create success");
         iContractService.save(contract);
         return "redirect:/contract";
@@ -95,7 +106,14 @@ public class ContractController {
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("contract") Contract contract, Model model, RedirectAttributes redirectAttributes) {
+    public String edit(@ModelAttribute("contract") Contract contract,BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()){
+            model.addAttribute("customerList",iCustomerService.getAll());
+            model.addAttribute("employeeList",iEmployeeService.getAll());
+            model.addAttribute("servicesList",iServiceService.getAll());
+            return "contract/edit";
+
+        }
         iContractService.save(contract);
         redirectAttributes.addFlashAttribute("message", "Edit success");
         return "redirect:/contract";

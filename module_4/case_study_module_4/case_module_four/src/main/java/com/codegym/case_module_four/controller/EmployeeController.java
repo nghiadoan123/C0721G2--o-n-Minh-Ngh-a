@@ -12,9 +12,11 @@ import com.codegym.case_module_four.service.employee.IPositionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -58,7 +60,15 @@ public class EmployeeController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("employee") Employee employee, RedirectAttributes redirectAttributes) {
+    public String save(@Valid @ModelAttribute("employee") Employee employee,
+                       BindingResult bindingResult,Model model, RedirectAttributes redirectAttributes) {
+        new Employee().validate(employee,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("divisionList",iDivisionService.getAll());
+            model.addAttribute("educationDegreeList",iEducationDegreeService.getAll());
+            model.addAttribute("positionList",iPositionService.getAll());
+            return "employee/create";
+        }
         redirectAttributes.addFlashAttribute("message", "Create success");
         iEmployeeService.save(employee);
         return "redirect:/employee";
@@ -88,7 +98,14 @@ public class EmployeeController {
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("employee") Employee employee, Model model, RedirectAttributes redirectAttributes) {
+    public String edit(@Valid @ModelAttribute("employee") Employee employee,BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+        new Employee().validate(employee,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("divisionList",iDivisionService.getAll());
+            model.addAttribute("educationDegreeList",iEducationDegreeService.getAll());
+            model.addAttribute("positionList",iPositionService.getAll());
+            return "employee/edit";
+        }
         iEmployeeService.save(employee);
         redirectAttributes.addFlashAttribute("message", "Edit success");
         return "redirect:/employee";

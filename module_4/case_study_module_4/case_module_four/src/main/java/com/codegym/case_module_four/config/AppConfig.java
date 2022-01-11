@@ -13,7 +13,7 @@ public class AppConfig {
     @Bean
     public MessageSource messageSource(){
         ResourceBundleMessageSource resourceBundleMessageSource = new ResourceBundleMessageSource();
-        resourceBundleMessageSource.setBasenames("message/birth_validate");
+        resourceBundleMessageSource.setBasenames("message/birth_validate","message/check_in_out","message/code_service_validate" );
         return resourceBundleMessageSource;
     }
 }

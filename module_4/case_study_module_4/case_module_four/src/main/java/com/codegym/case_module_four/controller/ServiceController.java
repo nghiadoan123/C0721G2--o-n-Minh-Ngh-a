@@ -11,9 +11,11 @@ import com.codegym.case_module_four.service.service.IServiceTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -54,7 +56,14 @@ public class ServiceController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute("service") Services service, RedirectAttributes redirectAttributes) {
+    public String save(@Valid @ModelAttribute("service") Services service,
+                       BindingResult bindingResult,Model model, RedirectAttributes redirectAttributes) {
+        new Services().validate(service,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("rentalTypeList",iRentalTypeService.getAll());
+            model.addAttribute("serviceTypeList",iServiceTypeService.getAll());
+            return "service/create";
+        }
         redirectAttributes.addFlashAttribute("message", "Create success");
         iServiceService.save(service);
         return "redirect:/service";
@@ -82,7 +91,14 @@ public class ServiceController {
     }
 
     @PostMapping("/edit")
-    public String edit(@ModelAttribute("service") Services service, Model model, RedirectAttributes redirectAttributes) {
+    public String edit(@Valid @ModelAttribute("service") Services service,BindingResult bindingResult,
+                       Model model, RedirectAttributes redirectAttributes) {
+        new Services().validate(service,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("rentalTypeList",iRentalTypeService.getAll());
+            model.addAttribute("serviceTypeList",iServiceTypeService.getAll());
+            return "service/create";
+        }
         iServiceService.save(service);
         redirectAttributes.addFlashAttribute("message", "Edit success");
         return "redirect:/service";

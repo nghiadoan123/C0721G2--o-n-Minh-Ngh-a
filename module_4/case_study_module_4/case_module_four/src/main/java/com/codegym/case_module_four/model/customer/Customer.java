@@ -23,12 +23,12 @@ public class Customer implements Validator {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
     @NotNull(message = "input your id")
-    private  int id;
+    private int id;
     @Column(name = "name")
     @NotBlank(message = "input your name")
     private String name;
     @NotBlank(message = "input your code number")
-    @Pattern(regexp = "^[K][H]-\\d{4}$",message = "Not valid ex: KH-0001")
+    @Pattern(regexp = "^[K][H]-\\d{4}$", message = "Not valid ex: KH-0001")
     @Column(name = "code")
     private String codeNumber;
     @Column(name = "birth_day")
@@ -38,12 +38,15 @@ public class Customer implements Validator {
     private String gender;
     @NotBlank(message = "input your id card")
     @Column(name = "id_card")
+    @Pattern(regexp = "(^\\d{9}$)||(^\\d{12}$)", message = "Not valid ex: xxxxxxxxx or xxxxxxxxxxxx with x is a number")
     private String idCard;
     @Column(name = "phone")
     @NotBlank(message = "input your phone")
+    @Pattern(regexp = "(^09[01]\\d{7}$)")
     private String phone;
     @Column(name = "email")
     @NotBlank(message = "input your email")
+    @Pattern(regexp = "[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)")
     private String email;
     @Column(name = "address")
     @NotBlank(message = "input your address")
@@ -53,7 +56,7 @@ public class Customer implements Validator {
     @JoinColumn(name = "customer_type_id", referencedColumnName = "customer_type_id")
     private CustomerType customerType;
 
-    @OneToMany(mappedBy = "customer",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<Contract> contracts;
 
 
@@ -183,21 +186,24 @@ public class Customer implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Customer customer = (Customer) target;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
         try {
             Date birth = simpleDateFormat.parse(customer.getBirthDay());
-            int yearOld = LocalDate.now().getYear()-birth.getYear()-1900;
-            int month = LocalDate.now().getMonthValue()-birth.getMonth()-1;
-            int day = LocalDate.now().getDayOfYear()-birth.getDate();
+            int yearOld = LocalDate.now().getYear() - birth.getYear() - 1900;
+            int month = LocalDate.now().getMonthValue() - birth.getMonth() - 1;
+            int day = LocalDate.now().getDayOfYear() - birth.getDate();
 
             System.out.println(yearOld);
             System.out.println(day);
-            if (!(yearOld>17&&yearOld<100 )) {
-                errors.rejectValue("birthDay","birthDay.lessthan18");
+            if (!(yearOld > 17 && yearOld < 100)) {
+
+                errors.rejectValue("birthDay", "birthDay.lessthan18");
             }
+
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
 
     }
 }

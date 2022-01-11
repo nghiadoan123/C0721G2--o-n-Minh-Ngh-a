@@ -83,6 +83,7 @@
             <label  class="col-sm-2 col-form-label">checkIn</label>
             <div class="col-sm-10">
                 <input type="date" th:field="*{checkIn}"/>
+                <p class="text-danger" th:if="${#fields.hasErrors('checkIn')}" th:errors="*{checkIn}"></p>
             </div>
         </div>
 
@@ -90,6 +91,7 @@
             <label  class="col-sm-2 col-form-label">checkOut</label>
             <div class="col-sm-10">
                 <input type="date" th:field="*{checkOut}"/>
+                <p class="text-danger" th:if="${#fields.hasErrors('checkOut')}" th:errors="*{checkOut}"></p>
             </div>
         </div>
 
@@ -98,6 +100,7 @@
             <label  class="col-sm-2 col-form-label">deposit</label>
             <div class="col-sm-10">
                 <input type="text" th:field="*{deposit}"/>
+                <p class="text-danger" th:if="${#fields.hasErrors('deposit')}" th:errors="*{deposit}"></p>
             </div>
         </div>
 
@@ -107,6 +110,7 @@
             <label  class="col-sm-2 col-form-label">totalMoney</label>
             <div class="col-sm-10">
                 <input type="text" th:field="*{totalMoney}"/>
+                <p class="text-danger" th:if="${#fields.hasErrors('totalMoney')}" th:errors="*{totalMoney}"></p>
             </div>
         </div>
 

@@ -101,6 +101,7 @@ public class CustomerController {
 
     @PostMapping("/edit")
     public String edit(@Valid @ModelAttribute("customer") Customer customer,BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+        new Customer().validate(customer,bindingResult);
         if (bindingResult.hasErrors()){
             model.addAttribute("customer", customer);
             model.addAttribute("customerTypeList",iCustomerTypeRepository.findAll());
@@ -120,5 +121,7 @@ public class CustomerController {
         model.addAttribute("customerList", customerList);
         return "customer/search_list";
     }
+
+
 
 }

@@ -4,23 +4,38 @@ package com.codegym.case_module_four.model.contract;
 import com.codegym.case_module_four.model.customer.Customer;
 import com.codegym.case_module_four.model.employee.Employee;
 import com.codegym.case_module_four.model.service.Services;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Entity
-public class Contract {
+public class Contract implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "contract_id")
     private int id;
     @Column(name = "check_in",columnDefinition = "DATE")
+    @NotBlank(message = "in put check in day")
     private String checkIn;
     @Column(name = "check_out",columnDefinition = "DATE")
+    @NotBlank(message = "in put check out day")
     private String checkOut;
     @Column(name = "deposit")
+    @NotNull(message = "input your deposit")
+    @Min(value = 10,message = "min of deposit must be 10")
     private int deposit;
     @Column(name = "total_money")
+    @NotNull(message = "input your total money")
+    @Min(value = 10,message = "min of total must be 10")
     private int totalMoney;
 
     @ManyToOne
@@ -135,5 +150,30 @@ public class Contract {
 
     public void setServices(Services services) {
         this.services = services;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Contract contract = (Contract) target;
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
+        try {
+            Date checkIm = simpleDateFormat.parse(contract.checkIn);
+
+            Date checkOut = simpleDateFormat.parse(contract.checkOut);
+
+            if (checkIm.compareTo(checkOut)>0){
+                errors.rejectValue("checkIn","checkIn.validator");
+                errors.rejectValue("checkOut","checkOut.validator");
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
     }
 }

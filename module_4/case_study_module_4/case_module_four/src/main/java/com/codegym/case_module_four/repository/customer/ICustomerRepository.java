@@ -14,4 +14,6 @@ public interface ICustomerRepository extends JpaRepository<Customer,Integer> {
 
     @Query(value="select * from customer where customer.name like concat('%',?1,'%')",nativeQuery = true)
     List<Customer> findByName(String name);
+
+
 }

@@ -1,32 +1,59 @@
 package com.codegym.case_module_four.model.service;
 
 
+import com.codegym.case_module_four.repository.service.IServiceRepository;
+import com.codegym.case_module_four.service.service.IServiceService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
+
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import java.util.List;
 
 @Entity(name = "service_table")
-public class Services {
+public class Services implements Validator {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "service_id")
     private Integer id;
-    @Column(name = "code_service")
+    @Column(name = "code_service",unique = false)
+    @NotBlank(message = "input your code service")
+    @Pattern(regexp = "^DV-\\d{4,}$",message = "Invalid code Service Ex: DV-0001")
     private String codeService;
     @Column(name = "name")
+    @NotBlank(message = "input your name")
     private String name;
     @Column(name = "area")
+    @NotNull(message = "input your area")
+    @Min(value = 1,message = "area must be larger than 0")
     private int area;
     @Column(name = "cost")
+    @NotNull(message = "input your cost")
+    @Min(value = 1,message = "cost must be larger than 0")
     private int cost;
     @Column(name = "number_of_person")
+    @NotNull(message = "input your person")
+    @Min(value = 1,message = "person must be larger than 0")
     private int numberOfPerson;
     @Column(name = "standard_room")
+    @NotBlank(message = "input your standard room")
     private String standardRoom;
     @Column(name = "description")
+    @NotBlank(message = "input your description")
     private String description;
     @Column(name = "pool_area")
+    @NotNull(message = "input your pool area")
+    @Min(value = 1,message = "pool area must be larger than 0")
     private int poolArea;
     @Column(name = "number_of_floor")
+    @NotNull(message = "input your number of floor")
+    @Min(value = 1,message = "number of floor must be larger than 0")
     private int numberOfFloor;
 
     @ManyToOne
@@ -150,5 +177,18 @@ public class Services {
 
     public void setServiceType(ServiceType serviceType) {
         this.serviceType = serviceType;
+    }
+
+
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return false;
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        Services services = (Services) target;
+
     }
 }
