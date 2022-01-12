@@ -37,12 +37,11 @@ public class CustomerController {
 
 
     @GetMapping
-    public String ListPage(Model model,@RequestParam(value = "page",defaultValue = "0") Integer page){
-        Page<Customer> customerList = iCustomerService.findAll(PageRequest.of(page,2));
+    public String ListPage(Model model, @RequestParam(value = "page", defaultValue = "0") Integer page) {
+        Page<Customer> customerList = iCustomerService.findAll(PageRequest.of(page, 2));
         model.addAttribute("customerList", customerList);
         return "customer/list";
     }
-
 
 
     @GetMapping("{id}/view")
@@ -54,22 +53,23 @@ public class CustomerController {
 
     @GetMapping("/create")
     public String create(Model model) {
-        String [] genderList = {"Male","Female"};
+        String[] genderList = {"Male", "Female"};
         model.addAttribute("customer", new Customer());
         model.addAttribute("genderList", genderList);
-        model.addAttribute("customerTypeList",iCustomerTypeRepository.findAll());
+        model.addAttribute("customerTypeList", iCustomerTypeRepository.findAll());
         return "customer/create";
     }
 
+    
     @PostMapping("/save")
-    public String save(@Valid  @ModelAttribute("customer") Customer customer,
-                       BindingResult bindingResult,Model model, RedirectAttributes redirectAttributes) {
+    public String save(@Valid @ModelAttribute("customer") Customer customer,
+                       BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         // dùng với cách implements Validator
-        new Customer().validate(customer,bindingResult);
-        if (bindingResult.hasErrors()){
-            String [] genderList = {"Male","Female"};
+//        new Customer().validate(customer, bindingResult);
+        if (bindingResult.hasErrors()) {
+            String[] genderList = {"Male", "Female"};
             model.addAttribute("genderList", genderList);
-            model.addAttribute("customerTypeList",iCustomerTypeRepository.findAll());
+            model.addAttribute("customerTypeList", iCustomerTypeRepository.findAll());
             return "customer/create";
         }
         redirectAttributes.addFlashAttribute("message", "Create success");
@@ -77,36 +77,43 @@ public class CustomerController {
         return "redirect:/customer";
     }
 
-    @GetMapping("{id}/delete")
-    public String showDelete(@PathVariable(name = "id") Integer id, Model model) {
-        model.addAttribute("customer", iCustomerService.findById(id));
-        return "customer/delete";
-    }
+//    @GetMapping("/delete")
+//    public String showDelete(@RequestParam(name = "id") Integer id, Model model) {
+//        model.addAttribute("customer", iCustomerService.findById(id));
+//        return "customer/delete";
+//    }
+//
+//    @PostMapping("/delete")
+//    public String delete(@ModelAttribute("customer") Customer customer, RedirectAttributes redirectAttributes) {
+//        iCustomerService.remove(customer.getId());
+//        redirectAttributes.addFlashAttribute("message", "Removed product successfully!");
+//        return "redirect:/customer";
+//    }
 
-    @PostMapping("/delete")
-    public String delete(@ModelAttribute("customer") Customer customer, RedirectAttributes redirectAttributes) {
-        iCustomerService.remove(customer.getId());
-        redirectAttributes.addFlashAttribute("message", "Removed product successfully!");
+    @GetMapping("/delete")
+    public String showDelete(@RequestParam(name = "id") Integer id, Model model,RedirectAttributes redirectAttributes) {
+        iCustomerService.remove(id);
+        redirectAttributes.addFlashAttribute("message", "Removed  successfully!");
         return "redirect:/customer";
     }
 
     @GetMapping("/edit_param")
     public String showEditParam(@RequestParam(name = "id") Integer id, Model model) {
         model.addAttribute("customer", iCustomerService.findById(id));
-        model.addAttribute("customerTypeList",iCustomerTypeRepository.findAll());
-        String [] genderList = {"Male","Female"};
-        model.addAttribute("genderList",genderList);
+        model.addAttribute("customerTypeList", iCustomerTypeRepository.findAll());
+        String[] genderList = {"Male", "Female"};
+        model.addAttribute("genderList", genderList);
         return "customer/edit";
     }
 
     @PostMapping("/edit")
-    public String edit(@Valid @ModelAttribute("customer") Customer customer,BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
-        new Customer().validate(customer,bindingResult);
-        if (bindingResult.hasErrors()){
+    public String edit(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+//        new Customer().validate(customer, bindingResult);
+        if (bindingResult.hasErrors()) {
             model.addAttribute("customer", customer);
-            model.addAttribute("customerTypeList",iCustomerTypeRepository.findAll());
-            String [] genderList = {"Male","Female"};
-            model.addAttribute("genderList",genderList);
+            model.addAttribute("customerTypeList", iCustomerTypeRepository.findAll());
+            String[] genderList = {"Male", "Female"};
+            model.addAttribute("genderList", genderList);
             return "customer/edit";
         }
         iCustomerService.save(customer);
@@ -121,7 +128,6 @@ public class CustomerController {
         model.addAttribute("customerList", customerList);
         return "customer/search_list";
     }
-
 
 
 }

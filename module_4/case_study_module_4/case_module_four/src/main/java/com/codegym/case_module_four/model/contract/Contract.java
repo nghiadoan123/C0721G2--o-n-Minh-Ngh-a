@@ -160,14 +160,14 @@ public class Contract implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Contract contract = (Contract) target;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
 
         try {
-            Date checkIm = simpleDateFormat.parse(contract.checkIn);
+            Date checkIn = simpleDateFormat.parse(contract.checkIn);
 
             Date checkOut = simpleDateFormat.parse(contract.checkOut);
 
-            if (checkIm.compareTo(checkOut)>0){
+            if (checkIn.compareTo(checkOut)>0){
                 errors.rejectValue("checkIn","checkIn.validator");
                 errors.rejectValue("checkOut","checkOut.validator");
             }

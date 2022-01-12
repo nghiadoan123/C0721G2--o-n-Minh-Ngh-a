@@ -200,7 +200,7 @@ public class Employee implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Employee employee = (Employee) target;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
             Date birth = simpleDateFormat.parse(employee.getBirthDay());
             int yearOld = LocalDate.now().getYear() - birth.getYear() - 1900;

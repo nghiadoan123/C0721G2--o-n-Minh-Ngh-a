@@ -186,7 +186,7 @@ public class Customer implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Customer customer = (Customer) target;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         try {
             Date birth = simpleDateFormat.parse(customer.getBirthDay());
             int yearOld = LocalDate.now().getYear() - birth.getYear() - 1900;

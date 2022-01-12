@@ -1,6 +1,12 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <script src="https://kit.fontawesome.com/0d73d0f6f0.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/css/v4-shims.min.css"
+          integrity="sha512-p++g4gkFY8DBqLItjIfuKJPFvTPqcg2FzOns2BNaltwoCOrXMqRIOqgWqWEvuqsj/3aVdgoEo2Y7X6SomTfUPA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
     <!-- Required meta tags -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/css/v4-shims.min.css"
@@ -49,7 +55,7 @@
                     <li class="nav-item"><a class="nav-link" href="/employee">Employee</a></li>
                     <li class="nav-item"><a class="nav-link" href="/contract">Contract</a></li>
                     <li class="nav-item"><a class="nav-link" href="/service">Service</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                 </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="#">Elemests</a></li>
@@ -103,113 +109,52 @@
                 <td th:text="${customer.email}"></td>
                 <td th:text="${customer.address}"></td>
                 <td th:text="${customer.customerType.nameType}"></td>
-                <!--        request param-->
                 <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">
-                        <i class="fas fa-edit">Edit</i>
-                    </button>
-                </td>
-
-                <td>
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteModal">
-                        <i class="fas fa-trash-alt">Delete</i>
+                    <button type="button" class="btn btn-light">
+                        <a th:href="@{/customer/edit_param/(id = ${customer.id})}">Edit</a>
                     </button>
 
                 </td>
-
                 <td>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewModal">
-                        <i class="fas fa-binoculars">View</i>
+                    <button type="button" class="btn btn-danger btn-delete" data-toggle="modal"
+                            data-target="#deleteModal" th:data-id123="${customer.id}" th:data-name="${customer.name}">Delete
+                    </button>
+                </td>
+                <td>
+                    <button  type="button" class="btn btn-light">
+                        <a th:href="@{/customer/{id}/view(id=${customer.getId()})}">View</a>
                     </button>
 
                 </td>
-
-                <!-- Modal edit-->
-                <div class="modal fade" id="editModal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Are you sure want to edit
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-secondary">
-                                    <a th:href="@{/customer/edit_param/(id = ${customer.id})}">
-                                        <span>Edit</span>
-                                    </a>
-
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modal delete-->
-                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Are you sure want to delete
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-secondary">
-                                    <a th:href="@{/customer/{id}/delete(id=${customer.getId()})} ">
-                                        <i class="fas fa-trash-alt">Delete</i>
-                                    </a>
-
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modal view-->
-                <div class="modal fade" id="viewModal" tabindex="-1" role="dialog"
-                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                Are you sure want to view
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-secondary">
-                                    <a th:href="@{/customer/{id}/view(id=${customer.getId()})}">
-                                        <i class="fas fa-binoculars">View</i>
-                                    </a>
-
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
 
             </tr>
 
             </tbody>
 
         </table>
+
+        <!-- Modal delete-->
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Bạn có muốn xoá khách hàng <span id="name-delete" class="text-danger"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <a id="link-delete" class="btn btn-danger" href="">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <span>
     <a th:if="${customerList.hasPrevious()}" th:href="@{/customer/(page = ${customerList.number - 1})}">
         Previous
@@ -236,15 +181,23 @@
     </div>
 </div>
 
-<script src="https://kit.fontawesome.com/0d73d0f6f0.js" crossorigin="anonymous"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 
+<script>
+    $(document).ready(function () {
+        $(".btn-delete").click(function () {
+            let id = this.dataset.id123;
+            let name = this.dataset.name;
+            $('#name-delete').html(name);
+            $('#link-delete').attr("href", "http://localhost:8080/customer/delete?id="+id);
+
+        });
+    });
+</script>
 
 </body>
 </html>
