@@ -1,6 +1,7 @@
 package com.codegym.case_module_four.model.service;
 
 
+import com.codegym.case_module_four.common.service_validator.code.ServiceCodeConstrain;
 import com.codegym.case_module_four.repository.service.IServiceRepository;
 import com.codegym.case_module_four.service.service.IServiceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ public class Services implements Validator {
     @Column(name = "code_service",unique = false)
     @NotBlank(message = "input your code service")
     @Pattern(regexp = "^DV-\\d{4,}$",message = "Invalid code Service Ex: DV-0001")
+    @ServiceCodeConstrain
     private String codeService;
     @Column(name = "name")
     @NotBlank(message = "input your name")

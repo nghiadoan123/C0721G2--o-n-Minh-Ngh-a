@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,6 +44,15 @@ public class CustomerController {
         return "customer/list";
     }
 
+    @GetMapping("/sort")
+    public String SortPage(Model model, @RequestParam(value = "page", defaultValue = "0") Integer page) {
+        Sort sort = Sort.by("codeNumber").ascending();
+        Page<Customer> customerList = iCustomerService.findAll(PageRequest.of(page, 2,sort));
+        model.addAttribute("customerList", customerList);
+        return "customer/list";
+    }
+
+
 
     @GetMapping("{id}/view")
     public String view(@PathVariable("id") Integer id, Model model) {
@@ -65,7 +75,7 @@ public class CustomerController {
     public String save(@Valid @ModelAttribute("customer") Customer customer,
                        BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         // dùng với cách implements Validator
-//        new Customer().validate(customer, bindingResult);
+        new Customer().validate(customer, bindingResult);
         if (bindingResult.hasErrors()) {
             String[] genderList = {"Male", "Female"};
             model.addAttribute("genderList", genderList);
@@ -108,7 +118,7 @@ public class CustomerController {
 
     @PostMapping("/edit")
     public String edit(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
-//        new Customer().validate(customer, bindingResult);
+        new Customer().validate(customer, bindingResult);
         if (bindingResult.hasErrors()) {
             model.addAttribute("customer", customer);
             model.addAttribute("customerTypeList", iCustomerTypeRepository.findAll());

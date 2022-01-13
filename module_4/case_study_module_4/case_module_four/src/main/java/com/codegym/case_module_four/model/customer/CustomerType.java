@@ -16,6 +16,7 @@ public class CustomerType {
     @OneToMany(mappedBy = "customerType", cascade = CascadeType.ALL)
     private List<Customer> customers;
 
+
     public CustomerType() {
     }
 

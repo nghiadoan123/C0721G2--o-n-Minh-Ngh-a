@@ -75,9 +75,17 @@
         <div class="row">
             <form action="#" th:action="@{/customer/search}" method="get">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
-                       id="nameBlog" name="search">
-                <button class="btn btn-outline-success my-2 my-sm-0" id="search">Tìm kiếm</button>
+                       name="search">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="search">Search</button>
             </form>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="sort">
+                    <a th:href="@{/customer/sort}">Sort</a>
+                </button>
         </div>
     </div>
 

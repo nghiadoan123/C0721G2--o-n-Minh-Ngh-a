@@ -1,18 +1,19 @@
 package com.codegym.case_module_four.model.customer;
 
+import com.codegym.case_module_four.common.customer_validator.code.CustomerCodeConstraint;
+import com.codegym.case_module_four.common.customer_validator.id_card.CustomerIdConstraint;
 import com.codegym.case_module_four.model.contract.Contract;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.xml.crypto.Data;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.Date;
 import java.util.List;
 
@@ -22,12 +23,12 @@ public class Customer implements Validator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
-    @NotNull(message = "input your id")
     private int id;
     @Column(name = "name")
     @NotBlank(message = "input your name")
     private String name;
-    @NotBlank(message = "input your code number")
+    @NotEmpty(message = "input your code number")
+    @CustomerCodeConstraint
     @Pattern(regexp = "^[K][H]-\\d{4}$", message = "Not valid ex: KH-0001")
     @Column(name = "code")
     private String codeNumber;
@@ -39,6 +40,7 @@ public class Customer implements Validator {
     @NotBlank(message = "input your id card")
     @Column(name = "id_card")
     @Pattern(regexp = "(^\\d{9}$)||(^\\d{12}$)", message = "Not valid ex: xxxxxxxxx or xxxxxxxxxxxx with x is a number")
+    @CustomerIdConstraint
     private String idCard;
     @Column(name = "phone")
     @NotBlank(message = "input your phone")
