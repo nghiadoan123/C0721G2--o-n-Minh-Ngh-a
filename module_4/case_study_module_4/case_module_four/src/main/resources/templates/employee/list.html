@@ -56,6 +56,11 @@
     </div>
 </nav>
 
+<div class="row">
+    <div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+</div>
+
+
 <p>
     <a th:href="@{/employee/create}" style="text-decoration: none" class="btn-info">Add new Employee</a>
 </p>

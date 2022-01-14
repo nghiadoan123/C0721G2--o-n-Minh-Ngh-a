@@ -55,6 +55,11 @@
     </div>
 </nav>
 
+
+<div class="row">
+    <div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+</div>
+
 <p>
     <a th:href="@{/contract/create}" style="text-decoration: none" class="btn-info">Add new Contract</a>
 </p>

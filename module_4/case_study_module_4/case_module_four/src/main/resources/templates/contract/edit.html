@@ -55,6 +55,10 @@
     </div>
 </nav>
 
+<div class="row">
+    <div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+</div>
+
 <h3>Edit Contract</h3>
 <p>
     <a th:href="@{/contract}" style="text-decoration: none" class="btn-info">

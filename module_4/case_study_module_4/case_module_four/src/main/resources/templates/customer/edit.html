@@ -54,7 +54,9 @@
         </ul>
     </div>
 </nav>
-
+<div class="row">
+    <div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+</div>
 <h3>Edit Product</h3>
 <p>
     <a th:href="@{/customer}" style="text-decoration: none" class="btn-info">

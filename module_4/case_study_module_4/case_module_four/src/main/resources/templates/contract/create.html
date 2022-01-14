@@ -55,6 +55,9 @@
     </div>
 </nav>
 
+<div class="row">
+    <div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+</div>
 
 <div id="form" class="mb-3 row" >
     <form th:action="@{/contract/save}" th:object="${contract}"

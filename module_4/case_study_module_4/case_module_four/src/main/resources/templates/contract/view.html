@@ -56,6 +56,11 @@
     </div>
 </nav>
 
+<div class="row">
+    <div th:if="${userInfo != null}" th:utext="${userInfo}"></div>
+</div>
+
+
 <div>
     <h3>View Contract</h3>
     <p>

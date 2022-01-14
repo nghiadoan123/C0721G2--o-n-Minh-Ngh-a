@@ -4,12 +4,14 @@ package com.codegym.case_module_four.controller;
 import com.codegym.case_module_four.model.customer.Customer;
 import com.codegym.case_module_four.repository.customer.ICustomerTypeRepository;
 import com.codegym.case_module_four.service.customer.ICustomerService;
+import com.codegym.case_module_four.utils.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,7 +19,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/customer")
@@ -38,44 +42,100 @@ public class CustomerController {
 
 
     @GetMapping
-    public String ListPage(Model model, @RequestParam(value = "page", defaultValue = "0") Integer page) {
-        Page<Customer> customerList = iCustomerService.findAll(PageRequest.of(page, 2));
-        model.addAttribute("customerList", customerList);
+    public String ListPage(Model model, @RequestParam(value = "page", defaultValue = "0") Integer page,
+                           Principal principal) {
+
+
+                Sort sort = Sort.by("codeNumber").ascending().and(Sort.by("name").ascending());
+                Page<Customer> customerList = iCustomerService.findAll(PageRequest.of(page, 2,sort));
+                model.addAttribute("customerList", customerList);
+
+
+        String userName = principal.getName();
+
+        System.out.println("User Name: " + userName);
+
+        org.springframework.security.core.userdetails.User loginedUser = (org.springframework.security.core.userdetails.User) ((Authentication) principal).getPrincipal();
+
+        String userInfo = WebUtils.toString(loginedUser);
+        model.addAttribute("userInfo", userInfo);
         return "customer/list";
     }
 
     @GetMapping("/sort")
-    public String SortPage(Model model, @RequestParam(value = "page", defaultValue = "0") Integer page) {
+    public String SortPage(Model model, @RequestParam(value = "page", defaultValue = "0") Integer page,Principal principal) {
         Sort sort = Sort.by("codeNumber").ascending();
         Page<Customer> customerList = iCustomerService.findAll(PageRequest.of(page, 2,sort));
         model.addAttribute("customerList", customerList);
+
+        String userName = principal.getName();
+
+        System.out.println("User Name: " + userName);
+
+        org.springframework.security.core.userdetails.User loginedUser = (org.springframework.security.core.userdetails.User) ((Authentication) principal).getPrincipal();
+
+        String userInfo = WebUtils.toString(loginedUser);
+        model.addAttribute("userInfo", userInfo);
+
         return "customer/list";
     }
 
 
 
     @GetMapping("{id}/view")
-    public String view(@PathVariable("id") Integer id, Model model) {
+    public String view(@PathVariable("id") Integer id, Model model,Principal principal) {
         Customer customer = iCustomerService.findById(id);
         model.addAttribute("customer", customer);
+
+        String userName = principal.getName();
+
+        System.out.println("User Name: " + userName);
+
+        org.springframework.security.core.userdetails.User loginedUser = (org.springframework.security.core.userdetails.User) ((Authentication) principal).getPrincipal();
+
+        String userInfo = WebUtils.toString(loginedUser);
+        model.addAttribute("userInfo", userInfo);
+
         return "customer/view";
     }
 
     @GetMapping("/create")
-    public String create(Model model) {
+    public String create(Model model,Principal principal) {
         String[] genderList = {"Male", "Female"};
         model.addAttribute("customer", new Customer());
         model.addAttribute("genderList", genderList);
         model.addAttribute("customerTypeList", iCustomerTypeRepository.findAll());
+
+        String userName = principal.getName();
+
+        System.out.println("User Name: " + userName);
+
+        org.springframework.security.core.userdetails.User loginedUser = (org.springframework.security.core.userdetails.User) ((Authentication) principal).getPrincipal();
+
+        String userInfo = WebUtils.toString(loginedUser);
+        model.addAttribute("userInfo", userInfo);
+
         return "customer/create";
     }
 
     
     @PostMapping("/save")
     public String save(@Valid @ModelAttribute("customer") Customer customer,
-                       BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+                       BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes,Principal principal) {
+
+        String userName = principal.getName();
+
+        System.out.println("User Name: " + userName);
+
+        org.springframework.security.core.userdetails.User loginedUser = (org.springframework.security.core.userdetails.User) ((Authentication) principal).getPrincipal();
+
+        String userInfo = WebUtils.toString(loginedUser);
+        model.addAttribute("userInfo", userInfo);
+
         // dùng với cách implements Validator
         new Customer().validate(customer, bindingResult);
+
+
         if (bindingResult.hasErrors()) {
             String[] genderList = {"Male", "Female"};
             model.addAttribute("genderList", genderList);
@@ -101,14 +161,34 @@ public class CustomerController {
 //    }
 
     @GetMapping("/delete")
-    public String showDelete(@RequestParam(name = "id") Integer id, Model model,RedirectAttributes redirectAttributes) {
+    public String showDelete(@RequestParam(name = "id") Integer id, Model model,RedirectAttributes redirectAttributes,Principal principal) {
+
+        String userName = principal.getName();
+
+        System.out.println("User Name: " + userName);
+
+        org.springframework.security.core.userdetails.User loginedUser = (org.springframework.security.core.userdetails.User) ((Authentication) principal).getPrincipal();
+
+        String userInfo = WebUtils.toString(loginedUser);
+        model.addAttribute("userInfo", userInfo);
+
         iCustomerService.remove(id);
         redirectAttributes.addFlashAttribute("message", "Removed  successfully!");
         return "redirect:/customer";
     }
 
     @GetMapping("/edit_param")
-    public String showEditParam(@RequestParam(name = "id") Integer id, Model model) {
+    public String showEditParam(@RequestParam(name = "id") Integer id, Model model,Principal principal) {
+
+        String userName = principal.getName();
+
+        System.out.println("User Name: " + userName);
+
+        org.springframework.security.core.userdetails.User loginedUser = (org.springframework.security.core.userdetails.User) ((Authentication) principal).getPrincipal();
+
+        String userInfo = WebUtils.toString(loginedUser);
+        model.addAttribute("userInfo", userInfo);
+
         model.addAttribute("customer", iCustomerService.findById(id));
         model.addAttribute("customerTypeList", iCustomerTypeRepository.findAll());
         String[] genderList = {"Male", "Female"};
@@ -117,7 +197,17 @@ public class CustomerController {
     }
 
     @PostMapping("/edit")
-    public String edit(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+    public String edit(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes,Principal principal) {
+
+        String userName = principal.getName();
+
+        System.out.println("User Name: " + userName);
+
+        org.springframework.security.core.userdetails.User loginedUser = (org.springframework.security.core.userdetails.User) ((Authentication) principal).getPrincipal();
+
+        String userInfo = WebUtils.toString(loginedUser);
+        model.addAttribute("userInfo", userInfo);
+
         new Customer().validate(customer, bindingResult);
         if (bindingResult.hasErrors()) {
             model.addAttribute("customer", customer);
@@ -133,11 +223,36 @@ public class CustomerController {
 
 
     @GetMapping("/search")
-    public String search(@RequestParam(name = "search") String name, Model model) {
-        List<Customer> customerList = iCustomerService.findByName(name);
-        model.addAttribute("customerList", customerList);
-        return "customer/search_list";
+    public String search(@RequestParam(name = "name") String name,
+                         @RequestParam(name = "code") String code,
+                         @RequestParam(value = "page", defaultValue = "0") Integer page,
+                         Model model,Principal principal) {
+
+        String userName = principal.getName();
+
+        System.out.println("User Name: " + userName);
+
+        org.springframework.security.core.userdetails.User loginedUser = (org.springframework.security.core.userdetails.User) ((Authentication) principal).getPrincipal();
+
+        String userInfo = WebUtils.toString(loginedUser);
+        model.addAttribute("userInfo", userInfo);
+
+        if (name != null ){
+            if (code != null){
+                model.addAttribute("customerList",iCustomerService.findByNameTwo(name,code));
+
+                return "customer/search_list";
+            }else {
+                model.addAttribute("customerList",iCustomerService.findByCode(code));
+                return "customer/search_list";
+            }
+        }else {
+            model.addAttribute("customerList",iCustomerService.findByName(name));
+            return "customer/search_list";
+        }
+
     }
+
 
 
 }
