@@ -18,8 +18,6 @@ import java.util.Date;
 import java.util.List;
 
 @Entity(name = "customer")
-@Table(uniqueConstraints=
-@UniqueConstraint(columnNames = {"code", "id_card"}))
 public class Customer implements Validator {
 
     @Id
@@ -32,7 +30,7 @@ public class Customer implements Validator {
     @NotEmpty(message = "input your code number")
 //    @CustomerCodeConstraint
     @Pattern(regexp = "^[K][H]-\\d{4}$", message = "Not valid ex: KH-0001")
-    @Column(name = "code",unique = true)
+    @Column(name = "code")
     private String codeNumber;
     @Column(name = "birth_day")
     @NotBlank(message = "input your birth day")

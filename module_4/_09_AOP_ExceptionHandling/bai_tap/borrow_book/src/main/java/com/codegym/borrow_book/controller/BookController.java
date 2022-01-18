@@ -51,7 +51,10 @@ public class BookController {
     }
 
     @PostMapping("/delete")
-    public String delete(@ModelAttribute("book") Book book, RedirectAttributes redirectAttributes) {
+    public String delete(@ModelAttribute("book") Book book, RedirectAttributes redirectAttributes) throws Exception {
+        if (book == null){
+            throw new Exception();
+        }
         iBookService.remove(book.getId());
         redirectAttributes.addFlashAttribute("message", "Removed product successfully!");
         return "redirect:/book/list";

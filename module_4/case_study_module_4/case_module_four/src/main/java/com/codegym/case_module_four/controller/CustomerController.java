@@ -43,11 +43,12 @@ public class CustomerController {
 
     @GetMapping
     public String ListPage(Model model, @RequestParam(value = "page", defaultValue = "0") Integer page,
+                           @RequestParam(value = "name", defaultValue = "") String name,
                            Principal principal) {
 
 
-                Sort sort = Sort.by("codeNumber").ascending().and(Sort.by("name").ascending());
-                Page<Customer> customerList = iCustomerService.findAll(PageRequest.of(page, 2,sort));
+                Sort sort = Sort.by("name").ascending().and(Sort.by("id"));
+                Page<Customer> customerList = iCustomerService.findAll(PageRequest.of(page, 3,sort));
                 model.addAttribute("customerList", customerList);
 
 
@@ -63,7 +64,9 @@ public class CustomerController {
     }
 
     @GetMapping("/sort")
-    public String SortPage(Model model, @RequestParam(value = "page", defaultValue = "0") Integer page,Principal principal) {
+    public String SortPage(Model model,
+                           @RequestParam(value = "page", defaultValue = "0") Integer page,
+                           Principal principal) {
         Sort sort = Sort.by("codeNumber").ascending();
         Page<Customer> customerList = iCustomerService.findAll(PageRequest.of(page, 2,sort));
         model.addAttribute("customerList", customerList);
@@ -121,7 +124,8 @@ public class CustomerController {
     
     @PostMapping("/save")
     public String save(@Valid @ModelAttribute("customer") Customer customer,
-                       BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes,Principal principal) {
+                       BindingResult bindingResult, Model model,
+                       RedirectAttributes redirectAttributes,Principal principal) {
 
         String userName = principal.getName();
 
@@ -161,7 +165,8 @@ public class CustomerController {
 //    }
 
     @GetMapping("/delete")
-    public String showDelete(@RequestParam(name = "id") Integer id, Model model,RedirectAttributes redirectAttributes,Principal principal) {
+    public String showDelete(@RequestParam(name = "id") Integer id,
+                             Model model,RedirectAttributes redirectAttributes,Principal principal) {
 
         String userName = principal.getName();
 
@@ -197,7 +202,9 @@ public class CustomerController {
     }
 
     @PostMapping("/edit")
-    public String edit(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes,Principal principal) {
+    public String edit(@Valid @ModelAttribute("customer") Customer customer,
+                       BindingResult bindingResult, Model model,
+                       RedirectAttributes redirectAttributes,Principal principal) throws Exception {
 
         String userName = principal.getName();
 
@@ -216,6 +223,9 @@ public class CustomerController {
             model.addAttribute("genderList", genderList);
             return "customer/edit";
         }
+//        if (customer == null){
+//            throw new Exception();
+//        }
         iCustomerService.save(customer);
         redirectAttributes.addFlashAttribute("message", "Edit success");
         return "redirect:/customer";
@@ -252,7 +262,10 @@ public class CustomerController {
         }
 
     }
-
-
+//
+//    @ExceptionHandler(Exception.class)
+//    public String handleException() {
+//        return "/customer/exception";
+//    }
 
 }
